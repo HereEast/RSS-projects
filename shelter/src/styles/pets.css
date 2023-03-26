@@ -1,6 +1,7 @@
 @import url("./basic.css");
 @import url("./typography.css");
 @import url("./buttons.css");
+@import url("./logo.css");
 
 @import url("./pets_header.css");
 @import url("./card.css");
@@ -31,6 +32,10 @@ body {
 
 /* GRID */
 
+.pets__cards_container {
+    margin-bottom: 60px;
+}
+
 .pets__cards_grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -46,8 +51,6 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-
-    margin-top: 42px;
 }
 
 

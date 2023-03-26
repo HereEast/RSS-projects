@@ -1,12 +1,27 @@
 /* BUTTONS */
 
-button {
+.button {
     display: flex;
     justify-content: center;
     align-items: center;
 
+    border-radius: 30px;
+    border: none;
+    outline: none;
+
+    font-family: Georgia, "Times New Roman", Times, serif;
+    font-size: 17px;
+    line-height: 22px;
+    font-weight: 400;
+    color: var(--dark-black);
+    letter-spacing: 1px;
+
     transition: background-color 0.3s ease-in;
     cursor: pointer;
+}
+
+.button:hover {
+    background-color: var(--primary-light);
 }
 
 /* PRIMARY */
@@ -15,20 +30,6 @@ button {
     height: 52px;
     padding: 0 45px;
     background-color: var(--primary-color);
-    border-radius: 30px;
-    border: none;
-    outline: none;
-
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    font-size: 17px;
-    line-height: 22px;
-    font-weight: 400;
-    color: var(--dark-black);
-    letter-spacing: 1px;
-}
-
-.button__primary:hover {
-    background-color: var(--primary-light);
 }
 
 /* SECONDARY */
@@ -38,51 +39,30 @@ button {
     padding: 0 45px;
     background-color: transparent;
     border: 2px solid var(--primary-color);
-    border-radius: 30px;
-    outline: none;
-
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    font-size: 17px;
-    line-height: 22px;
-    font-weight: 400;
-    color: var(--dark-black);
-    letter-spacing: 1px;
 }
 
-.button__secondary:hover {
-    background-color: var(--primary-color);
+/* HERO */
+
+.button--hero {
+    max-width: 207px;
+    width: 100%;
 }
 
-/* DONATE BUTTON */
+/* DONATE */
 
-.donate__button {
+.button--donate {
     height: 43px;
     padding: 0 15px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: none;
     border-radius: 9px;
-    outline: none;
     background-color: var(--primary-color);
 
-    font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: 20px;
-    line-height: 22px;
-    font-weight: 400;
-    color: var(--dark-black);
-    letter-spacing: 1px;
-}
-
-.donate__button:hover {
-    background-color: var(--primary-light);
+    letter-spacing: 1.2px;
 }
 
 .donate__button_icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
     margin-right: 15px;
+    margin-top: 2px;
 }
 
 /* SLIDER */
@@ -93,14 +73,9 @@ button {
     border: 2px solid var(--primary-color);
     border-radius: 50%;
     background-color: transparent;
-    outline: none;
     flex-shrink: 0;
 
     font-size: 0;
-}
-
-.slider__button:hover { 
-    background-color: var(--primary-color);
 }
 
 /* PAGES BUTTONS */
@@ -121,14 +96,13 @@ button {
 }
 
 .button__page_disabled {
-    border: 2px solid #CDCDCD;
-    color: #CDCDCD;
+    border: 2px solid #cdcdcd;
+    color: #cdcdcd;
 }
 
-.button__page:hover { 
+.button__page:hover {
     background-color: var(--primary-color);
 }
-
 
 /* 420 */
 
@@ -143,10 +117,9 @@ button {
 /* 360 */
 
 @media all and (max-width: 359px) {
-    .donate__button {
+    .button--donate {
         padding: 0;
         width: 280px;
         height: 43px;
     }
 }
-

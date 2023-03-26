@@ -4,7 +4,7 @@
 
 .friends {
     background-color: var(--light-bg);
-    padding: 80px 0 100px;
+    padding: 78px 0 100px;
     display: flex;
     justify-content: center;
 }

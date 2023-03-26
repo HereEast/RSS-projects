@@ -32,6 +32,50 @@
     align-items: center;
 }
 
+.help__icon {
+    width: 60px;
+    height: 60px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.icon--food {
+    background-image: url("../../assets/icons/icon-pet-food.svg");
+}
+
+.icon--transportation {
+    background-image: url("../../assets/icons/icon-transportation.svg");
+}
+
+.icon--toys {
+    background-image: url("../../assets/icons/icon-toys.svg");
+}
+
+.icon--bowls {
+    background-image: url("../../assets/icons/icon-bowls.svg");
+}
+
+.icon--shampoos {
+    background-image: url("../../assets/icons/icon-shampoos.svg");
+}
+
+.icon--vitamins {
+    background-image: url("../../assets/icons/icon-vitamins.svg");
+}
+
+.icon--medicines {
+    background-image: url("../../assets/icons/icon-medicines.svg");
+}
+
+.icon--collars {
+    background-image: url("../../assets/icons/icon-collars.svg");
+}
+
+.icon--sleep {
+    background-image: url("../../assets/icons/icon-beds.svg");
+}
+
 .help__item_title {
     text-align: center;
     margin-top: 30px;

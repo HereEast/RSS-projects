@@ -18,15 +18,22 @@
     cursor: pointer;
 }
 
-.card:hover .button__secondary {
+.card:hover .button {
     background-color: var(--primary-color);
 }
 
-.card__image img {
-    max-width: 270px;
+.card__image {
     width: 100%;
-    height: auto;
-    display: block;
+    overflow: hidden;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card__image img {
+    width: 100%;
+    object-fit: cover;
     background-color: #FFF;
 }
 
