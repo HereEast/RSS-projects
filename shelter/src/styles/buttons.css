@@ -78,6 +78,10 @@
     font-size: 0;
 }
 
+.slider__button:hover {
+    background-color: var(--primary-color);
+}
+
 /* PAGES BUTTONS */
 
 .button__page {
@@ -95,13 +99,30 @@
     padding-bottom: 2px;
 }
 
+.button__page:hover {
+    background-color: var(--primary-color);
+}
+
+/* CURRENT */
+
+.button__page_current {
+    background-color: var(--primary-color);
+    cursor: default;
+    pointer-events: none;
+}
+
+/* DISABLED */
+
 .button__page_disabled {
     border: 2px solid #cdcdcd;
     color: #cdcdcd;
 }
 
-.button__page:hover {
-    background-color: var(--primary-color);
+.button__page_disabled:hover {
+    border: 2px solid #cdcdcd;
+    color: #cdcdcd;
+    background-color: transparent;
+    pointer-events: none;
 }
 
 /* 420 */
