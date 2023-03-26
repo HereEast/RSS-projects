@@ -1,0 +1,59 @@
+@import url("./basic.css");
+@import url("./header.css");
+
+/* HEADER */
+
+.header {
+    width: 100vw;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #FFF;
+    
+    position: relative;
+    top: 0;
+
+    overflow: hidden;
+}
+
+/* LOGO */
+
+.logo__title {
+    color: var(--dark-text);
+}
+
+.logo__subtitle {
+    color: var(--dark-black);
+}
+
+/* LINKS */
+
+.nav__link {
+    color: var(--dark-text);
+}
+
+.nav__link:hover {
+    color: var(--dark-black);
+}
+
+
+/* MOBILE */
+/* 720 */
+
+@media all and (max-width: 768px) {
+    /* MENU OPENED */
+
+    .menu_opened {
+        right: 0;
+        position: fixed;
+    }
+
+    .nav__link {
+        color: #CDCDCD;
+    }
+
+    .nav__link:hover {
+        color: #FFF;
+    }
+}
