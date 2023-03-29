@@ -57,7 +57,11 @@ p {
     h2, h3 {
         font-size: 25px;
         line-height: 32px;
-        letter-spacing: 2px;
+        letter-spacing: 1.5px;
         text-align: center;
+    }
+
+    h4 {
+        letter-spacing: 0.9px;
     }
 }

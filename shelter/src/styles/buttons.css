@@ -61,8 +61,10 @@
 }
 
 .donate__button_icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     margin-right: 15px;
-    margin-top: 2px;
 }
 
 /* SLIDER */
@@ -128,10 +130,11 @@
 /* 420 */
 
 @media all and (max-width: 420px) {
-    .donate__button {
+    .button--donate {
         padding: 0 15px;
         height: 43px;
         font-size: 15px;
+        letter-spacing: 1px;
     }
 }
 
