@@ -39,12 +39,16 @@
     font-size: 12px;
     font-style: italic;
     line-height: 18px;
-    color: #B2B2B2;
+    color: #b2b2b2;
 }
 
 /* 1000 */
 
 @media all and (max-width: 1000px) {
+    .donate {
+        padding: 80px 0 95px;
+    }
+
     .donate__container {
         flex-direction: column-reverse;
         align-items: center;

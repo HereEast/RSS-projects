@@ -36,7 +36,7 @@
 }
 
 .footer__title {
-    color: #FFFFFF;
+    color: #ffffff;
     margin-bottom: 20px;
 }
 
@@ -69,10 +69,13 @@
     color: var(--primary-color);
 }
 
-
 /* 970 */
 
 @media all and (max-width: 970px) {
+    .footer {
+        padding-top: 30px;
+    }
+
     .footer__container {
         flex-direction: column;
         justify-content: center;
@@ -83,7 +86,13 @@
         max-width: 640px;
         width: 100%;
         padding-top: 0;
-        margin-bottom: 65px;
+        margin-bottom: 45px;
+        justify-content: flex-start;
+        gap: 60px;
+    }
+
+    .footer__column:last-child .footer__title {
+        margin-left: 3px;
     }
 
     .footer__image img {

@@ -34,12 +34,19 @@
     margin-bottom: 25px;
 }
 
-
 /* 1100 */
 
 @media all and (max-width: 1110px) {
+    .about {
+        padding: 80px 0 95px;
+    }
+
     .about__container {
         flex-direction: column-reverse;
+    }
+
+    .about__title {
+        margin-bottom: 25px;
     }
 
     .about__image {
