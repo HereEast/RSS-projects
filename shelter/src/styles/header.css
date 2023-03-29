@@ -68,6 +68,11 @@
     transition: width 0.3s ease, left 0.3s ease;
 }
 
+.nav__link_active:hover {
+    cursor: default;
+    color: #CDCDCD;
+}
+
 /* BURGER ICON */
 
 .burger__container {
