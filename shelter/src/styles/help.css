@@ -81,7 +81,6 @@
     margin-top: 30px;
 }
 
-
 /* 865 */
 
 @media all and (max-width: 865px) {
@@ -101,7 +100,7 @@
 
 @media all and (max-width: 630px) {
     .help {
-        padding: 42px 0;
+        padding: 43px 0 41px;
     }
 
     .help__title {
@@ -134,4 +133,12 @@
         gap: 30px 0;
     }
 
+    .help__icon {
+        width: 50px;
+        height: 50px;
+    }
+
+    .help__item_title {
+        margin-top: 19px;
+    }
 }

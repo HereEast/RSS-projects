@@ -173,3 +173,10 @@
         top: 44px;
     }
 }
+
+/* 360 */
+@media all and (max-width: 360px) {
+    .header__container {
+        padding: 0 10px;
+    }
+}

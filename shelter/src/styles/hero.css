@@ -83,6 +83,10 @@
 /* 360 */
 
 @media all and (max-width: 360px) {
+    .hero__content {
+        margin-bottom: 106px;
+    }
+
     .hero__image img {
         width: 260px;
     }

@@ -59,7 +59,7 @@
 
 @media all and (max-width: 630px) {
     .about {
-        padding: 42px 0;
+        padding: 42px 0 38px;
     }
 
     .about__image {
@@ -70,6 +70,18 @@
 /* 360 */
 
 @media all and (max-width: 360px) {
+    .about__text {
+        padding: 0 15px;
+    }
+
+    .about__description {
+        text-align: justify;
+    }
+
+    .about__description:nth-child(2) {
+        margin-bottom: 22px;
+    }
+
     .about__image img {
         width: 260px;
     }

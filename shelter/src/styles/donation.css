@@ -64,11 +64,11 @@
 
 @media all and (max-width: 630px) {
     .donate {
-        padding: 42px 0;
+        padding: 43px 0 38px;
     }
 
     .donate__text {
-        max-width: 345px;
+        max-width: 360px;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -77,13 +77,11 @@
 
     .donate__title {
         text-align: center;
+        margin-bottom: 23px;
     }
-}
 
-/* 370 */
-
-@media all and (max-width: 370px) {
     .donate__subtitle {
+        margin-bottom: 23px;
         letter-spacing: 0;
     }
 }
@@ -97,6 +95,10 @@
 
     .donate__button {
         width: 280px;
+    }
+
+    .donate__note {
+        text-align: justify;
     }
 
     .donate__image img {
