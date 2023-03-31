@@ -3,15 +3,18 @@
 /* HEADER */
 
 .header {
+    width: 100%;
     position: absolute;
     top: 30px;
     overflow: hidden;
 }
 
 .header__container {
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin: 0 auto;
 }
 
 /* LINKS */
@@ -171,5 +174,12 @@
 
     .nav__link_active:after {    
         top: 44px;
+    }
+}
+
+/* 360 */
+@media all and (max-width: 360px) {
+    .header__container {
+        padding: 0 10px;
     }
 }

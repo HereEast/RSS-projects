@@ -10,7 +10,7 @@
 @import url("./popup.css");
 
 body {
-    background-color: #F6F6F6;
+    background-color: #f6f6f6;
 }
 
 /**/
@@ -53,7 +53,6 @@ body {
     align-items: center;
 }
 
-
 /* 1120 */
 
 @media all and (max-width: 1120px) {
@@ -65,8 +64,25 @@ body {
 /* 830 */
 
 @media all and (max-width: 830px) {
+    .pets {
+        padding-bottom: 75px;
+    }
+
+    .pets__title {
+        margin-bottom: 30px;
+    }
+
+    .pets__cards_container {
+        margin-bottom: 40px;
+    }
+
     .pets__cards_grid {
         grid-template-columns: repeat(2, 1fr);
+    }
+
+    .pets__cards_grid .card:nth-child(7),
+    .pets__cards_grid .card:nth-child(8) {
+        display: none;
     }
 }
 
@@ -81,6 +97,10 @@ body {
     .pets__title {
         margin-bottom: 42px;
     }
+
+    .pets__cards_container {
+        margin-bottom: 42px;
+    }
 }
 
 /* 540 */
@@ -90,7 +110,7 @@ body {
         grid-template-columns: repeat(1, 1fr);
     }
 
-     .card:nth-child(n + 4) {
-         display: none;
-     }
+    .card:nth-child(n + 4) {
+        display: none;
+    }
 }

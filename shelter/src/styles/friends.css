@@ -39,13 +39,17 @@
     margin: 0 15px;
 }
 
-
 /* 940 */
 
 @media all and (max-width: 940px) {
+    .friends {
+        padding: 80px 0 100px;
+    }
+
     .cards {
         max-width: 580px;
         grid-template-columns: repeat(2, auto);
+        margin: 0 12px;
     }
 
     .card:last-child {
@@ -80,7 +84,7 @@
     .friends__slider {
         align-items: flex-end;
         position: relative;
-        margin-bottom: 115px;
+        margin-bottom: 113px;
     }
 
     .slider__button {
