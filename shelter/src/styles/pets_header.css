@@ -37,6 +37,10 @@
     color: var(--dark-black);
 }
 
+.burger__line--pets {
+    background-color: var(--dark-black);
+}
+
 
 /* MOBILE */
 /* 720 */
