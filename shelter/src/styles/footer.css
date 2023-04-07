@@ -60,14 +60,32 @@
 }
 
 .contact__icon {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
     margin-right: 20px;
 }
 
 .contact__info {
     color: var(--primary-color);
+}
+
+.icon--email {
+    width: 40px;
+    height: 26px;
+    background-image: url("../../assets/icons/mail.svg");
+}
+
+.icon--phone {
+    width: 40px;
+    height: 32px;
+    background-image: url("../../assets/icons/phone.svg");
+}
+
+.icon--pin {
+    width: 22px;
+    height: 32px;
+    background-image: url("../../assets/icons/pin.svg");
 }
 
 /* 970 */
