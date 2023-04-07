@@ -171,8 +171,9 @@
         max-width: 280px;
         width: 100%;
         font-weight: 500;
-    }
 
+        margin-bottom: 44px;
+    }
 
     .footer__image img {
         width: 260px;
