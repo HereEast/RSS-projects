@@ -1,17 +1,23 @@
 console.log("Slider");
 
-const cardsContainer = document.querySelector(".cards__container");
+const slider = document.querySelector(".cards");
+const slide = document.querySelector(".slide");
+const nextSlide = document.querySelector(".button__right");
 
 let count = 3;
 let petsArray = shufflePetsArray();
-let currentCards = petsArray.slice(0, 3);
-
-// console.log(petsArray);
-// console.log(currentCards);
-
 
 window.addEventListener("load", handleLoad);
-window.addEventListener("resize", handleResize);
+nextSlide.addEventListener("click", handleNext);
+
+
+function handleNext() {
+    const currentWidth = slider.clientWidth;
+    const pos = slide.style.left;
+
+    // slide.style.left = pos - currentWidth + "px";
+    console.log(slide.style.left);
+}
 
 
 
@@ -19,47 +25,58 @@ window.addEventListener("resize", handleResize);
 function handleLoad() {
     // changeCount();
     shufflePetsArray();
-    createCards();
+    createSlide(petsArray);
 }
 
-// RESIZE
-function handleResize() {
-    changeCount();
+function createSlide(arr) {
+    const width = slider.clientWidth;
+
+    for(let i = 0; i < 3; i++) {
+        const cardsRow = createCardsRow(arr);
+        cardsRow.style.width = width + "px";
+
+        slide.append(cardsRow);
+    }
+
+    console.log(width);
+    slide.style.width = (width * 3) + "px";
 }
-
-
 
 // CREATE CARDS
-function createCards() {
-    for(let i = 0; i < count; i++) {
-        const currentPet = petsArray[i];
+function createCardsRow(arr) {
+    const cardsContainer = document.createElement("div");
+    cardsContainer.classList.add("cards__container");
 
-        // console.log(currentPet);
+    for(let i = 0; i < count; i++) {
+        const currentPet = arr[i];
         
         fetch("../src/data/pets.json")
             .then((res) => res.json())
             .then((data) => {
-                const petData = data.find((pet) => pet.name.toLowerCase() === currentPet);
-                createCardElement(petData);
+                const pet = data.find((p) => p.name.toLowerCase() === currentPet);
+                const card = createCardElement(pet);
+                cardsContainer.insertAdjacentHTML("beforeend", card);
             });
     }
+
+    return cardsContainer;
 }
 
 
 // CREATE CARD ELEMENT
-function createCardElement(petData) {
+function createCardElement(pet) {
     const cardElement = `
-        <div class="card" data-pet-name=${petData.name.toLowerCase()}>
+        <div class="card" data-pet-name=${pet.name.toLowerCase()}>
             <div class="card__image">
-                <img src=${petData.img} alt=${petData.type} ${petData.name}>
+                <img src=${pet.img} alt=${pet.type} ${pet.name}>
             </div>
 
-            <h4 class="pet__name">${petData.name}</h4>
+            <h4 class="pet__name">${pet.name}</h4>
             <button class="button button__secondary">Learn more</button>
         </div>
     `;
 
-    cardsContainer.insertAdjacentHTML("beforeend", cardElement);
+    return cardElement;
 }
 
 // CHANGE COUNT
@@ -71,7 +88,7 @@ function changeCount() {
 
 // SHUFFLE ARR
 function shufflePetsArray() {
-    const pets = ["jennifer", "sophia", "woody", "scarlett", "katrine", "timmy", "freddie", "charly"];
+    const pets = ["jennifer", "sophia", "woody", "scarlett", "katrine", "timmy", "freddie", "charly", "charly"];
 
     const shuffledPets = pets.sort(() => Math.random() - 0.5);
     return shuffledPets;
