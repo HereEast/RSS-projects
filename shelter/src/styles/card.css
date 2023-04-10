@@ -10,7 +10,7 @@
     overflow: hidden;
 
     padding-bottom: 30px;
-    transition: 0.3s ease-in;
+    transition: box-shadow 0.3s ease-in;
 }
 
 .card:hover {

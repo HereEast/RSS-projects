@@ -34,19 +34,22 @@
     width: 100%;
     margin: 0 15px;
     overflow: hidden;
+
+    border: 1px solid red;
+    position: relative;
 }
 
 .cards__container {
     width: 100%;
-    display: grid;
-    grid-template-columns: repeat(3, auto);
+    display: flex;
+    align-items: center;
     justify-content: space-between;
     gap: 20px;
 }
 
 /* 940 */
 
-@media all and (max-width: 940px) {
+@media all and (max-width: 970px) {
     .friends {
         padding: 80px 0 100px;
     }
@@ -58,6 +61,7 @@
 
     .cards__container {
         grid-template-columns: repeat(2, auto);
+        gap: 40px;
     }
 
     .card:last-child {
