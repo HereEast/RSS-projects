@@ -31,7 +31,17 @@ body {
     padding: 0 40px;
 }
 
+/**/
+/* DISABLED SCROLL*/
+/**/
+
+.scroll--disabled {
+    overflow: hidden;
+}
+
+/**/
 /* OVERLAY */
+/**/
 
 .overlay {
     width: 100vw;
@@ -43,16 +53,17 @@ body {
     opacity: 0;
     z-index: 5;
 
-    transition: opacity 0.2s ease-in;
+    transition: opacity 0.3s ease-in-out;
 }
 
-.overlay_opened {
+.overlay--opened {
     height: 100vh;
     opacity: 0.7;
 }
 
-
+/**/
 /* 768 */
+/**/
 
 @media all and (max-width: 768px) {
     .content-width {
@@ -60,7 +71,9 @@ body {
     }
 }
 
+/**/
 /* 360 */
+/**/
 
 @media all and (max-width: 360px) {
     .content-width {

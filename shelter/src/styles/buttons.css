@@ -99,6 +99,8 @@
     line-height: 23px;
     letter-spacing: -1px;
     padding-bottom: 2px;
+
+    transition: all 0.2s ease-in;
 }
 
 .button__page:hover {
@@ -107,7 +109,7 @@
 
 /* CURRENT */
 
-.button__page_current {
+.button__page--current {
     background-color: var(--primary-color);
     cursor: default;
     pointer-events: none;
@@ -115,12 +117,12 @@
 
 /* DISABLED */
 
-.button__page_disabled {
+button:disabled {
     border: 2px solid #cdcdcd;
     color: #cdcdcd;
 }
 
-.button__page_disabled:hover {
+button:disabled:hover {
     border: 2px solid #cdcdcd;
     color: #cdcdcd;
     background-color: transparent;
