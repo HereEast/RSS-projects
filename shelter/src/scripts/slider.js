@@ -145,18 +145,19 @@ function createSlide(arr) {
     return container;
 }
 
-async function createCards(arr, container) {
-    const res = await fetch("../src/data/pets.json");
-    const data = await res.json();
+function createCards(arr, container) {
+    fetch("../src/data/pets.json")
+        .then((res) => res.json())
+        .then((data) => {
+            for (let i = 0; i < cardsCount; i++) {
+                const currentPet = arr[i];
 
-    for (let i = 0; i < cardsCount; i++) {
-        const currentPet = arr[i];
+                const newPet = data.find((pet) => pet.name.toLowerCase() === currentPet);
+                const card = createCardElement(newPet);
 
-        const newPet = data.find((pet) => pet.name.toLowerCase() === currentPet);
-        const card = createCardElement(newPet);
-
-        container.insertAdjacentHTML("beforeend", card);
-    }
+                container.insertAdjacentHTML("beforeend", card);
+            }
+        });
 }
 
 function createCardElement(pet) {
