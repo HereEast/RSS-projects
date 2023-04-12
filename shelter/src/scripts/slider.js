@@ -146,7 +146,7 @@ function createSlide(arr) {
 }
 
 function createCards(arr, container) {
-    fetch("../src/data/pets.json")
+    fetch("./src/data/pets.json")
         .then((res) => res.json())
         .then((data) => {
             for (let i = 0; i < cardsCount; i++) {
