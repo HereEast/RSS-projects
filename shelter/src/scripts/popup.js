@@ -16,17 +16,22 @@ function openPopup(e) {
     const card = e.target.closest(".card");
     if(!card) return;
 
-    fetchPetInfo(card);
+    let url;
+
+    if(card.closest(".slide")) url = "./src/data/pets.json";
+    else url = "../src/data/pets.json";
+
+    fetchPetInfo(card, url);
 
     popup.classList.remove("popup--closed");
     document.body.classList.add("scroll--disabled");
 }
 
 // INFO TO POPUP
-function fetchPetInfo(card) {
+function fetchPetInfo(card, url) {
     const targetPetName = card.dataset.petName;
 
-    fetch("../src/data/pets.json")
+    fetch(url)
         .then((res) => res.json())
         .then((data) => {
             const petData = data.find((pet) => pet.name.toLowerCase() === targetPetName);
