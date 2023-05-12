@@ -1,0 +1,8 @@
+.mode--light {
+  background-color: var(--back-light);
+  color: var(--black);
+}
+
+.mode--light h1 {
+  color: var(--black);
+}
