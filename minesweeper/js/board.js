@@ -1,5 +1,8 @@
 console.log("✅ Board");
 
+//
+import { positionFree } from "./utils.js";
+//
 
 // Board
 function createBoard(size, minesCount) {
@@ -52,19 +55,19 @@ function createGrid(size, minesCount) {
 function getMinesPositions(size, minesCount) {
   const positions = [];
 
-  // while(coords.length < minesCount) {
+  while (positions.length < minesCount) {
     const pos = {
-      x: Math.random(size),
-      y: Math.random(size)
+      x: Math.floor(Math.random(size) * 10),
+      y: Math.floor(Math.random(size) * 10)
     };
 
-    if(!positions.some((position) => position.x === pos.x && position.y === pos.y)) {
+    if (positionFree(positions, pos)) {
       positions.push(pos);
     }
-  // }
+  }
 
-  console.log("Mines: ", coords);
-  return coords;
+  console.log("Mines: ", positions);
+  return positions;
 }
 
 export { createBoard };
