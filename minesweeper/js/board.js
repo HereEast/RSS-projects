@@ -1,10 +1,9 @@
 console.log("✅ Board");
 
-//
-import { positionFree } from "./utils.js";
+import { positionExists, getMinesPositions } from "./utils.js";
 //
 
-// Board
+// BOARD
 function createBoard(size, minesCount) {
   const boardContainer = document.querySelector(".game__board");
 
@@ -16,7 +15,7 @@ function createBoard(size, minesCount) {
 
   grid.forEach((row) => {
     row.forEach((element) => {
-      board.append(element.button);
+      board.append(element.tile);
     });
   });
 
@@ -24,50 +23,41 @@ function createBoard(size, minesCount) {
 }
 
 
-// Grid
+// GRID
 function createGrid(size, minesCount) {
-  console.log("Size:", size, " Mines:", minesCount);
-
   const board = [];
-  const minesCoords = getMinesPositions(size, minesCount);
+  // const minePositions = getMinesPositions(size, minesCount);
 
   for (let x = 0; x < size; x++) {
     const row = [];
 
     for (let y = 0; y < size; y++) {
-      const button = document.createElement("button");
-      button.classList.add("button__tile");
-      button.dataset.status = "hidden";
+      const tile = document.createElement("button");
+      tile.classList.add("button__tile");
+      tile.dataset.state = "hidden";
+      tile.dataset.x = y;
+      tile.dataset.y = x;
 
-      const element = { button, x, y, mine: true };
+      // const tilePos = { x, y };
+      // const isMine = positionExists(minePositions, tilePos);
 
-      row.push(element);
+      const tileData = {
+        tile: tile,
+        x: x,
+        y: y,
+        // mine: isMine
+      };
+
+      row.push(tileData);
     }
 
     board.push(row);
   }
+  
+  // console.log("💣 Mines: ", minePositions);
+  console.log("1️⃣ Board: ", board);
 
-  console.log(board);
   return board;
-}
-
-// Mines coordinates
-function getMinesPositions(size, minesCount) {
-  const positions = [];
-
-  while (positions.length < minesCount) {
-    const pos = {
-      x: Math.floor(Math.random(size) * 10),
-      y: Math.floor(Math.random(size) * 10)
-    };
-
-    if (positionFree(positions, pos)) {
-      positions.push(pos);
-    }
-  }
-
-  console.log("Mines: ", positions);
-  return positions;
 }
 
 export { createBoard };
