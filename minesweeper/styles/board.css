@@ -6,8 +6,12 @@
   align-items: center;
 }
 
-.board {
+.board__container {
   max-width: 500px;
+  width: 100%;
+}
+
+.board {
   width: 100%;
   display: grid;
   grid-template-columns: repeat(var(--size), 1fr);
