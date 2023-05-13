@@ -3,6 +3,7 @@
   color: var(--black);
 }
 
-.mode--light h1 {
+.mode--light h1,
+.mode--light span {
   color: var(--black);
 }

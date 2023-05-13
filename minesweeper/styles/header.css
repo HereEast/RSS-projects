@@ -1,0 +1,44 @@
+.header {
+  width: 100%;
+  display: flex;
+  
+  margin-bottom: 40px;
+}
+
+.header span {
+  display: block;
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 1;
+}
+
+.header__items {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+}
+
+.header__item {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.header__item span:first-child {
+  margin-right: 10px;
+}
+
+.header__buttons {
+  margin-left: 80px;
+}
+
+.header__buttons button {
+  display: block;
+  width: 100px;
+}
+
+.moves,
+.seconds {
+  text-align: right;
+}
