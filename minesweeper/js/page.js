@@ -1,23 +1,43 @@
 console.log("✅ Page");
 
 function createPage() {
-  const page = document.createElement("div");
-  page.classList.add("page");
-
   const header = createHeader();
+  const popup = createPopup();
 
-  const main = document.createElement("main");
-  main.classList.add("game__board", "main");
+  const page = `
+    <div class="page">
+      ${header}
+      <main class="main">
+        <h1>Minesweeper</h1>
+        <div class="board__container">
+        </div>
+      </main>
+    </main>
+  `;
 
-  const title = `<h1>Minesweeper</h1>`;
-  main.insertAdjacentHTML("afterbegin", title);
-
-  page.insertAdjacentHTML("afterbegin", header);
-  page.append(main);
-
-  document.body.prepend(page);
+  document.body.insertAdjacentHTML("afterbegin", page);
+  document.body.insertAdjacentHTML("beforeend", popup);
 }
 
+//
+// POPUP
+function createPopup() {
+  const popup = `
+    <div class="popup">
+      <div class="popup__container">
+        <span class="popup__message">Hello</span>
+        <div class="popup__buttons">
+        <button class="button__popup--close">Close</button>
+      </div>
+      </div>
+    </div>
+  `;
+
+  return popup;
+}
+
+//
+// HEADER
 function createHeader() {
   const header = `
     <header class="header">
