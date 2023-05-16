@@ -6,8 +6,12 @@ import { endGame, closePopup } from "./js/popup.js";
 
 let size = 3;
 let minesCount = 2;
+
 let moves = 0;
 let seconds = 0;
+let flags = 0;
+let remainedMines = minesCount;
+
 let timerId;
 
 let gameStarted = false;
@@ -24,10 +28,14 @@ let minePositions = [];
 const buttonPlay = document.querySelector(".button__play");
 const buttonStop = document.querySelector(".button__stop");
 const buttonMode = document.querySelector(".button__toggle-mode");
-const secondsElement = document.querySelector(".seconds");
-const buttons = Array.from(document.querySelectorAll(".button__tile"));
-const movesElement = document.querySelector(".moves");
+const tiles = Array.from(document.querySelectorAll(".button__tile"));
+
 const buttonPopupClose = document.querySelector(".button__popup--close");
+
+const secondsElement = document.querySelector(".seconds");
+const movesElement = document.querySelector(".moves");
+const flagsElement = document.querySelector(".flags--marked");
+const remainedElement = document.querySelector(".mines--remained");
 
 //
 // EVENTS
@@ -36,15 +44,17 @@ buttonStop.addEventListener("click", stopGame);
 
 buttonMode.addEventListener("click", toggleMode);
  
-buttons.forEach((button) => {
-  button.addEventListener("click", handleLeftClick);
-  button.addEventListener("contextmenu", handleRightClick);
+tiles.forEach((tile) => {
+  tile.addEventListener("click", handleLeftClick);
+  tile.addEventListener("contextmenu", handleRightClick);
 });
 
 buttonPopupClose.addEventListener("click", closePopup);
 
 //
 //
+
+remainedElement.textContent = minesCount;
 
 //
 // LEFT CLICK
@@ -73,8 +83,13 @@ function handleRightClick(e) {
   if(!gameStarted) return;
 
   const tile = e.target;
+  const tileState = tile.dataset.state;
 
-  markTile(tile);
+  if (tileState === "hidden") {
+    handleMarkTile(tile);
+  } else if (tileState === "marked") {
+    handleUnmarkTile(tile);
+  }
 
   if (moves === 1 && !minePositions.length) {
     minePositions = getMinesPositions(size, minesCount);
@@ -87,6 +102,7 @@ function handleRightClick(e) {
 function startGame() { 
   if(!gameStarted) {
     gameStarted = true;
+
     startTimer();
 
     console.log(">> Game started!");
@@ -101,13 +117,14 @@ function stopGame() {
 
     minePositions = [];
 
-    buttons.forEach((button) => {
-      button.dataset.state = "hidden";
-      button.textContent = "";
+    tiles.forEach((tile) => {
+      tile.dataset.state = "hidden";
+      tile.textContent = "";
     });
 
     nullTimer();
     nullMoves();
+    nullMines();
 
     console.log(">> Game stopped!");
   } else return;
@@ -157,8 +174,8 @@ function revealTile(tile, count = "") {
 //
 // CHECK WIN
 function isSuccess() {
-  const closedTiles = buttons.filter((button) => {
-    return button.dataset.state === "hidden" || button.dataset.state === "marked";
+  const closedTiles = tiles.filter((tile) => {
+    return tile.dataset.state === "hidden" || tile.dataset.state === "marked";
   });
 
   return closedTiles.length === minesCount;
@@ -197,15 +214,6 @@ function getNearTiles(tile) {
   return nearTiles;
 }
 
-//
-// MARK TILES
-function markTile(tile) {
-  const tileState = tile.dataset.state;
-
-  if (tileState === "marked") tile.dataset.state = "hidden";
-  else if (tileState === "hidden") tile.dataset.state = "marked";
-  else return;
-}
 
 //
 // UPDATE MOVES
@@ -239,6 +247,16 @@ function nullTimer() {
 }
 
 //
+// NULL MARKED MINES
+function nullMines() {
+  flags = 0;
+  remainedMines = minesCount;
+
+  flagsElement.textContent = flags;
+  remainedElement.textContent = remainedMines;
+}
+
+//
 // PAUSE TIMER
 function pauseTimer() {
   clearInterval(timerId);
@@ -249,4 +267,28 @@ function pauseTimer() {
 function increaseSeconds() {
   seconds += 1;
   secondsElement.textContent = seconds;
+}
+
+//
+// MARK TILE
+function handleMarkTile(tile) {
+  tile.dataset.state = "marked";
+
+  flags += 1;
+  remainedMines -= 1;
+
+  flagsElement.textContent = flags;
+  remainedElement.textContent = remainedMines;
+}
+
+//
+// UNMARK TILE
+function handleUnmarkTile(tile) {
+  tile.dataset.state = "hidden";
+  
+  flags -= 1;
+  remainedMines += 1;
+
+  flagsElement.textContent = flags;
+  remainedElement.textContent = remainedMines;
 }

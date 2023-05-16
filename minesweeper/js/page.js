@@ -50,10 +50,10 @@ function createHeader() {
           <span>Moves:</span><span class="moves">0</span>
         </div>
         <div class="header__item">
-          <span>🚩Marked:</span><span class="flags--marked">0</span>
+          <span>Marked:</span><span class="flags--marked">0</span>
         </div>
         <div class="header__item">
-          <span>🚩Remained:</span><span class="flags--remained">0</span>
+          <span>Remained mines:</span><span class="mines--remained">0</span>
         </div>
         <div class="header__item">
           <span>Seconds:</span><span class="seconds">0</span>
