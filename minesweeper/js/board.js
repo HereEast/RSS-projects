@@ -5,7 +5,7 @@ import { positionExists, getMinesPositions } from "./utils.js";
 
 // BOARD
 function createBoard(size, minesCount) {
-  const boardContainer = document.querySelector(".game__board");
+  const boardContainer = document.querySelector(".board__container");
 
   const board = document.createElement("div");
   board.classList.add("board");
@@ -34,6 +34,7 @@ function createGrid(size, minesCount) {
     for (let y = 0; y < size; y++) {
       const tile = document.createElement("button");
       tile.classList.add("button__tile");
+
       tile.dataset.state = "hidden";
       tile.dataset.x = y;
       tile.dataset.y = x;
@@ -55,7 +56,7 @@ function createGrid(size, minesCount) {
   }
   
   // console.log("💣 Mines: ", minePositions);
-  console.log("1️⃣ Board: ", board);
+  // console.log("1️⃣ Board: ", board);
 
   return board;
 }
