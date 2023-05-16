@@ -1,7 +1,9 @@
-export { positionExists, getMinesPositions };
+export { positionExists, getMinesPositions, getTilePosition };
 
-// GET ARRAY OFF MINES
+//
+// GET MINES
 function getMinesPositions(size, minesCount) {
+  const firstTile = document.querySelector("[data-state='number']");
   const positions = [];
 
   while (positions.length < minesCount) {
@@ -10,7 +12,9 @@ function getMinesPositions(size, minesCount) {
       y: Math.floor(Math.random() * size)
     };
 
-    if (!positionExists(positions, pos)) {
+    const isFirstTile = pos.x === firstTile.x && pos.y === firstTile.y;
+
+    if (!positionExists(positions, pos) && !isFirstTile) {
       positions.push(pos);
     }
   }
@@ -18,6 +22,18 @@ function getMinesPositions(size, minesCount) {
   return positions;
 }
 
+//
+// GET TILE POS
+function getTilePosition(tile) {
+  const pos = {
+    x: Number(tile.dataset.x),
+    y: Number(tile.dataset.y)
+  };
+
+  return pos;
+}
+
+//
 // POSITION EXISTS IN ARRAY
 function positionExists(arr, el) {
   const posExists = arr.some((arrElement) => {
