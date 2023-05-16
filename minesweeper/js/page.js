@@ -61,6 +61,7 @@ function createHeader() {
       </div>
       <div class="header__buttons">
         <button class="button button__toggle-mode">Toggle Mode</button>
+        <button class="button button__settings">Settings</button>
       </div>
     </header>`;
 
