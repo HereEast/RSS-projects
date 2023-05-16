@@ -1,8 +1,8 @@
 // END GAME
-function endGame(success, moves) {
+function endGame(success, moves, seconds) {
   let message;
 
-  if (success) message = `Hooray! You found all mines in ${moves} moves!`;
+  if (success) message = `Hooray! You found all mines in ${seconds} seconds ${moves} moves!`;
   if (!success) message = `Game over. Try again!`;
 
   showPopup(message);
