@@ -1,0 +1,15 @@
+.button {
+  outline: none;
+  border: 1px solid var(--black);
+  border-radius: 3px;
+  padding: 0 5px;
+}
+
+.button__stop {
+  background-color: rgb(193, 193, 193);
+}
+
+.button__play {
+  background-color: rgb(116, 195, 116);
+}
+

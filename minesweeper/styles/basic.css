@@ -38,12 +38,6 @@ body {
   padding: 20px;
 }
 
-h1 {
-  color: var(--white);
-  text-align: center;
-  margin-bottom: 20px;
-}
-
 span {
   color: var(--white);
 }

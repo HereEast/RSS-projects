@@ -6,6 +6,15 @@
   align-items: center;
 }
 
+h1 {
+  color: var(--white);
+  text-align: center;
+}
+
+.main__buttons {
+    margin: 10px 0 20px;
+}
+
 .board__container {
   max-width: 500px;
   width: 100%;
