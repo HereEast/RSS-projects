@@ -9,6 +9,10 @@ function createPage() {
       ${header}
       <main class="main">
         <h1>Minesweeper</h1>
+        <div class="main__buttons">
+          <button class="button button__play">Start Game</button>
+          <button class="button button__stop">Stop</button>
+        </div>
         <div class="board__container">
         </div>
       </main>
@@ -27,7 +31,7 @@ function createPopup() {
       <div class="popup__container">
         <span class="popup__message">Hello</span>
         <div class="popup__buttons">
-        <button class="button__popup--close">Close</button>
+        <button class="button button__popup--close">Close</button>
       </div>
       </div>
     </div>
@@ -46,17 +50,17 @@ function createHeader() {
           <span>Moves:</span><span class="moves">0</span>
         </div>
         <div class="header__item">
-          <span>🚩Marked:</span><span class="moves">0</span>
+          <span>🚩Marked:</span><span class="flags--marked">0</span>
         </div>
         <div class="header__item">
-          <span>🚩Remained:</span><span class="seconds">0</span>
+          <span>🚩Remained:</span><span class="flags--remained">0</span>
         </div>
         <div class="header__item">
           <span>Seconds:</span><span class="seconds">0</span>
         </div>
       </div>
       <div class="header__buttons">
-        <button class="button__toggle-mode">Toggle Mode</button>
+        <button class="button button__toggle-mode">Toggle Mode</button>
       </div>
     </header>`;
 
