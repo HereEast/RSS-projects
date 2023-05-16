@@ -4,12 +4,19 @@
   --back-dark: #313131;
   --back-light: rgb(208, 208, 208);
   --tile-back: #5D5D5D;
-  --tile-back: #878787;
+  --tile-back: #707070;
   --black: #313131;
+  --max-black: #1a1a1a;
   --white: #ffffff;
+  --green: #74c374;
+  --green-hover: #82d282;
+
+  --button-hover: #868686;
+  --button-light-hover: #e4e4e4;;
 
   --size: 10;
   --tile-width: 40px;
+  --width: 600px;
 
 }
 
@@ -39,5 +46,7 @@ body {
 }
 
 span {
+  display: block;
+  font-size: 14px;
   color: var(--white);
 }

@@ -1,0 +1,97 @@
+.main {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/**/
+
+.main__info {
+  max-width: var(--width);
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border: 1px solid var(--tile-back);
+}
+
+.info__item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 20px;
+}
+
+.info__item:not(:first-child) {
+  border-left: 1px solid var(--tile-back);
+}
+
+.main span {
+  font-size: 14px;
+}
+
+.info__item .item__count {
+  text-align: right;
+}
+
+/**/
+
+.main__buttons {
+  max-width: var(--width);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+
+  border: 1px solid var(--tile-back);
+
+  padding: 25px 20px;
+  margin-top: -1px;
+  margin-bottom: 40px;
+}
+
+/* BOARD */
+
+.board__container {
+  max-width: var(--width);
+  width: 100%;
+}
+
+.board {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(var(--size), 1fr);
+  grid-template-rows: repeat(var(--size), 1fr);
+
+  border: 1px solid var(--black);
+}
+
+.button__tile {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background-color: var(--tile-back);
+  border: 1px solid var(--black);
+  outline: none;
+}
+
+.button__tile[data-state="marked"] {
+  background-color: yellow;
+}
+
+.button__tile[data-state="mine"] {
+  background-color: red;
+}
+
+.button__tile[data-state="number"] {
+  background-color: rgb(182, 182, 182);
+}
+
+/**/
+
+@media all and (max-width: 600px) {
+  .main .info__item {
+    padding: 8px 15px;
+  }
+}

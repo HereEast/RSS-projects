@@ -1,44 +1,136 @@
 .header {
   width: 100%;
+  height: 54px;
   display: flex;
-  
-  margin-bottom: 40px;
-}
-
-.header span {
-  display: block;
-  font-size: 14px;
-  font-weight: 300;
-  line-height: 1;
-}
-
-.header__items {
-  width: 100%;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 40px;
-}
-
-.header__item {
-  display: flex;
-  justify-content: flex-start;
   align-items: center;
+  position: relative;
+
+  border: 1px solid var(--tile-back);
+  margin-bottom: -1px;
 }
 
-.header__item span:first-child {
-  margin-right: 10px;
+/* Title */
+
+.header__title {
+  width: calc((100% - var(--width)) / 2);
+  padding: 0 20px;
+  position: relative;
 }
+
+h1,
+h2 {
+  font-size: 24px;
+  line-height: 1;
+  color: var(--white);
+}
+
+h2 {
+  display: none;
+}
+
+/* Settings */
+
+.header__settings {
+  max-width: var(--width);
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  border-left: 1px solid var(--tile-back);
+  border-right: 1px solid var(--tile-back);
+  padding: 15px 20px;
+}
+
+.settings__item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.settings__buttons,
+.settings__input {
+  display: flex;
+}
+
+/* Buttons */
 
 .header__buttons {
-  margin-left: 80px;
+  width: calc((100% - var(--width)) / 2);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 5px;
+  padding: 0 20px;
 }
 
-.header__buttons button {
-  display: block;
-  width: 100px;
+/**/
+
+@media all and (max-width: 1040px) {
+  h1 {
+    position: absolute;
+    font-size: 2px;
+    opacity: 0;
+  }
+
+  h2 {
+    display: block;
+  }
 }
 
-.moves,
-.seconds {
-  text-align: right;
+@media all and (max-width: 822px) {
+  .header__title,
+  .header__buttons {
+    width: 94px;
+  }
+}
+
+@media all and (max-width: 600px) {
+  .header__title,
+  .header__buttons {
+    padding: 0 15px;
+  }
+
+  .header__settings {
+    padding: 15px;
+  }
+}
+
+@media all and (max-width: 580px) {
+  .header {
+    height: 108px;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+
+  .header__settings {
+    max-width: 100%;
+    position: absolute;
+    top: 54px;
+
+    border-top: 1px solid var(--tile-back);
+    border-left: none;
+    border-right: none;
+  }
+
+  .header__item:first-child,
+  .header__item:last-child {
+    width: 50%;
+    padding: 15px;
+  }
+
+  .header__item:first-child {
+    border-right: 1px solid var(--tile-back);
+  }
+
+  h1 {
+    position: static;
+    font-size: 24px;
+    opacity: 1;
+  }
+
+  h2 {
+    display: none;
+  }
 }

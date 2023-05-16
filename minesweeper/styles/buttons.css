@@ -1,15 +1,96 @@
 .button {
-  outline: none;
-  border: 1px solid var(--black);
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+
+  color: var(--max-black);
   border-radius: 3px;
-  padding: 0 5px;
+  border: 1px solid var(--max-black);
+
+  transition: all 0.2s ease-in;
+  cursor: pointer;
 }
 
-.button__stop {
-  background-color: rgb(193, 193, 193);
+.button--light {
+  background-color: var(--back-light);
+}
+
+.button--light:hover {
+  background-color: var(--button-light-hover);
+}
+
+.button--dark {
+  background-color: var(--tile-back);
+}
+
+.button--dark:hover {
+  background-color: var(--button-hover);
+}
+
+/* Size */
+
+.button__size:first-child {
+  border-radius: 3px 0 0 3px;
+  border-right: none;
+}
+
+.button__size:nth-child(2) {
+  border-radius: 0;
+}
+
+.button__size:last-child {
+  border-radius: 0 3px 3px 0;
+  border-left: none;
+}
+
+.button__size--selected,
+.button__size--selected:hover {
+  background-color: var(--white);
+}
+
+/* Input */
+
+.input {
+  display: block;
+  width: 48px;
+  height: 24px;
+  font-size: 14px;
+
+  border: 1px solid var(--max-black);
+  border-radius: 3px 0 0 3px;
+  border-right: none;
+  outline: none;
+
+  padding: 0 8px;
+}
+
+.button__ok {
+  width: 90px;
+  border-radius: 0 3px 3px 0;
+}
+
+/* Menu */
+.button__toggle-mode {
+  font-size: 20px;
+  line-height: 1;
+  padding-top: 1px;
+}
+
+/* Main */
+
+.main__button {
+  width: auto;
+  padding: 0 10px 1px;
 }
 
 .button__play {
-  background-color: rgb(116, 195, 116);
+  background-color: var(--green);
+}
+
+.button__play:hover {
+  background-color: var(--green-hover);
 }
 

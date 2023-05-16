@@ -26,3 +26,8 @@
   text-align: center;
   margin-bottom: 10px;
 }
+
+.popup .button {
+  width: auto;
+  padding: 0 10px;
+}
