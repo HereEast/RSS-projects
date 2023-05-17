@@ -3,7 +3,7 @@ import { createPage } from "./js/page.js";
 import { createBoard } from "./js/board.js";
 import { getMinesPositions, positionExists, getTilePosition, getNearTiles, countNearMines } from "./js/positions.js";
 import { endGame, closePopup } from "./js/popup.js";
-import { isSuccess } from "./js/utils.js";
+import { isSuccess, disableSettings, enableSettings } from "./js/utils.js";
 
 //
 // ELEMENTS
@@ -95,73 +95,6 @@ function initEvents() {
 //
 //
 
-//
-// SIZE
-function updateSize(e) {
-  const button = e.target;
-  const selectedSize = e.target.dataset.size;
-
-  if (gameStarted) return;
-  if (button.classList.contains("button__size--selected")) return;
-
-  size = selectedSize;
-
-  createBoard(size, minesCount);
-  stopGame();
-  initEvents();
-
-  buttonsSize.forEach((button) => {
-    button.classList.remove("button__size--selected");
-  });
-
-  button.classList.add("button__size--selected");
-}
-
-//
-// UPDATE MINES COUNT
-function updateMinesCount() {
-  if (gameStarted) return;
-  if (!inputFocused) return;
-
-  if (input.value < 10) input.value = 10;
-  if (input.value > 99) input.value = 99;
-
-  minesCount = input.value;
-
-  setRemainedMinesValue();
-
-  input.blur();
-  inputFocused = false;
-}
-
-//
-// DISABLE SETTINGS
-function disableSettings() {
-    buttonsSize.forEach((button) => {
-      button.disabled = true;
-    });
-
-    buttonOk.disabled = true;
-    input.disabled = true;
-}
-
-//
-// SET REMAINED VALUE
-function setRemainedMinesValue() {
-  remainedMines = minesCount;
-  remainedElement.textContent = minesCount;
-}
-
-//
-// ENABLE SETTINGS
-function enableSettings() {
-    buttonsSize.forEach((button) => {
-      button.disabled = false;
-    });
-
-    buttonOk.disabled = false;
-    input.disabled = false;
-}
 
 //
 // LEFT CLICK
@@ -355,3 +288,50 @@ function handleUnmarkTile(tile) {
   flagsElement.textContent = flags;
   remainedElement.textContent = remainedMines;
 }
+
+//
+// SIZE
+function updateSize(e) {
+  const button = e.target;
+  const selectedSize = e.target.dataset.size;
+
+  if (gameStarted) return;
+  if (button.classList.contains("button__size--selected")) return;
+
+  size = selectedSize;
+
+  createBoard(size, minesCount);
+  stopGame();
+  initEvents();
+
+  buttonsSize.forEach((button) => {
+    button.classList.remove("button__size--selected");
+  });
+
+  button.classList.add("button__size--selected");
+}
+
+//
+// UPDATE MINES COUNT
+function updateMinesCount() {
+  if (gameStarted) return;
+  if (!inputFocused) return;
+
+  if (input.value < 10) input.value = 10;
+  if (input.value > 99) input.value = 99;
+
+  minesCount = input.value;
+
+  setRemainedMinesValue();
+
+  input.blur();
+  inputFocused = false;
+}
+
+//
+// SET REMAINED VALUE
+function setRemainedMinesValue() {
+  remainedMines = minesCount;
+  remainedElement.textContent = minesCount;
+}
+
