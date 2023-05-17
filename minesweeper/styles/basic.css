@@ -2,14 +2,18 @@
 
 :root {
   --back-dark: #313131;
-  --back-light: rgb(208, 208, 208);
-  --tile-back: #5D5D5D;
+  --back-light: #d0d0d0;
+  /* --tile-back: #5D5D5D; */
   --tile-back: #707070;
+  --tile-back-opened: #3f3f3f;
   --black: #313131;
   --max-black: #1a1a1a;
   --white: #ffffff;
   --green: #74c374;
   --green-hover: #82d282;
+  --blue: #69AEEE;
+  --yellow: #ffc831;
+  --red: #ed2626;
 
   --button-hover: #868686;
   --button-light-hover: #e4e4e4;;

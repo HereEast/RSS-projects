@@ -3,7 +3,7 @@ import { createPage } from "./js/page.js";
 import { createBoard } from "./js/board.js";
 import { getMinesPositions, positionExists, getTilePosition, getNearTiles, countNearMines } from "./js/positions.js";
 import { endGame, closePopup } from "./js/popup.js";
-import { isSuccess, disableSettings, enableSettings } from "./js/utils.js";
+import { disableSettings, enableSettings, revealTile, cleanTiles } from "./js/utils.js";
 
 //
 // ELEMENTS
@@ -89,7 +89,10 @@ function initEvents() {
   input.addEventListener("focus", () => inputFocused = true);
   input.addEventListener("blur", updateMinesCount);
 
-  buttonPopupClose.addEventListener("click", closePopup);
+  buttonPopupClose.addEventListener("click", () => {
+    closePopup();
+    stopGame();
+  });
 }
 
 //
@@ -138,15 +141,15 @@ function handleRightClick(e) {
 }
 
 //
-// PLAY GAME
+// START GAME
 function startGame() {
   if (!gameStarted) {
     gameStarted = true;
 
     startTimer();
-    disableSettings();
+    disableSettings(buttonsSize, buttonOk, input);
 
-    console.log("Game started!");
+    console.log("Game started...");
   } else return;
 }
 
@@ -158,16 +161,12 @@ function stopGame() {
 
     minePositions = [];
 
-    tiles.forEach((tile) => {
-      tile.dataset.state = "hidden";
-      tile.textContent = "";
-    });
-
+    cleanTiles(tiles);
     nullTimer();
     nullMoves();
     nullMines();
 
-    enableSettings();
+    enableSettings(buttonsSize, buttonOk, input);
 
     console.log("Game stopped!");
   } else return;
@@ -179,6 +178,8 @@ function openTile(tile) {
   const clickedTile = getTilePosition(tile);
   const isMine = positionExists(minePositions, clickedTile);
 
+  // console.log(tile);
+
   if (isMine) {
     tile.dataset.state = "mine";
 
@@ -186,16 +187,25 @@ function openTile(tile) {
 
     endGame(success);
     pauseTimer();
-  } else {
-    const nearMines = countNearMines(clickedTile, size, minePositions);
+  } 
+  
+  if (!isMine) {
+    const count = countNearMines(clickedTile, size, minePositions);
 
-    if (nearMines) {
-      revealTile(tile, nearMines);
+    if (count) {
+      revealTile(tile, count);
     } else {
       revealTile(tile);
+
+      // const nearTiles = getNearTiles(nearTiles, size);
+      // console.log(nearTiles);
+
+      // nearTiles.forEach((tile) => {
+      //   console.log(tile);
+      // })
     }
 
-    if (isSuccess(tiles, minesCount)) {
+    if (isSuccess()) {
       success = true;
 
       endGame(success, moves, seconds);
@@ -204,13 +214,16 @@ function openTile(tile) {
   }
 }
 
-//
-// REVEAL TILE
-function revealTile(tile, count = "") {
-  tile.textContent = count;
-  tile.dataset.state = "number";
-}
 
+//
+// CHECK SUCCESS
+function isSuccess() {
+  const closedTiles = tiles.filter((tile) => {
+    return tile.dataset.state === "hidden" || tile.dataset.state === "marked";
+  });
+
+  return closedTiles.length === minesCount;
+}
 
 //
 // UPDATE MOVES

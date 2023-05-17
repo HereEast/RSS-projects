@@ -71,6 +71,8 @@
 .button__tile {
   width: 100%;
   aspect-ratio: 1 / 1;
+  font-size: 16px;
+  font-weight: 700;
   background-color: var(--tile-back);
   border: 1px solid var(--black);
   outline: none;
@@ -85,7 +87,23 @@
 }
 
 .button__tile[data-state="number"] {
-  background-color: rgb(182, 182, 182);
+  background-color: var(--tile-back-opened);
+}
+
+.button__tile.color--blue {
+  color: var(--blue);
+}
+
+.button__tile.color--green {
+  color: var(--green);
+}
+
+.button__tile.color--yellow {
+  color: var(--yellow);
+}
+
+.button__tile.color--red {
+  color: var(--red);
 }
 
 /**/

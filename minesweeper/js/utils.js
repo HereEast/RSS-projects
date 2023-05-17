@@ -1,13 +1,37 @@
-export { isSuccess, disableSettings, enableSettings };
+export { disableSettings, enableSettings, revealTile, cleanTiles };
 
 //
-// CHECK SUCCESS
-function isSuccess(tiles, minesCount) {
-  const closedTiles = tiles.filter((tile) => {
-    return tile.dataset.state === "hidden" || tile.dataset.state === "marked";
-  });
+// REVEAL TILE
+function revealTile(tile, count = "") {
+  console.log(tile);
+  
+  tile.textContent = count;
+  tile.dataset.state = "number";
 
-  return closedTiles.length === minesCount;
+  if (count === 1) {
+    tile.classList.add("color--blue");
+  }
+
+  if (count === 2) {
+    tile.classList.add("color--green");
+  }
+
+  if (count === 3) {
+    tile.classList.add("color--yellow");
+  }
+
+  if (count > 3) {
+    tile.classList.add("color--red");
+  }
+}
+
+//
+// CLEAN TILES
+function cleanTiles(tiles) {
+  tiles.forEach((tile) => {
+    tile.dataset.state = "hidden";
+    tile.textContent = "";
+  });
 }
 
 //

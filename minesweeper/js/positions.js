@@ -42,6 +42,7 @@ function getMinesPositions(size, minesCount) {
   const positions = [];
 
   while (positions.length < minesCount) {
+    
     const pos = {
       x: Math.floor(Math.random() * size),
       y: Math.floor(Math.random() * size)
