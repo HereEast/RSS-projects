@@ -53,12 +53,15 @@
 
 /* Input */
 
-.input {
+.input,
+.input:disabled {
   display: block;
   width: 48px;
   height: 24px;
   font-size: 14px;
 
+  color: var(--black);
+  background-color: var(--white);
   border: 1px solid var(--max-black);
   border-radius: 3px 0 0 3px;
   border-right: none;
