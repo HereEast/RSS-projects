@@ -1,11 +1,11 @@
 console.log("✅ Board");
 
-import { positionExists, getMinesPositions } from "./utils.js";
 //
-
 // BOARD
 function createBoard(size, minesCount) {
   const boardContainer = document.querySelector(".board__container");
+
+  [...boardContainer.children].forEach((child) => child.remove());
 
   const board = document.createElement("div");
   board.classList.add("board");
@@ -22,7 +22,7 @@ function createBoard(size, minesCount) {
   boardContainer.append(board);
 }
 
-
+//
 // GRID
 function createGrid(size, minesCount) {
   const board = [];
