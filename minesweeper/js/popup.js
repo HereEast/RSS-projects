@@ -1,3 +1,6 @@
+export { endGame, closePopup };
+
+//
 // END GAME
 function endGame(success, moves, seconds) {
   let message;
@@ -35,6 +38,3 @@ function closePopup() {
 
   document.body.style.overflow = "";
 }
-
-//
-export { endGame, closePopup };
