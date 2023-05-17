@@ -1,7 +1,7 @@
 import { toggleMode } from "./js/mode.js";
 import { createPage } from "./js/page.js";
 import { createBoard } from "./js/board.js";
-import { getMinesPositions, positionExists, getTilePosition, getNearTiles, countNearMines } from "./js/mines.js";
+import { getMinesPositions, positionExists, getTilePosition, getNearTiles, countNearMines } from "./js/positions.js";
 import { endGame, closePopup } from "./js/popup.js";
 import { isSuccess } from "./js/utils.js";
 
