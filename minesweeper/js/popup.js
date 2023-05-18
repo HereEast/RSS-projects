@@ -1,22 +1,13 @@
-export { endGame, closePopup };
+export { showPopup, closePopup };
 
-//
-// END GAME
-function endGame(success, moves, seconds) {
-  let message;
-
-  if (success) {
-    message = `Hooray🎉🎉🎉 <br>You found all mines in ${seconds} seconds and ${moves} moves!`;
-  } else {
-    message = `Booooom💥💥💥 <br>Game over. Try again!`;     
-  }
-
-  showPopup(message);
-}
 
 //
 // SHOW POPUP
-function showPopup(message) {
+function showPopup(success, moves, seconds) {
+  const message = success ? 
+    `Hooray🎉🎉🎉 <br>You found all mines in ${seconds} seconds and ${moves} moves!` :
+    `Booooom💥💥💥 <br>Game over. Try again!`;
+
   const popup = document.querySelector(".popup");
   const popupMessage = document.querySelector(".popup__message");
 

@@ -2,17 +2,14 @@ import { toggleMode } from "./js/mode.js";
 import { createPage } from "./js/page.js";
 import { createBoard } from "./js/board.js";
 import { getMinesPositions, positionExists, getTilePosition, getNearTiles, countNearMines } from "./js/tiles.js";
-import { endGame, closePopup } from "./js/popup.js";
+import { showPopup, closePopup } from "./js/popup.js";
 import { disableSettings, enableSettings, revealTile, cleanTiles } from "./js/utils.js";
 
 //
-// ELEMENTS
 let buttonPlay;
 let buttonStop;
 let buttonMode;
 let tiles;
-
-let buttonPopupClose;
 
 let secondsElement;
 let movesElement;
@@ -22,8 +19,8 @@ let remainedElement;
 let buttonsSize;
 let buttonOk;
 let input;
+let buttonPopupClose;
 
-//
 //
 let size = 3;
 let minesCount = 1;
@@ -31,13 +28,12 @@ let minesCount = 1;
 let moves = 0;
 let seconds = 0;
 let flags = 0;
-let remainedMines;
+let remainedMines = minesCount;
 
 let timerId;
 
 let gameStarted = false;
 let success;
-
 let inputFocused = false;
 
 let minePositions = [];
@@ -91,7 +87,7 @@ function initEvents() {
 
   buttonPopupClose.addEventListener("click", () => {
     closePopup();
-    stopGame();
+    tiles.forEach((tile) => tile.disabled = true);
   });
 }
 
@@ -144,33 +140,47 @@ function handleRightClick(e) {
 //
 // START GAME
 function startGame() {
-  if (!gameStarted) {
-    gameStarted = true;
+  stopGame();
 
-    startTimer();
-    disableSettings(buttonsSize, buttonOk, input);
+  gameStarted = true;
+  tiles.forEach((tile) => (tile.disabled = false));
 
-    console.log("Game started...");
-  } else return;
+  startTimer();
+  disableSettings(buttonsSize, buttonOk, input);
+
+  console.log("Game started...");
 }
 
 //
 // STOP GAME
 function stopGame() {
-  if (gameStarted) {
-    gameStarted = false;
+  gameStarted = false;
 
-    minePositions = [];
+  minePositions = [];
 
-    cleanTiles(tiles);
-    nullTimer();
-    nullMoves();
-    nullMines();
+  cleanTiles(tiles);
+  nullTimer();
+  nullMoves();
+  nullMines();
 
-    enableSettings(buttonsSize, buttonOk, input);
+  enableSettings(buttonsSize, buttonOk, input);
 
-    console.log("Game stopped!");
-  } else return;
+  console.log("Game stopped!");
+  
+  // if (gameStarted) {
+  //   gameStarted = false;
+
+  //   minePositions = [];
+
+  //   cleanTiles(tiles);
+  //   nullTimer();
+  //   nullMoves();
+  //   nullMines();
+
+  //   enableSettings(buttonsSize, buttonOk, input);
+
+  //   console.log("Game stopped!");
+  // } else return;
 }
 
 //
@@ -183,9 +193,10 @@ function openTile(tile) {
     tile.dataset.state = "mine";
 
     success = false;
+    gameStarted = false;
 
     pauseTimer();
-    endGame(success);
+    showPopup(success, moves, seconds);
   } 
   
   if (!isMine) {
@@ -200,9 +211,10 @@ function openTile(tile) {
 
     if (isSuccess()) {
       success = true;
+      gameStarted = false;
 
       pauseTimer();
-      endGame(success, moves, seconds);
+      showPopup(success, moves, seconds);
     }
   }
 }
