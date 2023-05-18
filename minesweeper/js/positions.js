@@ -1,9 +1,9 @@
-export { positionExists, getMinesPositions, getTilePosition, getNearTiles, countNearMines };
+export { positionExists, getMinesPositions, getTilePosition, getNearTilesPos, countNearMines };
 
 //
 // COUNT NEAR MINES
-function countNearMines(tile, size, minePositions) {
-  const nearTiles = getNearTiles(tile, size);
+function countNearMines(tilePos, size, minePositions) {
+  const nearTiles = getNearTilesPos(tilePos, size);
 
   let nearMines = 0;
 
@@ -17,17 +17,16 @@ function countNearMines(tile, size, minePositions) {
 
 
 //
-// NEAR TILES
-function getNearTiles(tile, size) {
+// NEAR POS
+function getNearTilesPos(tilePos, size) {
   let nearTiles = [];
 
   for (let stepX = -1; stepX <= 1; stepX++) {
     for (let stepY = -1; stepY <= 1; stepY++) {
-      const nearTile = { x: tile.x + stepX, y: tile.y + stepY };
+      const nearTile = { x: tilePos.x + stepX, y: tilePos.y + stepY };
 
-      if (!(tile.x === nearTile.x && tile.y === nearTile.y) && 
-        nearTile.x >= 0 && nearTile.y >= 0 && nearTile.x < size && nearTile.y < size) {
-          nearTiles.push(nearTile);
+      if (!(tilePos.x === nearTile.x && tilePos.y === nearTile.y) && nearTile.x >= 0 && nearTile.y >= 0 && nearTile.x < size && nearTile.y < size) {
+        nearTiles.push(nearTile);
       }
     }
   }
@@ -42,7 +41,7 @@ function getMinesPositions(size, minesCount) {
   const positions = [];
 
   while (positions.length < minesCount) {
-    
+
     const pos = {
       x: Math.floor(Math.random() * size),
       y: Math.floor(Math.random() * size)
@@ -61,6 +60,7 @@ function getMinesPositions(size, minesCount) {
 //
 // GET TILE POS
 function getTilePosition(tile) {
+
   const pos = {
     x: Number(tile.dataset.x),
     y: Number(tile.dataset.y)
@@ -68,6 +68,18 @@ function getTilePosition(tile) {
 
   return pos;
 }
+
+//
+// GET TILE
+// function getTile(tilePos) {
+
+//   const pos = {
+//     x: Number(tile.dataset.x),
+//     y: Number(tile.dataset.y)
+//   };
+
+//   return pos;
+// }
 
 //
 // POSITION EXISTS IN ARRAY

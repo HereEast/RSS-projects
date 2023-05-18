@@ -1,9 +1,9 @@
 import { toggleMode } from "./js/mode.js";
 import { createPage } from "./js/page.js";
 import { createBoard } from "./js/board.js";
-import { getMinesPositions, positionExists, getTilePosition, getNearTiles, countNearMines } from "./js/positions.js";
+import { getMinesPositions, positionExists, getTilePosition, getNearTilesPos, countNearMines } from "./js/positions.js";
 import { endGame, closePopup } from "./js/popup.js";
-import { disableSettings, enableSettings, revealTile, cleanTiles } from "./js/utils.js";
+import { disableSettings, enableSettings, revealTile, cleanTiles, getSize } from "./js/utils.js";
 
 //
 // ELEMENTS
@@ -114,7 +114,8 @@ function handleLeftClick(e) {
 
   if (moves === 1 && !minePositions.length) {
     minePositions = getMinesPositions(size, minesCount);
-    console.log("Mines: ", minePositions);
+
+    console.log("💣 Mines: ", minePositions);
   } else return;
 }
 
@@ -129,14 +130,15 @@ function handleRightClick(e) {
   const tileState = tile.dataset.state;
 
   if (tileState === "hidden") {
-    handleMarkTile(tile);
+    markTile(tile);
   } else if (tileState === "marked") {
-    handleUnmarkTile(tile);
+    unmarkTile(tile);
   }
 
   if (moves === 1 && !minePositions.length) {
     minePositions = getMinesPositions(size, minesCount);
-    console.log("Mines: ", minePositions);
+
+    console.log("💣 Mines: ", minePositions);
   } else return;
 }
 
@@ -178,15 +180,13 @@ function openTile(tile) {
   const clickedTile = getTilePosition(tile);
   const isMine = positionExists(minePositions, clickedTile);
 
-  // console.log(tile);
-
   if (isMine) {
     tile.dataset.state = "mine";
 
-    success = false;
+    // success = false;
 
-    endGame(success);
-    pauseTimer();
+    // endGame(success);
+    // pauseTimer();
   } 
   
   if (!isMine) {
@@ -196,23 +196,70 @@ function openTile(tile) {
       revealTile(tile, count);
     } else {
       revealTile(tile);
-
-      // const nearTiles = getNearTiles(nearTiles, size);
-      // console.log(nearTiles);
-
-      // nearTiles.forEach((tile) => {
-      //   console.log(tile);
-      // })
+      revealNearTiles(tile);
     }
 
-    if (isSuccess()) {
-      success = true;
+    // if (isSuccess()) {
+    //   success = true;
 
-      endGame(success, moves, seconds);
-      pauseTimer();
-    }
+    //   endGame(success, moves, seconds);
+    //   pauseTimer();
+    // }
   }
 }
+
+//
+// REVEAL NEAR TILES
+function revealNearTiles(tile) {
+  if (moves < 1) return;
+
+  const clickedTile = getTilePosition(tile);
+  const nearTiles = getNearTiles(tiles, clickedTile);
+
+  nearTiles.forEach((tile) => {
+    const tilePos = getTilePosition(tile);
+    const count = countNearMines(tilePos, size, minePositions);
+
+    if (tile.dataset.state === "hidden" && !count) {
+      revealTile(tile);
+      revealNearTiles(tile);
+    } else if (tile.dataset.state === "hidden" && count) {
+      revealTile(tile, count);
+    }
+  });
+}
+
+
+//
+// NEAR TILES
+function getNearTiles(tiles, tilePos) {
+  const size = getSize();
+
+  let nearTiles = [];
+
+  for (let stepX = -1; stepX <= 1; stepX++) {
+    for (let stepY = -1; stepY <= 1; stepY++) {
+      const x = tilePos.x + stepX;
+      const y = tilePos.y + stepY;
+
+      const nearPos = { x: x, y: y };
+
+      const nearTile = tiles.filter((tile) => {
+        return Number(tile.dataset.x) === nearPos.x && Number(tile.dataset.y) === nearPos.y;
+      });
+
+      if (!(tilePos.x === nearPos.x && tilePos.y === nearTile.y) && nearPos.x >= 0 && nearPos.y >= 0 && nearPos.x < size && nearPos.y < size) {
+        nearTiles.push(nearTile[0]);
+      }
+    }
+  }
+
+  return nearTiles;
+}
+
+//
+//
+//
 
 
 //
@@ -280,7 +327,7 @@ function increaseSeconds() {
 
 //
 // MARK TILE
-function handleMarkTile(tile) {
+function markTile(tile) {
   tile.dataset.state = "marked";
 
   flags += 1;
@@ -292,7 +339,7 @@ function handleMarkTile(tile) {
 
 //
 // UNMARK TILE
-function handleUnmarkTile(tile) {
+function unmarkTile(tile) {
   tile.dataset.state = "hidden";
 
   flags -= 1;

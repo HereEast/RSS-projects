@@ -1,10 +1,15 @@
-export { disableSettings, enableSettings, revealTile, cleanTiles };
+export { disableSettings, enableSettings, revealTile, cleanTiles, getSize };
+
+//
+// GET CURRENT SIZE
+function getSize() {
+  const tilesCount = Array.from(document.querySelectorAll(".button__tile")).length;
+  return Math.sqrt(tilesCount);
+}
 
 //
 // REVEAL TILE
-function revealTile(tile, count = "") {
-  console.log(tile);
-  
+function revealTile(tile, count = "") {  
   tile.textContent = count;
   tile.dataset.state = "number";
 
