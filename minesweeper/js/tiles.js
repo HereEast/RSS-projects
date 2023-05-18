@@ -78,24 +78,25 @@ function tileExists(tilePos, nearPos, size) {
 // GET MINES
 function getMinesPositions(minesCount, size) {
   const firstTile = document.querySelector("[data-state='number']");
+  const firstTilePos = getTilePosition(firstTile);
 
-  const positions = [];
+  const mines = [];
 
-  while (positions.length < minesCount) {
+  while (mines.length < minesCount) {
 
     const minePos = {
       x: Math.floor(Math.random() * size),
       y: Math.floor(Math.random() * size)
     };
 
-    const isFirstTile = minePos.x === firstTile.x && minePos.y === firstTile.y;
+    const isFirstTile = minePos.x === firstTilePos.x && minePos.y === firstTilePos.y;
 
-    if (!positionExists(positions, minePos) && !isFirstTile) {
-      positions.push(minePos);
+    if (!positionExists(mines, minePos) && !isFirstTile) {
+      mines.push(minePos);
     }
   }
 
-  return positions;
+  return mines;
 }
 
 //
