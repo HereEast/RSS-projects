@@ -1,9 +1,56 @@
+:root {
+  --light-white: #f4f4f4;
+  --light-button-dark: #868686;
+  --light-button-dark-hover: #9a9a9a;
+  --light-tile-back: #555555;
+  --light-tile-back-opened: #8e8e8e;
+
+  --light-tile-back: #b3b3b3;
+  --light-tile-back-opened: #555555;
+}
+
 .mode--light {
-  background-color: var(--back-light);
+  background-color: var(--light-white);
   color: var(--black);
 }
 
 .mode--light h1,
+.mode--light h2,
 .mode--light span {
   color: var(--black);
+}
+
+/* BUTTONS */
+
+.mode--light .button--light {
+  background-color: var(--white);
+  color: var(--black);
+}
+
+.mode--light .button--light:hover {
+  background-color: var(--button-hover);
+}
+
+.mode--light .button--dark {
+  background-color: var(--light-button-dark);
+}
+
+.mode--light .button--dark:hover {
+  background-color: var(--light-button-dark-hover);
+}
+
+.mode--light .button__size--selected,
+.mode--light .button__size--selected:hover {
+  background-color: var(--white);
+}
+
+/**/
+/* TILES */
+
+.mode--light .button__tile {
+  background-color: var(--light-tile-back);
+}
+
+.mode--light .button__tile[data-state="number"] {
+  background-color: var(--light-tile-back-opened);
 }

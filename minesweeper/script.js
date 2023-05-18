@@ -185,8 +185,8 @@ function openTile(tile) {
 
     success = false;
 
-    endGame(success);
     pauseTimer();
+    endGame(success);
   } 
   
   if (!isMine) {
@@ -202,8 +202,8 @@ function openTile(tile) {
     if (isSuccess()) {
       success = true;
 
-      endGame(success, moves, seconds);
       pauseTimer();
+      endGame(success, moves, seconds);
     }
   }
 }
@@ -259,8 +259,11 @@ function nullMoves() {
 //
 // START TIMER
 function startTimer() {
-  increaseSeconds();
-  timerId = setInterval(increaseSeconds, 1000);
+  // increaseSeconds();
+  timerId = setInterval(() => {
+    seconds += 1;
+    secondsElement.textContent = seconds;
+  }, 1000);
 }
 
 //
@@ -290,10 +293,10 @@ function pauseTimer() {
 
 //
 // UPDATE SECONDS
-function increaseSeconds() {
-  seconds += 1;
-  secondsElement.textContent = seconds;
-}
+// function increaseSeconds() {
+//   seconds += 1;
+//   secondsElement.textContent = seconds;
+// }
 
 //
 // MARK TILE

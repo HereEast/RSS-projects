@@ -3,9 +3,8 @@
 :root {
   --back-dark: #313131;
   --back-light: #d0d0d0;
-  /* --tile-back: #5D5D5D; */
   --tile-back: #707070;
-  --tile-back-opened: #3f3f3f;
+  --tile-back-opened: #454545;
   --black: #313131;
   --max-black: #1a1a1a;
   --white: #ffffff;
@@ -21,6 +20,9 @@
   --size: 10;
   --tile-width: 40px;
   --width: 600px;
+
+  --border-light: 1px solid var(--tile-back);
+  --border-tile: 1px solid var(--max-black);
 
 }
 

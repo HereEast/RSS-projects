@@ -5,7 +5,7 @@
   align-items: center;
   position: relative;
 
-  border: 1px solid var(--tile-back);
+  border: var(--border-light);
   margin-bottom: -1px;
 }
 
@@ -37,8 +37,8 @@ h2 {
   align-items: center;
   justify-content: space-between;
 
-  border-left: 1px solid var(--tile-back);
-  border-right: 1px solid var(--tile-back);
+  border-left: var(--border-light);
+  border-right: var(--border-light);
   padding: 15px 20px;
 }
 
@@ -109,7 +109,7 @@ h2 {
     position: absolute;
     top: 54px;
 
-    border-top: 1px solid var(--tile-back);
+    border-top: var(--border-light);
     border-left: none;
     border-right: none;
   }
@@ -121,7 +121,7 @@ h2 {
   }
 
   .header__item:first-child {
-    border-right: 1px solid var(--tile-back);
+    border-right: var(--border-light);
   }
 
   h1 {
