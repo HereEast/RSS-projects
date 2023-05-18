@@ -7,22 +7,27 @@
   left: 0;
   align-items: center;
   justify-content: center;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.6);
   opacity: 0;
+
+  transition: all 00.3s ease-in;
 }
 
 .popup__container {
   width: 400px;
-  padding: 60px 40px;
+  padding: 80px 65px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   background-color: var(--tile-back);
+  border-radius: 3px;
+  border: 1px solid var(--max-black);
 }
 
 .popup__message {
   display: block;
+  color: var(--white);
   text-align: center;
   margin-bottom: 10px;
 }

@@ -50,7 +50,7 @@ function createPopup() {
   const popup = `
     <div class="popup">
       <div class="popup__container">
-        <span class="popup__message">Hello</span>
+        <span class="popup__message"></span>
         <div class="popup__buttons">
         <button class="button button--light button__popup--close">Close</button>
       </div>

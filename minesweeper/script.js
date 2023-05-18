@@ -25,8 +25,8 @@ let input;
 
 //
 //
-let size = 10;
-let minesCount = 10;
+let size = 3;
+let minesCount = 1;
 
 let moves = 0;
 let seconds = 0;
@@ -45,7 +45,7 @@ let minePositions = [];
 //
 //
 createPage();
-createBoard(size, minesCount);
+createBoard(size);
 
 initEvents();
 setRemainedMinesValue();
@@ -97,7 +97,6 @@ function initEvents() {
 
 //
 //
-
 
 //
 // LEFT CLICK

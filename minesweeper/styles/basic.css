@@ -3,7 +3,7 @@
 :root {
   --back-dark: #313131;
   --back-light: #d0d0d0;
-  --tile-back: #707070;
+  --tile-back: rgb(112, 112, 112);
   --tile-back-opened: #454545;
   --black: #313131;
   --max-black: #1a1a1a;
