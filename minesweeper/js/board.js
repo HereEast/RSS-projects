@@ -2,7 +2,7 @@ console.log("✅ Board");
 
 //
 // BOARD
-function createBoard(size, minesCount) {
+function createBoard(size) {
   const boardContainer = document.querySelector(".board__container");
 
   [...boardContainer.children].forEach((child) => child.remove());
@@ -11,7 +11,7 @@ function createBoard(size, minesCount) {
   board.classList.add("board");
   board.style.setProperty("--size", size);
 
-  const grid = createGrid(size, minesCount);
+  const grid = createGrid(size);
 
   grid.forEach((row) => {
     row.forEach((element) => {
@@ -24,9 +24,8 @@ function createBoard(size, minesCount) {
 
 //
 // GRID
-function createGrid(size, minesCount) {
-  const board = [];
-  // const minePositions = getMinesPositions(size, minesCount);
+function createGrid(size) {
+  const grid = [];
 
   for (let x = 0; x < size; x++) {
     const row = [];
@@ -39,26 +38,19 @@ function createGrid(size, minesCount) {
       tile.dataset.x = y;
       tile.dataset.y = x;
 
-      // const tilePos = { x, y };
-      // const isMine = positionExists(minePositions, tilePos);
-
       const tileData = {
         tile: tile,
         x: x,
         y: y,
-        // mine: isMine
       };
 
       row.push(tileData);
     }
 
-    board.push(row);
+    grid.push(row);
   }
-  
-  // console.log("💣 Mines: ", minePositions);
-  // console.log("1️⃣ Board: ", board);
 
-  return board;
+  return grid;
 }
 
 export { createBoard };
