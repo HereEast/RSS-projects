@@ -1,5 +1,9 @@
 console.log("✅ Page");
 
+export { createPage };
+
+//
+// CREATE PAGE
 function createPage() {
   const header = createHeader();
   const popup = createPopup();
@@ -91,6 +95,4 @@ function createHeader() {
 
   return header;
 }
-
-export { createPage };
 

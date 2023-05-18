@@ -1,13 +1,6 @@
 export { disableSettings, enableSettings, revealTile, cleanTiles, getSize };
 
 //
-// GET CURRENT SIZE
-function getSize() {
-  const tilesCount = Array.from(document.querySelectorAll(".button__tile")).length;
-  return Math.sqrt(tilesCount);
-}
-
-//
 // REVEAL TILE
 function revealTile(tile, count = "") {  
   tile.textContent = count;
@@ -15,17 +8,11 @@ function revealTile(tile, count = "") {
 
   if (count === 1) {
     tile.classList.add("color--blue");
-  }
-
-  if (count === 2) {
+  } else if (count === 2) {
     tile.classList.add("color--green");
-  }
-
-  if (count === 3) {
+  } else if (count === 3) {
     tile.classList.add("color--yellow");
-  }
-
-  if (count > 3) {
+  } else if (count > 3) {
     tile.classList.add("color--red");
   }
 }
@@ -59,4 +46,11 @@ function enableSettings(buttonsSize, buttonOk, input) {
 
   buttonOk.disabled = false;
   input.disabled = false;
+}
+
+//
+// GET BOARD SIZE
+function getSize() {
+  const tilesCount = Array.from(document.querySelectorAll(".button__tile")).length;
+  return Math.sqrt(tilesCount);
 }
