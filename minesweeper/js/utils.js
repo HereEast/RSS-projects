@@ -4,7 +4,7 @@ export { disableSettings, enableSettings, revealTile, cleanTiles };
 // REVEAL TILE
 function revealTile(tile, count) {  
   if (!count) count = "";
-  
+
   tile.textContent = count;
   tile.dataset.state = "number";
 
@@ -16,7 +16,7 @@ function revealTile(tile, count) {
     tile.classList.add("color--yellow");
   } else if (count > 3) {
     tile.classList.add("color--red");
-  }
+  } else return;
 }
 
 //

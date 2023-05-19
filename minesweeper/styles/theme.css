@@ -5,7 +5,7 @@
   --light-tile-back: #555555;
   --light-tile-back-opened: #8e8e8e;
 
-  --light-tile-back: #b3b3b3;
+  --light-tile-back: #c5c5c5;
   --light-tile-back-opened: #555555;
 }
 
@@ -53,4 +53,11 @@
 
 .mode--light .button__tile[data-state="number"] {
   background-color: var(--light-tile-back-opened);
+}
+
+/**/
+/* POPUP */
+
+.mode--light .popup__container {
+  background-color: var(--back-light);
 }

@@ -1,4 +1,4 @@
-import { toggleMode } from "./js/mode.js";
+import { toggleMode, setMode } from "./js/mode.js";
 import { createPage } from "./js/page.js";
 import { createBoard } from "./js/board.js";
 import { getMinesPositions, positionExists, getTilePosition, getNearTiles, countNearMines } from "./js/tiles.js";
@@ -25,8 +25,10 @@ let buttonPopupClose;
 //
 let minMines = 10;
 let maxMines = 99;
-let size = 10;
-let minesCount = minMines;
+let size = localStorage.getItem("currentSize") || 10;
+let minesCount = localStorage.getItem("mineCount") || minMines;
+
+console.log(localStorage.getItem("mineCount"));
 
 let moves = 0;
 let seconds = 0;
@@ -45,6 +47,8 @@ let minePositions = [];
 //
 createPage();
 createBoard(size);
+
+setMode();
 
 initEvents();
 setRemainedMinesValue();
@@ -110,6 +114,8 @@ function handleLeftClick(e) {
   openTile(tile);
   updateMovesCount();
 
+  checkSuccess();
+
   if (moves === 1 && !minePositions.length) {
     minePositions = getMinesPositions(minesCount, size);
 
@@ -123,7 +129,7 @@ function handleLeftClick(e) {
     }
 
     console.log("💣 Mines: ", minePositions);
-  } else return;
+  };
 }
 
 //
@@ -195,16 +201,9 @@ function openTile(tile) {
     } else {
       revealNearTiles(tile, count);
     }
-
-    if (isSuccess()) {
-      success = true;
-      gameStarted = false;
-
-      pauseTimer();
-      showPopup(success, moves, seconds);
-    }
   }
 }
+
 
 //
 // REVEAL NEAR TILES
@@ -224,6 +223,29 @@ function revealNearTiles(tile, count) {
       revealTile(tile, count);
     }
   });
+}
+
+//
+// CHECK SUCCESS
+async function checkSuccess() {
+  setTimeout(() => {
+    const closedTiles = tiles.filter((tile) => {
+      return tile.dataset.state === "hidden" || tile.dataset.state === "marked";
+    });
+
+    const matchMines = closedTiles.every((tile) => {
+      const tilePos = getTilePosition(tile);
+      return positionExists(minePositions, tilePos);
+    });
+
+    if (matchMines && closedTiles.length === minesCount) {
+      success = true;
+      gameStarted = false;
+
+      pauseTimer();
+      showPopup(success, moves, seconds);
+    }
+  }, 0)
 }
 
 //
@@ -294,15 +316,6 @@ function countFlags(step) {
   remainedElement.textContent = remainedMines;
 }
 
-//
-// CHECK SUCCESS
-function isSuccess() {
-  const closedTiles = tiles.filter((tile) => {
-    return tile.dataset.state === "hidden" || tile.dataset.state === "marked";
-  });
-
-  return closedTiles.length === minesCount;
-}
 
 //
 // UPDATE MOVES
