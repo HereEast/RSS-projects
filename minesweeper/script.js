@@ -3,7 +3,7 @@ import { createPage } from "./js/page.js";
 import { createBoard } from "./js/board.js";
 import { getMinesPositions, positionExists, getTilePosition, getNearTiles, countNearMines } from "./js/tiles.js";
 import { showPopup, closePopup } from "./js/popup.js";
-import { disableSettings, enableSettings, revealTile, cleanTiles } from "./js/utils.js";
+import { disableSettings, enableSettings, revealTile, cleanTiles, setSizeButton, setInputValue } from "./js/utils.js";
 import { highlightStart, updateButtonsStyle } from "./js/ui.js";
 
 //
@@ -20,15 +20,15 @@ let remainedElement;
 let buttonsSize;
 let buttonOk;
 let input;
+
 let buttonPopupClose;
+let buttonResults;
 
 //
 let minMines = 10;
 let maxMines = 99;
 let size = localStorage.getItem("currentSize") || 10;
-let minesCount = localStorage.getItem("mineCount") || minMines;
-
-console.log(localStorage.getItem("mineCount"));
+let minesCount = localStorage.getItem("minesCount") || minMines;
 
 let moves = 0;
 let seconds = 0;
@@ -48,10 +48,12 @@ let minePositions = [];
 createPage();
 createBoard(size);
 
-setMode();
-
 initEvents();
 setRemainedMinesValue();
+
+setMode();
+setSizeButton(size);
+setInputValue(minesCount);
 
 //
 // INIT EVENTS
@@ -62,6 +64,7 @@ function initEvents() {
   tiles = Array.from(document.querySelectorAll(".button__tile"));
 
   buttonPopupClose = document.querySelector(".button__popup--close");
+  buttonResults = document.querySelector(".button__stats");
 
   secondsElement = document.querySelector(".seconds");
   movesElement = document.querySelector(".moves");
@@ -78,6 +81,7 @@ function initEvents() {
   buttonStop.addEventListener("click", stopGame);
 
   buttonMode.addEventListener("click", toggleMode);
+  buttonResults.addEventListener("click", showResultsPopup);
 
   tiles.forEach((tile) => {
     tile.addEventListener("click", handleLeftClick);
@@ -100,6 +104,10 @@ function initEvents() {
 
 //
 //
+
+function showResultsPopup() {
+  console.log("popup");
+}
 
 //
 // LEFT CLICK
@@ -263,6 +271,8 @@ function updateSize(e) {
   initEvents();
 
   updateButtonsStyle(button, buttonsSize);
+
+  localStorage.setItem("currentSize", selectedSize);
 }
 
 //
@@ -275,6 +285,7 @@ function updateMinesCount() {
   if (input.value > maxMines) input.value = maxMines;
 
   minesCount = input.value;
+  localStorage.setItem("minesCount", minesCount);
 
   setRemainedMinesValue();
 

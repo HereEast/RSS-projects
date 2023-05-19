@@ -1,4 +1,16 @@
-export { disableSettings, enableSettings, revealTile, cleanTiles };
+export { disableSettings, enableSettings, revealTile, cleanTiles, setInputValue, setSizeButton };
+
+// SET INPUT
+function setInputValue(minesCount) {
+  const input = document.querySelector(".input");
+  input.value = minesCount;
+}
+
+// SET SIZE BUTTON
+function setSizeButton(size) {
+  const button = document.querySelector(`[data-size='${size}']`);
+  button.classList.add("button__size--selected");
+}
 
 //
 // REVEAL TILE

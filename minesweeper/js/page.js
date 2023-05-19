@@ -7,6 +7,7 @@ export { createPage };
 function createPage() {
   const header = createHeader();
   const popup = createPopup();
+  const resultsPopup = createResultsPopup();
 
   const page = `
     <div class="page">
@@ -41,14 +42,36 @@ function createPage() {
   `;
 
   document.body.insertAdjacentHTML("afterbegin", page);
-  document.body.insertAdjacentHTML("beforeend", popup);
+
+  const pageElement = document.querySelector(".page");
+  pageElement.insertAdjacentHTML("afterend", popup);
+
+  const endPopup = document.querySelector(".popup");
+  endPopup.insertAdjacentHTML("afterend", resultsPopup);
+}
+
+//
+// RESULTS POPUP
+function createResultsPopup() {
+  const popup = `
+    <div class="popup popup__results">
+      <div class="popup__container">
+        <span class="popup__message"></span>
+        <div class="popup__buttons">
+        <button class="button button--light button__popup--close">Close</button>
+      </div>
+      </div>
+    </div>
+  `;
+
+  return popup;
 }
 
 //
 // POPUP
 function createPopup() {
   const popup = `
-    <div class="popup">
+    <div class="popup popup__end">
       <div class="popup__container">
         <span class="popup__message"></span>
         <div class="popup__buttons">
@@ -74,7 +97,7 @@ function createHeader() {
         <div class="settings__item">
           <span>Board:</span>
           <div class="settings__buttons">
-            <button class="button button__size button--dark button__size--selected" data-size="10">S</button>
+            <button class="button button__size button--dark" data-size="10">S</button>
             <button class="button button__size button--dark" data-size="15">M</button>
             <button class="button button__size button--dark" data-size="25">L</button>
           </div>
