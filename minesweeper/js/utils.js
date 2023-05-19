@@ -1,8 +1,10 @@
-export { disableSettings, enableSettings, revealTile, cleanTiles, getSize };
+export { disableSettings, enableSettings, revealTile, cleanTiles };
 
 //
 // REVEAL TILE
-function revealTile(tile, count = "") {  
+function revealTile(tile, count) {  
+  if (!count) count = "";
+  
   tile.textContent = count;
   tile.dataset.state = "number";
 

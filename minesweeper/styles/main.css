@@ -15,6 +15,17 @@
   grid-template-columns: repeat(4, 1fr);
 
   border: var(--border-light);
+  background-color: transparent;
+
+  transition: all 0.3s ease-in;
+}
+
+.main__info--highlighted {
+  background-color: var(--green);
+}
+
+.main__info--highlighted span {
+  color: var(--black);
 }
 
 .info__item {
@@ -117,5 +128,9 @@
 @media all and (max-width: 600px) {
   .main .info__item {
     padding: 8px 15px;
+  }
+
+  .main__buttons {
+    margin-bottom: 60px;
   }
 }
