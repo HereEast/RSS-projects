@@ -8,7 +8,7 @@ function showPopup(success, moves, seconds) {
     `Hooray🎉🎉🎉 <br>You found all mines in ${seconds} seconds and ${moves} moves!` :
     `Booooom💥💥💥 <br>Game over. Try again!`;
 
-  const popup = document.querySelector(".popup");
+  const popup = document.querySelector(".popup__end");
   const popupMessage = document.querySelector(".popup__message");
 
   popupMessage.innerHTML = message;
@@ -22,7 +22,7 @@ function showPopup(success, moves, seconds) {
 //
 // CLOSE POPUP
 function closePopup() {
-  const popup = document.querySelector(".popup");
+  const popup = document.querySelector(".popup__end");
   const popupMessage = document.querySelector(".popup__message");
 
   popupMessage.textContent = "";

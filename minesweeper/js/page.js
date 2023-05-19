@@ -46,7 +46,7 @@ function createPage() {
   const pageElement = document.querySelector(".page");
   pageElement.insertAdjacentHTML("afterend", popup);
 
-  const endPopup = document.querySelector(".popup");
+  const endPopup = document.querySelector(".popup__end");
   endPopup.insertAdjacentHTML("afterend", resultsPopup);
 }
 
@@ -56,15 +56,50 @@ function createResultsPopup() {
   const popup = `
     <div class="popup popup__results">
       <div class="popup__container">
-        <span class="popup__message"></span>
-        <div class="popup__buttons">
-        <button class="button button--light button__popup--close">Close</button>
+        <div class="results">
+          <div class="results__placeholder">
+            No results yet. <br>Go play the game, human!
+          </div>
+        </div>
+        <button class="button button--light button__results--close">Close</button>
       </div>
       </div>
     </div>
   `;
 
   return popup;
+}
+
+//
+// RESULTS ITEM
+function createResultsItem(order, name = "username", sec, moves, success) {
+  const item = `
+    <div class="results__item">
+      <span class="results__span">${order}</span>
+      <span class="results__span">${name}</span>
+      <span class="results__span">${sec}</span>
+      <span class="results__span">${moves}</span>
+      <span class="results__span">${success}</span>
+    </div>
+  `;
+
+  return item;
+}
+
+//
+// RESULTS TABLE HEADER
+function createTableHeader() {
+  const tableHeader = `
+    <div class="results__header">
+      <span class="results__span">00</span>
+      <span class="results__span">Name</span>
+      <span class="results__span">Sec</span>
+      <span class="results__span">Moves</span>
+      <span class="results__span">Success</span>
+    </div>
+  `;
+
+  return tableHeader;
 }
 
 //
