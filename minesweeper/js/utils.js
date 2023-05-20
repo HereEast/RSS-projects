@@ -1,4 +1,4 @@
-export { disableSettings, enableSettings, revealTile, cleanTiles, setInputValue, setSizeButton };
+export { disableSettings, enableSettings, revealTile, cleanTiles, setInputValue, setSizeButton, getName };
 
 // SET INPUT
 function setInputValue(minesCount) {
@@ -8,8 +8,8 @@ function setInputValue(minesCount) {
 
 // SET SIZE BUTTON
 function setSizeButton(size) {
-  // const button = document.querySelector(`[data-size='${size}']`);
-  // button.classList.add("button__size--selected");
+  const button = document.querySelector(`[data-size='${size}']`);
+  button.classList.add("button__size--selected");
 }
 
 //
@@ -63,8 +63,11 @@ function enableSettings(buttonsSize, buttonOk, input) {
 }
 
 //
-// GET BOARD SIZE
-function getSize() {
-  const tilesCount = Array.from(document.querySelectorAll(".button__tile")).length;
-  return Math.sqrt(tilesCount);
+// GET NAME
+function getName() {
+  const names = ["Godzilla", "Edward Cullin", "Cinderella", "Peter Parker", "Harry Potter", "Jack Sparrow", "Gandalf", "Ellen Ripley", "Vito Corleone", "Katniss Everdeen"];
+
+  const idx = Math.floor(Math.random() * 9);
+
+  return names[idx];
 }

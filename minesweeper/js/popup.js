@@ -1,19 +1,33 @@
-import { renderResults } from "./results.js";
+import { renderResults, cleanResults } from "./results.js";
 export { showPopup, closePopup, showResultsPopup };
 
 //
 // SHOW RESULTS POPUP
 function showResultsPopup() {
   const popup = document.querySelector(".popup__results");
+  const resultsContainer = document.querySelector(".results");
+  const popupButtons = document.querySelector(".results__buttons");
 
   popup.style.display = "flex";
   popup.style.opacity = 1;
 
   document.body.style.overflow = "hidden";
 
-  renderResults(); 
-}
+  renderResults();
 
+  const resultsEmpty = [...resultsContainer.children].some((child) => child.classList.contains("results__placeholder"));
+
+  const buttonExists = [...popupButtons.children].some((child) => child.classList.contains("button__results--clean"));
+
+  if (!resultsEmpty && !buttonExists) {
+    const cleanButtonElement = `<button class="button button--light button__results--clean">Clean Results</button>`;
+
+    popupButtons.insertAdjacentHTML("beforeend", cleanButtonElement);
+
+    const cleanButton = document.querySelector(".button__results--clean");
+    cleanButton.addEventListener("click", cleanResults);
+  }
+}
 
 //
 // SHOW POPUP

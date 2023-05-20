@@ -1,6 +1,5 @@
 console.log("✅ Page");
 
-import { createResultsPopup } from "./results.js";
 export { createPage };
 
 //
@@ -60,6 +59,25 @@ function createPopup() {
         <span class="popup__message"></span>
         <div class="popup__buttons">
         <button class="button button--light button__popup--close">Close</button>
+      </div>
+      </div>
+    </div>
+  `;
+
+  return popup;
+}
+
+//
+// CREATE POPUP
+function createResultsPopup() {
+  const popup = `
+    <div class="popup popup__results">
+      <div class="popup__container">
+        <div class="results">
+        </div>
+        <div class="results__buttons">
+          <button class="button button--light button__results--close">Close</button>
+        </div>
       </div>
       </div>
     </div>

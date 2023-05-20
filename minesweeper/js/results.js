@@ -1,18 +1,12 @@
-export { saveResult, renderResults, createResultsPopup };
+import { getName } from "./utils.js";
+export { saveResult, renderResults, cleanResults };
 
 //
 // RENDER RESULTS
 function renderResults() {
-  // console.log("Render: ", localStorage.getItem("results"));
-
   const resultsContainer = document.querySelector(".results");
   const savedResults = localStorage.getItem("results");
-
-  const placeholder = `
-    <div class="results__placeholder">
-      No results yet. <br>Go play the game, human!
-    </div>
-    `;
+  const placeholder = createPlaceholder();
 
   [...resultsContainer.children].forEach((child) => child.remove());
 
@@ -28,13 +22,7 @@ function renderResults() {
     const resultsArray = JSON.parse(savedResults);
 
     resultsArray.forEach((result, i) => {
-      const number = i < 9 ? `0${i + 1}` : 10;
-      const name = result.name;
-      const sec = result.seconds;
-      const moves = result.moves;
-      const success = result.success ? "Win" : "Lose";
-
-      const item = createResultsItem(number, name, sec, moves, success);
+      const item = createResultsItem(result, i);
       resultsContainer.insertAdjacentHTML("beforeend", item);
     });
   }
@@ -43,8 +31,9 @@ function renderResults() {
 //
 // SAVE RESULT
 function saveResult(success, moves, seconds) {
+
   const currentResult = {
-    name: "Godzilla🐊",
+    name: getName(),
     seconds: seconds,
     moves: moves,
     success: success
@@ -70,33 +59,35 @@ function saveResult(success, moves, seconds) {
 
   resultsArray = JSON.stringify(resultsArray);
   localStorage.setItem("results", resultsArray);
-
-  // console.log("Saved: ", localStorage.getItem("results"));
 }
 
 //
-// RESULTS POPUP
-function createResultsPopup() {
-  const popup = `
-    <div class="popup popup__results">
-      <div class="popup__container">
-        <div class="results">
-        </div>
-        <button class="button button--light button__results--close">Close</button>
-      </div>
-      </div>
-    </div>
-  `;
+// CLEAN RESULTS
+function cleanResults() {
+  localStorage.setItem("results", "");
 
-  return popup;
+  const placeholder = createPlaceholder();
+  const resultsContainer = document.querySelector(".results");
+
+  [...resultsContainer.children].forEach((child) => child.remove());
+  resultsContainer.insertAdjacentHTML("afterbegin", placeholder);
+
+  const cleanButton = document.querySelector(".button__results--clean");
+  cleanButton.remove();
 }
 
 //
-// RESULTS ITEM
-function createResultsItem(order, name, sec, moves, success) {
+// CREATE ITEM
+function createResultsItem(result, num) {
+  const number = num < 9 ? `0${num + 1}` : 10;
+  const name = result.name;
+  const sec = result.seconds;
+  const moves = result.moves;
+  const success = result.success ? "Win" : "Lose";
+
   const item = `
     <div class="results__item">
-      <span class="results__span">${order}</span>
+      <span class="results__span">${number}</span>
       <span class="results__span">${name}</span>
       <span class="results__span">${sec}</span>
       <span class="results__span">${moves}</span>
@@ -116,9 +107,21 @@ function createTableHeader() {
       <span class="results__span">Name</span>
       <span class="results__span">Sec</span>
       <span class="results__span">Moves</span>
-      <span class="results__span">Success</span>
+      <span class="results__span">Succ</span>
     </div>
   `;
 
   return tableHeader;
+}
+
+//
+// PLACEHOLDER
+function createPlaceholder() {
+  const placeholder = `
+    <div class="results__placeholder">
+      No results yet. <br>Go play the game, human!
+    </div>
+    `;
+
+  return placeholder;
 }

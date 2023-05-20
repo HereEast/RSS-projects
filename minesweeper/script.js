@@ -26,12 +26,11 @@ let buttonPopupClose;
 let buttonOpenResults;
 let buttonCloseResults;
 
-// localStorage.clear();
 
 //
-let minMines = 1;
+let minMines = 10;
 let maxMines = 99;
-let size = localStorage.getItem("currentSize") || 4;
+let size = localStorage.getItem("currentSize") || 10;
 let minesCount = localStorage.getItem("minesCount") || minMines;
 
 let moves = 0;
@@ -201,8 +200,6 @@ function openTile(tile) {
 
     pauseTimer();
     showPopup(success, moves, seconds);
-
-    // Results
     saveResult(success, moves, seconds);
   } 
   
@@ -258,8 +255,6 @@ async function checkSuccess() {
 
       pauseTimer();
       showPopup(success, moves, seconds);
-
-      // Result
       saveResult(success, moves, seconds);
     }
   }, 0)

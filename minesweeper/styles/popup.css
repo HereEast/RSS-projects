@@ -46,7 +46,7 @@
 /**/
 
 .popup__results .popup__container {
-  max-width: 460px;
+  max-width: 500px;
   width: 100%;
 
   padding: 60px;
@@ -60,7 +60,7 @@
 .results__item,
 .results__header {
   display: grid;
-  grid-template-columns: 2fr 4fr 3fr 3fr 4fr;
+  grid-template-columns: 1fr 4fr 2fr 2fr 2fr;
 
   border-top: 1px solid #9a9a9a;
   padding: 10px 0;
@@ -91,4 +91,11 @@
   font-weight: 300;
   text-align: center;
   color: var(--white)
+}
+
+.results__buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
 }
