@@ -1,4 +1,18 @@
-export { showPopup, closePopup };
+import { renderResults } from "./results.js";
+export { showPopup, closePopup, showResultsPopup };
+
+//
+// SHOW RESULTS POPUP
+function showResultsPopup() {
+  const popup = document.querySelector(".popup__results");
+
+  popup.style.display = "flex";
+  popup.style.opacity = 1;
+
+  document.body.style.overflow = "hidden";
+
+  renderResults(); 
+}
 
 
 //
@@ -21,11 +35,8 @@ function showPopup(success, moves, seconds) {
 
 //
 // CLOSE POPUP
-function closePopup() {
-  const popup = document.querySelector(".popup__end");
-  const popupMessage = document.querySelector(".popup__message");
-
-  popupMessage.textContent = "";
+function closePopup(selector) {
+  const popup = document.querySelector(selector);
 
   popup.style.display = "none";
   popup.style.opacity = 0;

@@ -2,9 +2,10 @@ import { toggleMode, setMode } from "./js/mode.js";
 import { createPage } from "./js/page.js";
 import { createBoard } from "./js/board.js";
 import { getMinesPositions, positionExists, getTilePosition, getNearTiles, countNearMines } from "./js/tiles.js";
-import { showPopup, closePopup } from "./js/popup.js";
+import { showPopup, closePopup, showResultsPopup } from "./js/popup.js";
 import { disableSettings, enableSettings, revealTile, cleanTiles, setSizeButton, setInputValue } from "./js/utils.js";
 import { highlightStart, updateButtonsStyle } from "./js/ui.js";
+import { saveResult } from "./js/results.js";
 
 //
 let buttonPlay;
@@ -22,12 +23,15 @@ let buttonOk;
 let input;
 
 let buttonPopupClose;
-let buttonResults;
+let buttonOpenResults;
+let buttonCloseResults;
+
+// localStorage.clear();
 
 //
-let minMines = 10;
+let minMines = 1;
 let maxMines = 99;
-let size = localStorage.getItem("currentSize") || 10;
+let size = localStorage.getItem("currentSize") || 4;
 let minesCount = localStorage.getItem("minesCount") || minMines;
 
 let moves = 0;
@@ -64,7 +68,8 @@ function initEvents() {
   tiles = Array.from(document.querySelectorAll(".button__tile"));
 
   buttonPopupClose = document.querySelector(".button__popup--close");
-  buttonResults = document.querySelector(".button__stats");
+  buttonOpenResults = document.querySelector(".button__results--open");
+  buttonCloseResults = document.querySelector(".button__results--close");
 
   secondsElement = document.querySelector(".seconds");
   movesElement = document.querySelector(".moves");
@@ -81,7 +86,8 @@ function initEvents() {
   buttonStop.addEventListener("click", stopGame);
 
   buttonMode.addEventListener("click", toggleMode);
-  buttonResults.addEventListener("click", showResultsPopup);
+  buttonOpenResults.addEventListener("click", showResultsPopup);
+  buttonCloseResults.addEventListener("click", () => closePopup(".popup__results"));
 
   tiles.forEach((tile) => {
     tile.addEventListener("click", handleLeftClick);
@@ -97,7 +103,7 @@ function initEvents() {
   input.addEventListener("blur", updateMinesCount);
 
   buttonPopupClose.addEventListener("click", () => {
-    closePopup();
+    closePopup(".popup__end");
     tiles.forEach((tile) => tile.disabled = true);
   });
 }
@@ -105,9 +111,6 @@ function initEvents() {
 //
 //
 
-function showResultsPopup() {
-  console.log("popup");
-}
 
 //
 // LEFT CLICK
@@ -198,6 +201,9 @@ function openTile(tile) {
 
     pauseTimer();
     showPopup(success, moves, seconds);
+
+    // Results
+    saveResult(success, moves, seconds);
   } 
   
   // Not mine
@@ -252,6 +258,9 @@ async function checkSuccess() {
 
       pauseTimer();
       showPopup(success, moves, seconds);
+
+      // Result
+      saveResult(success, moves, seconds);
     }
   }, 0)
 }
@@ -355,6 +364,9 @@ function nullMines() {
 //
 // TIMER
 function startTimer() {
+  seconds += 1;
+  secondsElement.textContent = seconds;
+
   timerId = setInterval(() => {
     seconds += 1;
     secondsElement.textContent = seconds;
