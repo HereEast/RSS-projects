@@ -83,7 +83,7 @@ function createResultsItem(result, num) {
   const name = result.name;
   const sec = result.seconds;
   const moves = result.moves;
-  const success = result.success ? "Win" : "Lose";
+  const success = result.success ? "✅" : "⛔️";
 
   const item = `
     <div class="results__item">

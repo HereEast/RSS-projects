@@ -28,9 +28,9 @@ let buttonCloseResults;
 
 
 //
-let minMines = 10;
+let minMines = 1;
 let maxMines = 99;
-let size = localStorage.getItem("currentSize") || 10;
+let size = localStorage.getItem("currentSize") || 3;
 let minesCount = localStorage.getItem("minesCount") || minMines;
 
 let moves = 0;
@@ -103,6 +103,7 @@ function initEvents() {
 
   buttonPopupClose.addEventListener("click", () => {
     closePopup(".popup__end");
+
     tiles.forEach((tile) => tile.disabled = true);
   });
 }
@@ -200,7 +201,6 @@ function openTile(tile) {
 
     pauseTimer();
     showPopup(success, moves, seconds);
-    saveResult(success, moves, seconds);
   } 
   
   // Not mine
@@ -213,6 +213,8 @@ function openTile(tile) {
       revealNearTiles(tile, count);
     }
   }
+
+  saveResult(success, moves, seconds);
 }
 
 

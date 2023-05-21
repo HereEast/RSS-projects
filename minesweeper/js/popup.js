@@ -15,12 +15,12 @@ function showResultsPopup() {
 
   renderResults();
 
-  const resultsEmpty = [...resultsContainer.children].some((child) => child.classList.contains("results__placeholder"));
+  const placeholderExists = [...resultsContainer.children].some((child) => child.classList.contains("results__placeholder"));
 
-  const buttonExists = [...popupButtons.children].some((child) => child.classList.contains("button__results--clean"));
-
-  if (!resultsEmpty && !buttonExists) {
-    const cleanButtonElement = `<button class="button button--light button__results--clean">Clean Results</button>`;
+  if (!placeholderExists) {
+    const cleanButtonElement = `
+      <button class="button button--light button__results--clean">Clean Results</button>
+      `;
 
     popupButtons.insertAdjacentHTML("beforeend", cleanButtonElement);
 
