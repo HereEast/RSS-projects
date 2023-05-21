@@ -21,4 +21,6 @@ function setSound(sounds) {
   soundButton.innerHTML = Number(volume) ? "⦿" : "◎";
 
   localStorage.setItem("volume", volume);
+
+  console.log("✅ Volume: ", Boolean(Number(volume)));
 }

@@ -79,25 +79,18 @@ h2 {
   }
 }
 
-@media all and (max-width: 822px) {
+@media all and (max-width: 884px) {
   .header__title,
   .header__buttons {
-    width: 94px;
+    width: 120px;
+  }
+
+  h1 {
+    width: 120px;
   }
 }
 
-@media all and (max-width: 600px) {
-  .header__title,
-  .header__buttons {
-    padding: 0 15px;
-  }
-
-  .header__settings {
-    padding: 15px;
-  }
-}
-
-@media all and (max-width: 580px) {
+@media all and (max-width: 640px) {
   .header {
     height: 108px;
     align-items: flex-start;
@@ -132,5 +125,12 @@ h2 {
 
   h2 {
     display: none;
+  }
+}
+
+@media all and (max-width: 600px) {
+  .header__title,
+  .header__buttons {
+    padding: 0 15px;
   }
 }
