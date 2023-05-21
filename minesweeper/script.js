@@ -6,17 +6,13 @@ import { showPopup, closePopup, showResultsPopup } from "./js/popup.js";
 import { disableSettings, enableSettings, revealTile, cleanTiles, setSizeButton, setInputValue } from "./js/utils.js";
 import { highlightStart, updateButtonsStyle } from "./js/ui.js";
 import { saveResult } from "./js/results.js";
-import { playClick } from "./js/sounds.js";
-
-//
-
-const clickSound = new Audio("./assets/sounds/click-01.mp3");
-const markSound = new Audio("./assets/sounds/click-05.mp3");
+import { setSound, toggleSound } from "./js/sound.js";
 
 //
 let buttonPlay;
 let buttonStop;
 let buttonMode;
+let buttonSound;
 let tiles;
 
 let secondsElement;
@@ -31,7 +27,6 @@ let input;
 let buttonPopupClose;
 let buttonOpenResults;
 let buttonCloseResults;
-
 
 //
 let minMines = 1;
@@ -52,6 +47,15 @@ let inputFocused = false;
 
 let minePositions = [];
 
+// SOUNDS
+const clickSound = new Audio("./assets/sounds/click-01.mp3");
+const markSound = new Audio("./assets/sounds/click-05.mp3");
+const endGameSound = new Audio("./assets/sounds/end-game-sound.mp3");
+
+const sounds = [clickSound, markSound, endGameSound];
+const clickSounds = [clickSound, markSound];
+let soundPromise;
+
 //
 //
 createPage();
@@ -61,15 +65,17 @@ initEvents();
 setRemainedMinesValue();
 
 setMode();
+setSound(sounds);
 setSizeButton(size);
 setInputValue(minesCount);
 
 //
-// INIT EVENTS
+// INIT
 function initEvents() {
   buttonPlay = document.querySelector(".button__play");
   buttonStop = document.querySelector(".button__stop");
   buttonMode = document.querySelector(".button__toggle-mode");
+  buttonSound = document.querySelector(".button__toggle-sound");
   tiles = Array.from(document.querySelectorAll(".button__tile"));
 
   buttonPopupClose = document.querySelector(".button__popup--close");
@@ -86,11 +92,12 @@ function initEvents() {
   input = document.querySelector(".input");
 
   //
-  // EVENTS
+  // Events
   buttonPlay.addEventListener("click", startGame);
   buttonStop.addEventListener("click", stopGame);
 
   buttonMode.addEventListener("click", toggleMode);
+  buttonSound.addEventListener("click", () => toggleSound(sounds));
   buttonOpenResults.addEventListener("click", showResultsPopup);
   buttonCloseResults.addEventListener("click", () => closePopup(".popup__results"));
 
@@ -104,19 +111,18 @@ function initEvents() {
   });
 
   buttonOk.addEventListener("click", updateMinesCount);
-  input.addEventListener("focus", () => inputFocused = true);
+  input.addEventListener("focus", () => (inputFocused = true));
   input.addEventListener("blur", updateMinesCount);
 
   buttonPopupClose.addEventListener("click", () => {
     closePopup(".popup__end");
 
-    tiles.forEach((tile) => tile.disabled = true);
+    tiles.forEach((tile) => (tile.disabled = true));
   });
 }
 
 //
 //
-
 
 //
 // LEFT CLICK
@@ -130,6 +136,8 @@ function handleLeftClick(e) {
 
   openTile(tile);
   updateMovesCount();
+
+  playClick(clickSound);
 
   checkSuccess();
 
@@ -146,9 +154,7 @@ function handleLeftClick(e) {
     }
 
     console.log("💣 Mines: ", minePositions);
-  };
-
-  playClick(clickSound);
+  }
 }
 
 //
@@ -160,40 +166,8 @@ function handleRightClick(e) {
 
   const tile = e.target;
 
-  toggleMark(tile);
   playClick(markSound);
-}
-
-//
-// START GAME
-function startGame() {
-  stopGame();
-
-  gameStarted = true;
-  tiles.forEach((tile) => (tile.disabled = false));
-
-  startTimer();
-  disableSettings(buttonsSize, buttonOk, input);
-  highlightStart();
-
-  console.log("Game started...");
-}
-
-//
-// STOP GAME
-function stopGame() {
-  gameStarted = false;
-
-  minePositions = [];
-
-  cleanTiles(tiles);
-  nullTimer();
-  nullMoves();
-  nullMines();
-
-  enableSettings(buttonsSize, buttonOk, input);
-
-  console.log("Game stopped!");
+  toggleMark(tile);
 }
 
 //
@@ -210,9 +184,10 @@ function openTile(tile) {
     gameStarted = false;
 
     pauseTimer();
+    playEnd(endGameSound);
     showPopup(success, moves, seconds);
-  } 
-  
+  }
+
   // Not mine
   if (!isMine) {
     const count = countNearMines(tile, minePositions, size);
@@ -226,7 +201,6 @@ function openTile(tile) {
 
   saveResult(success, moves, seconds);
 }
-
 
 //
 // REVEAL NEAR TILES
@@ -266,10 +240,11 @@ async function checkSuccess() {
       gameStarted = false;
 
       pauseTimer();
+      playEnd(endGameSound);
       showPopup(success, moves, seconds);
       saveResult(success, moves, seconds);
     }
-  }, 0)
+  }, 0);
 }
 
 //
@@ -343,6 +318,38 @@ function countFlags(step) {
   remainedElement.textContent = remainedMines;
 }
 
+//
+// START GAME
+function startGame() {
+  stopGame();
+
+  gameStarted = true;
+  tiles.forEach((tile) => (tile.disabled = false));
+
+  playClick(endGameSound);
+  startTimer();
+  disableSettings(buttonsSize, buttonOk, input);
+  highlightStart();
+
+  console.log("Game started...");
+}
+
+//
+// STOP GAME
+function stopGame() {
+  gameStarted = false;
+
+  minePositions = [];
+
+  cleanTiles(tiles);
+  nullTimer();
+  nullMoves();
+  nullMines();
+
+  enableSettings(buttonsSize, buttonOk, input);
+
+  console.log("Game stopped!");
+}
 
 //
 // UPDATE MOVES
@@ -380,6 +387,8 @@ function startTimer() {
   }, 1000);
 }
 
+//
+// NULL TIMER
 function nullTimer() {
   seconds = 0;
   secondsElement.textContent = seconds;
@@ -387,7 +396,26 @@ function nullTimer() {
   clearInterval(timerId);
 }
 
+//
+// PAUSE TIMER
 function pauseTimer() {
   clearInterval(timerId);
 }
 
+//
+// PLAY CLICK
+function playClick(sound) {
+  sound.pause();
+  sound.currentTime = 0;
+
+  soundPromise = sound.play();
+}
+
+//
+// PLAY END
+function playEnd(sound) {
+  soundPromise
+    .then(() => sound.play())
+    .then(() => clickSounds.forEach((s) => s.pause()))
+    .catch((err) => console.error(err));
+}

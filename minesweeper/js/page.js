@@ -114,6 +114,7 @@ function createHeader() {
       </div>
       <div class="header__item header__buttons">
         <button class="button button--light button__results--open">=</button>
+        <button class="button button--light button__toggle-sound"></button>
         <button class="button button--light button__toggle-mode">☀︎</button>
       </div>
     </header>`;

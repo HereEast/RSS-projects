@@ -97,6 +97,12 @@
   padding-top: 1px;
 }
 
+.button__toggle-sound {
+  font-size: 21px;
+  line-height: 1;
+  padding-bottom: 3px;
+}
+
 /* Main */
 
 .main__button {
