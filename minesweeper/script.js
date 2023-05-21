@@ -6,6 +6,12 @@ import { showPopup, closePopup, showResultsPopup } from "./js/popup.js";
 import { disableSettings, enableSettings, revealTile, cleanTiles, setSizeButton, setInputValue } from "./js/utils.js";
 import { highlightStart, updateButtonsStyle } from "./js/ui.js";
 import { saveResult } from "./js/results.js";
+import { playClick } from "./js/sounds.js";
+
+//
+
+const clickSound = new Audio("./assets/sounds/click-01.mp3");
+const markSound = new Audio("./assets/sounds/click-05.mp3");
 
 //
 let buttonPlay;
@@ -141,6 +147,8 @@ function handleLeftClick(e) {
 
     console.log("💣 Mines: ", minePositions);
   };
+
+  playClick(clickSound);
 }
 
 //
@@ -151,7 +159,9 @@ function handleRightClick(e) {
   if (!gameStarted) return;
 
   const tile = e.target;
+
   toggleMark(tile);
+  playClick(markSound);
 }
 
 //
