@@ -6,7 +6,7 @@ export { createPage };
 // CREATE PAGE
 function createPage() {
   const header = createHeader();
-  const popupEnd = createPopup();
+  const popupSuccess = createSuccessPopup();
   const popupResults = createResultsPopup();
   const popupStart = createStartPopup();
 
@@ -40,25 +40,19 @@ function createPage() {
         </div>
       </main>
     </div>
-    ${popupEnd}
+    ${popupSuccess}
     ${popupResults}
     ${popupStart}
   `;
 
   document.body.insertAdjacentHTML("afterbegin", page);
-
-  // const pageElement = document.querySelector(".page");
-  // pageElement.insertAdjacentHTML("afterend", popup);
-
-  // const endPopup = document.querySelector(".popup__end");
-  // endPopup.insertAdjacentHTML("afterend", resultsPopup);
 }
 
 //
 // POPUP
-function createPopup() {
+function createSuccessPopup() {
   const popup = `
-    <div class="popup popup__end">
+    <div class="popup popup__success">
       <div class="popup__container">
         <span class="popup__message"></span>
         <div class="popup__buttons">
@@ -74,7 +68,7 @@ function createPopup() {
 //
 // START POPUP
 function createStartPopup() {
-  const startPopup = `
+  const popup = `
     <div class="popup popup__start">
       <div class="popup__container">
         <div class="popup__buttons">
@@ -86,7 +80,7 @@ function createStartPopup() {
     </div>
   `;
 
-  return startPopup;
+  return popup;
 }
 
 //
@@ -95,8 +89,7 @@ function createResultsPopup() {
   const popup = `
     <div class="popup popup__results">
       <div class="popup__container">
-        <div class="results">
-        </div>
+        <div class="results"></div>
         <div class="popup__buttons">
           <button class="button button--light button__results--close">Close</button>
         </div>

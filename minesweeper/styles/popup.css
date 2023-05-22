@@ -12,7 +12,7 @@
   transition: all 0.3s ease-in;
 }
 
-.popup__end,
+.popup__success,
 .popup__results,
 .popup__start {
   display: none;

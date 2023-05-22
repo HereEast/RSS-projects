@@ -1,5 +1,5 @@
 import { renderResults, cleanResults } from "./results.js";
-export { showPopup, closePopup, showResultsPopup, showStartPopup };
+export { showSuccessPopup, closePopup, showResultsPopup, showStartPopup };
 
 //
 // SHOW RESULTS POPUP
@@ -8,11 +8,7 @@ function showResultsPopup() {
   const resultsContainer = document.querySelector(".results");
   const popupButtons = popup.querySelector(".popup__buttons");
 
-  popup.style.display = "flex";
-  popup.style.opacity = 1;
-
-  document.body.style.overflow = "hidden";
-
+  revealPopup(popup);
   renderResults();
 
   const placeholderExists = [...resultsContainer.children].some((child) => child.classList.contains("results__placeholder"));
@@ -34,26 +30,28 @@ function showResultsPopup() {
 function showStartPopup() {
   const popup = document.querySelector(".popup__start");
 
-  popup.style.display = "flex";
-  popup.style.opacity = 1;
-
-  document.body.style.overflow = "hidden";
-
-  console.log("Start popup...");
+  revealPopup(popup);
 }
 
 //
 // SHOW POPUP
-function showPopup(success, moves, seconds) {
-  const message = success ? 
-    `Hooray🎉🎉🎉 <br>You found all mines in ${seconds} seconds and ${moves} moves!` :
+function showSuccessPopup(success, moves, seconds) {
+  const message = 
+    success ? 
+    `Hooray🎉🎉🎉 <br>You found all mines in ${seconds} seconds and ${moves} moves!` : 
     `Booooom💥💥💥 <br>Game over. Try again!`;
 
-  const popup = document.querySelector(".popup__end");
+  const popup = document.querySelector(".popup__success");
   const popupMessage = document.querySelector(".popup__message");
 
   popupMessage.innerHTML = message;
 
+  revealPopup(popup);
+}
+
+//
+// REVEAL POPUP
+function revealPopup(popup) {
   popup.style.display = "flex";
   popup.style.opacity = 1;
 

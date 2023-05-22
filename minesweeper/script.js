@@ -2,7 +2,7 @@ import { toggleMode, setMode } from "./js/mode.js";
 import { createPage } from "./js/page.js";
 import { createBoard } from "./js/board.js";
 import { getMinesPositions, positionExists, getTilePosition, getNearTiles, countNearMines } from "./js/tiles.js";
-import { showPopup, closePopup, showResultsPopup, showStartPopup } from "./js/popup.js";
+import { showSuccessPopup, closePopup, showResultsPopup, showStartPopup } from "./js/popup.js";
 import { disableSettings, enableSettings, revealTile, cleanTiles, setSizeButton, setInputValue } from "./js/utils.js";
 import { highlightStart, updateButtonsStyle } from "./js/ui.js";
 import { saveResult } from "./js/results.js";
@@ -122,7 +122,7 @@ function initEvents() {
   input.addEventListener("blur", updateMinesCount);
 
   buttonPopupClose.addEventListener("click", () => {
-    closePopup(".popup__end");
+    closePopup(".popup__success");
 
     tiles.forEach((tile) => (tile.disabled = true));
   });
@@ -192,7 +192,7 @@ function openTile(tile) {
 
     pauseTimer();
     playEnd(endGameSound);
-    showPopup(success, moves, seconds);
+    showSuccessPopup(success, moves, seconds);
   }
 
   // Not mine
@@ -248,7 +248,7 @@ async function checkSuccess() {
 
       pauseTimer();
       playEnd(endGameSound);
-      showPopup(success, moves, seconds);
+      showSuccessPopup(success, moves, seconds);
       saveResult(success, moves, seconds);
       deleteSavedGame();
     }
@@ -293,20 +293,6 @@ function updateMinesCount() {
 }
 
 //
-// MARK TILE
-function toggleMark(tile) {
-  const tileState = tile.dataset.state;
-
-  if (tileState === "hidden") {
-    tile.dataset.state = "marked";
-    countFlags(1);
-  } else if (tileState === "marked") {
-    tile.dataset.state = "hidden";
-    countFlags(-1);
-  } else return;
-}
-
-//
 // START GAME
 function startGame() {
   const savedGame = JSON.parse(localStorage.getItem("game"));
@@ -329,27 +315,21 @@ function startSavedGame() {
   const savedGame = JSON.parse(localStorage.getItem("game"));
   
   size = savedGame.size;
+
   minePositions = savedGame.minesPos;
   minesCount = savedGame.minesCount;
   input.value = minesCount;
 
-  console.log(minePositions);
-
   setMoves(Number(savedGame.moves)); 
   setTimer(Number(savedGame.seconds));
   setMarkedMines(Number(savedGame.flags), Number(savedGame.remainedMines));
+  setSizeButton(size);
 
   [...boardContainer.children].forEach(child => child.remove());
   boardContainer.insertAdjacentHTML("afterbegin", savedGame.board);
 
-  gameStarted = true;
-  tiles.forEach((tile) => (tile.disabled = false));
-
-  playClick(endGameSound);
-  startTimer();
-  disableSettings(buttonsSize, buttonOk, input);
-  highlightStart();
   initEvents();
+  initGame();
 
   console.log(savedGame);
   console.log("Started saved game...");
@@ -360,7 +340,14 @@ function startSavedGame() {
 function startNewGame() {
   closePopup(".popup__start");
   cleanGame();
+  initGame();
 
+  console.log("New game started...");
+}
+
+//
+// INIT GAME
+function initGame() {
   gameStarted = true;
   tiles.forEach((tile) => (tile.disabled = false));
 
@@ -368,8 +355,6 @@ function startNewGame() {
   startTimer();
   disableSettings(buttonsSize, buttonOk, input);
   highlightStart();
-
-  console.log("New game started...");
 }
 
 //
@@ -535,4 +520,18 @@ function countFlags(step) {
 
   flagsElement.textContent = flags;
   remainedElement.textContent = remainedMines;
+}
+
+//
+// MARK TILE
+function toggleMark(tile) {
+  const tileState = tile.dataset.state;
+
+  if (tileState === "hidden") {
+    tile.dataset.state = "marked";
+    countFlags(1);
+  } else if (tileState === "marked") {
+    tile.dataset.state = "hidden";
+    countFlags(-1);
+  } else return;
 }
