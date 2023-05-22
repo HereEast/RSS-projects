@@ -13,7 +13,9 @@ function showResultsPopup() {
 
   const placeholderExists = [...resultsContainer.children].some((child) => child.classList.contains("results__placeholder"));
 
-  if (!placeholderExists) {
+  const cleanButtonExists = [...popupButtons.children].some((child) => child.classList.contains("button__results--clean"));
+
+  if (!placeholderExists && !cleanButtonExists) {
     const cleanButtonElement = `
       <button class="button button--light button__results--clean">Clean Results</button>
       `;
