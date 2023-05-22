@@ -1,12 +1,12 @@
 import { renderResults, cleanResults } from "./results.js";
-export { showPopup, closePopup, showResultsPopup };
+export { showPopup, closePopup, showResultsPopup, showStartPopup };
 
 //
 // SHOW RESULTS POPUP
 function showResultsPopup() {
   const popup = document.querySelector(".popup__results");
   const resultsContainer = document.querySelector(".results");
-  const popupButtons = document.querySelector(".results__buttons");
+  const popupButtons = popup.querySelector(".popup__buttons");
 
   popup.style.display = "flex";
   popup.style.opacity = 1;
@@ -27,6 +27,19 @@ function showResultsPopup() {
     const cleanButton = document.querySelector(".button__results--clean");
     cleanButton.addEventListener("click", cleanResults);
   }
+}
+
+//
+// START POPUP
+function showStartPopup() {
+  const popup = document.querySelector(".popup__start");
+
+  popup.style.display = "flex";
+  popup.style.opacity = 1;
+
+  document.body.style.overflow = "hidden";
+
+  console.log("Start popup...");
 }
 
 //

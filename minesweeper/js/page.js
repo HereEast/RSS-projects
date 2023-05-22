@@ -6,8 +6,9 @@ export { createPage };
 // CREATE PAGE
 function createPage() {
   const header = createHeader();
-  const popup = createPopup();
-  const resultsPopup = createResultsPopup();
+  const popupEnd = createPopup();
+  const popupResults = createResultsPopup();
+  const popupStart = createStartPopup();
 
   const page = `
     <div class="page">
@@ -38,16 +39,19 @@ function createPage() {
         <div class="board__container">
         </div>
       </main>
-    </main>
+    </div>
+    ${popupEnd}
+    ${popupResults}
+    ${popupStart}
   `;
 
   document.body.insertAdjacentHTML("afterbegin", page);
 
-  const pageElement = document.querySelector(".page");
-  pageElement.insertAdjacentHTML("afterend", popup);
+  // const pageElement = document.querySelector(".page");
+  // pageElement.insertAdjacentHTML("afterend", popup);
 
-  const endPopup = document.querySelector(".popup__end");
-  endPopup.insertAdjacentHTML("afterend", resultsPopup);
+  // const endPopup = document.querySelector(".popup__end");
+  // endPopup.insertAdjacentHTML("afterend", resultsPopup);
 }
 
 //
@@ -58,8 +62,8 @@ function createPopup() {
       <div class="popup__container">
         <span class="popup__message"></span>
         <div class="popup__buttons">
-        <button class="button button--light button__popup--close">Close</button>
-      </div>
+          <button class="button button--light button__popup--close">Close</button>
+        </div>
       </div>
     </div>
   `;
@@ -68,14 +72,32 @@ function createPopup() {
 }
 
 //
-// CREATE POPUP
+// START POPUP
+function createStartPopup() {
+  const startPopup = `
+    <div class="popup popup__start">
+      <div class="popup__container">
+        <div class="popup__buttons">
+          <button class="button button--light button__start--new">New Game</button>
+          <button class="button button--light button__start--saved">Continue</button>
+        </div>
+      </div>
+      </div>
+    </div>
+  `;
+
+  return startPopup;
+}
+
+//
+// RESULTS POPUP
 function createResultsPopup() {
   const popup = `
     <div class="popup popup__results">
       <div class="popup__container">
         <div class="results">
         </div>
-        <div class="results__buttons">
+        <div class="popup__buttons">
           <button class="button button--light button__results--close">Close</button>
         </div>
       </div>

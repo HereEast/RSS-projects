@@ -2,7 +2,7 @@ import { toggleMode, setMode } from "./js/mode.js";
 import { createPage } from "./js/page.js";
 import { createBoard } from "./js/board.js";
 import { getMinesPositions, positionExists, getTilePosition, getNearTiles, countNearMines } from "./js/tiles.js";
-import { showPopup, closePopup, showResultsPopup } from "./js/popup.js";
+import { showPopup, closePopup, showResultsPopup, showStartPopup } from "./js/popup.js";
 import { disableSettings, enableSettings, revealTile, cleanTiles, setSizeButton, setInputValue } from "./js/utils.js";
 import { highlightStart, updateButtonsStyle } from "./js/ui.js";
 import { saveResult } from "./js/results.js";
@@ -27,11 +27,13 @@ let input;
 let buttonPopupClose;
 let buttonOpenResults;
 let buttonCloseResults;
+let buttonStartNew;
+let buttonStartSaved;
 
 //
 let minMines = 1;
 let maxMines = 99;
-let size = localStorage.getItem("currentSize") || 3;
+let size = localStorage.getItem("currentSize") || 4;
 let minesCount = localStorage.getItem("minesCount") || minMines;
 
 let moves = 0;
@@ -42,7 +44,7 @@ let remainedMines = minesCount;
 let timerId;
 
 let gameStarted = false;
-let success;
+let success = false;
 let inputFocused = false;
 
 let minePositions = [];
@@ -81,6 +83,8 @@ function initEvents() {
   buttonPopupClose = document.querySelector(".button__popup--close");
   buttonOpenResults = document.querySelector(".button__results--open");
   buttonCloseResults = document.querySelector(".button__results--close");
+  buttonStartNew = document.querySelector(".button__start--new");
+  buttonStartSaved = document.querySelector(".button__start--saved");
 
   secondsElement = document.querySelector(".seconds");
   movesElement = document.querySelector(".moves");
@@ -100,6 +104,9 @@ function initEvents() {
   buttonSound.addEventListener("click", () => toggleSound(sounds));
   buttonOpenResults.addEventListener("click", showResultsPopup);
   buttonCloseResults.addEventListener("click", () => closePopup(".popup__results"));
+
+  buttonStartNew.addEventListener("click", startNewGame);
+  buttonStartSaved.addEventListener("click", startSavedGame);
 
   tiles.forEach((tile) => {
     tile.addEventListener("click", handleLeftClick);
@@ -243,6 +250,7 @@ async function checkSuccess() {
       playEnd(endGameSound);
       showPopup(success, moves, seconds);
       saveResult(success, moves, seconds);
+      deleteSavedGame();
     }
   }, 0);
 }
@@ -299,29 +307,59 @@ function toggleMark(tile) {
 }
 
 //
-// SET REMAINED VALUE
-function setRemainedMinesValue() {
-  remainedMines = minesCount;
-  remainedElement.textContent = remainedMines;
-}
-
-//
-// FLAGS COUNT
-function countFlags(step) {
-  const flagsElement = document.querySelector(".flags--marked");
-  const remainedElement = document.querySelector(".mines--remained");
-
-  flags += step;
-  remainedMines -= step;
-
-  flagsElement.textContent = flags;
-  remainedElement.textContent = remainedMines;
-}
-
-//
 // START GAME
 function startGame() {
-  stopGame();
+  const savedGame = JSON.parse(localStorage.getItem("game"));
+
+  if (savedGame) {
+    showStartPopup();
+  } else {
+    startNewGame();
+  }
+}
+
+// localStorage.removeItem("game");
+
+//
+// START SAVED GAME
+function startSavedGame() {
+  closePopup(".popup__start");
+
+  const boardContainer = document.querySelector(".board__container");
+  const savedGame = JSON.parse(localStorage.getItem("game"));
+  
+  size = savedGame.size;
+  minePositions = savedGame.minesPos;
+  minesCount = savedGame.minesCount;
+  input.value = minesCount;
+
+  console.log(minePositions);
+
+  setMoves(Number(savedGame.moves)); 
+  setTimer(Number(savedGame.seconds));
+  setMarkedMines(Number(savedGame.flags), Number(savedGame.remainedMines));
+
+  [...boardContainer.children].forEach(child => child.remove());
+  boardContainer.insertAdjacentHTML("afterbegin", savedGame.board);
+
+  gameStarted = true;
+  tiles.forEach((tile) => (tile.disabled = false));
+
+  playClick(endGameSound);
+  startTimer();
+  disableSettings(buttonsSize, buttonOk, input);
+  highlightStart();
+  initEvents();
+
+  console.log(savedGame);
+  console.log("Started saved game...");
+}
+
+//
+// START NEW GAME
+function startNewGame() {
+  closePopup(".popup__start");
+  cleanGame();
 
   gameStarted = true;
   tiles.forEach((tile) => (tile.disabled = false));
@@ -331,14 +369,25 @@ function startGame() {
   disableSettings(buttonsSize, buttonOk, input);
   highlightStart();
 
-  console.log("Game started...");
+  console.log("New game started...");
 }
 
 //
 // STOP GAME
 function stopGame() {
-  gameStarted = false;
+  if (gameStarted && moves >= 1) {
+    saveGame();
+  } else {
+    deleteSavedGame();
+  }
 
+  cleanGame();
+}
+
+//
+// CLEAN GAME
+function cleanGame() {
+  gameStarted = false;
   minePositions = [];
 
   cleanTiles(tiles);
@@ -347,9 +396,35 @@ function stopGame() {
   nullMines();
 
   enableSettings(buttonsSize, buttonOk, input);
-
-  console.log("Game stopped!");
 }
+
+//
+// SAVE GAME
+function saveGame() {
+  const boardContainer = document.querySelector(".board__container");
+
+  const game = {
+    size: size,
+    minesCount: minesCount,
+    minesPos: minePositions,
+    moves: moves,
+    seconds: seconds,
+    flags: flags,
+    remainedMines: remainedMines,
+    board: boardContainer.innerHTML
+  };
+
+  localStorage.setItem("game", JSON.stringify(game));
+  console.log("⬇️ Saved: ", game);
+}
+
+//
+// DELETE SAVED
+function deleteSavedGame() {
+  localStorage.removeItem("game");
+}
+
+// localStorage.removeItem("game")
 
 //
 // UPDATE MOVES
@@ -363,6 +438,28 @@ function updateMovesCount() {
 function nullMoves() {
   moves = 0;
   movesElement.textContent = moves;
+}
+
+//
+// SET MOVES
+function setMoves(count) {
+  moves = count;
+  movesElement.textContent = moves;
+}
+
+//
+// SET MARKED MINES
+function setMarkedMines(flagsCount, remainedCount) {
+  flags = flagsCount;
+  remainedMines = remainedCount;
+
+  flagsElement.textContent = flags;
+  remainedElement.textContent = remainedMines;
+}
+
+function setTimer(count) {
+  seconds = count;
+  secondsElement.textContent = seconds;
 }
 
 //
@@ -418,4 +515,24 @@ function playEnd(sound) {
     .then(() => sound.play())
     .then(() => clickSounds.forEach((s) => s.pause()))
     .catch((err) => console.error(err));
+}
+
+//
+// SET REMAINED VALUE
+function setRemainedMinesValue() {
+  remainedMines = minesCount;
+  remainedElement.textContent = remainedMines;
+}
+
+//
+// FLAGS COUNT
+function countFlags(step) {
+  const flagsElement = document.querySelector(".flags--marked");
+  const remainedElement = document.querySelector(".mines--remained");
+
+  flags += step;
+  remainedMines -= step;
+
+  flagsElement.textContent = flags;
+  remainedElement.textContent = remainedMines;
 }
