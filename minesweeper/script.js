@@ -92,8 +92,16 @@ function initEvents() {
   buttonPlay.addEventListener("click", startGame);
   buttonStop.addEventListener("click", stopGame);
 
-  buttonMode.addEventListener("click", toggleMode);
-  buttonSound.addEventListener("click", () => toggleSound(sounds));
+  buttonMode.addEventListener("click", () => {
+    playSound(clickSound);
+    toggleMode();
+  });
+
+  buttonSound.addEventListener("click", () => {
+    playSound(clickSound);
+    toggleSound(sounds);
+  });
+
   buttonOpenResults.addEventListener("click", () => {
     playSound(openPopupSound);
     showResultsPopup();

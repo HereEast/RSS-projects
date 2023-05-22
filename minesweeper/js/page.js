@@ -71,6 +71,7 @@ function createStartPopup() {
   const popup = `
     <div class="popup popup__start">
       <div class="popup__container">
+        <span class="popup__message">Do you want to start a new game or continue the saved one?</span>
         <div class="popup__buttons">
           <button class="button button--light button__start--new button--green">New Game</button>
           <button class="button button--light button__start--saved">Continue</button>
