@@ -7,6 +7,7 @@ import { disableSettings, enableSettings, revealTile, cleanTiles, setSizeButton,
 import { highlightStart, updateButtonsStyle } from "./js/ui.js";
 import { saveResult } from "./js/results.js";
 import { setSound, toggleSound, clickSound, markSound, endGameSound, sounds, clickSounds, openPopupSound } from "./js/sound.js";
+import { showHint } from "./js/hints.js";
 
 //
 let buttonPlay;
@@ -402,6 +403,8 @@ function saveGame() {
   };
 
   localStorage.setItem("game", JSON.stringify(game));
+
+  showHint("Game state was saved 👾");
   console.log("⬇️ Saved: ", game);
 }
 

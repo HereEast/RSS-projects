@@ -1,3 +1,4 @@
+import { showHint } from "./hints.js";
 export { setSound, toggleSound, clickSound, markSound, endGameSound, sounds, clickSounds, openPopupSound };
 
 const clickSound = new Audio("./assets/sounds/click-01.mp3");
