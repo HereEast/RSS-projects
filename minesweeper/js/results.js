@@ -31,6 +31,7 @@ function renderResults() {
 //
 // SAVE RESULT
 function saveResult(success, moves, seconds) {
+  console.log("Save result");
 
   const currentResult = {
     name: getName(),

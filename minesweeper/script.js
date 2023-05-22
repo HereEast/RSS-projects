@@ -3,23 +3,23 @@ import { createPage } from "./js/page.js";
 import { createBoard } from "./js/board.js";
 import { getMinesPositions, positionExists, getTilePosition, getNearTiles, countNearMines } from "./js/tiles.js";
 import { showSuccessPopup, closePopup, showResultsPopup, showStartPopup } from "./js/popup.js";
-import { disableSettings, enableSettings, revealTile, cleanTiles, setSizeButton, setInputValue } from "./js/utils.js";
+import { disableSettings, enableSettings, revealTile, cleanTiles, setSizeButton, setInputValue, deleteSavedGame } from "./js/utils.js";
 import { highlightStart, updateButtonsStyle } from "./js/ui.js";
 import { saveResult } from "./js/results.js";
-import { setSound, toggleSound } from "./js/sound.js";
+import { setSound, toggleSound, clickSound, markSound, endGameSound, sounds, clickSounds, openPopupSound } from "./js/sound.js";
 
 //
 let buttonPlay;
 let buttonStop;
 let buttonMode;
 let buttonSound;
-let tiles;
 
 let secondsElement;
 let movesElement;
 let flagsElement;
 let remainedElement;
 
+let tiles;
 let buttonsSize;
 let buttonOk;
 let input;
@@ -42,21 +42,13 @@ let flags = 0;
 let remainedMines = minesCount;
 
 let timerId;
+let soundPromise;
 
 let gameStarted = false;
 let success = false;
 let inputFocused = false;
 
 let minePositions = [];
-
-// SOUNDS
-const clickSound = new Audio("./assets/sounds/click-01.mp3");
-const markSound = new Audio("./assets/sounds/click-05.mp3");
-const endGameSound = new Audio("./assets/sounds/end-game-sound.mp3");
-
-const sounds = [clickSound, markSound, endGameSound];
-const clickSounds = [clickSound, markSound];
-let soundPromise;
 
 //
 //
@@ -102,7 +94,11 @@ function initEvents() {
 
   buttonMode.addEventListener("click", toggleMode);
   buttonSound.addEventListener("click", () => toggleSound(sounds));
-  buttonOpenResults.addEventListener("click", showResultsPopup);
+  buttonOpenResults.addEventListener("click", () => {
+    playSound(openPopupSound);
+    showResultsPopup();
+  });
+
   buttonCloseResults.addEventListener("click", () => closePopup(".popup__results"));
 
   buttonStartNew.addEventListener("click", startNewGame);
@@ -141,11 +137,9 @@ function handleLeftClick(e) {
 
   if (tileState !== "hidden") return;
 
+  playSound(clickSound);
   openTile(tile);
   updateMovesCount();
-
-  playClick(clickSound);
-
   checkSuccess();
 
   if (moves === 1 && !minePositions.length) {
@@ -159,8 +153,7 @@ function handleLeftClick(e) {
     } else if (!count) {
       revealNearTiles(tile, count);
     }
-
-    console.log("💣 Mines: ", minePositions);
+    // console.log("💣 Mines: ", minePositions);
   }
 }
 
@@ -173,7 +166,7 @@ function handleRightClick(e) {
 
   const tile = e.target;
 
-  playClick(markSound);
+  playSound(markSound);
   toggleMark(tile);
 }
 
@@ -193,6 +186,7 @@ function openTile(tile) {
     pauseTimer();
     playEnd(endGameSound);
     showSuccessPopup(success, moves, seconds);
+    saveResult(success, moves, seconds);
   }
 
   // Not mine
@@ -205,8 +199,6 @@ function openTile(tile) {
       revealNearTiles(tile, count);
     }
   }
-
-  saveResult(success, moves, seconds);
 }
 
 //
@@ -298,6 +290,7 @@ function startGame() {
   const savedGame = JSON.parse(localStorage.getItem("game"));
 
   if (savedGame) {
+    playSound(openPopupSound);
     showStartPopup();
   } else {
     startNewGame();
@@ -351,7 +344,7 @@ function initGame() {
   gameStarted = true;
   tiles.forEach((tile) => (tile.disabled = false));
 
-  playClick(endGameSound);
+  playSound(endGameSound);
   startTimer();
   disableSettings(buttonsSize, buttonOk, input);
   highlightStart();
@@ -366,6 +359,7 @@ function stopGame() {
     deleteSavedGame();
   }
 
+  playSound(clickSound);
   cleanGame();
 }
 
@@ -402,14 +396,6 @@ function saveGame() {
   localStorage.setItem("game", JSON.stringify(game));
   console.log("⬇️ Saved: ", game);
 }
-
-//
-// DELETE SAVED
-function deleteSavedGame() {
-  localStorage.removeItem("game");
-}
-
-// localStorage.removeItem("game")
 
 //
 // UPDATE MOVES
@@ -486,7 +472,7 @@ function pauseTimer() {
 
 //
 // PLAY CLICK
-function playClick(sound) {
+function playSound(sound) {
   sound.pause();
   sound.currentTime = 0;
 

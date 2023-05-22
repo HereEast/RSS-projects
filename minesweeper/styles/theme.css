@@ -58,6 +58,18 @@
 /**/
 /* POPUP */
 
-.mode--light .popup__container {
+.mode--light .popup__container span {
+  color: var(--white);
+}
+
+.mode--light .popup__container .button--light:hover {
   background-color: var(--back-light);
+}
+
+.mode--light .popup__container .button--green {
+  background-color: var(--green);
+}
+
+.mode--light .popup__container .button--green:hover {
+  background-color: var(--green-hover);
 }

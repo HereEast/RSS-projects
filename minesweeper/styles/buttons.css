@@ -110,11 +110,11 @@
   padding: 0 10px 1px;
 }
 
-.button__play {
+.button--green {
   background-color: var(--green);
 }
 
-.button__play:hover {
+.button--green:hover {
   background-color: var(--green-hover);
 }
 

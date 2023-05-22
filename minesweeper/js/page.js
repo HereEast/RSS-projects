@@ -33,7 +33,7 @@ function createPage() {
           </div>
         </div>
         <div class="main__buttons">
-          <button class="button main__button button__play">Start Game</button>
+          <button class="button main__button button__play button--green">Start Game</button>
           <button class="button main__button button--light button__stop">Stop</button>
         </div>
         <div class="board__container">
@@ -72,7 +72,7 @@ function createStartPopup() {
     <div class="popup popup__start">
       <div class="popup__container">
         <div class="popup__buttons">
-          <button class="button button--light button__start--new">New Game</button>
+          <button class="button button--light button__start--new button--green">New Game</button>
           <button class="button button--light button__start--saved">Continue</button>
         </div>
       </div>

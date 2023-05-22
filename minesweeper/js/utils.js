@@ -1,4 +1,10 @@
-export { disableSettings, enableSettings, revealTile, cleanTiles, setInputValue, setSizeButton, getName };
+export { disableSettings, enableSettings, revealTile, cleanTiles, setInputValue, setSizeButton, getName, deleteSavedGame };
+
+//
+// DELETE SAVED
+function deleteSavedGame() {
+  localStorage.removeItem("game");
+}
 
 // SET INPUT
 function setInputValue(minesCount) {
