@@ -31,10 +31,12 @@ let buttonCloseResults;
 let buttonStartNew;
 let buttonStartSaved;
 
+// localStorage.clear()
+
 //
-let minMines = 10;
+let minMines = 1;
 let maxMines = 99;
-let size = localStorage.getItem("currentSize") || 10;
+let size = localStorage.getItem("currentSize") || 4;
 let minesCount = localStorage.getItem("minesCount") || minMines;
 
 let moves = 0;
@@ -177,6 +179,9 @@ function handleRightClick(e) {
 
   playSound(markSound);
   toggleMark(tile);
+  //
+  checkSuccess();
+
 }
 
 //
@@ -232,18 +237,48 @@ function revealNearTiles(tile, count) {
 
 //
 // CHECK SUCCESS
+// async function checkSuccess() {
+//   setTimeout(() => {
+//     const closedTiles = tiles.filter((tile) => {
+//       return tile.dataset.state === "hidden" || tile.dataset.state === "marked";
+//     });
+
+//     const matchMines = closedTiles.every((tile) => {
+//       const tilePos = getTilePosition(tile);
+//       return positionExists(minePositions, tilePos);
+//     });
+
+//     if (matchMines && closedTiles.length === minesCount) {
+//       success = true;
+//       gameStarted = false;
+
+//       pauseTimer();
+//       playEnd(endGameSound);
+//       showSuccessPopup(success, moves, seconds);
+//       saveResult(success, moves, seconds);
+//       deleteSavedGame();
+//     }
+//   }, 0);
+// }
+
 async function checkSuccess() {
   setTimeout(() => {
-    const closedTiles = tiles.filter((tile) => {
-      return tile.dataset.state === "hidden" || tile.dataset.state === "marked";
+    const markedTiles = tiles.filter((tile) => {
+      return tile.dataset.state === "marked";
     });
 
-    const matchMines = closedTiles.every((tile) => {
+    const openedTiles = tiles.filter((tile) => {
+      return tile.dataset.state === "number";
+    });
+
+    const allOpened = openedTiles.length === (size * size) - minesCount;
+
+    const matchMines = markedTiles.every((tile) => {
       const tilePos = getTilePosition(tile);
       return positionExists(minePositions, tilePos);
     });
 
-    if (matchMines && closedTiles.length === minesCount) {
+    if (matchMines && markedTiles.length === minesCount && allOpened) {
       success = true;
       gameStarted = false;
 
