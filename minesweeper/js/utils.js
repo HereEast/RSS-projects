@@ -14,11 +14,11 @@ function setInputValue(minesCount) {
 
 // SET SIZE BUTTON
 function setSizeButton(size) {
-  // const buttonsSize = document.querySelectorAll(".button__size");
-  // const button = document.querySelector(`[data-size='${size}']`);
+  const buttonsSize = document.querySelectorAll(".button__size");
+  const button = document.querySelector(`[data-size='${size}']`);
 
-  // buttonsSize.forEach((button) => button.classList.remove("button__size--selected"));
-  // button.classList.add("button__size--selected");
+  buttonsSize.forEach((button) => button.classList.remove("button__size--selected"));
+  button.classList.add("button__size--selected");
 }
 
 //

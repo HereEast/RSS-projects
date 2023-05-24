@@ -34,9 +34,9 @@ let buttonStartSaved;
 // localStorage.clear()
 
 //
-let minMines = 1;
+let minMines = 10;
 let maxMines = 99;
-let size = localStorage.getItem("currentSize") || 4;
+let size = localStorage.getItem("currentSize") || 10;
 let minesCount = localStorage.getItem("minesCount") || minMines;
 
 let moves = 0;
