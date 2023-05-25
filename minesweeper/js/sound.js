@@ -1,4 +1,4 @@
-export { setSound, clickSound, markSound, endGameSound, sounds, openPopupSound };
+export { setSound, toggleSound, clickSound, markSound, endGameSound, sounds, openPopupSound };
 
 const clickSound = new Audio("./assets/sounds/click-01.mp3");
 const markSound = new Audio("./assets/sounds/click-05.mp3");
@@ -10,12 +10,9 @@ const sounds = [clickSound, markSound, endGameSound, openPopupSound];
 //
 // TOGGLE
 function toggleSound(sounds) {
-  // const soundButton = document.querySelector(".button__toggle-sound");
+  const buttonSound = document.querySelector(".button__toggle-sound");
   const volumeOn = Number(localStorage.getItem("volume"));
   const volume = Number(!volumeOn);
-
-  console.log(soundButton);
-
 
   sounds.forEach((sound) => (sound.volume = volume));
   buttonSound.innerHTML = volume ? "⦿" : "◎";
