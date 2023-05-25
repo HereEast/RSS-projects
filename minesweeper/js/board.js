@@ -50,33 +50,33 @@ function createBoard(size) {
 
 //
 // GRID
-function createGrid(size) {
-  const grid = [];
+// function createGrid(size) {
+//   const grid = [];
 
-  for (let x = 0; x < size; x++) {
-    const row = [];
+//   for (let x = 0; x < size; x++) {
+//     const row = [];
 
-    for (let y = 0; y < size; y++) {
-      const tile = document.createElement("button");
-      tile.classList.add("button__tile");
+//     for (let y = 0; y < size; y++) {
+//       const tile = document.createElement("button");
+//       tile.classList.add("button__tile");
 
-      tile.dataset.state = "hidden";
-      tile.dataset.x = y;
-      tile.dataset.y = x;
+//       tile.dataset.state = "hidden";
+//       tile.dataset.x = y;
+//       tile.dataset.y = x;
 
-      const tileData = {
-        tile: tile,
-        x: x,
-        y: y,
-      };
+//       const tileData = {
+//         tile: tile,
+//         x: x,
+//         y: y,
+//       };
 
-      row.push(tileData);
-    }
+//       row.push(tileData);
+//     }
 
-    grid.push(row);
-  }
+//     grid.push(row);
+//   }
 
-  return grid;
-}
+//   return grid;
+// }
 
 export { createBoard };

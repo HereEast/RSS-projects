@@ -36,7 +36,7 @@ function saveResult(success, moves, seconds) {
   const currentResult = {
     name: getName(),
     seconds: seconds,
-    moves: moves,
+    moves: success ? moves : moves + 1,
     success: success
   };
 

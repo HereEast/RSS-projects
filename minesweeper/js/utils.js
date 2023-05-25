@@ -23,21 +23,27 @@ function setSizeButton(size) {
 
 //
 // REVEAL TILE
-function revealTile(tile, count) {  
+function revealTile(tile, count) {
   if (!count) count = "";
 
   tile.textContent = count;
   tile.dataset.state = "number";
 
-  if (count === 1) {
-    tile.classList.add("color--blue");
-  } else if (count === 2) {
-    tile.classList.add("color--green");
-  } else if (count === 3) {
-    tile.classList.add("color--yellow");
-  } else if (count > 3) {
-    tile.classList.add("color--red");
-  } else return;
+  setTileColor(tile, count);
+}
+
+//
+// SET COLOR
+function setTileColor(tile, count) {
+  tile.classList.remove("color--green");
+  tile.classList.remove("color--blue");
+  tile.classList.remove("color--yellow");
+  tile.classList.remove("color--red");
+
+  if (count === 1) tile.classList.add("color--blue");
+  if (count === 2) tile.classList.add("color--green");
+  if (count === 3) tile.classList.add("color--yellow");
+  if (count > 3) tile.classList.add("color--red");
 }
 
 //
