@@ -59,7 +59,7 @@
 
   border: var(--border-light);
 
-  padding: 25px 20px;
+  padding: 20px;
   margin-top: -1px;
   margin-bottom: 30px;
 }
@@ -85,7 +85,7 @@
 .button__tile {
   width: 100%;
   aspect-ratio: 1 / 1;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 700;
   background-color: var(--tile-back);
   outline: none;

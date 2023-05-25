@@ -20,7 +20,7 @@
 
   --size: 10;
   --tile-width: 40px;
-  --width: 600px;
+  --width: 560px;
 
   --border-light: 1px solid var(--tile-back);
   --border-tile: 1px solid var(--max-black);
@@ -50,7 +50,7 @@ body {
   justify-content: center;
   align-items: center;
 
-  padding: 20px 10px;
+  padding: 20px;
 }
 
 span {
