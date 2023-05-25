@@ -1,5 +1,4 @@
-import { showHint } from "./hints.js";
-export { setSound, toggleSound, clickSound, markSound, endGameSound, sounds, clickSounds, openPopupSound };
+export { setSound, clickSound, markSound, endGameSound, sounds, openPopupSound };
 
 const clickSound = new Audio("./assets/sounds/click-01.mp3");
 const markSound = new Audio("./assets/sounds/click-05.mp3");
@@ -7,17 +6,19 @@ const endGameSound = new Audio("./assets/sounds/end-game-sound.mp3");
 const openPopupSound = new Audio("./assets/sounds/whoosh.mov");
 
 const sounds = [clickSound, markSound, endGameSound, openPopupSound];
-const clickSounds = [clickSound, markSound];
 
 //
 // TOGGLE
 function toggleSound(sounds) {
-  const soundButton = document.querySelector(".button__toggle-sound");
+  // const soundButton = document.querySelector(".button__toggle-sound");
   const volumeOn = Number(localStorage.getItem("volume"));
   const volume = Number(!volumeOn);
 
+  console.log(soundButton);
+
+
   sounds.forEach((sound) => (sound.volume = volume));
-  soundButton.innerHTML = volume ? "⦿" : "◎";
+  buttonSound.innerHTML = volume ? "⦿" : "◎";
 
   localStorage.setItem("volume", volume);
 }
