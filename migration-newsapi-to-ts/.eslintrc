@@ -1,0 +1,25 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true,
+    "amd": true
+  },
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["prettier", "import", "@typescript-eslint"],
+  "extends": ["eslint:recommended", "plugin:@typescript-eslint/recommended"],
+  "ignorePatterns": ["webpack.config.js"],
+  "rules": {
+    "@typescript-eslint/no-explicit-any": 2,
+    "array-element-newline": ["error", "consistent"],
+    "no-plusplus": "off",
+    "no-console": "warn",
+    "quotes": ["error", "double"],
+    "import/prefer-default-export": ["off", "warn", "error"],
+    "no-use-before-define": [
+      "error",
+      {
+        "functions": false
+      }
+    ]
+  }
+}
