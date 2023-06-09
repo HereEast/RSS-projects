@@ -2,12 +2,7 @@ import AppLoader from "./appLoader";
 
 class AppController extends AppLoader {
   getSources(callback) {
-    super.getResp(
-      {
-        endpoint: "sources"
-      },
-      callback
-    );
+    super.getResp({ endpoint: "sources" }, callback);
   }
 
   getNews(e, callback) {
@@ -23,8 +18,8 @@ class AppController extends AppLoader {
             {
               endpoint: "everything",
               options: {
-                sources: sourceId
-              }
+                sources: sourceId,
+              },
             },
             callback
           );
