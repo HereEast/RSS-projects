@@ -40,3 +40,13 @@ type SourcesResponse = {
 };
 
 export type SourcesData = Exclude<SourcesResponse, "status">;
+
+// HTTP
+export type Options = {
+  [key: string]: string;
+};
+
+export type RespObject = {
+  endpoint: string;
+  options?: Options;
+};
