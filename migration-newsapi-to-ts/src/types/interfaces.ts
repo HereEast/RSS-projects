@@ -1,5 +1,7 @@
 import News from "../components/view/news/news";
 import Sources from "../components/view/sources/sources";
+import AppController from "../components/controller/controller";
+import AppView from "../components/view/appView";
 
 import { NewsData, SourcesData, Options, RespObject } from "./types";
 
@@ -36,4 +38,11 @@ export interface ILoader {
 export interface IController {
   getSources(callback: () => void): void;
   getNews(e: Event, callback: () => void): void;
+}
+
+// APP
+export interface IApp {
+  controller: AppController;
+  view: AppView;
+  start: () => void;
 }
