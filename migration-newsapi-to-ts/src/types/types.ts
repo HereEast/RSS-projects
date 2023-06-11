@@ -40,7 +40,3 @@ type SourcesResponse = {
 };
 
 export type SourcesData = Exclude<SourcesResponse, "status">;
-
-export interface IRenderData {
-  draw(data: NewsData["articles"] | SourcesData["sources"]): void;
-}

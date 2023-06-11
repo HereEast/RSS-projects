@@ -1,5 +1,6 @@
 import "./news.css";
-import { Article, NewsData, IRenderData } from "../../../types";
+import { Article, NewsData } from "../../../types/types";
+import { IRenderData } from "../../../types/interfaces";
 import { Selector } from "../../../types/enums";
 
 class News implements IRenderData {

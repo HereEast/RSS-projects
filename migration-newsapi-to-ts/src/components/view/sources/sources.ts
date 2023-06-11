@@ -1,5 +1,6 @@
 import "./sources.css";
-import { Source, SourcesData, IRenderData } from "../../../types";
+import { Source, SourcesData } from "../../../types/types";
+import { IRenderData } from "../../../types/interfaces";
 import { Selector } from "../../../types/enums";
 
 class Sources implements IRenderData {
