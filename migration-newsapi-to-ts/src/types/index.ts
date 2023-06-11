@@ -1,3 +1,4 @@
+// NEWS
 export type Article = {
   author: string;
   content: string;
@@ -12,8 +13,34 @@ export type Article = {
   urlToImage: string;
 };
 
-export type Data = Array<Article>;
+// { status, totalResults, articles: [{...}, {...}]}
+type NewsResponse = {
+  status: string;
+  totalResults: number;
+  articles: Article[];
+};
 
-export interface IRenderNews {
-  draw(data: Data): void;
+export type NewsData = Pick<NewsResponse, "articles">;
+
+//
+// SOURCES
+export type Source = {
+  category: string;
+  country: string;
+  description: string;
+  id: string;
+  name: string;
+  url: string;
+};
+
+// { status, sources: [{...}, {...}]}
+type SourcesResponse = {
+  status: string;
+  sources: Source[];
+};
+
+export type SourcesData = Exclude<SourcesResponse, "status">;
+
+export interface IRenderData {
+  draw(data: NewsData["articles"] | SourcesData["sources"]): void;
 }
