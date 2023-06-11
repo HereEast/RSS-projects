@@ -1,16 +1,39 @@
 import News from "../components/view/news/news";
 import Sources from "../components/view/sources/sources";
 
-import { NewsData, SourcesData } from "./types";
+import { NewsData, SourcesData, Options, RespObject } from "./types";
 
+// RENDER DATA
 export interface IRenderData {
   draw(data: NewsData["articles"] | SourcesData["sources"]): void;
 }
 
-// Viewer
-export interface IViewer {
+// APP VIEWER
+export interface IAppView {
   readonly news: News;
   readonly sources: Sources;
   drawNews(data: NewsData): void;
   drawSources(data: SourcesData): void;
+}
+
+// LOADER
+export interface ILoader {
+  baseLink: string;
+  options: Options;
+
+  getResp({ endpoint, options }: RespObject, callback: () => void): void;
+  errorHandler<T extends Response>(res: T): T;
+  makeUrl(options: Options, endpoint: string): string;
+  load(
+    method: string,
+    endpoint: string,
+    callback: (data: NewsData | SourcesData | null) => void,
+    options: Options
+  ): void;
+}
+
+// CONTROLLER
+export interface IController {
+  getSources(callback: () => void): void;
+  getNews(e: Event, callback: () => void): void;
 }

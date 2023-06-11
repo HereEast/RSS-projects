@@ -1,10 +1,10 @@
 import News from "./news/news";
 import Sources from "./sources/sources";
 import { NewsData, SourcesData } from "../../types/types";
-import { IViewer } from "../../types/interfaces";
+import { IAppView } from "../../types/interfaces";
 
 // Class
-export class AppView implements IViewer {
+export class AppView implements IAppView {
   readonly news: News;
   readonly sources: Sources;
 
