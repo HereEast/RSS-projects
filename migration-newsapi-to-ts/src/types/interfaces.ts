@@ -1,9 +1,7 @@
 import News from "../components/view/news/news";
 import Sources from "../components/view/sources/sources";
-import AppController from "../components/controller/controller";
-import AppView from "../components/view/appView";
 
-import { NewsData, SourcesData, NewsArray, SourcesArray, Options, RespObject } from "./types";
+import { Data, Options, RespObject, NewsArray, SourcesArray } from "./types";
 
 // RENDER DATA
 export interface IDrawData {
@@ -15,8 +13,8 @@ export interface IAppView {
   readonly news: News;
   readonly sources: Sources;
 
-  drawNews(data: NewsData): void;
-  drawSources(data: SourcesData): void;
+  drawNews(data: Data): void;
+  drawSources(data: Data): void;
 }
 
 // LOADER
@@ -24,21 +22,19 @@ export interface ILoader {
   baseLink: string;
   options: Options;
 
-  getResp({ endpoint, options }: RespObject, callback: (data: NewsData | SourcesData | null) => void): void;
+  getResp({ endpoint, options }: RespObject, callback: (data: Data) => void): void;
   errorHandler<T extends Response>(res: T): T;
   makeUrl(options: Options, endpoint: string): string;
-  load(method: string, endpoint: string, callback: (data: NewsData | SourcesData | null) => void, options: Options): void;
+  load(method: string, endpoint: string, callback: (data: Data) => void, options: Options): void;
 }
 
 // CONTROLLER
-export interface IController {
-  getSources(callback: (data: SourcesData) => void): void;
-  getNews(e: Event, callback: (data: NewsData) => void): void;
+export interface IController extends ILoader {
+  getSources(callback: (data: Data) => void): void;
+  getNews(e: Event, callback: (data: Data) => void): void;
 }
 
 // APP
 export interface IApp {
-  controller: AppController;
-  view: AppView;
   start: () => void;
 }

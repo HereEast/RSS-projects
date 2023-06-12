@@ -40,8 +40,10 @@ export type SourcesResponse = {
   sources: Source[];
 };
 
-export type SourcesData = Exclude<SourcesResponse, "status">;
+export type SourcesData = Pick<SourcesResponse, "sources">;
 export type SourcesArray = SourcesData["sources"];
+
+export type Data = NewsData | SourcesData;
 
 // HTTP
 export type Options = {
