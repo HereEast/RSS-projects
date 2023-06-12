@@ -1,33 +1,45 @@
 import "./news.css";
-import { Article, NewsData } from "../../../types/types";
+import { Article, NewsArray } from "../../../types/types";
 import { IRenderData } from "../../../types/interfaces";
 import { Selector } from "../../../types/enums";
 
 class News implements IRenderData {
-  draw(data: NewsData["articles"] | []): void {
-    let news: NewsData["articles"];
+  draw(data: NewsArray | []): void {
+    let news: NewsArray;
 
     if (data.length >= 10) {
-      news = data.filter((el: Article, idx: number) => idx < 10);
-    } else {
-      news = data;
-    }
+      news = data.filter((_el: Article, idx: number) => idx < 10);
+    } else news = data;
 
     const fragment = document.createDocumentFragment() as DocumentFragment;
 
-    const newsItemTemp = document.querySelector(Selector.NewsTemplate) as HTMLTemplateElement;
-    const newsContainer = document.querySelector(Selector.NewsContainer) as HTMLElement;
+    const newsItemTemp = document.querySelector(Selector.NewsTemplate) as HTMLTemplateElement | null;
+    const newsContainer = document.querySelector(Selector.NewsContainer) as HTMLElement | null;
+
+    if (!newsItemTemp) throw Error(`Can't find DOM element ${Selector.NewsTemplate}`);
+    if (!newsContainer) throw Error(`Can't find DOM element ${Selector.NewsContainer}`);
 
     news.forEach((item: Article, idx: number) => {
-      const newsClone = newsItemTemp.content.cloneNode(true) as HTMLElement;
-      const newsItem = newsClone.querySelector(Selector.NewsItem) as HTMLElement;
-      const photo = newsClone.querySelector(Selector.Photo) as HTMLElement;
-      const author = newsClone.querySelector(Selector.Author) as HTMLElement;
-      const date = newsClone.querySelector(Selector.Date) as HTMLElement;
-      const title = newsClone.querySelector(Selector.Title) as HTMLElement;
-      const source = newsClone.querySelector(Selector.Source) as HTMLElement;
-      const description = newsClone.querySelector(Selector.Description) as HTMLElement;
-      const link = newsClone.querySelector(Selector.Link) as HTMLLinkElement;
+      const newsClone = newsItemTemp.content.cloneNode(true) as DocumentFragment | null;
+      if (!newsClone) throw Error(`Failed to clone ${newsItemTemp}`);
+
+      const newsItem = newsClone.querySelector(Selector.NewsItem) as HTMLElement | null;
+      const photo = newsClone.querySelector(Selector.Photo) as HTMLElement | null;
+      const author = newsClone.querySelector(Selector.Author) as HTMLElement | null;
+      const date = newsClone.querySelector(Selector.Date) as HTMLElement | null;
+      const title = newsClone.querySelector(Selector.Title) as HTMLElement | null;
+      const source = newsClone.querySelector(Selector.Source) as HTMLElement | null;
+      const description = newsClone.querySelector(Selector.Description) as HTMLElement | null;
+      const link = newsClone.querySelector(Selector.Link) as HTMLLinkElement | null;
+
+      if (!newsItem) throw Error(`Can't find DOM element ${Selector.NewsItem}`);
+      if (!photo) throw Error(`Can't find DOM element ${Selector.Photo}`);
+      if (!author) throw Error(`Can't find DOM element ${Selector.Author}`);
+      if (!date) throw Error(`Can't find DOM element ${Selector.Date}`);
+      if (!title) throw Error(`Can't find DOM element ${Selector.Title}`);
+      if (!source) throw Error(`Can't find DOM element ${Selector.Source}`);
+      if (!description) throw Error(`Can't find DOM element ${Selector.Description}`);
+      if (!link) throw Error(`Can't find DOM element ${Selector.Link}`);
 
       if (idx % 2) newsItem.classList.add("alt");
 
