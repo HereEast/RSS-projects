@@ -12,8 +12,10 @@ class Loader implements ILoader {
 
   getResp(
     { endpoint, options }: RespObject,
-    callback = (): void => {
-      console.error("No callback for GET response");
+    callback = (data: NewsData | SourcesData | null): void => {
+      if (!data) {
+        console.error("No callback for GET response");
+      }
     }
   ): void {
     this.load("GET", endpoint, callback, options || {});
@@ -42,12 +44,7 @@ class Loader implements ILoader {
     return url.slice(0, -1);
   }
 
-  load(
-    method: string,
-    endpoint: string,
-    callback: (data: NewsData | SourcesData | null) => void,
-    options: Options
-  ): void {
+  load(method: string, endpoint: string, callback: (data: NewsData | SourcesData | null) => void, options: Options): void {
     fetch(this.makeUrl(options, endpoint), { method })
       .then(this.errorHandler)
       .then((res) => res.json())
