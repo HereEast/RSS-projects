@@ -1,9 +1,9 @@
 import "./news.css";
 import { Article, NewsArray } from "../../../types/types";
-import { IRenderData } from "../../../types/interfaces";
+import { IDrawData } from "../../../types/interfaces";
 import { Selector } from "../../../types/enums";
 
-class News implements IRenderData {
+class News implements Readonly<IDrawData> {
   draw(data: NewsArray | []): void {
     let news: NewsArray;
 
