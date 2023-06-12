@@ -1,26 +1,30 @@
 import News from "./news/news";
 import Sources from "./sources/sources";
-import { NewsData, SourcesData } from "../../types/types";
+import { NewsArray, SourcesArray, Data } from "../../types/types";
 import { IAppView } from "../../types/interfaces";
 
 // Class
-export class AppView implements IAppView {
-  readonly news: News;
-  readonly sources: Sources;
+export class AppView implements Readonly<IAppView> {
+  public news: News;
+  public sources: Sources;
 
   constructor() {
     this.news = new News();
     this.sources = new Sources();
   }
 
-  public drawNews(data: NewsData): void {
-    const values: NewsData["articles"] = data?.articles ? data.articles : [];
-    this.news.draw(values);
+  public drawNews(data: Data): void {
+    if ("articles" in data) {
+      const values: NewsArray | [] = data?.articles ? data.articles : [];
+      this.news.draw(values);
+    } else return;
   }
 
-  public drawSources(data: SourcesData): void {
-    const values: SourcesData["sources"] = data?.sources ? data.sources : [];
-    this.sources.draw(values);
+  public drawSources(data: Data): void {
+    if ("sources" in data) {
+      const values: SourcesArray | [] = data?.sources ? data.sources : [];
+      this.sources.draw(values);
+    } else return;
   }
 }
 

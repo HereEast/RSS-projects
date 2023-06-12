@@ -1,11 +1,12 @@
 import AppController from "../controller/controller";
+import { Selector } from "../../types/enums";
 import { AppView } from "../view/appView";
 import { IApp } from "../../types/interfaces";
-import { NewsData, SourcesData } from "../../types/types";
+import { Data } from "../../types/types";
 
-class App implements IApp {
-  controller: AppController;
-  view: AppView;
+class App implements Readonly<IApp> {
+  private controller: AppController;
+  private view: AppView;
 
   constructor() {
     this.controller = new AppController();
@@ -13,13 +14,14 @@ class App implements IApp {
   }
 
   start(): void {
-    const sources = document.querySelector(".sources") as HTMLElement;
+    const sources = document.querySelector(Selector.SourcesContainer) as HTMLElement | null;
+    if (!sources) throw Error(`Can't find DOM element ${Selector.SourcesContainer}`);
 
     sources.addEventListener("click", (e: Event) => {
-      this.controller.getNews(e, (data: NewsData) => this.view.drawNews(data));
+      this.controller.getNews(e, (data: Data) => this.view.drawNews(data));
     });
 
-    this.controller.getSources((data: SourcesData) => this.view.drawSources(data));
+    this.controller.getSources((data: Data) => this.view.drawSources(data));
   }
 }
 
