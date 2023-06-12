@@ -1,9 +1,9 @@
 import "./sources.css";
 import { Source, SourcesArray } from "../../../types/types";
-import { IRenderData } from "../../../types/interfaces";
+import { IDrawData } from "../../../types/interfaces";
 import { Selector } from "../../../types/enums";
 
-class Sources implements IRenderData {
+class Sources implements Readonly<IDrawData> {
   draw(data: SourcesArray | []): void {
     const fragment = document.createDocumentFragment() as DocumentFragment;
 
