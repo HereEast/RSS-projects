@@ -1,4 +1,3 @@
-import "./news.css";
 import { Article, NewsArray } from "../../../types/types";
 import { IDrawData } from "../../../types/interfaces";
 import { Selector } from "../../../types/enums";

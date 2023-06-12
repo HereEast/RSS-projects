@@ -1,4 +1,3 @@
-import "./sources.css";
 import { Source, SourcesArray } from "../../../types/types";
 import { IDrawData } from "../../../types/interfaces";
 import { Selector } from "../../../types/enums";
