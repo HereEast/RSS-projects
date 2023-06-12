@@ -1,23 +1,16 @@
 import { ILoader } from "../../types/interfaces";
-import { NewsData, SourcesData, Options, RespObject } from "../../types/types";
+import { Data, Options, RespObject } from "../../types/types";
 
-class Loader implements ILoader {
-  baseLink: string;
-  options: Options;
+class Loader implements Readonly<ILoader> {
+  readonly baseLink: string;
+  readonly options: Options;
 
   constructor(baseLink: string, options: Options) {
     this.baseLink = baseLink;
     this.options = options;
   }
 
-  getResp(
-    { endpoint, options }: RespObject,
-    callback = (data: NewsData | SourcesData | null): void => {
-      if (!data) {
-        console.error("No callback for GET response");
-      }
-    }
-  ): void {
+  getResp({ endpoint, options }: RespObject, callback: (data: Data) => void): void {
     this.load("GET", endpoint, callback, options || {});
   }
 
@@ -44,11 +37,11 @@ class Loader implements ILoader {
     return url.slice(0, -1);
   }
 
-  load(method: string, endpoint: string, callback: (data: NewsData | SourcesData | null) => void, options: Options): void {
+  load(method: string, endpoint: string, callback: (data: Data) => void, options: Options): void {
     fetch(this.makeUrl(options, endpoint), { method })
       .then(this.errorHandler)
       .then((res) => res.json())
-      .then((data: NewsData | SourcesData | null) => callback(data))
+      .then((data: Data) => callback(data))
       .catch((err: string | null) => console.error(err));
   }
 }
