@@ -23,7 +23,10 @@ export interface ILoader {
   baseLink: string;
   options: Options;
 
-  getResp({ endpoint, options }: RespObject, callback: () => void): void;
+  getResp(
+    { endpoint, options }: RespObject,
+    callback: (data: NewsData | SourcesData | null) => void
+  ): void;
   errorHandler<T extends Response>(res: T): T;
   makeUrl(options: Options, endpoint: string): string;
   load(
@@ -36,8 +39,8 @@ export interface ILoader {
 
 // CONTROLLER
 export interface IController {
-  getSources(callback: () => void): void;
-  getNews(e: Event, callback: () => void): void;
+  getSources(callback: (data: SourcesData) => void): void;
+  getNews(e: Event, callback: (data: NewsData) => void): void;
 }
 
 // APP

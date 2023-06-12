@@ -14,13 +14,14 @@ export type Article = {
 };
 
 // { status, totalResults, articles: [{...}, {...}]}
-type NewsResponse = {
+export type NewsResponse = {
   status: string;
   totalResults: number;
   articles: Article[];
 };
 
 export type NewsData = Pick<NewsResponse, "articles">;
+export type NewsArray = NewsData["articles"];
 
 //
 // SOURCES
@@ -34,12 +35,13 @@ export type Source = {
 };
 
 // { status, sources: [{...}, {...}]}
-type SourcesResponse = {
+export type SourcesResponse = {
   status: string;
   sources: Source[];
 };
 
 export type SourcesData = Exclude<SourcesResponse, "status">;
+export type SourcesArray = SourcesData["sources"];
 
 // HTTP
 export type Options = {
