@@ -7,6 +7,10 @@ const EslintPlugin = require("eslint-webpack-plugin");
 
 const baseConfig = {
   entry: path.resolve(__dirname, "./src/index"),
+  output: {
+    filename: "index.js",
+    path: path.resolve(__dirname, "./dist"),
+  },
   mode: "development",
   module: {
     rules: [
@@ -26,10 +30,6 @@ const baseConfig = {
   },
   resolve: {
     extensions: [".js", ".ts"],
-  },
-  output: {
-    filename: "index.js",
-    path: path.resolve(__dirname, "../dist"),
   },
   plugins: [
     new HtmlWebpackPlugin({
