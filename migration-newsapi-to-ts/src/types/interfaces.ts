@@ -3,17 +3,18 @@ import Sources from "../components/view/sources/sources";
 import AppController from "../components/controller/controller";
 import AppView from "../components/view/appView";
 
-import { NewsData, SourcesData, Options, RespObject } from "./types";
+import { NewsData, SourcesData, NewsArray, SourcesArray, Options, RespObject } from "./types";
 
 // RENDER DATA
-export interface IRenderData {
-  draw(data: NewsData["articles"] | SourcesData["sources"]): void;
+export interface IDrawData {
+  draw(data: NewsArray | SourcesArray): void;
 }
 
 // APP VIEWER
 export interface IAppView {
   readonly news: News;
   readonly sources: Sources;
+
   drawNews(data: NewsData): void;
   drawSources(data: SourcesData): void;
 }
@@ -23,18 +24,10 @@ export interface ILoader {
   baseLink: string;
   options: Options;
 
-  getResp(
-    { endpoint, options }: RespObject,
-    callback: (data: NewsData | SourcesData | null) => void
-  ): void;
+  getResp({ endpoint, options }: RespObject, callback: (data: NewsData | SourcesData | null) => void): void;
   errorHandler<T extends Response>(res: T): T;
   makeUrl(options: Options, endpoint: string): string;
-  load(
-    method: string,
-    endpoint: string,
-    callback: (data: NewsData | SourcesData | null) => void,
-    options: Options
-  ): void;
+  load(method: string, endpoint: string, callback: (data: NewsData | SourcesData | null) => void, options: Options): void;
 }
 
 // CONTROLLER
