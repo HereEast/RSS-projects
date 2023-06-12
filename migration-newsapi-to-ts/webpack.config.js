@@ -12,29 +12,33 @@ const baseConfig = {
     rules: [
       {
         test: /\.ts$/i,
-        use: "ts-loader"
+        use: "ts-loader",
       },
       {
         test: /\.css$/i,
-        use: ["style-loader", "css-loader"]
-      }
-    ]
+        use: ["style-loader", "css-loader"],
+      },
+      {
+        test: /\.(png|jpg|jpeg|svg|gif)$/,
+        type: "asset/resource",
+      },
+    ],
   },
   resolve: {
-    extensions: [".js", ".ts"]
+    extensions: [".js", ".ts"],
   },
   output: {
     filename: "index.js",
-    path: path.resolve(__dirname, "../dist")
+    path: path.resolve(__dirname, "../dist"),
   },
   plugins: [
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, "./src/index.html"),
-      filename: "index.html"
+      filename: "index.html",
     }),
     new CleanWebpackPlugin(),
-    new EslintPlugin({ extensions: "ts" })
-  ]
+    new EslintPlugin({ extensions: "ts" }),
+  ],
 };
 
 module.exports = ({ mode }) => {

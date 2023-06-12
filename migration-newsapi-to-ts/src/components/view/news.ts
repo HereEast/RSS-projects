@@ -1,6 +1,7 @@
-import { Article, NewsArray } from "../../../types/types";
-import { IDrawData } from "../../../types/interfaces";
-import { Selector } from "../../../types/enums";
+import { Article, NewsArray } from "../../types/types";
+import { IDrawData } from "../../types/interfaces";
+import { Selector } from "../../types/enums";
+// import placeholder from "../../assets/placeholder.png";
 
 class News implements Readonly<IDrawData> {
   draw(data: NewsArray | []): void {
@@ -42,7 +43,7 @@ class News implements Readonly<IDrawData> {
 
       if (idx % 2) newsItem.classList.add("alt");
 
-      photo.style.backgroundImage = `url(${item.urlToImage || "img/news_placeholder.jpg"})`;
+      photo.style.backgroundImage = `url(${item.urlToImage || ""})`;
       author.textContent = item.author || item.source.name;
       date.textContent = item.publishedAt.slice(0, 10).split("-").reverse().join("-");
 

@@ -1,5 +1,5 @@
-import News from "./news/news";
-import Sources from "./sources/sources";
+import News from "./news";
+import Sources from "./sources";
 import { NewsArray, SourcesArray, Data } from "../../types/types";
 import { IAppView } from "../../types/interfaces";
 

@@ -1,6 +1,6 @@
-import { Source, SourcesArray } from "../../../types/types";
-import { IDrawData } from "../../../types/interfaces";
-import { Selector } from "../../../types/enums";
+import { Source, SourcesArray } from "../../types/types";
+import { IDrawData } from "../../types/interfaces";
+import { Selector } from "../../types/enums";
 
 class Sources implements Readonly<IDrawData> {
   draw(data: SourcesArray | []): void {

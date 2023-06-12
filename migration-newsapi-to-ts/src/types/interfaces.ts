@@ -1,5 +1,5 @@
-import News from "../components/view/news/news";
-import Sources from "../components/view/sources/sources";
+import News from "../components/view/news";
+import Sources from "../components/view/sources";
 
 import { Data, Options, RespObject, NewsArray, SourcesArray } from "./types";
 
