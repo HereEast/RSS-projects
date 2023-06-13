@@ -4,7 +4,7 @@ import placeholder from "../../assets/placeholder.png";
 
 class News {
   render(data: NewsArray | []): void {
-    const news = data.length >= 10 ? data.filter((_el, idx) => idx < 10) : data;
+    const articles = data.length >= 10 ? data.filter((_, idx) => idx < 10) : data;
 
     const fragment = document.createDocumentFragment();
 
@@ -16,7 +16,7 @@ class News {
     }
     if (!newsContainer) throw Error(`Can't find DOM element ${Selector.NewsContainer}`);
 
-    news.forEach((item, idx) => {
+    articles.forEach((article, idx) => {
       const newsClone = newsItemTemp.content.cloneNode(true);
 
       if (!newsClone || !(newsClone instanceof DocumentFragment)) {
@@ -44,16 +44,16 @@ class News {
       if (idx % 2) newsItem.classList.add("alt");
 
       if (photo instanceof HTMLElement) {
-        photo.style.backgroundImage = `url(${item.urlToImage || placeholder})`;
+        photo.style.backgroundImage = `url(${article.urlToImage || placeholder})`;
       }
 
-      author.textContent = item.author || item.source.name;
-      date.textContent = item.publishedAt.slice(0, 10).split("-").reverse().join("-");
+      author.textContent = article.author || article.source.name;
+      date.textContent = article.publishedAt.slice(0, 10).split("-").reverse().join("-");
 
-      title.textContent = item.title;
-      source.textContent = item.source.name;
-      description.textContent = item.description;
-      link.setAttribute("href", item.url);
+      title.textContent = article.title;
+      source.textContent = article.source.name;
+      description.textContent = article.description;
+      link.setAttribute("href", article.url);
 
       fragment.append(newsClone);
     });

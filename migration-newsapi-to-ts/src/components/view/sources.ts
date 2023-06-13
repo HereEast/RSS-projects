@@ -3,6 +3,8 @@ import { Selector } from "../../types/enums";
 
 class Sources {
   render(data: SourcesArray | []): void {
+    const sources = [...data];
+
     const fragment = document.createDocumentFragment();
 
     const sourceItemTemp = document.querySelector(Selector.SourceTemplate);
@@ -13,21 +15,21 @@ class Sources {
     }
     if (!sourcesContainer) throw Error(`Can't find DOM element ${Selector.SourcesContainer}`);
 
-    data.forEach((item) => {
+    sources.forEach((source) => {
       const sourceClone = sourceItemTemp.content.cloneNode(true);
 
       if (!sourceClone || !(sourceClone instanceof DocumentFragment)) {
         throw Error(`Failed to clone ${sourceItemTemp}`);
       }
 
+      const sourceItem = sourceClone.querySelector(Selector.SourceItem);
       const itemName = sourceClone.querySelector(Selector.SourceItemName);
-      const source = sourceClone.querySelector(Selector.SourceItem);
 
       if (!itemName) throw Error(`Can't find DOM element ${Selector.SourceItemName}`);
-      if (!source) throw Error(`Can't find DOM element ${Selector.SourceItem}`);
+      if (!sourceItem) throw Error(`Can't find DOM element ${Selector.SourceItem}`);
 
-      itemName.textContent = item.name;
-      source.setAttribute("data-source-id", item.id);
+      itemName.textContent = source.name;
+      sourceItem.setAttribute("data-source-id", source.id);
 
       fragment.append(sourceClone);
     });
