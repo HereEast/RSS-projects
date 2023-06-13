@@ -1,23 +1,27 @@
-import { Source, SourcesArray } from "../../types/types";
-import { IDrawData } from "../../types/interfaces";
+import { SourcesArray } from "../../types/types";
 import { Selector } from "../../types/enums";
 
-class Sources implements Readonly<IDrawData> {
-  draw(data: SourcesArray | []): void {
-    const fragment = document.createDocumentFragment() as DocumentFragment;
+class Sources {
+  render(data: SourcesArray | []): void {
+    const fragment = document.createDocumentFragment();
 
-    const sourceItemTemp = document.querySelector(Selector.SourceTemplate) as HTMLTemplateElement | null;
-    const sourcesContainer = document.querySelector(Selector.SourcesContainer) as HTMLElement | null;
+    const sourceItemTemp = document.querySelector(Selector.SourceTemplate);
+    const sourcesContainer = document.querySelector(Selector.SourcesContainer);
 
-    if (!sourceItemTemp) throw Error(`Can't find DOM element ${Selector.SourceTemplate}`);
+    if (!sourceItemTemp || !(sourceItemTemp instanceof HTMLTemplateElement)) {
+      throw Error(`Can't find DOM element ${Selector.SourceTemplate}`);
+    }
     if (!sourcesContainer) throw Error(`Can't find DOM element ${Selector.SourcesContainer}`);
 
-    data.forEach((item: Source) => {
-      const sourceClone = sourceItemTemp.content.cloneNode(true) as DocumentFragment;
-      if (!sourceClone) throw Error(`Failed to clone ${sourceItemTemp}`);
+    data.forEach((item) => {
+      const sourceClone = sourceItemTemp.content.cloneNode(true);
 
-      const itemName = sourceClone.querySelector(Selector.SourceItemName) as HTMLElement | null;
-      const source = sourceClone.querySelector(Selector.SourceItem) as HTMLLIElement | null;
+      if (!sourceClone || !(sourceClone instanceof DocumentFragment)) {
+        throw Error(`Failed to clone ${sourceItemTemp}`);
+      }
+
+      const itemName = sourceClone.querySelector(Selector.SourceItemName);
+      const source = sourceClone.querySelector(Selector.SourceItem);
 
       if (!itemName) throw Error(`Can't find DOM element ${Selector.SourceItemName}`);
       if (!source) throw Error(`Can't find DOM element ${Selector.SourceItem}`);
