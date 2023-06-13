@@ -1,22 +1,21 @@
 import AppLoader from "./appLoader";
-import { IController } from "../../types/interfaces";
 import { Data } from "../../types/types";
 
-class AppController extends AppLoader implements Readonly<IController> {
+class AppController extends AppLoader {
   getSources(callback: (data: Data) => void): void {
     super.getResp({ endpoint: "sources" }, callback);
   }
 
   getNews(e: Event, callback: (data: Data) => void): void {
-    let target = e.target as HTMLElement | null;
-    const newsContainer = e.currentTarget as HTMLElement | null;
+    let target = e.target as HTMLElement;
+    const newsContainer = e.currentTarget as HTMLElement;
 
     if (!target) throw Error("Can't find e.target element.");
     if (!newsContainer) throw Error("Can't find e.currentTarget element.");
 
     while (target !== newsContainer) {
       if (target.classList.contains("source__item")) {
-        const sourceId: string = target.getAttribute("data-source-id") || "";
+        const sourceId = target.getAttribute("data-source-id") || "";
 
         if (newsContainer.getAttribute("data-source") !== sourceId) {
           newsContainer.setAttribute("data-source", sourceId);
@@ -33,7 +32,7 @@ class AppController extends AppLoader implements Readonly<IController> {
         return;
       }
 
-      const parentNode = target.parentNode as HTMLElement | null;
+      const parentNode = target.parentNode as HTMLElement;
       if (!parentNode) throw Error("Can't find target.parentNode.");
 
       target = parentNode;
