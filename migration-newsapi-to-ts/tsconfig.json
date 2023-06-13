@@ -6,9 +6,11 @@
     "module": "commonjs",
     "strict": true,
     "noImplicitAny": true,
-    "moduleResolution": "node",
+    // "moduleResolution": "node",
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true
+    "forceConsistentCasingInFileNames": true,
+    "rootDir": "./src",
+    "outDir": "./dist"
   }
 }
