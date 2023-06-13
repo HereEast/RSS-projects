@@ -1,9 +1,8 @@
-import { ILoader } from "../../types/interfaces";
 import { Data, Options, RespObject } from "../../types/types";
 
-class Loader implements Readonly<ILoader> {
-  readonly baseLink: string;
-  readonly options: Options;
+class Loader {
+  private baseLink;
+  private options;
 
   constructor(baseLink: string, options: Options) {
     this.baseLink = baseLink;
@@ -11,7 +10,7 @@ class Loader implements Readonly<ILoader> {
   }
 
   getResp({ endpoint, options }: RespObject, callback: (data: Data) => void): void {
-    this.load("GET", endpoint, callback, options || {});
+    this.load("GET", endpoint, callback, options ?? {});
   }
 
   errorHandler<T extends Response>(res: T): T {
@@ -27,10 +26,10 @@ class Loader implements Readonly<ILoader> {
   }
 
   makeUrl(options: Options, endpoint: string): string {
-    const urlOptions: Options = { ...this.options, ...options };
+    const urlOptions = { ...this.options, ...options };
     let url = `${this.baseLink}${endpoint}?`;
 
-    Object.keys(urlOptions).forEach((key: string) => {
+    Object.keys(urlOptions).forEach((key) => {
       url += `${key}=${urlOptions[key]}&`;
     });
 
