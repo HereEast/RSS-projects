@@ -17,7 +17,19 @@ class App implements Readonly<IApp> {
     const sources = document.querySelector(Selector.SourcesContainer) as HTMLElement | null;
     if (!sources) throw Error(`Can't find DOM element ${Selector.SourcesContainer}`);
 
+    const sourcesTabs = sources.children as HTMLCollection;
+    if (!sourcesTabs) throw Error(`Can't find children of ${Selector.SourcesContainer}`);
+
     sources.addEventListener("click", (e: Event) => {
+      const target = e.target as HTMLElement | null;
+      const targetContainer = target?.closest(Selector.SourceItem) as HTMLElement | null;
+
+      if (!target) throw Error("Can't find e.target element.");
+      if (!targetContainer) throw Error(`Can't find tDOM element ${Selector.SourceItem}.`);
+
+      [...sourcesTabs].forEach((tab: Element) => tab.classList.remove("active"));
+      targetContainer.classList.add("active");
+
       this.controller.getNews(e, (data: Data) => this.view.drawNews(data));
     });
 
