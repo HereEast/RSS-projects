@@ -3,10 +3,13 @@ import { ILoader } from "../../types/interfaces";
 
 class AppLoader extends Loader implements Partial<ILoader> {
   constructor() {
-    super("https://nodenews.herokuapp.com/", {
-      apiKey: "8eb6726de49848bc9113f5d132c3d548",
+    super("https://newsapi.org/v2/", {
+      apiKey: "75c1cc08fa9141c3a35d0fc4d548f8d1",
     });
   }
 }
 
 export default AppLoader;
+
+// https://nodenews.herokuapp.com/
+// https://newsapi.org/v2/
