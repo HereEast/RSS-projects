@@ -1,5 +1,5 @@
 // NEWS
-export type Article = {
+export interface Article {
   author: string;
   content: string;
   description: string;
@@ -11,34 +11,34 @@ export type Article = {
   title: string;
   url: string;
   urlToImage: string;
-};
+}
 
 // { status, totalResults, articles: [{...}, {...}]}
-export type NewsResponse = {
+export interface NewsResponse {
   status: string;
   totalResults: number;
   articles: Article[];
-};
+}
 
 export type NewsData = Pick<NewsResponse, "articles">;
 export type NewsArray = NewsData["articles"];
 
 //
 // SOURCES
-export type Source = {
+export interface Source {
   category: string;
   country: string;
   description: string;
   id: string;
   name: string;
   url: string;
-};
+}
 
 // { status, sources: [{...}, {...}]}
-export type SourcesResponse = {
+export interface SourcesResponse {
   status: string;
   sources: Source[];
-};
+}
 
 export type SourcesData = Pick<SourcesResponse, "sources">;
 export type SourcesArray = SourcesData["sources"];
@@ -50,7 +50,7 @@ export type Options = {
   [key: string]: string;
 };
 
-export type RespObject = {
+export interface RespObject {
   endpoint: string;
   options?: Options;
-};
+}
