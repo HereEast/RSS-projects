@@ -22,7 +22,7 @@ module.exports = {
     },
     compress: true,
     hot: true,
-    port: 3000,
+    port: 8080,
   },
   module: {
     rules: [
