@@ -4,7 +4,6 @@
     "es2021": true,
     "amd": true
   },
-  "parser": "@typescript-eslint/parser",
   "plugins": [
     "import", 
     "@typescript-eslint",
