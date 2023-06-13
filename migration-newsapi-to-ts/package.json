@@ -4,8 +4,8 @@
   "description": "",
   "main": "webpack.base.config.js",
   "scripts": {
-    "start": "webpack serve --open --config ./webpack.config.js --env mode=dev",
-    "build": "webpack --config ./webpack.config.js --env mode=prod",
+    "start": "cross-env NODE_ENV=development webpack serve --mode development --open",
+    "build": "cross-env NODE_ENV=production webpack --mode production",
     "lint": "eslint . --ext .ts"
   },
   "repository": {
@@ -13,7 +13,7 @@
     "url": ""
   },
   "keywords": [],
-  "author": "Aleh Serhiyenia",
+  "author": "Nastia Piven",
   "license": "ISC",
   "homepage": "",
   "devDependencies": {
@@ -21,6 +21,7 @@
     "@typescript-eslint/parser": "^5.59.9",
     "clean-webpack-plugin": "^3.0.0",
     "copy-webpack-plugin": "^7.0.0",
+    "cross-env": "^7.0.3",
     "css-loader": "^5.1.0",
     "eslint": "^7.27.0",
     "eslint-config-prettier": "^8.3.0",
