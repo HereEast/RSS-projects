@@ -46,9 +46,7 @@ export type SourcesArray = SourcesData["sources"];
 export type Data = NewsData | SourcesData;
 
 // HTTP
-export type Options = {
-  [key: string]: string;
-};
+export type Options = Record<string, string>;
 
 export interface RespObject {
   endpoint: string;
