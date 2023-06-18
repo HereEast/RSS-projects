@@ -14,3 +14,8 @@ export const enum Selector {
   SourceItemName = ".source__item-name",
   SourceItem = ".source__item",
 }
+
+export enum HttpStatusCode {
+  Unauthorized = 401,
+  NotFound = 404,
+}
