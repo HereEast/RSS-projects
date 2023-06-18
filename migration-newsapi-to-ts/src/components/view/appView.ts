@@ -2,7 +2,6 @@ import News from "./news";
 import Sources from "./sources";
 import { NewsArray, SourcesArray, Data } from "../../types/types";
 
-// Class
 export class AppView {
   readonly news: News;
   readonly sources: Sources;
@@ -14,15 +13,15 @@ export class AppView {
 
   public renderNews(data: Data): void {
     if ("articles" in data) {
-      const values: NewsArray | [] = data?.articles ? data.articles : [];
-      this.news.render(values);
+      const articles: NewsArray | [] = data?.articles ?? [];
+      this.news.render(articles);
     }
   }
 
   public renderSources(data: Data): void {
     if ("sources" in data) {
-      const values: SourcesArray | [] = data?.sources ? data.sources : [];
-      this.sources.render(values);
+      const sources: SourcesArray | [] = data?.sources ?? [];
+      this.sources.render(sources);
     }
   }
 }
