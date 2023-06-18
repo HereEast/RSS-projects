@@ -7,17 +7,17 @@ class AppController extends AppLoader {
   }
 
   getNews(e: Event, callback: (data: Data) => void): void {
-    let target = e.target as HTMLElement;
-    const newsContainer = e.currentTarget as HTMLElement;
+    let target = e.target;
+    const newsContainer = e.currentTarget;
 
     if (!target) throw Error("Can't find e.target element.");
     if (!newsContainer) throw Error("Can't find e.currentTarget element.");
 
     while (target !== newsContainer) {
-      if (target.classList.contains("source__item")) {
+      if (target instanceof HTMLElement && target.classList.contains("source__item")) {
         const sourceId = target.getAttribute("data-source-id") || "";
 
-        if (newsContainer.getAttribute("data-source") !== sourceId) {
+        if (newsContainer instanceof HTMLElement && newsContainer.getAttribute("data-source") !== sourceId) {
           newsContainer.setAttribute("data-source", sourceId);
           super.getResp(
             {
@@ -32,10 +32,9 @@ class AppController extends AppLoader {
         return;
       }
 
-      const parentNode = target.parentNode as HTMLElement;
-      if (!parentNode) throw Error("Can't find target.parentNode.");
-
-      target = parentNode;
+      if (target instanceof HTMLElement && target !== null) {
+        target = target.parentNode;
+      }
     }
   }
 }
