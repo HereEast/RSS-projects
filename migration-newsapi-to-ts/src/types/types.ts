@@ -13,7 +13,6 @@ export interface Article {
   urlToImage: string;
 }
 
-// { status, totalResults, articles: [{...}, {...}]}
 export interface NewsResponse {
   status: string;
   totalResults: number;
@@ -34,7 +33,6 @@ export interface Source {
   url: string;
 }
 
-// { status, sources: [{...}, {...}]}
 export interface SourcesResponse {
   status: string;
   sources: Source[];
