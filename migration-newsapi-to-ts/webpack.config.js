@@ -1,9 +1,9 @@
 const path = require("path");
+const Dotenv = require("dotenv-webpack");
 
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const EslintPlugin = require("eslint-webpack-plugin");
-const { EnvironmentPlugin } = require("webpack");
 
 const isDev = process.env.NODE_ENV === "development";
 console.log("⬇️ DEV:", isDev);
@@ -51,6 +51,6 @@ module.exports = {
     }),
     new CleanWebpackPlugin(),
     new EslintPlugin({ extensions: "ts" }),
-    new EnvironmentPlugin([API_KEY]),
+    new Dotenv(),
   ],
 };
