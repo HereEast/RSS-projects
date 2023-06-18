@@ -1,4 +1,5 @@
 import { Data, Options, RespObject } from "../../types/types";
+import { HttpStatusCode } from "../../types/enums";
 
 class Loader {
   private baseLink;
@@ -15,9 +16,9 @@ class Loader {
 
   errorHandler<T extends Response>(res: T): T {
     if (!res.ok) {
-      if (res.status === 401 || res.status === 404) {
+      if (res.status === HttpStatusCode.Unauthorized || res.status === HttpStatusCode.NotFound) {
         const message = `Sorry, but there is ${res.status} error: ${res.statusText}`;
-        console.log(message);
+        throw Error(message);
       }
       throw Error(res.statusText);
     }
