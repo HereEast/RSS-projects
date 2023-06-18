@@ -3,12 +3,13 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const EslintPlugin = require("eslint-webpack-plugin");
+const { EnvironmentPlugin } = require("webpack");
 
 const isDev = process.env.NODE_ENV === "development";
 console.log("⬇️ DEV:", isDev);
 
 module.exports = {
-  mode: isDev ? "development" : "production" ,
+  mode: isDev ? "development" : "production",
   entry: path.resolve(__dirname, "./src/index"),
   output: {
     filename: "index.js",
@@ -50,5 +51,6 @@ module.exports = {
     }),
     new CleanWebpackPlugin(),
     new EslintPlugin({ extensions: "ts" }),
+    new EnvironmentPlugin([API_KEY]),
   ],
 };
