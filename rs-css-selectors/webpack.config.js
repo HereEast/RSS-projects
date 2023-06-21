@@ -1,5 +1,4 @@
 const path = require("path");
-const Dotenv = require("dotenv-webpack");
 
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
@@ -24,6 +23,11 @@ module.exports = {
     compress: true,
     hot: true,
     port: 4040,
+    open: {
+      app: {
+        name: "Google Chrome",
+      },
+    },
   },
   module: {
     rules: [
@@ -51,6 +55,5 @@ module.exports = {
     }),
     new CleanWebpackPlugin(),
     new EslintPlugin({ extensions: "ts" }),
-    new Dotenv(),
   ],
 };
