@@ -1,0 +1,24 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@300;400;500;600;700&display=swap");
+
+:root {
+  --black: #17181c;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  height: 100%;
+  color: #fff;
+  background: var(--black);
+  font-family: "Inter", sans-serif;
+  font-family: "JetBrains Mono", monospace;
+  display: flex;
+  flex-direction: column;
+}
+
