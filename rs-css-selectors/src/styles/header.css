@@ -1,0 +1,85 @@
+.header {
+  max-width: 1000px;
+  width: 100%;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header__title {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+h1 {
+  font-weight: 500;
+}
+
+.title--icon {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.title--icon svg {
+  width: 80px;
+  height: 13px;
+}
+
+/* ICON */
+.header__title .icon path,
+.header__title .icon circle,
+.header__title .icon rect {
+  transition: all 0.2s cubic-bezier(.5, 1.8, .6, 1.5);
+}
+
+.header__title .icon path {
+  transform: translateX(0);
+  transition-delay: 0;
+}
+
+.header__title .icon rect {
+  transform: translateX(0);
+  transition-delay: 0.1s;
+}
+
+.header__title .icon circle {
+  transform: translateX();
+  transition-delay: 0.2s;
+}
+
+.header__title:hover .icon path {
+  transform: translateX(10px);
+  transition-delay: 0;
+}
+
+.header__title:hover .icon rect {
+  transform: translateX(10px);
+  transition-delay: 0.1s;
+}
+
+.header__title:hover .icon circle {
+  transform: translateX(10px);
+  transition-delay: 0.2s;
+}
+
+/**/
+
+.header__buttons {
+  display: flex;
+  gap: 5px;
+}
+
+.header__button:hover {
+  padding: 0 20px;
+}
+
+.header__button.button--hint:hover {
+  background-color: var(--yellow);
+}
+
+.header__button.button--reset:hover {
+  background-color: var(--green);
+}
