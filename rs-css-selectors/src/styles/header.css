@@ -1,5 +1,5 @@
 .header {
-  max-width: 1000px;
+  /* max-width: 1000px; */
   width: 100%;
 
   display: flex;
@@ -17,18 +17,19 @@ h1 {
   font-weight: 500;
 }
 
-.title--icon {
+.title__icon {
   display: flex;
   justify-content: flex-start;
   align-items: center;
 }
 
-.title--icon svg {
-  width: 80px;
+.title__icon svg {
+  width: 60px;
   height: 13px;
 }
 
 /* ICON */
+
 .header__title .icon path,
 .header__title .icon circle,
 .header__title .icon rect {

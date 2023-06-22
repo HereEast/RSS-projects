@@ -5,3 +5,6 @@
 @import "./header.css";
 @import "./main.css";
 @import "./footer";
+
+@import "./game.css";
+@import "./task.css";
