@@ -5,7 +5,10 @@
   --green: #7EC870;
   --yellow: #ffe208;
   --purple: #725CFA;
+  --blue: rgb(130, 202, 247);
   --back: #313131;
   --border: #5d5d5d;
   --button--grey: #f5f5f5;
+  --back--grey: #DDDDDD;
+  --text--grey: #868686;
 }
