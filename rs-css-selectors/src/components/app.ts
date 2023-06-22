@@ -1,5 +1,5 @@
-import { createFooter } from "./footer";
-import { createMain } from "./main";
+import { createFooter } from "./ui/footer";
+import { createMain } from "./ui/main";
 
 const main = createMain();
 const footer = createFooter();
