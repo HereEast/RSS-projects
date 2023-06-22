@@ -1,5 +1,4 @@
 .header {
-  /* max-width: 1000px; */
   width: 100%;
 
   display: flex;
@@ -17,6 +16,13 @@ h1 {
   font-weight: 500;
 }
 
+.header__buttons {
+  display: flex;
+  gap: 5px;
+}
+
+/* ICON */
+
 .title__icon {
   display: flex;
   justify-content: flex-start;
@@ -27,8 +33,6 @@ h1 {
   width: 60px;
   height: 13px;
 }
-
-/* ICON */
 
 .header__title .icon path,
 .header__title .icon circle,
@@ -64,23 +68,4 @@ h1 {
 .header__title:hover .icon circle {
   transform: translateX(10px);
   transition-delay: 0.2s;
-}
-
-/**/
-
-.header__buttons {
-  display: flex;
-  gap: 5px;
-}
-
-.header__button:hover {
-  padding: 0 20px;
-}
-
-.header__button.button--hint:hover {
-  background-color: var(--yellow);
-}
-
-.header__button.button--reset:hover {
-  background-color: var(--green);
 }
