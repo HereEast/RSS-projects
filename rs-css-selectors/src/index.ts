@@ -1,6 +1,6 @@
 console.log("✅ CSS Selectors");
-// import App from "./components/app/app";
-import "./styles.css";
 
-// const app = new App();
-// app.start();
+import "./styles/index.css";
+import { renderApp } from "./components/app";
+
+renderApp();
