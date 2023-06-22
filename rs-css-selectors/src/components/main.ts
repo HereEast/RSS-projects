@@ -1,4 +1,4 @@
-import { createElement } from "../../utils/element";
+import { createElement } from "../utils/element";
 import { createGameSection } from "./game-view";
 import { createLevelsSection } from "./levels-view";
 

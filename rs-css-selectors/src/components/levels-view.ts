@@ -1,4 +1,4 @@
-import { createElement } from "../../utils/element";
+import { createElement } from "../utils/element";
 
 // Levels
 export function createLevelsSection(): HTMLElement {

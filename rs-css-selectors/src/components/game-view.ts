@@ -1,4 +1,4 @@
-import { createElement } from "../../utils/element";
+import { createElement } from "../utils/element";
 import { createHeader } from "./header";
 import { createTaskBlock } from "./task-view";
 import { createCodeBlock } from "./editors-view";

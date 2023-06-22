@@ -1,5 +1,5 @@
 // Task
-import { createElement } from "../../utils/element";
+import { createElement } from "../utils/element";
 
 // Task
 export function createTaskBlock(): HTMLElement {
