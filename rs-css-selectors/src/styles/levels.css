@@ -1,4 +1,5 @@
 .levels__header {
+  position: relative;
   width: 100%;
   height: 40px;
   padding: 0 15px;
@@ -24,13 +25,21 @@
 }
 
 .levels__header .header__title h3,
-.levels__header .header__title span  {
+.levels__header .header__title span {
   font-weight: 400;
   opacity: 0.9;
 }
 
 .levels__header .header__title h3 {
   margin-right: 10px;
+}
+
+.levels__header .button__container {
+  position: absolute;
+  left: 0;
+  transform: translateX(-100%);
+  display: none;
+  z-index: -10;
 }
 
 .levels__buttons {
@@ -94,8 +103,18 @@
   opacity: 1;
 }
 
+.levels__body .button__container {
+  width: 100%;
+  padding: 20px;
+
+  display: flex;
+  justify-content: center;
+}
+
 /**/
 
-@media all and (max-width: 920px) {
-
+@media all and (max-width: 980px) {
+  .panel--visible .button__container {
+    display: block;
+  }
 }

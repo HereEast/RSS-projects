@@ -37,9 +37,18 @@ function createTitle(): string {
 function createHeaderButtons(): string {
   const buttonHint = "<button class='button button--hint'>Hint</button>";
   const buttonReset = "<button class='button button--reset'>Reset</button>";
+  const buttonLevels = "<button class='button button--levels'>=</button>";
+
+  const levelInfo = `
+    <div class="header__levels">
+      <span class="level__status level--unfinished"></span><span>1/10</span>
+      ${buttonLevels}
+    </div>
+  `;
 
   const headerButtons = `
     <div class="header__buttons">
+      ${levelInfo}
       ${buttonHint}
       ${buttonReset}
     </div>
