@@ -33,6 +33,7 @@ body {
 @media all and (max-width: 980px) {
   body {
     overflow: scroll;
+    overflow-x: hidden;
   }
 }
 
