@@ -28,7 +28,14 @@ export function createLevelsHeader(): HTMLElement {
     </div>
   `;
 
+  const buttonHide = `
+    <div class="button__container">
+      <button class="button button--hide">Hide</button>
+    </div>
+  `;
+
   header.insertAdjacentHTML("afterbegin", headerContent);
+  header.insertAdjacentHTML("afterbegin", buttonHide);
 
   return header;
 }
