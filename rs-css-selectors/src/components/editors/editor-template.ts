@@ -23,7 +23,7 @@ export function createEditor(params: EditorParams): HTMLElement {
 
   const editorBody = `
     <div class="editor__body">
-      <div class="body__panel--lines">${linesSpans()}
+      <div class="body__panel--lines">${linesSpans()}</div>
       <div class="body__panel--content">
         ${params.editorContent}
       </div>
