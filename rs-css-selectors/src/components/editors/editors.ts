@@ -1,5 +1,6 @@
-import { createElement } from "../utils/element";
-import { EditorParams } from "../types/types";
+import { createElement } from "../../utils/element";
+import { EditorParams } from "../../types/types";
+import { createEditor } from "./editor-template";
 
 // Editors
 export function createEditorsBlock(): HTMLElement {
@@ -45,44 +46,4 @@ function createHTMLEditor(): HTMLElement {
 
   const htmlEditor = createEditor(params);
   return htmlEditor;
-}
-
-//
-//
-
-function createEditor(params: EditorParams): HTMLElement {
-  const editor = createElement("div", params.classNames);
-
-  const editorHeader = `
-    <div class="editor__header">
-      <span class="editor__title">${params.title}</span>
-      <span class="editor__file">${params.fileName}</span>
-    </div>
-  `;
-
-  const editorBody = `
-    <div class="editor__body">
-      <div class="body__panel--lines">${createLinesCount()}</div>
-      <div class="body__panel--content">
-        ${params.editorContent}
-      </div>
-    </div>
-  `;
-
-  editor.insertAdjacentHTML("beforeend", editorHeader);
-  editor.insertAdjacentHTML("beforeend", editorBody);
-
-  return editor;
-}
-
-// Lines
-function createLinesCount(): string {
-  let lines = "";
-
-  for (let i = 1; i <= 25; i++) {
-    const span = `<span>${i}</span>`;
-    lines += span;
-  }
-
-  return lines;
 }

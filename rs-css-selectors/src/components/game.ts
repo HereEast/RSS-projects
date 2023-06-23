@@ -1,7 +1,7 @@
 import { createElement } from "../utils/element";
 import { createHeader } from "./header";
 import { createTaskBlock } from "./task";
-import { createEditorsBlock } from "./editors";
+import { createEditorsBlock } from "./editors/editors";
 
 //
 export function createGameSection(): HTMLElement {
