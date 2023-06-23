@@ -21,6 +21,38 @@ h1 {
   gap: 5px;
 }
 
+.header__levels {
+  display: none;
+}
+
+.header__levels .level__status {
+  display: block;
+  margin-right: 5px;
+  margin-top: 2px;
+}
+
+.button--levels {
+  margin-left: 15px;
+}
+
+/**/
+
+@media all and (max-width: 980px) {
+  .header {
+    position: fixed;
+    width: 100%;
+    left: 0;
+    top: 0;
+    padding: 20px;
+
+    background-color: var(--back);
+  }
+
+  .header__levels {
+    display: flex;
+  }
+}
+
 /* ICON */
 
 .title__icon {
@@ -37,7 +69,7 @@ h1 {
 .header__title .icon path,
 .header__title .icon circle,
 .header__title .icon rect {
-  transition: all 0.2s cubic-bezier(.5, 1.8, .6, 1.5);
+  transition: all 0.2s cubic-bezier(0.5, 1.8, 0.6, 1.5);
 }
 
 .header__title .icon path {

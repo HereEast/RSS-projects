@@ -28,4 +28,18 @@ body {
   width: 100%;
 }
 
+/**/
+
+@media all and (max-width: 980px) {
+  body {
+    overflow: scroll;
+  }
+}
+
+@media all and (max-width: 750px) {
+  body {
+    gap: 60px;
+  }
+}
+
 

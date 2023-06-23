@@ -3,7 +3,7 @@
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   gap: 20px;
 }
@@ -19,8 +19,8 @@
   height: 100%;
   display: flex;
   justify-content: center;
-  align-items: center;
-  
+  align-items: flex-start;
+
   background-color: var(--black);
 }
 
@@ -30,3 +30,14 @@
   height: 100%;
 }
 
+/**/
+
+@media all and (max-width: 750px) {
+  .block__task {
+    height: auto;
+  }
+
+  .task__graphics {
+    height: 200px;
+  }
+}

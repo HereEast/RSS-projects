@@ -67,6 +67,10 @@ button {
   background-color: var(--green);
 }
 
+.header .button--levels:hover {
+  background-color: var(--purple);
+}
+
 .levels__button {
   width: 30px;
 }

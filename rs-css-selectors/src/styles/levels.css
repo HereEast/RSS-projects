@@ -59,7 +59,7 @@
 
 .level__item {
   width: 100%;
-  padding: 4px 20px;
+  padding: 4px 15px;
   display: flex;
   align-items: center;
 
@@ -92,4 +92,10 @@
 
 .level__item:hover span {
   opacity: 1;
+}
+
+/**/
+
+@media all and (max-width: 920px) {
+
 }

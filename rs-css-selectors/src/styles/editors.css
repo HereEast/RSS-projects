@@ -76,3 +76,27 @@
 .editor--html .editor__body {
   background-color: var(--back);
 }
+
+/**/
+
+@media all and (max-width: 750px) {
+  .block__editors {
+    flex-direction: column;
+    gap: 20px;
+    max-height: initial;
+  }
+
+  .editor {
+    width: 100%;
+    max-height: 320px;
+    height: 100%;
+  }
+
+  .editor__body {
+    overflow-y: hidden;
+  }
+
+  .editor--css {
+    border-right: 1px solid var(--border);
+  }
+}
