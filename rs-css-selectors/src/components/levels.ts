@@ -4,10 +4,18 @@ import { createElement } from "../utils/element";
 export function createLevelsSection(): HTMLElement {
   const levelsPanel = createElement("section", ["section__levels"]);
   const header = createLevelsHeader();
+  const levels = createLevelsBody();
 
-  levelsPanel.append(header);
+  levelsPanel.append(header, levels);
 
   return levelsPanel;
+}
+
+// Levels
+function createLevelsBody(): HTMLElement {
+  const levelsContainer = createElement("div", ["levels__container"]);
+
+  return levelsContainer;
 }
 
 // Header
@@ -19,6 +27,7 @@ function createLevelsHeader(): HTMLElement {
       <span>&lt;</span>
     </button>
     `;
+
   const buttonNext = `
     <button class='button levels__button button--next'>
       <span>&gt;</span>
@@ -26,8 +35,8 @@ function createLevelsHeader(): HTMLElement {
     `;
 
   const headerContent = `
-    <div class="levels__header-container">
-      <div class="levels__header-title"">
+    <div class="header__container">
+      <div class="header__title"">
         <h3>Level</h3>
         <span>1/10</span>
       </div>

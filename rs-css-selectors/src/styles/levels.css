@@ -10,21 +10,21 @@
   border-bottom: 1px solid var(--border);
 }
 
-.levels__header-container {
+.levels__header .header__container {
   width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.levels__header-title {
+.levels__header .header__title {
   width: 100%;
   display: flex;
   justify-content: space-between;
 }
 
-.levels__header-title h3,
-.levels__header-title span  {
+.levels__header .header__title h3,
+.levels__header .header__title span  {
   font-weight: 400;
   opacity: 0.9;
 }
