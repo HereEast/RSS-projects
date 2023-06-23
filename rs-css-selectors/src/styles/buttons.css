@@ -32,7 +32,6 @@ a:hover::before {
   outline: none;
   background-color: var(--button--grey);
   border: 1px solid var(--black);
-  /* border-radius: 3px; */
 
   font-family: "JetBrains Mono", monospace;
   font-size: 12px;

@@ -2,9 +2,11 @@
 
 @import "./styles.css";
 @import "./variables.css";
+@import "./buttons.css";
 @import "./header.css";
 @import "./main.css";
 @import "./footer";
 
-@import "./game.css";
-@import "./task.css";
+@import "./editors.css";
+@import "./graphics.css";
+@import "./input.css";

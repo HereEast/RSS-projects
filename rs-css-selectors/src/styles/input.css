@@ -1,0 +1,19 @@
+/* INPUT */
+
+.input__container {
+  display: flex;
+  gap: 10px;
+}
+
+input {
+  font-family: "JetBrains Mono", monospace;
+  color: var(--black);
+
+  outline: 0;
+  border: 0;
+  border-radius: 0;
+
+  width: 100%;
+  height: 20px;
+  padding: 0 10px;
+}
