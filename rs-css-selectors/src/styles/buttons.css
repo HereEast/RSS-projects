@@ -25,11 +25,20 @@ a:hover::before {
 
 /* BUTTONS */
 
+button {
+  outline: none;
+  border-radius: 0;
+}
+
 .button {
   height: 20px;
   padding: 0 10px;
 
-  outline: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+
   background-color: var(--button--grey);
   border: 1px solid var(--black);
 
@@ -56,4 +65,17 @@ a:hover::before {
 
 .button--reset:hover {
   background-color: var(--green);
+}
+
+.levels__button {
+  width: 30px;
+}
+
+.levels__button:first-child {
+  border-right: none;
+}
+
+.button--prev:hover,
+.button--next:hover {
+  background-color: var(--orange);
 }
