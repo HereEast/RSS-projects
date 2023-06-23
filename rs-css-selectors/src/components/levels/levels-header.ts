@@ -1,25 +1,6 @@
-import { createElement } from "../utils/element";
+import { createElement } from "../../utils/element";
 
-// Levels
-export function createLevelsSection(): HTMLElement {
-  const levelsPanel = createElement("section", ["section__levels"]);
-  const header = createLevelsHeader();
-  const levels = createLevelsBody();
-
-  levelsPanel.append(header, levels);
-
-  return levelsPanel;
-}
-
-// Levels
-function createLevelsBody(): HTMLElement {
-  const levelsContainer = createElement("div", ["levels__container"]);
-
-  return levelsContainer;
-}
-
-// Header
-function createLevelsHeader(): HTMLElement {
+export function createLevelsHeader(): HTMLElement {
   const header = createElement("div", ["levels__header"]);
 
   const buttonPrev = `
