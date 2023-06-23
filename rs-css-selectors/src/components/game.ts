@@ -5,7 +5,7 @@ import { createEditorsBlock } from "./editors";
 
 //
 export function createGameSection(): HTMLElement {
-  const gameSection = createElement("section", ["main__section", "section__game"]);
+  const gameSection = createElement("section", ["section__game"]);
   const header = createHeader();
 
   const game = createElement("section", ["game"]);
