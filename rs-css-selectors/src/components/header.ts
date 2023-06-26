@@ -41,7 +41,8 @@ function createHeaderButtons(): string {
 
   const levelInfo = `
     <div class="header__levels">
-      <span class="level__status level--unfinished"></span><span>1/10</span>
+      <span class="level__status level--unfinished"></span>
+      <span class="header__data--level">1/10</span>
       ${buttonLevels}
     </div>
   `;

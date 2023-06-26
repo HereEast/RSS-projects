@@ -17,11 +17,11 @@ export function createLevelsHeader(): HTMLElement {
 
   const headerContent = `
     <div class="header__container">
-      <div class="header__title"">
+      <div class="header__data"">
         <h3>Level</h3>
-        <span>1/10</span>
+        <span class="header__data--level">1/10</span>
       </div>
-      <div class="levels__buttons">
+      <div class="header__buttons">
         ${buttonPrev}
         ${buttonNext}
       </div>
