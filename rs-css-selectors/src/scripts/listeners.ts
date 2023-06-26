@@ -1,17 +1,17 @@
 import { Selector } from "../types/enums";
-import { showPanel, hidePanel } from "./toggle-side-panel";
+import { getElement } from "../utils/get-element";
+import { togglePanel } from "./side-panel/toggle-side-panel";
+import { handleLevelSelect } from "./levels/select-level";
 
+// Listeners
 export function initListeners(): void {
-  const showButton = document.querySelector(Selector.ShowLevelsBtn);
-  const hideButton = document.querySelector(Selector.HideLevelsBtn);
+  const showButton = getElement(Selector.ShowLevelsBtn);
+  const hideButton = getElement(Selector.HideLevelsBtn);
+  const levelsContainer = getElement(Selector.LevelsContainer);
 
-  if (!showButton) throw Error(`${Selector.ShowLevelsBtn} is not found...`);
-  if (!hideButton) throw Error(`${Selector.HideLevelsBtn} is not found...`);
+  // console.log(levelsContainer);
 
-  showButton.addEventListener("click", showPanel);
-  hideButton.addEventListener("click", hidePanel);
-
-  // window.addEventListener("click", (e) => {
-  //   console.log(e.target);
-  // });
+  showButton.addEventListener("click", togglePanel);
+  hideButton.addEventListener("click", togglePanel);
+  levelsContainer.addEventListener("click", handleLevelSelect);
 }
