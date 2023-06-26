@@ -18,19 +18,19 @@
   align-items: center;
 }
 
-.levels__header .header__title {
+.levels__header .header__data {
   width: 100%;
   display: flex;
   justify-content: space-between;
 }
 
-.levels__header .header__title h3,
-.levels__header .header__title span {
+.levels__header .header__data h3,
+.levels__header__data span {
   font-weight: 400;
   opacity: 0.9;
 }
 
-.levels__header .header__title h3 {
+.levels__header .header__data h3 {
   margin-right: 10px;
 }
 
@@ -42,7 +42,7 @@
   z-index: -10;
 }
 
-.levels__buttons {
+.levels__header .header__buttons {
   display: flex;
   margin-left: 20px;
 }
@@ -93,6 +93,10 @@
 
 .level--unfinished {
   background-color: var(--border);
+}
+
+.level--current {
+  background-color: var(--item--back);
 }
 
 .level__item:hover {
