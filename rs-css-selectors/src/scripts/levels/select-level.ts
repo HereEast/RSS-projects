@@ -13,6 +13,5 @@ export function handleLevelSelect(e: Event): void {
   const levelID = getLevelIDFromElement(selectedLevel);
 
   renderSelectedLevel(levelID, levelsData);
-
   saveLevel(levelID);
 }
