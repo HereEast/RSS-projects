@@ -6,6 +6,7 @@ type LevelData = {
   task: string;
   answer: string;
   status: string;
+  code: string;
 };
 
 export type Levels = LevelData[];
