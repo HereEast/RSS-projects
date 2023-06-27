@@ -4,7 +4,6 @@ import "./styles/index.css";
 import { renderApp } from "./components/app";
 import { initListeners } from "./scripts/listeners";
 import { getCurrentLevel } from "./utils/get-level";
-// import { Selector } from "./types/enums";
 
 console.clear();
 
