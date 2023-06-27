@@ -22,7 +22,7 @@ function createLevelItems(): HTMLElement {
       <span class="level__status level--unfinished"></span>
     `;
 
-    item.dataset.level = level.id;
+    item.dataset.id = level.id;
 
     levelsContainer.append(item);
   });

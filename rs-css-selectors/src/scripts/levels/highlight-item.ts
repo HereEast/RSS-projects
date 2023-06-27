@@ -2,9 +2,10 @@ import { Selector } from "../../types/enums";
 import { getElementsArray } from "../../utils/get-element";
 
 // Highlight item
-export function highlightLevel(levelElement: Element): void {
+export function highlightLevel(id: string): void {
+  const selectedLevel = document.querySelector(`[data-id="${id}"]`);
   const levelItems = getElementsArray(Selector.LevelItem);
 
   levelItems.forEach((item) => item.classList.remove("level--current"));
-  levelElement?.classList.add("level--current");
+  selectedLevel?.classList.add("level--current");
 }
