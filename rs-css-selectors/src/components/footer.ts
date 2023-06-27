@@ -1,4 +1,4 @@
-import { createElement } from "../utils/element";
+import { createElement } from "../utils/create-element";
 
 export function createFooter(): HTMLElement {
   const footer = createElement("footer", ["footer", "content-width"]);

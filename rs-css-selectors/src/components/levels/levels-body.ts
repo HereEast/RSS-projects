@@ -1,4 +1,4 @@
-import { createElement } from "../../utils/element";
+import { createElement } from "../../utils/create-element";
 import { levelsData } from "../../data/levels-data";
 
 export function createLevelsBody(): HTMLElement {

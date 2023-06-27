@@ -1,4 +1,4 @@
-import { createElement } from "../../utils/element";
+import { createElement } from "../../utils/create-element";
 import { EditorParams } from "../../types/types";
 
 export function createEditor(params: EditorParams): HTMLElement {

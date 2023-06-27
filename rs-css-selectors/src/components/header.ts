@@ -1,4 +1,4 @@
-import { createElement } from "../utils/element";
+import { createElement } from "../utils/create-element";
 
 export function createHeader(): HTMLElement {
   const header = createElement("header", ["header"]);
