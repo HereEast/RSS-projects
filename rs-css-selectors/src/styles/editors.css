@@ -77,6 +77,11 @@
   background-color: var(--back);
 }
 
+.editor--html .content__container {
+  display: flex;
+  flex-direction: column;
+}
+
 /**/
 
 @media all and (max-width: 750px) {
