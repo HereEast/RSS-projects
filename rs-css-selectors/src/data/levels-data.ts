@@ -18,7 +18,7 @@ export const levelsData: Levels = [
     id: "2",
     title: "A B",
     task: "Select a circle in a blue fish",
-    answer: "triangle",
+    answer: "fish circle",
     status: "unfinished",
     code: `
       <div class="playground">
@@ -33,7 +33,7 @@ export const levelsData: Levels = [
     id: "3",
     title: "#id",
     task: "Select a purple trex",
-    answer: "triangle",
+    answer: "#purple",
     status: "unfinished",
     code: `
       <div class="playground">
@@ -49,7 +49,7 @@ export const levelsData: Levels = [
     id: "4",
     title: ".classname",
     task: "Select small ducks",
-    answer: "triangle",
+    answer: ".small",
     status: "unfinished",
     code: `
       <div class="playground">
@@ -64,33 +64,33 @@ export const levelsData: Levels = [
   {
     id: "5",
     title: "A.classname",
-    task: "Select all fish in circles",
-    answer: "triangle",
+    task: "Select all small fishes",
+    answer: "fish.small",
     status: "unfinished",
     code: `
       <div class="playground">
         <triangle/></triangle>
-        <fish class="fish"/></fish>
-        <circle/>
-          <fish class="fish"/>
+        <fish/></fish>
+        <circle>
+          <fish class="small"/>
         </circle>
-        <circle/>
-          <fish class="fish"/>
-        </circle>
-        <circle/></circle>
+        <box>
+          <fish class="small"/>
+        </box>
+        <circle class="small"/></circle>
       </div>`,
   },
   {
     id: "6",
     title: "*",
     task: "Select all toys at the playground",
-    answer: "triangle",
+    answer: "*",
     status: "unfinished",
     code: `
       <div class="playground">
         <triangle/></triangle>
         <duck/></duck>
-        <box/>
+        <box>
           <triangle/>
         </box>
         <circle/></circle>
@@ -100,15 +100,15 @@ export const levelsData: Levels = [
     id: "7",
     title: "[attribute]",
     task: "Select somebody's toys",
-    answer: "triangle",
+    answer: "[kid]",
     status: "unfinished",
     code: `
       <div class="playground">
         <trex/></trex>
-        <box kid="Peter"/>
+        <box kid="Peter">
           <bear/></bear>
         </box>
-        <box kid="Mary"/>
+        <box kid="Mary">
           <bear/></bear>
         </box>
         <trex kid="Jacob"/></trex>
@@ -118,7 +118,7 @@ export const levelsData: Levels = [
     id: "8",
     title: ":n-child(A)",
     task: "Select the 3rd duck",
-    answer: "triangle",
+    answer: "duck:nth-child(3)",
     status: "unfinished",
     code: `
       <div class="playground">
@@ -132,14 +132,14 @@ export const levelsData: Levels = [
     id: "9",
     title: ":empty",
     task: "Select empty toy boxes",
-    answer: "triangle",
+    answer: "box:empty",
     status: "unfinished",
     code: `
       <div class="playground">
         <box/></box>
         <box/></box>
         <bear class="teddy"/></bear>
-        <box/>
+        <box>
           <triangle class="yellow"/></triangle>
         </box>
       </div>`,
@@ -148,14 +148,14 @@ export const levelsData: Levels = [
     id: "10",
     title: ":not(X)",
     task: "Select big triangles",
-    answer: "triangle",
+    answer: "triangle:not('.small')",
     status: "unfinished",
     code: `
       <div class="playground">
-        <box/>
+        <box>
           <triangle class="small yellow"/></triangle>
         </box>
-        <box/>
+        <box>
           <triangle class="yellow"/></triangle>
         </box>
         <triangle/></triangle>

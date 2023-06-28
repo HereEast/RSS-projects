@@ -4,8 +4,8 @@
   margin-left: 20px;
 }
 
-.level--5 .tag-line:nth-child(6),
-.level--5 .tag-line:nth-child(9) {
+.level--5 .tag-line:nth-child(5),
+.level--5 .tag-line:nth-child(8) {
   margin-left: 40px;
 }
 
@@ -14,14 +14,21 @@
   margin-left: 0;
 }
 
-.level--5 circle {
+.level--5 circle,
+.level--5 box {
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.level--5 circle fish {
+.level--5 circle.small {
+  width: 40px;
+  height: 40px;
+}
+
+.level--5 circle fish,
+.level--5 box fish {
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
