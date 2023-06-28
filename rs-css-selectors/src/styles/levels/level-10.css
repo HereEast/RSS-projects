@@ -31,5 +31,6 @@
 }
 
 .level--10 triangle.small {
-  transform: scale(0.5);
+  width: 50px;
+  height: 40px;
 }

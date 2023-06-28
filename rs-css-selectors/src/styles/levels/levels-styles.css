@@ -5,11 +5,13 @@
 }
 
 .playground {
+  min-width: 460px;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 20px;
+  overflow-x: scroll;
 }
 
 .playground > * {

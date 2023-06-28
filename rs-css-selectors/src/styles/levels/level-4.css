@@ -18,7 +18,8 @@
 }
 
 .level--4 duck:nth-child(2) {
-  transform: scale(0.5);
+  width: 50px;
+  height: 50px;
 }
 
 .level--4 box duck {
@@ -27,6 +28,8 @@
   background-repeat: no-repeat;
 
   position: absolute;
-  transform: scale(0.5);
-  z-index: 100;
+  width: 50px;
+  height: 50px;
+
+  transform: translate(50%, 50%);
 }

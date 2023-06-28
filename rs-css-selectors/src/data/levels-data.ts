@@ -38,9 +38,7 @@ export const levelsData: Levels = [
     code: `
       <div class="playground">
         <trex/></trex>
-        <trex/></trex>
         <trex id="purple"/></trex>
-        <trex/></trex>
         <trex/></trex>
         <trex/></trex>
       </div>`,
@@ -69,7 +67,6 @@ export const levelsData: Levels = [
     status: "unfinished",
     code: `
       <div class="playground">
-        <triangle/></triangle>
         <fish/></fish>
         <circle>
           <fish class="small"/>
@@ -93,7 +90,7 @@ export const levelsData: Levels = [
         <box>
           <triangle/>
         </box>
-        <circle/></circle>
+        <circle class="small"/></circle>
       </div>`,
   },
   {
@@ -105,9 +102,6 @@ export const levelsData: Levels = [
     code: `
       <div class="playground">
         <trex/></trex>
-        <box kid="Peter">
-          <bear/></bear>
-        </box>
         <box kid="Mary">
           <bear/></bear>
         </box>
@@ -160,7 +154,6 @@ export const levelsData: Levels = [
         </box>
         <triangle/></triangle>
         <triangle class="small"/></triangle>
-        <circle/></circle>
       </div>`,
   },
 ];
