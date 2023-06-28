@@ -1,0 +1,35 @@
+/* LEVEL 10 */
+
+.level--10 .tag-line {
+  margin-left: 20px;
+}
+
+.level--10 .tag-line:nth-child(3),
+.level--10 .tag-line:nth-child(6) {
+  margin-left: 40px;
+}
+
+.level--10 .tag-line:first-child,
+.level--10 .tag-line:last-child {
+  margin-left: 0;
+}
+
+.level--10 box {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.level--10 box triangle {
+  background-image: url("../../assets/triangle--yellow.svg");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+
+  position: absolute;
+}
+
+.level--10 triangle.small {
+  transform: scale(0.5);
+}

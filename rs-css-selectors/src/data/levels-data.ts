@@ -99,33 +99,68 @@ export const levelsData: Levels = [
   {
     id: "7",
     title: "[attribute]",
-    task: "Here goes the task... 7",
+    task: "Select somebody's toys",
     answer: "triangle",
     status: "unfinished",
-    code: "",
+    code: `
+      <div class="playground">
+        <trex/></trex>
+        <box kid="Peter"/>
+          <bear/></bear>
+        </box>
+        <box kid="Mary"/>
+          <bear/></bear>
+        </box>
+        <trex kid="Jacob"/></trex>
+      </div>`,
   },
   {
     id: "8",
     title: ":n-child(A)",
-    task: "Here goes the task...8",
+    task: "Select the 3rd duck",
     answer: "triangle",
     status: "unfinished",
-    code: "",
+    code: `
+      <div class="playground">
+        <duck/></duck>
+        <duck class="small"/></duck>
+        <duck/></duck>
+        <duck/></duck>
+      </div>`,
   },
   {
     id: "9",
     title: ":empty",
-    task: "Here goes the task... 9",
+    task: "Select empty toy boxes",
     answer: "triangle",
     status: "unfinished",
-    code: "",
+    code: `
+      <div class="playground">
+        <box/></box>
+        <box/></box>
+        <bear class="teddy"/></bear>
+        <box/>
+          <triangle class="yellow"/></triangle>
+        </box>
+      </div>`,
   },
   {
     id: "10",
     title: ":not(X)",
-    task: "Here goes the task... 10",
+    task: "Select big triangles",
     answer: "triangle",
     status: "unfinished",
-    code: "",
+    code: `
+      <div class="playground">
+        <box/>
+          <triangle class="small yellow"/></triangle>
+        </box>
+        <box/>
+          <triangle class="yellow"/></triangle>
+        </box>
+        <triangle/></triangle>
+        <triangle class="small"/></triangle>
+        <circle/></circle>
+      </div>`,
   },
 ];

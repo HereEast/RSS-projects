@@ -1,0 +1,15 @@
+/* LEVEL 8 */
+
+.level--8 .tag-line {
+  margin-left: 20px;
+}
+
+.level--8 .tag-line:first-child,
+.level--8 .tag-line:last-child {
+  margin-left: 0;
+}
+
+.level--8 duck.small {
+  width: 60px;
+  height: 60px;
+}

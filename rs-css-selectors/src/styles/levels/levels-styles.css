@@ -54,16 +54,20 @@ duck {
   background-image: url("../../assets/duck.svg");
 }
 
+bear {
+  width: 80px;
+  height: 110px;
+  background-image: url("../../assets/bear.svg");
+}
+
 @import "./level-1.css";
 @import "./level-2.css";
 @import "./level-3.css";
 @import "./level-4.css";
 @import "./level-5.css";
 @import "./level-6.css";
-/* 
-@import "./level-6.css";
 @import "./level-7.css";
 @import "./level-8.css";
 @import "./level-9.css";
 @import "./level-10.css";
- */
+

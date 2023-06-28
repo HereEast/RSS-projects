@@ -1,0 +1,31 @@
+/* LEVEL 9 */
+
+.level--9 .tag-line {
+  margin-left: 20px;
+}
+
+.level--9 .tag-line:nth-child(6) {
+  margin-left: 40px;
+}
+
+.level--9 .tag-line:first-child,
+.level--9 .tag-line:last-child {
+  margin-left: 0;
+}
+
+.level--9 box {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.level--9 box triangle {
+  background-image: url("../../assets/triangle--yellow.svg");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+
+  position: absolute;
+  transform: scale(0.5);
+}

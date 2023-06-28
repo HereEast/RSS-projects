@@ -1,0 +1,65 @@
+/* LEVEL 6 */
+
+.level--7 .tag-line {
+  margin-left: 20px;
+}
+
+.level--7 .tag-line:nth-child(4),
+.level--7 .tag-line:nth-child(7) {
+  margin-left: 40px;
+}
+
+.level--7 .tag-line:first-child,
+.level--7 .tag-line:last-child {
+  margin-left: 0;
+}
+
+.level--7 box {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-image: url("../../assets/rect--yellow.svg");
+}
+
+.level--7 box bear {
+  background-image: url("../../assets/bear.svg");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+
+  position: absolute;
+  transform: scale(0.7);
+}
+
+.level--7 box::after {
+  content: attr(kid);
+  position: absolute;
+  padding: 2px 5px;
+  background-color: whitesmoke;
+  color: var(--black);
+  font-family: Arial, Helvetica, sans-serif;
+
+  bottom: -10px;
+  right: 10px;
+}
+
+.level--7 trex:last-child {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.level--7 trex:last-child::after {
+  content: attr(kid);
+  position: absolute;
+  padding: 2px 5px;
+  background-color: whitesmoke;
+  color: var(--black);
+  font-family: Arial, Helvetica, sans-serif;
+
+  bottom: -10px;
+  right: 10px;
+}
