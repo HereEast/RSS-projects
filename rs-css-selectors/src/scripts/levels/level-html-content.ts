@@ -16,7 +16,11 @@ export function updateHTMLEditor(id: string, levelsData: Levels): void {
     .map((str) => str.trim())
     .filter((str) => str.length);
 
+  console.log(tagsArray);
+
   tagsArray.forEach((tag) => {
+    console.log(tag);
+
     const tagString = tag.replace("<", Entity.Less).replace(">", Entity.Greater);
     editorContent += `<div class="tag-line">${tagString}</div>`;
   });

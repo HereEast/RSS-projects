@@ -10,6 +10,7 @@ export const enum Selector {
   MobileHeaderLevelNumber = ".header .header__data--level",
   TaskText = ".task__text",
   HTMLEditorContentContainer = ".editor--html .content__container",
+  GraphicsContainer = ".graphics__container",
 }
 
 export const enum Entity {
