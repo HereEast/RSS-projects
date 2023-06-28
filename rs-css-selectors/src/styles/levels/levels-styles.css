@@ -1,0 +1,69 @@
+.main .tag-line {
+  font-weight: 300;
+  opacity: 0.5;
+  cursor: default;
+}
+
+.playground {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.playground > * {
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+box {
+  width: 100px;
+  height: 100px;
+  background-image: url("../../assets/rect.svg");
+}
+
+triangle {
+  width: 90px;
+  height: 75px;
+  background-image: url("../../assets/triangle.svg");
+}
+
+circle {
+  width: 90px;
+  height: 90px;
+  background-image: url("../../assets/circle.svg");
+}
+
+fish {
+  width: 100px;
+  height: 100px;
+  background-image: url("../../assets/fish.svg");
+}
+
+trex {
+  width: 100px;
+  height: 100px;
+  background-image: url("../../assets/trex.svg");
+}
+
+duck {
+  width: 100px;
+  height: 100px;
+  background-image: url("../../assets/duck.svg");
+}
+
+@import "./level-1.css";
+@import "./level-2.css";
+@import "./level-3.css";
+@import "./level-4.css";
+@import "./level-5.css";
+@import "./level-6.css";
+/* 
+@import "./level-6.css";
+@import "./level-7.css";
+@import "./level-8.css";
+@import "./level-9.css";
+@import "./level-10.css";
+ */

@@ -1,0 +1,31 @@
+/* LEVEL 5 */
+
+.level--5 .tag-line {
+  margin-left: 20px;
+}
+
+.level--5 .tag-line:nth-child(6),
+.level--5 .tag-line:nth-child(9) {
+  margin-left: 40px;
+}
+
+.level--5 .tag-line:first-child,
+.level--5 .tag-line:last-child {
+  margin-left: 0;
+}
+
+.level--5 circle {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.level--5 circle fish {
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+
+  position: absolute;
+  transform: scale(0.5);
+}

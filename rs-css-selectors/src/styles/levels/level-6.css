@@ -1,0 +1,33 @@
+/* LEVEL 6 */
+
+.level--6 .tag-line {
+  margin-left: 20px;
+}
+
+.level--6 .tag-line:nth-child(5) {
+  margin-left: 40px;
+}
+
+.level--6 .tag-line:first-child,
+.level--6 .tag-line:last-child {
+  margin-left: 0;
+}
+
+.level--6 box {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-image: url("../../assets/rect--orange.svg");
+}
+
+.level--6 box triangle {
+  background-image: url("../../assets/triangle--yellow.svg");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+
+  position: absolute;
+  transform: scale(0.5);
+}

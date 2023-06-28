@@ -17,7 +17,7 @@ export const levelsData: Levels = [
   {
     id: "2",
     title: "A B",
-    task: "Select a circle in blue fish",
+    task: "Select a circle in a blue fish",
     answer: "triangle",
     status: "unfinished",
     code: `
@@ -32,34 +32,69 @@ export const levelsData: Levels = [
   {
     id: "3",
     title: "#id",
-    task: "Here goes the task... 3",
+    task: "Select a purple trex",
     answer: "triangle",
     status: "unfinished",
-    code: "",
+    code: `
+      <div class="playground">
+        <trex/></trex>
+        <trex/></trex>
+        <trex id="purple"/></trex>
+        <trex/></trex>
+        <trex/></trex>
+        <trex/></trex>
+      </div>`,
   },
   {
     id: "4",
     title: ".classname",
-    task: "Here goes the task... 4",
+    task: "Select small ducks",
     answer: "triangle",
     status: "unfinished",
-    code: "",
+    code: `
+      <div class="playground">
+        <duck/></duck>
+        <duck class="small"/></duck>
+        <box>
+          <duck class="small"/></duck>
+        </box>
+        <box/></box>
+      </div>`,
   },
   {
     id: "5",
     title: "A.classname",
-    task: "Here goes the task... 5",
+    task: "Select all fish in circles",
     answer: "triangle",
     status: "unfinished",
-    code: "",
+    code: `
+      <div class="playground">
+        <triangle/></triangle>
+        <fish class="fish"/></fish>
+        <circle/>
+          <fish class="fish"/>
+        </circle>
+        <circle/>
+          <fish class="fish"/>
+        </circle>
+        <circle/></circle>
+      </div>`,
   },
   {
     id: "6",
     title: "*",
-    task: "Here goes the task... 6",
+    task: "Select all toys at the playground",
     answer: "triangle",
     status: "unfinished",
-    code: "",
+    code: `
+      <div class="playground">
+        <triangle/></triangle>
+        <duck/></duck>
+        <box/>
+          <triangle/>
+        </box>
+        <circle/></circle>
+      </div>`,
   },
   {
     id: "7",

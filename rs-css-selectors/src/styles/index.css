@@ -11,4 +11,4 @@
 @import "./graphics.css";
 @import "./input.css";
 @import "./levels.css";
-@import "./levels-html.css";
+@import "./levels/levels-styles.css";

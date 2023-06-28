@@ -1,0 +1,36 @@
+/* LEVEL 2 */
+
+.level--2 .tag-line:nth-child(2),
+.level--2 .tag-line:nth-child(n+4):nth-child(-n+6) {
+  margin-left: 20px;
+}
+
+.level--2 .tag-line:nth-child(3) {
+  margin-left: 40px;
+}
+
+.level--2 fish {
+  position: relative;
+  width: 160px;
+  height: 100px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.level--2 fish circle {
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+
+  position: absolute;
+  width: 40px;
+  height: 40px;
+
+  transform: translateX(-25%);
+}
+
+.level--2 circle {
+  transform: scale(1);
+}
