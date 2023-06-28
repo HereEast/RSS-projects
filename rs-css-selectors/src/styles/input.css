@@ -16,4 +16,24 @@ input {
   width: 100%;
   height: 20px;
   padding: 0 10px;
+
+  transition: all 0.5s ease-in-out;
+}
+
+.blink {
+  animation: blink-animation 2s infinite;
+}
+
+@keyframes blink-animation {
+  0% {
+    background-color: #fff;
+  }
+
+  50% {
+    background-color: var(--blink-color);
+  }
+
+  100% {
+    background-color: #fff;
+  }
 }

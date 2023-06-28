@@ -17,7 +17,7 @@ export function createEditorsBlock(): HTMLElement {
 function createCSSEditor(): HTMLElement {
   const content = `
     <div class="input__container">
-      <input type="text" placeholder="Type in a CSS Selector..."></input>
+      <input class="blink" type="text" placeholder="Type in a CSS Selector..."></input>
       <button class="button button--check">Enter</button>
     </div>
   `;
