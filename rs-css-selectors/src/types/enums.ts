@@ -11,9 +11,22 @@ export const enum Selector {
   TaskText = ".task__text",
   HTMLEditorContentContainer = ".editor--html .content__container",
   GraphicsContainer = ".graphics__container",
+  LevelsButtons = ".levels__header .header__buttons",
+  LevelsButton = ".levels__button",
+  NextLevelButton = ".button--next",
+  PrevLevelButton = ".button--prev",
+}
+
+export const enum ClassName {
+  NextButton = "button--next",
+  PrevButton = "button--prev",
 }
 
 export const enum Entity {
   Less = "&lt;",
   Greater = "&gt;",
+}
+
+export const enum Info {
+  TotalLevels = 10,
 }
