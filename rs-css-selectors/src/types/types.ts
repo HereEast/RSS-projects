@@ -1,6 +1,6 @@
 // Levels
 
-type LevelData = {
+export type LevelData = {
   id: string;
   title: string;
   task: string;
