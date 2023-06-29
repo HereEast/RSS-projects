@@ -6,7 +6,6 @@ export const levelsData: Levels = [
     title: "A",
     task: "Select green triangles",
     answer: "triangle",
-    status: "unfinished",
     code: `
       <div class="playground">
         <triangle/></triangle>
@@ -19,7 +18,6 @@ export const levelsData: Levels = [
     title: "A B",
     task: "Select a circle in a blue fish",
     answer: "fish circle",
-    status: "unfinished",
     code: `
       <div class="playground">
         <fish>
@@ -34,7 +32,6 @@ export const levelsData: Levels = [
     title: "#id",
     task: "Select a purple trex",
     answer: "#purple",
-    status: "unfinished",
     code: `
       <div class="playground">
         <trex/></trex>
@@ -48,7 +45,6 @@ export const levelsData: Levels = [
     title: ".classname",
     task: "Select small ducks",
     answer: ".small",
-    status: "unfinished",
     code: `
       <div class="playground">
         <duck/></duck>
@@ -64,7 +60,6 @@ export const levelsData: Levels = [
     title: "A.classname",
     task: "Select all small fishes",
     answer: "fish.small",
-    status: "unfinished",
     code: `
       <div class="playground">
         <fish/></fish>
@@ -82,7 +77,6 @@ export const levelsData: Levels = [
     title: "*",
     task: "Select all toys at the playground",
     answer: "*",
-    status: "unfinished",
     code: `
       <div class="playground">
         <triangle/></triangle>
@@ -98,7 +92,6 @@ export const levelsData: Levels = [
     title: "[attribute]",
     task: "Select somebody's toys",
     answer: "[kid]",
-    status: "unfinished",
     code: `
       <div class="playground">
         <trex/></trex>
@@ -113,7 +106,6 @@ export const levelsData: Levels = [
     title: ":n-child(A)",
     task: "Select the 3rd duck",
     answer: "duck:nth-child(3)",
-    status: "unfinished",
     code: `
       <div class="playground">
         <duck/></duck>
@@ -127,7 +119,6 @@ export const levelsData: Levels = [
     title: ":empty",
     task: "Select empty toy boxes",
     answer: "box:empty",
-    status: "unfinished",
     code: `
       <div class="playground">
         <box/></box>
@@ -142,8 +133,7 @@ export const levelsData: Levels = [
     id: "10",
     title: ":not(X)",
     task: "Select big triangles",
-    answer: "triangle:not('.small')",
-    status: "unfinished",
+    answer: "triangle:not(.small)",
     code: `
       <div class="playground">
         <box>

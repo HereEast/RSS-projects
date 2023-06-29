@@ -5,7 +5,6 @@ export type LevelData = {
   title: string;
   task: string;
   answer: string;
-  status: string;
   code: string;
 };
 
