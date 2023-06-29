@@ -1,5 +1,6 @@
 import { Info } from "../../types/enums";
 
+// Handle input
 export function handleInput(e: Event): void {
   const input = e.target;
 
@@ -7,7 +8,6 @@ export function handleInput(e: Event): void {
   if (!(input instanceof HTMLInputElement)) throw Error("Target is not an HTMLInputElement...");
 
   if (e.type === "focus") {
-    input.classList.remove("blink");
     input.placeholder = "";
   }
 
@@ -17,7 +17,6 @@ export function handleInput(e: Event): void {
     if (!isValue) {
       input.value = "";
       input.placeholder = Info.InputPlaceholder;
-      input.classList.add("blink");
     }
   }
 }

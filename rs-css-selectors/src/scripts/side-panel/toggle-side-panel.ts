@@ -6,7 +6,7 @@ import { getTarget } from "../../utils/get-target";
 export function togglePanel(e: Event): void {
   if (window.innerWidth > 980) return;
 
-  const target = getTarget(e, HTMLButtonElement);
+  const target = getTarget(e);
 
   if (!target.closest(Selector.ShowLevelsBtn) && !target.closest(Selector.HideLevelsBtn)) return;
 
