@@ -18,12 +18,17 @@ export const enum Selector {
   Input = "input",
   CheckButton = ".button--check",
   HeaderLevelInfo = ".header__levels",
+  BlockEditors = ".block__editors",
 }
 
 export const enum LevelStatus {
   Unfinished = "unfinished",
   Done = "done",
   Hint = "hint",
+}
+
+export const enum Animation {
+  Shake = "shake",
 }
 
 export const enum Entity {
