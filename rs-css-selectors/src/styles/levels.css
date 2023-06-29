@@ -84,16 +84,26 @@
   opacity: 0.9;
 }
 
+/* STATUS */
+
 .level__status {
   width: 15px;
   height: 15px;
   border-radius: 50%;
   margin-left: auto;
-}
 
-.level--unfinished {
   background-color: var(--border);
 }
+
+.level--done .level__status {
+  background-color: var(--green);
+}
+
+.level--hint .level__status {
+  background-color: var(--yellow);
+}
+
+/**/
 
 .level--current {
   background-color: var(--item--back);
