@@ -8,6 +8,7 @@
 
 .level--1 triangle {
   transform: scale(1);
+  animation: dance 1s ease-in infinite;
 }
 
 .level--1 circle {

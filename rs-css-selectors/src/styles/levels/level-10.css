@@ -34,3 +34,7 @@
   width: 50px;
   height: 40px;
 }
+
+.level--10 triangle:not(.small) {
+  animation: dance 1s ease-in infinite;
+}

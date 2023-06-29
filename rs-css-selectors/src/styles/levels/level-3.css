@@ -19,4 +19,5 @@
 
 .level--3 trex:nth-child(3) {
   background-image: url("../../assets/trex--purple.svg");
+  animation: dance 1s ease-in infinite;
 }

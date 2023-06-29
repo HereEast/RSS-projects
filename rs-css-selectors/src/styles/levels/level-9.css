@@ -29,3 +29,7 @@
   position: absolute;
   transform: scale(0.5);
 }
+
+.level--9 box:empty {
+  animation: dance 1s ease-in infinite;
+}

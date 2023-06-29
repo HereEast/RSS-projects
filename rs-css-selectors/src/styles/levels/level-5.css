@@ -4,8 +4,8 @@
   margin-left: 20px;
 }
 
-.level--5 .tag-line:nth-child(5),
-.level--5 .tag-line:nth-child(8) {
+.level--5 .tag-line:nth-child(4),
+.level--5 .tag-line:nth-child(7) {
   margin-left: 40px;
 }
 
@@ -34,5 +34,10 @@
   background-repeat: no-repeat;
 
   position: absolute;
-  transform: scale(0.5);
+  width: 60px;
+  height: 40px;
+}
+
+.level--5 fish.small {
+  animation: dance 1s ease-in infinite;
 }
