@@ -8,7 +8,8 @@ import { getCurrentLevelID } from "../localStorage/get-current-id";
 import { setHeaderStatusIcon, setPanelStatusIcon } from "./set-status-icon";
 import { isWin } from "./check-win";
 import { handleWrongAnswer } from "./wrong-answer";
-// import { nextLevel } from "../levels/next-level";
+import { hideElementsAnimation } from "./hide-animation";
+import { nextLevel } from "../levels/next-level";
 
 // Handle answer
 export function handleAnswer(e: Event): void {
@@ -41,7 +42,8 @@ export function handleAnswer(e: Event): void {
       // Handle win
     } else {
       // Handle correct answer
-      // nextLevel();
+      hideElementsAnimation();
+      setTimeout(nextLevel, 1500);
     }
   }
 

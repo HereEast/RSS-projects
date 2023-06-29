@@ -20,6 +20,7 @@ export const enum Selector {
   HeaderLevelInfo = ".header__levels",
   BlockEditors = ".block__editors",
   ResetButton = ".button--reset",
+  Playground = ".playground",
 }
 
 export const enum LevelStatus {
@@ -30,6 +31,7 @@ export const enum LevelStatus {
 
 export const enum Animation {
   Shake = "shake",
+  Hide = "hide",
 }
 
 export const enum Entity {

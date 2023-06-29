@@ -5,6 +5,7 @@ import { updateTaskName } from "./level-task";
 import { updateHTMLEditor } from "./level-html-content";
 import { updateGraphics } from "./level-graphics";
 import { setHeaderStatusIcon } from "../answer/set-status-icon";
+// import { removeAnimation } from "./remove-animation";
 
 // Render selected level
 export function renderSelectedLevel(id: string, data: Levels): void {
