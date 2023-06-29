@@ -15,6 +15,8 @@ export const enum Selector {
   LevelsButton = ".levels__button",
   NextLevelButton = ".button--next",
   PrevLevelButton = ".button--prev",
+  Input = "input",
+  CheckButton = ".button--check",
 }
 
 export const enum ClassName {
@@ -29,4 +31,5 @@ export const enum Entity {
 
 export const enum Info {
   TotalLevels = 10,
+  InputPlaceholder = "Type in a CSS Selector...",
 }
