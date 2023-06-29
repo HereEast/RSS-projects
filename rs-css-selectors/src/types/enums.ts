@@ -17,11 +17,13 @@ export const enum Selector {
   PrevLevelButton = ".button--prev",
   Input = "input",
   CheckButton = ".button--check",
+  HeaderLevelInfo = ".header__levels",
 }
 
-export const enum ClassName {
-  NextButton = "button--next",
-  PrevButton = "button--prev",
+export const enum LevelStatus {
+  Unfinished = "unfinished",
+  Done = "done",
+  Hint = "hint",
 }
 
 export const enum Entity {
