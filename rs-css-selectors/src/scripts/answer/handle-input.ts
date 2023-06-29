@@ -9,6 +9,7 @@ export function handleInputFocus(e: Event): void {
 
   if (e.type === "focus") {
     input.placeholder = "";
+    input.classList.add("active");
   }
 
   if (e.type === "blur") {
@@ -17,6 +18,7 @@ export function handleInputFocus(e: Event): void {
     if (!isValue) {
       input.value = "";
       input.placeholder = Info.InputPlaceholder;
+      input.classList.remove("active");
     }
   }
 }

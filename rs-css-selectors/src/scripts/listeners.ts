@@ -30,4 +30,13 @@ export function initListeners(): void {
   input.addEventListener("focus", handleInputFocus);
   input.addEventListener("blur", handleInputFocus);
   resetButton.addEventListener("click", resetGame);
+
+  window.addEventListener("keydown", (e: KeyboardEvent) => {
+    const input = getElement(Selector.Input);
+    if (!(input instanceof HTMLInputElement)) throw Error("Target is not an HTMLInputElement...");
+
+    if (input.classList.contains("active") && e.code === "Enter") {
+      handleAnswer(e);
+    }
+  });
 }

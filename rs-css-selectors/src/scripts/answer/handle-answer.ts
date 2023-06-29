@@ -12,13 +12,18 @@ import { handleWrongAnswer } from "./wrong-answer";
 
 // Handle answer
 export function handleAnswer(e: Event): void {
-  const button = getTarget(e);
+  if (e.type === "click") {
+    const button = getTarget(e);
+
+    if (!(button instanceof HTMLButtonElement)) {
+      throw Error("Target is not an HTMLButtonElement...");
+    }
+  }
+
   const input = getElement(Selector.Input);
-
   if (!(input instanceof HTMLInputElement)) throw Error("Target is not an HTMLInputElement...");
-  if (!(button instanceof HTMLButtonElement)) throw Error("Target is not an HTMLButtonElement...");
 
-  if (!input.value.trim()) return;
+  // if (!input.value.trim()) return;
 
   const currentID = getCurrentLevelID();
   const levelData = getLevelData(currentID, levelsData);
