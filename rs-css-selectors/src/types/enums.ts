@@ -19,6 +19,7 @@ export const enum Selector {
   CheckButton = ".button--check",
   HeaderLevelInfo = ".header__levels",
   BlockEditors = ".block__editors",
+  ResetButton = ".button--reset",
 }
 
 export const enum LevelStatus {

@@ -6,6 +6,7 @@ import { nextLevel } from "./levels/next-level";
 import { prevLevel } from "./levels/prev-level";
 import { handleAnswer } from "./answer/handle-answer";
 import { handleInputFocus } from "./answer/handle-input";
+import { resetGame } from "./reset/reset";
 
 // Listeners
 export function initListeners(): void {
@@ -16,6 +17,7 @@ export function initListeners(): void {
   const prevLevelButton = getElement(Selector.PrevLevelButton);
   const checkButton = getElement(Selector.CheckButton);
   const input = getElement(Selector.Input);
+  const resetButton = getElement(Selector.ResetButton);
 
   // console.log(levelsContainer);
 
@@ -27,4 +29,5 @@ export function initListeners(): void {
   checkButton.addEventListener("click", handleAnswer);
   input.addEventListener("focus", handleInputFocus);
   input.addEventListener("blur", handleInputFocus);
+  resetButton.addEventListener("click", resetGame);
 }
