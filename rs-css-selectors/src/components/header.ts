@@ -1,3 +1,5 @@
+import { getCurrentLevelID } from "../scripts/localStorage/get-current-id";
+import { getSavedStatus } from "../scripts/localStorage/get-saved-status";
 import { createElement } from "../utils/create-element";
 
 export function createHeader(): HTMLElement {
@@ -39,9 +41,12 @@ function createHeaderButtons(): string {
   const buttonReset = "<button class='button button--reset'>Reset</button>";
   const buttonLevels = "<button class='button button--levels'>=</button>";
 
+  const currentID = getCurrentLevelID();
+  const savedStatus = getSavedStatus(currentID);
+
   const levelInfo = `
-    <div class="header__levels">
-      <span class="level__status level--unfinished"></span>
+    <div class="header__levels ${savedStatus}">
+      <span class="level__status"></span>
       <span class="header__data--level">1/10</span>
       ${buttonLevels}
     </div>

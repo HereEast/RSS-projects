@@ -1,7 +1,7 @@
 import { Info } from "../../types/enums";
 
 // Handle input
-export function handleInput(e: Event): void {
+export function handleInputFocus(e: Event): void {
   const input = e.target;
 
   if (!input) throw Error("Target element is not found...");

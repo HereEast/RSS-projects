@@ -4,6 +4,7 @@ import { updateLevelCount } from "./update-count";
 import { updateTaskName } from "./level-task";
 import { updateHTMLEditor } from "./level-html-content";
 import { updateGraphics } from "./level-graphics";
+import { setHeaderStatusIcon } from "../answer/set-status-icon";
 
 // Render selected level
 export function renderSelectedLevel(id: string, data: Levels): void {
@@ -15,4 +16,5 @@ export function renderSelectedLevel(id: string, data: Levels): void {
   updateTaskName(id, data);
   updateHTMLEditor(id, data);
   updateGraphics(id, data);
+  setHeaderStatusIcon(id);
 }

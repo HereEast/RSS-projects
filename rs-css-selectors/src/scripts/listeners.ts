@@ -2,16 +2,18 @@ import { Selector } from "../types/enums";
 import { getElement } from "../utils/get-element";
 import { togglePanel } from "./side-panel/toggle-side-panel";
 import { handleLevelSelect } from "./levels/select-level";
-import { switchLevel } from "./levels/switch-level";
+import { nextLevel } from "./levels/next-level";
+import { prevLevel } from "./levels/prev-level";
 import { handleAnswer } from "./answer/handle-answer";
-import { handleInput } from "./answer/handle-input";
+import { handleInputFocus } from "./answer/handle-input";
 
 // Listeners
 export function initListeners(): void {
   const showButton = getElement(Selector.ShowLevelsBtn);
   const hideButton = getElement(Selector.HideLevelsBtn);
   const levelsContainer = getElement(Selector.LevelsContainer);
-  const levelButtons = getElement(Selector.LevelsButtons);
+  const nextLevelButton = getElement(Selector.NextLevelButton);
+  const prevLevelButton = getElement(Selector.PrevLevelButton);
   const checkButton = getElement(Selector.CheckButton);
   const input = getElement(Selector.Input);
 
@@ -20,8 +22,9 @@ export function initListeners(): void {
   showButton.addEventListener("click", togglePanel);
   hideButton.addEventListener("click", togglePanel);
   levelsContainer.addEventListener("click", handleLevelSelect);
-  levelButtons.addEventListener("click", switchLevel);
+  nextLevelButton.addEventListener("click", nextLevel);
+  prevLevelButton.addEventListener("click", prevLevel);
   checkButton.addEventListener("click", handleAnswer);
-  input.addEventListener("focus", handleInput);
-  input.addEventListener("blur", handleInput);
+  input.addEventListener("focus", handleInputFocus);
+  input.addEventListener("blur", handleInputFocus);
 }

@@ -16,7 +16,7 @@ export function updateHTMLEditor(id: string, levelsData: Levels): void {
     .map((str) => str.trim())
     .filter((str) => str.length);
 
-  console.log(tagsArray);
+  // console.log(tagsArray);
 
   tagsArray.forEach((tag) => {
     const tagString = tag.replace("<", Entity.Less).replace(">", Entity.Greater);

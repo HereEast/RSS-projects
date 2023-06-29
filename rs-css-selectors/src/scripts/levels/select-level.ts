@@ -3,7 +3,7 @@ import { getTarget } from "../../utils/get-target";
 import { getClosestElement } from "../../utils/get-element";
 import { getLevelIDFromElement } from "../../utils/get-id";
 import { levelsData } from "../../data/levels-data";
-import { saveLevel } from "./save-level";
+import { saveLevelID } from "../localStorage/save-level-id";
 import { renderSelectedLevel } from "./render-level";
 
 // Select level
@@ -13,5 +13,5 @@ export function handleLevelSelect(e: Event): void {
   const levelID = getLevelIDFromElement(selectedLevel);
 
   renderSelectedLevel(levelID, levelsData);
-  saveLevel(levelID);
+  saveLevelID(levelID);
 }
