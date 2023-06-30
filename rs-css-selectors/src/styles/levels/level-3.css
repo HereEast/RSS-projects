@@ -17,7 +17,6 @@
   transform: scale(1);
 }
 
-.level--3 trex:nth-child(3) {
+.level--3 trex:nth-child(2) {
   background-image: url("../../assets/trex--purple.svg");
-  animation: dance 1s ease-in infinite;
 }

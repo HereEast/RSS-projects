@@ -32,6 +32,7 @@ export const enum LevelStatus {
 export const enum Animation {
   Shake = "shake",
   Hide = "hide",
+  Dance = "dance",
 }
 
 export const enum Entity {

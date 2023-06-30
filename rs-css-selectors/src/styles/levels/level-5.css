@@ -37,7 +37,3 @@
   width: 60px;
   height: 40px;
 }
-
-.level--5 fish.small {
-  animation: dance 1s ease-in infinite;
-}

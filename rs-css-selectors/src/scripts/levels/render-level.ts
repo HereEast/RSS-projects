@@ -3,7 +3,7 @@ import { highlightLevel } from "./highlight-item";
 import { updateLevelCount } from "./update-count";
 import { updateTaskName } from "./level-task";
 import { updateHTMLEditor } from "./level-html-content";
-import { updateGraphics } from "./level-graphics";
+import { updateGraphics } from "./graphics";
 import { setHeaderStatusIcon } from "../answer/set-status-icon";
 // import { removeAnimation } from "./remove-animation";
 

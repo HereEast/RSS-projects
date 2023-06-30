@@ -109,7 +109,7 @@ export const levelsData: Levels = [
     code: `
       <div class="playground">
         <duck/></duck>
-        <duck class="small"/></duck>
+        <duck/></duck>
         <duck/></duck>
         <duck/></duck>
       </div>`,
