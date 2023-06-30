@@ -81,10 +81,13 @@ button {
 
 .button--prev:hover,
 .button--next:hover {
-  background-color: var(--purple);
+  background-color: var(--yellow);
+}
+
+.button--hide {
+  height: 42px;
 }
 
 .button--hide:hover {
   background-color: var(--red);
-  border-right: 1px solid (--border);
 }

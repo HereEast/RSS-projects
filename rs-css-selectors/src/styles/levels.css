@@ -39,7 +39,6 @@
   left: 0;
   transform: translateX(-100%);
   display: none;
-  z-index: -10;
 }
 
 .levels__header .header__buttons {
@@ -116,14 +115,14 @@
 .level__item:hover span {
   opacity: 1;
 }
-
+/* 
 .levels__body .button__container {
   width: 100%;
   padding: 20px;
 
   display: flex;
   justify-content: center;
-}
+} */
 
 /**/
 
