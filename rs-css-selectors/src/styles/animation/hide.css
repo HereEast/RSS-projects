@@ -9,10 +9,10 @@
   }
 
   50% {
-    transform: translateX(200%);
+    transform: translateX(120px);
   }
 
   100% {
-    transform: translateX(-1000%);
+    transform: translateX(-1000px);
   }
 }

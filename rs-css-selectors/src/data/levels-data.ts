@@ -43,12 +43,12 @@ export const levelsData: Levels = [
   {
     id: "4",
     title: ".classname",
-    task: "Select small ducks",
+    task: "Select small toys",
     answer: ".small",
     code: `
       <div class="playground">
         <duck/></duck>
-        <duck class="small"/></duck>
+        <triangle class="small"/></triangle>
         <box>
           <duck class="small"/></duck>
         </box>

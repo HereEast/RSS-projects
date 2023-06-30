@@ -63,7 +63,3 @@
   bottom: -10px;
   right: 10px;
 }
-
-.level--7 [kid] {
-  animation: dance 1s ease-in infinite;
-}

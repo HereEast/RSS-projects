@@ -20,8 +20,8 @@
   align-items: center;
 }
 
-.level--4 duck:nth-child(2) {
-  width: 50px;
+.level--4 triangle.small {
+  width: 60px;
   height: 50px;
 }
 
