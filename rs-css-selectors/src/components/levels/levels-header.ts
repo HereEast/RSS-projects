@@ -30,7 +30,7 @@ export function createLevelsHeader(): HTMLElement {
 
   const buttonHide = `
     <div class="button__container">
-      <button class="button button--hide">Hide</button>
+      <button class="button button--hide">Close</button>
     </div>
   `;
 

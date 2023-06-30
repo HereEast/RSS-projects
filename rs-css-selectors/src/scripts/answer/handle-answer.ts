@@ -2,7 +2,7 @@ import { levelsData } from "../../data/levels-data";
 import { LevelStatus, Selector } from "../../types/enums";
 import { getElement } from "../../utils/get-element";
 import { getLevelData } from "../../utils/get-level-data";
-import { getTarget } from "../../utils/get-target";
+// import { getTarget } from "../../utils/get-target";
 import { saveResult } from "../localStorage/save-result";
 import { getCurrentLevelID } from "../localStorage/get-current-id";
 import { setHeaderStatusIcon, setPanelStatusIcon } from "./set-status-icon";
@@ -12,17 +12,16 @@ import { hideElementsAnimation } from "./hide-animation";
 import { nextLevel } from "../levels/next-level";
 
 // Handle answer
-export function handleAnswer(e: Event): void {
-  if (e.type === "click") {
-    const button = getTarget(e);
-
-    if (!(button instanceof HTMLButtonElement)) {
-      throw Error("Target is not an HTMLButtonElement...");
-    }
-  }
+export function handleAnswer(): void {
+  // if (e.type === "click") {
+  //   const button = getTarget<HTMLButtonElement>(e);
+  // }
 
   const input = getElement(Selector.Input);
-  if (!(input instanceof HTMLInputElement)) throw Error("Target is not an HTMLInputElement...");
+
+  if (!(input instanceof HTMLInputElement)) {
+    throw Error("Target is not an HTMLInputElement...");
+  }
 
   // if (!input.value.trim()) return;
 
@@ -43,7 +42,7 @@ export function handleAnswer(e: Event): void {
     } else {
       // Handle correct answer
       hideElementsAnimation();
-      setTimeout(nextLevel, 1500);
+      setTimeout(nextLevel, 1800);
     }
   }
 

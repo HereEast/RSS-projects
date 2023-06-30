@@ -2,22 +2,19 @@ import { Selector } from "../../types/enums";
 import { getElement } from "../../utils/get-element";
 import { getTarget } from "../../utils/get-target";
 
-// Toggle panel
-export function togglePanel(e: Event): void {
+// Hide
+export function hidePanel(e: Event): void {
   if (window.innerWidth > 980) return;
 
   const target = getTarget(e);
-
-  if (!target.closest(Selector.ShowLevelsBtn) && !target.closest(Selector.HideLevelsBtn)) return;
+  if (target.closest(Selector.ShowLevelsBtn)) return;
 
   const levelsPanel = getElement(Selector.LevelsPanel);
   const isPanelOpened = levelsPanel?.classList.contains("panel--visible");
 
-  if (target.closest(Selector.ShowLevelsBtn) && !isPanelOpened) {
-    levelsPanel?.classList.add("panel--visible");
-  }
+  if (!isPanelOpened) return;
 
-  if (target.closest(Selector.HideLevelsBtn) && isPanelOpened) {
+  if (!target.closest(Selector.LevelsPanel) || target.closest(Selector.HideLevelsBtn)) {
     levelsPanel?.classList.remove("panel--visible");
   }
 }
