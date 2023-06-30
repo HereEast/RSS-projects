@@ -1,3 +1,4 @@
+// Get target
 export function getTarget(e: Event): HTMLElement {
   const target = e.target;
 
