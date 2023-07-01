@@ -6,7 +6,7 @@
   align-items: center;
 }
 
-.header__title {
+.header__logo {
   display: flex;
   align-items: center;
   gap: 5px;
@@ -16,9 +16,14 @@ h1 {
   font-weight: 500;
 }
 
+.header__controls,
 .header__buttons {
   display: flex;
   gap: 5px;
+}
+
+.level__info {
+  display: flex;
 }
 
 .header__levels {
@@ -55,49 +60,49 @@ h1 {
 
 /* ICON */
 
-.title__icon {
+.logo__icon {
   display: flex;
   justify-content: flex-start;
   align-items: center;
 }
 
-.title__icon svg {
+.logo__icon svg {
   width: 60px;
   height: 13px;
 }
 
-.header__title .icon path,
-.header__title .icon circle,
-.header__title .icon rect {
+.header__logo .icon path,
+.header__logo .icon circle,
+.header__logo .icon rect {
   transition: all 0.2s cubic-bezier(0.5, 1.8, 0.6, 1.5);
 }
 
-.header__title .icon path {
+.header__logo .icon path {
   transform: translateX(0);
   transition-delay: 0;
 }
 
-.header__title .icon rect {
+.header__logo .icon rect {
   transform: translateX(0);
   transition-delay: 0.1s;
 }
 
-.header__title .icon circle {
+.header__logo .icon circle {
   transform: translateX();
   transition-delay: 0.2s;
 }
 
-.header__title:hover .icon path {
+.header__logo:hover .icon path {
   transform: translateX(10px);
   transition-delay: 0;
 }
 
-.header__title:hover .icon rect {
+.header__logo:hover .icon rect {
   transform: translateX(10px);
   transition-delay: 0.1s;
 }
 
-.header__title:hover .icon circle {
+.header__logo:hover .icon circle {
   transform: translateX(10px);
   transition-delay: 0.2s;
 }
