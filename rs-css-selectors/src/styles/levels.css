@@ -1,5 +1,4 @@
 .levels__header {
-  position: relative;
   width: 100%;
   height: 40px;
   padding: 0 15px;
@@ -34,19 +33,13 @@
   margin-right: 10px;
 }
 
-.levels__header .button__container {
-  position: absolute;
-  left: 0;
-  transform: translateX(-100%);
-  display: none;
-}
-
 .levels__header .header__buttons {
   display: flex;
   margin-left: 20px;
 }
 
-.levels__button span {
+.button--prev span,
+.button--next span {
   display: block;
   padding-bottom: 2px;
   color: var(--black);
@@ -115,16 +108,16 @@
 .level__item:hover span {
   opacity: 1;
 }
-/* 
-.levels__body .button__container {
-  width: 100%;
-  padding: 20px;
 
-  display: flex;
-  justify-content: center;
-} */
+/* CLOSE BUTTON */
 
-/**/
+.section__levels .button__container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translateX(-100%);
+  display: none;
+}
 
 @media all and (max-width: 980px) {
   .panel--visible .button__container {

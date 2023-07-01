@@ -2,16 +2,9 @@ import { createElement } from "../../utils/create-element";
 import { levelsData } from "../../data/levels-data";
 import { getSavedStatus } from "../../scripts/localStorage/get-saved-status";
 
+// Levels on panel
 export function createLevelsBody(): HTMLElement {
   const levelsBody = createElement("div", ["levels__body"]);
-  const levelsContainer = createLevelItems();
-
-  levelsBody.append(levelsContainer);
-
-  return levelsBody;
-}
-
-function createLevelItems(): HTMLElement {
   const levelsContainer = createElement("div", ["levels__container"]);
 
   levelsData.forEach((level) => {
@@ -25,9 +18,10 @@ function createLevelItems(): HTMLElement {
     `;
 
     item.dataset.id = level.id;
-
     levelsContainer.append(item);
   });
 
-  return levelsContainer;
+  levelsBody.append(levelsContainer);
+
+  return levelsBody;
 }

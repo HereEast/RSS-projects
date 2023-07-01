@@ -50,4 +50,7 @@ export const enum Button {
   Hint = "Hint",
   Levels = "=",
   Enter = "Enter",
+  Prev = "&lt;",
+  Next = "&gt;",
+  Close = "Close",
 }
