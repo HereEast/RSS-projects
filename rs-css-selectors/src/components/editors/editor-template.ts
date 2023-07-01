@@ -11,19 +11,14 @@ export function createEditor(params: EditorParams): HTMLElement {
     </div>
   `;
 
-  const linesSpans = (): string => {
-    let spans = "";
-
-    for (let i = 1; i <= 25; i++) {
-      spans += `<span>${i}</span>`;
-    }
-
-    return spans;
-  };
+  const linesSpans = new Array(25)
+    .fill(0)
+    .map((_, i) => `<span>${i + 1}</span>`)
+    .join("");
 
   const editorBody = `
     <div class="editor__body">
-      <div class="body__panel--lines">${linesSpans()}</div>
+      <div class="body__panel--lines">${linesSpans}</div>
       <div class="body__panel--content">
         ${params.editorContent}
       </div>
