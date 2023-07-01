@@ -44,3 +44,10 @@ export const enum Info {
   TotalLevels = 10,
   InputPlaceholder = "Type in a CSS Selector...",
 }
+
+export const enum Button {
+  Reset = "Reset",
+  Hint = "Hint",
+  Levels = "=",
+  Enter = "Enter",
+}
