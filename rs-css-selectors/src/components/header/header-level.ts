@@ -15,7 +15,7 @@ export function createHeaderLevelInfo(): HTMLElement {
   const levelInfoContent = `
     <div class="level__info">
       <span class="level__status"></span>
-      <span class="header__data--level">1/${Info.TotalLevels}</span>
+      <span class="header__data--level">${currentID}/${Info.TotalLevels}</span>
     </div>
   `;
 

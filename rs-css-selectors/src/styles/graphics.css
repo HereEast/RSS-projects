@@ -14,26 +14,18 @@
   opacity: 0.9;
 }
 
-.task__graphics {
-  width: 100%;
-  min-height: 160px;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-
-  background-color: var(--black);
-}
-
 .graphics__container {
   position: relative;
   width: 100%;
+  min-height: 160px;
   height: 100%;
-  padding: 20px 10px;
+  padding: 10px;
 
   display: flex;
   justify-content: center;
   align-items: center;
+
+  background-color: var(--black);
 }
 
 /**/

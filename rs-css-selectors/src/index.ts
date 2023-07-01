@@ -8,14 +8,13 @@ import { levelsData } from "./data/levels-data";
 
 console.clear();
 
-const savedID = window.localStorage.getItem("level") || "1";
-console.log(savedID);
-
 renderApp();
 
 window.addEventListener("DOMContentLoaded", (): void => {
   console.log("✅ DOM Rendered");
 
+  const savedID = window.localStorage.getItem("level") || "1";
   renderSelectedLevel(savedID, levelsData);
+
   initListeners();
 });
