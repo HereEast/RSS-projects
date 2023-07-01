@@ -5,6 +5,7 @@ import { updateTaskName } from "./level-task";
 import { updateHTMLEditor } from "./level-html-content";
 import { updateGraphics } from "./graphics";
 import { setHeaderStatusIcon } from "../answer/set-status-icon";
+import { cleanInput } from "../reset/clean-input";
 // import { removeAnimation } from "./remove-animation";
 
 // Render selected level
@@ -18,4 +19,5 @@ export function renderSelectedLevel(id: string, data: Levels): void {
   updateHTMLEditor(id, data);
   updateGraphics(id, data);
   setHeaderStatusIcon(id);
+  cleanInput();
 }

@@ -13,10 +13,6 @@ import { nextLevel } from "../levels/next-level";
 
 // Handle answer
 export function handleAnswer(): void {
-  // if (e.type === "click") {
-  //   const button = getTarget<HTMLButtonElement>(e);
-  // }
-
   const input = getElement(Selector.Input);
 
   if (!(input instanceof HTMLInputElement)) {
@@ -32,7 +28,6 @@ export function handleAnswer(): void {
 
   if (isCorrect) {
     saveResult(currentID, LevelStatus.Done);
-
     setPanelStatusIcon(currentID);
     setHeaderStatusIcon(currentID);
 

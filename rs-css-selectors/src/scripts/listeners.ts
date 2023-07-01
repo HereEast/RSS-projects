@@ -6,8 +6,9 @@ import { handleLevelSelect } from "./levels/select-level";
 import { nextLevel } from "./levels/next-level";
 import { prevLevel } from "./levels/prev-level";
 import { handleAnswer } from "./answer/handle-answer";
-import { handleInputFocus } from "./answer/handle-input";
+import { handleInputFocus } from "./answer/handle-input-focus";
 import { resetGame } from "./reset/reset";
+import { handleAnswerOnEnter } from "./answer/handle-enter";
 
 // Listeners
 export function initListeners(): void {
@@ -27,16 +28,7 @@ export function initListeners(): void {
   nextLevelButton.addEventListener("click", nextLevel);
   prevLevelButton.addEventListener("click", prevLevel);
   checkButton.addEventListener("click", handleAnswer);
-  input.addEventListener("focus", handleInputFocus);
+  window.addEventListener("keydown", handleAnswerOnEnter);
   input.addEventListener("blur", handleInputFocus);
   resetButton.addEventListener("click", resetGame);
-
-  window.addEventListener("keydown", (e: KeyboardEvent) => {
-    const input = getElement(Selector.Input);
-    if (!(input instanceof HTMLInputElement)) throw Error("Target is not an HTMLInputElement...");
-
-    if (input.classList.contains("active") && e.code === "Enter") {
-      handleAnswer();
-    }
-  });
 }
