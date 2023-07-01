@@ -26,7 +26,7 @@ export function getClosestElement(targetElement: HTMLElement, selector: Selector
 export function getElementsArray(selector: Selector): HTMLElement[] {
   const elements: HTMLElement[] = Array.from(document.querySelectorAll(selector));
 
-  if (!elements) throw Error(`${selector} element is not found...`);
+  if (!elements) throw Error(`${selector} elements are not found...`);
 
   elements.forEach((element) => {
     if (!(element instanceof HTMLElement)) {

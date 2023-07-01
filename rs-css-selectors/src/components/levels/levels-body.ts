@@ -9,7 +9,7 @@ export function createLevelsBody(): HTMLElement {
 
   levelsData.forEach((level) => {
     const status = getSavedStatus(level.id);
-    const item = createElement("div", ["level__item", status]);
+    const item = createElement("div", ["level__item", `level--${status}`]);
 
     item.innerHTML = `
       <span class="level__number">${level.id}</span>

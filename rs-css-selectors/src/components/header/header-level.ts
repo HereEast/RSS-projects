@@ -10,7 +10,7 @@ export function createHeaderLevelInfo(): HTMLElement {
   const currentID = getCurrentLevelID();
   const savedStatus = getSavedStatus(currentID);
 
-  const levelInfo = createElement("div", ["header__levels", savedStatus]);
+  const levelInfo = createElement("div", ["header__levels", `level--${savedStatus}`]);
 
   const levelInfoContent = `
     <div class="level__info">

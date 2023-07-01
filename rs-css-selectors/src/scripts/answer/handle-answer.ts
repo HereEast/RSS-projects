@@ -2,10 +2,9 @@ import { levelsData } from "../../data/levels-data";
 import { LevelStatus, Selector } from "../../types/enums";
 import { getElement } from "../../utils/get-element";
 import { getLevelData } from "../../utils/get-level-data";
-// import { getTarget } from "../../utils/get-target";
-import { saveResult } from "../localStorage/save-result";
+import { saveStatus } from "../localStorage/save-status";
 import { getCurrentLevelID } from "../localStorage/get-current-id";
-import { setHeaderStatusIcon, setPanelStatusIcon } from "./set-status-icon";
+import { setStatusIcon } from "../levels/status-icon";
 import { isWin } from "./check-win";
 import { handleWrongAnswer } from "./wrong-answer";
 import { hideElementsAnimation } from "./hide-animation";
@@ -27,9 +26,8 @@ export function handleAnswer(): void {
   const isCorrect = input.value.trim() === levelData.answer;
 
   if (isCorrect) {
-    saveResult(currentID, LevelStatus.Done);
-    setPanelStatusIcon(currentID);
-    setHeaderStatusIcon(currentID);
+    saveStatus(currentID, LevelStatus.Done);
+    setStatusIcon(currentID, LevelStatus.Done);
 
     if (isWin()) {
       console.log("🥳 Win!");

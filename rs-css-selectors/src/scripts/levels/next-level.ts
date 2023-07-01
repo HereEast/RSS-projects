@@ -3,7 +3,6 @@ import { Info } from "../../types/enums";
 import { renderSelectedLevel } from "./render-level";
 import { saveLevelID } from "../localStorage/save-level-id";
 import { getCurrentLevelID } from "../localStorage/get-current-id";
-import { cleanInput } from "../reset/clean-input";
 
 // Next
 export function nextLevel(): void {
@@ -14,5 +13,4 @@ export function nextLevel(): void {
 
   renderSelectedLevel(String(nextLevelID), levelsData);
   saveLevelID(String(nextLevelID));
-  cleanInput();
 }

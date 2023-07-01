@@ -12,7 +12,7 @@ import { handleAnswerOnEnter } from "./answer/handle-enter";
 
 // Listeners
 export function initListeners(): void {
-  const showButton = getElement(Selector.ShowLevelsBtn);
+  const showLevelsButton = getElement(Selector.ShowLevelsBtn);
   const levelsContainer = getElement(Selector.LevelsContainer);
   const nextLevelButton = getElement(Selector.NextLevelButton);
   const prevLevelButton = getElement(Selector.PrevLevelButton);
@@ -22,7 +22,7 @@ export function initListeners(): void {
 
   // Listeners
 
-  showButton.addEventListener("click", showPanel);
+  showLevelsButton.addEventListener("click", showPanel);
   window.addEventListener("click", hidePanel);
   levelsContainer.addEventListener("click", handleLevelSelect);
   nextLevelButton.addEventListener("click", nextLevel);
