@@ -25,6 +25,7 @@ export const enum Selector {
   PopupCloseButton = ".button--close-popup",
   HintButton = ".button--hint",
   Tooltip = ".tooltip",
+  HTMLLine = ".editor--html .tag-line",
 }
 
 export const enum LevelStatus {

@@ -12,6 +12,7 @@ import { handleAnswerOnEnter } from "./answer/handle-enter";
 import { handleClosePopup } from "./popup/close-popup";
 import { handleHint } from "./hint/hint";
 import { handleTooltips } from "./hover/tooltips";
+import { handleHTMLHover } from "./hint/html-hover";
 
 // Listeners
 export function initListeners(): void {
@@ -44,6 +45,8 @@ export function initListeners(): void {
 
 export function initHovers(): void {
   const playground = getElement(Selector.Playground);
+  const HTMLContent = getElement(Selector.HTMLEditorContentContainer);
 
   playground.addEventListener("mouseover", handleTooltips);
+  HTMLContent.addEventListener("mouseover", handleHTMLHover);
 }
