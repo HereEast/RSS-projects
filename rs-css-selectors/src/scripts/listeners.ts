@@ -11,6 +11,7 @@ import { resetGame } from "./reset/reset";
 import { handleAnswerOnEnter } from "./answer/handle-enter";
 import { handleClosePopup } from "./popup/close-popup";
 import { handleHint } from "./hint/hint";
+import { handleTooltips } from "./hover/tooltips";
 
 // Listeners
 export function initListeners(): void {
@@ -37,4 +38,12 @@ export function initListeners(): void {
   resetButton.addEventListener("click", resetGame);
   closePopupButton.addEventListener("click", handleClosePopup);
   hintButton.addEventListener("click", handleHint);
+
+  initHovers();
+}
+
+export function initHovers(): void {
+  const playground = getElement(Selector.Playground);
+
+  playground.addEventListener("mouseover", handleTooltips);
 }

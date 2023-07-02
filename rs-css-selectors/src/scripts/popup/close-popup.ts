@@ -3,6 +3,7 @@ import { getTarget } from "../../utils/get-target";
 import { getElement } from "../../utils/get-element";
 import { resetGame } from "../reset/reset";
 
+// Close popup
 export function handleClosePopup(e: Event): void {
   const popup = getElement(Selector.Popup);
   const button = getTarget(e);

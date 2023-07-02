@@ -4,6 +4,7 @@ import { getCurrentLevelID } from "../localStorage/get-current-id";
 import { levelsData } from "../../data/levels-data";
 import { typeAnswer } from "./type-answer";
 
+// Hint
 export function handleHint(): void {
   const input = getElement(Selector.Input);
 

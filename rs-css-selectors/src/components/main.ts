@@ -1,6 +1,6 @@
 import { createElement } from "../utils/create-element";
 import { createGameSection } from "./game";
-import { createLevelsSection } from "./levels/levels";
+import { createLevelsSection } from "./levels-panel/levels";
 
 // Main
 export function createMain(): HTMLElement {

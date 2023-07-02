@@ -14,10 +14,23 @@
 }
 
 .playground > * {
+  position: relative;
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
   transform: translateX(0);
+}
+
+.playground .tooltip {
+  position: absolute;
+  padding: 10px 15px;
+  background-color: var(--white);
+  color: var(--black);
+  line-height: 1;
+  font-size: 13px;
+  
+  pointer-events: none;
+  z-index: 100;
 }
 
 box {
@@ -72,4 +85,3 @@ bear {
 @import "./level-8.css";
 @import "./level-9.css";
 @import "./level-10.css";
-

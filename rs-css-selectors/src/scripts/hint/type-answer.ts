@@ -1,6 +1,7 @@
 import { Selector } from "../../types/enums";
 import { getElement } from "../../utils/get-element";
 
+// Typing animation
 export function typeAnswer(text: string): void {
   const input = getElement(Selector.Input);
 

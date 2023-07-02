@@ -6,6 +6,7 @@ import { updateHTMLEditor } from "./html-content";
 import { updateGraphics } from "./graphics";
 import { setStatusIcon } from "./status-icon";
 import { cleanInput } from "../reset/clean-input";
+import { initHovers } from "../listeners";
 
 // Render level
 export function renderSelectedLevel(id: string, data: Levels): void {
@@ -20,4 +21,5 @@ export function renderSelectedLevel(id: string, data: Levels): void {
   updateGraphics(id, data);
 
   cleanInput();
+  initHovers();
 }

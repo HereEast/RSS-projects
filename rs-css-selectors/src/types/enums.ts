@@ -24,6 +24,7 @@ export const enum Selector {
   Popup = ".popup__container",
   PopupCloseButton = ".button--close-popup",
   HintButton = ".button--hint",
+  Tooltip = ".tooltip",
 }
 
 export const enum LevelStatus {
