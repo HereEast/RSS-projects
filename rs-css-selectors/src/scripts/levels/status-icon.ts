@@ -12,6 +12,15 @@ export function setStatusIcon(id: string, status?: LevelStatus): void {
 // Panel
 function setPanelStatusIcon(id: string, status: string): void {
   const listItem = document.querySelector(`[data-id="${id}"]`);
+
+  const currentClasses = listItem ? [...listItem.classList] : null;
+
+  currentClasses?.forEach((item) => {
+    if (item.includes("level--undefined") || item.includes("level--done") || item.includes("level--hint")) {
+      listItem?.classList.remove(item);
+    }
+  });
+
   listItem?.classList.add(status);
 }
 
