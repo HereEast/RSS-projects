@@ -1,4 +1,4 @@
-import { Button } from "../../types/enums";
+import { ButtonName } from "../../types/enums";
 import { EditorParams } from "../../types/types";
 import { createEditor } from "./editor-template";
 
@@ -7,7 +7,7 @@ export function createCSSEditor(): HTMLElement {
   const inputContainer = `
     <div class="input__container">
       <input type="text"></input>
-      <button class="button button--check">${Button.Enter}</button>
+      <button class="button button--check">${ButtonName.Enter}</button>
     </div>
   `;
 

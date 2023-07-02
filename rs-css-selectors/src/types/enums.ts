@@ -45,7 +45,7 @@ export const enum Info {
   InputPlaceholder = "Type in a CSS Selector...",
 }
 
-export const enum Button {
+export const enum ButtonName {
   Reset = "Reset",
   Hint = "Hint",
   Levels = "=",
@@ -53,4 +53,12 @@ export const enum Button {
   Prev = "&lt;",
   Next = "&gt;",
   Close = "Close",
+  Play = "Play Again",
 }
+
+export type ButtonData = {
+  classNames: string[];
+  name: ButtonName;
+};
+
+export type PopupButtons = ButtonData[];

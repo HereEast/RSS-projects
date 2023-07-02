@@ -1,7 +1,7 @@
 import { createElement } from "../../utils/create-element";
 import { createLevelsHeader } from "./levels-header";
 import { createLevelsBody } from "./levels-body";
-import { Button } from "../../types/enums";
+import { ButtonName } from "../../types/enums";
 
 // Levels
 export function createLevelsSection(): HTMLElement {
@@ -12,7 +12,7 @@ export function createLevelsSection(): HTMLElement {
 
   const buttonClose = `
     <div class="button__container">
-      <button class="button button--hide">${Button.Close}</button>
+      <button class="button button--hide">${ButtonName.Close}</button>
     </div>
   `;
 

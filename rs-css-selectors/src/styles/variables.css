@@ -1,5 +1,5 @@
 :root {
-  --black: #1C1C1C;
+  --black: rgb(28, 28, 28);
   --white: whitesmoke;
   --red: orangered;
   --orange: rgb(255, 106, 0);
@@ -15,4 +15,5 @@
   --back--grey: #DDDDDD;
   --text--grey: #868686;
   --blink-color: rgb(175, 230, 181);
+  --overlay: rgba(28, 28, 28, 0.8);
 }

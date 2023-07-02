@@ -1,4 +1,4 @@
-import { Button, Info } from "../../types/enums";
+import { ButtonName, Info } from "../../types/enums";
 import { createElement } from "../../utils/create-element";
 import { getCurrentLevelID } from "../../scripts/localStorage/get-current-id";
 
@@ -8,13 +8,13 @@ export function createLevelsHeader(): HTMLElement {
 
   const buttonPrev = `
     <button class='button levels__button button--prev'>
-      <span>${Button.Prev}</span>
+      <span>${ButtonName.Prev}</span>
     </button>
     `;
 
   const buttonNext = `
     <button class='button levels__button button--next'>
-      <span>${Button.Next}</span>
+      <span>${ButtonName.Next}</span>
     </button>
     `;
 

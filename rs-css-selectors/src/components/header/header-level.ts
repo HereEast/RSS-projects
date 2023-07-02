@@ -1,11 +1,11 @@
 import { getCurrentLevelID } from "../../scripts/localStorage/get-current-id";
 import { getSavedStatus } from "../../scripts/localStorage/get-saved-status";
-import { Button, Info } from "../../types/enums";
+import { ButtonName, Info } from "../../types/enums";
 import { createElement } from "../../utils/create-element";
 
 // Level
 export function createHeaderLevelInfo(): HTMLElement {
-  const buttonLevels = createElement("button", ["button", "button--levels"], Button.Levels);
+  const buttonLevels = createElement("button", ["button", "button--levels"], ButtonName.Levels);
 
   const currentID = getCurrentLevelID();
   const savedStatus = getSavedStatus(currentID);
