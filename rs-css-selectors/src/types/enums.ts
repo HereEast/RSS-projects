@@ -23,6 +23,7 @@ export const enum Selector {
   Playground = ".playground",
   Popup = ".popup__container",
   PopupCloseButton = ".button--close-popup",
+  HintButton = ".button--hint",
 }
 
 export const enum LevelStatus {
@@ -54,7 +55,8 @@ export const enum ButtonName {
   Enter = "Enter",
   Prev = "&lt;",
   Next = "&gt;",
-  Close = "Cool, thanks!",
+  Close = "Close",
+  ClosePopup = "Cool, thanks!",
 }
 
 export type ButtonData = {

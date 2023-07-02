@@ -10,6 +10,7 @@ import { handleInputFocus } from "./answer/handle-input-focus";
 import { resetGame } from "./reset/reset";
 import { handleAnswerOnEnter } from "./answer/handle-enter";
 import { handleClosePopup } from "./popup/close-popup";
+import { handleHint } from "./hint/hint";
 
 // Listeners
 export function initListeners(): void {
@@ -21,6 +22,7 @@ export function initListeners(): void {
   const input = getElement(Selector.Input);
   const resetButton = getElement(Selector.ResetButton);
   const closePopupButton = getElement(Selector.PopupCloseButton);
+  const hintButton = getElement(Selector.HintButton);
 
   // Listeners
 
@@ -34,4 +36,5 @@ export function initListeners(): void {
   input.addEventListener("blur", handleInputFocus);
   resetButton.addEventListener("click", resetGame);
   closePopupButton.addEventListener("click", handleClosePopup);
+  hintButton.addEventListener("click", handleHint);
 }

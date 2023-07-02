@@ -11,5 +11,6 @@ export function cleanInput(): void {
 
   input.value = "";
   input.placeholder = Info.InputPlaceholder;
+  input.removeAttribute("data-hint");
   input.focus();
 }

@@ -25,17 +25,23 @@ export function handleAnswer(): void {
   const levelData = getLevelData(currentID, levelsData);
 
   const isCorrect = input.value.trim() === levelData.answer;
+  const isHint = input.dataset.hint;
 
   if (isCorrect) {
-    saveStatus(currentID, LevelStatus.Done);
-    setStatusIcon(currentID, LevelStatus.Done);
+    if (isHint) {
+      saveStatus(currentID, LevelStatus.Hint);
+      setStatusIcon(currentID, LevelStatus.Hint);
+    }
+
+    if (!isHint) {
+      saveStatus(currentID, LevelStatus.Done);
+      setStatusIcon(currentID, LevelStatus.Done);
+    }
 
     if (isWin()) {
       console.log("🥳 Win!");
-      // Handle win
       showPopup();
     } else {
-      // Handle correct answer
       hideElementsAnimation();
       setTimeout(nextLevel, 1500);
     }
