@@ -5,12 +5,12 @@
 }
 
 .level--3 .tag-line {
-  margin-left: 20px;
+  padding-left: 20px;
 }
 
 .level--3 .tag-line:first-child,
 .level--3 .tag-line:last-child {
-  margin-left: 0;
+  padding-left: 0;
 }
 
 .level--3 trex {

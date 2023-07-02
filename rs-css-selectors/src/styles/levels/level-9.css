@@ -1,16 +1,16 @@
 /* LEVEL 9 */
 
 .level--9 .tag-line {
-  margin-left: 20px;
+  padding-left: 20px;
 }
 
 .level--9 .tag-line:nth-child(6) {
-  margin-left: 40px;
+  padding-left: 40px;
 }
 
 .level--9 .tag-line:first-child,
 .level--9 .tag-line:last-child {
-  margin-left: 0;
+  padding-left: 0;
 }
 
 .level--9 box {

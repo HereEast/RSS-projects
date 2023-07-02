@@ -3,7 +3,7 @@
 .level--1 .tag-line:nth-child(2),
 .level--1 .tag-line:nth-child(3),
 .level--1 .tag-line:nth-child(4) {
-  margin-left: 20px;
+  padding-left: 20px;
 }
 
 .level--1 triangle {

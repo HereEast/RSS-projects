@@ -1,17 +1,17 @@
 /* LEVEL 5 */
 
 .level--5 .tag-line {
-  margin-left: 20px;
+  padding-left: 20px;
 }
 
 .level--5 .tag-line:nth-child(4),
 .level--5 .tag-line:nth-child(7) {
-  margin-left: 40px;
+  padding-left: 40px;
 }
 
 .level--5 .tag-line:first-child,
 .level--5 .tag-line:last-child {
-  margin-left: 0;
+  padding-left: 0;
 }
 
 .level--5 circle,
