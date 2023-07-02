@@ -9,6 +9,7 @@ import { isWin } from "./check-win";
 import { handleWrongAnswer } from "./wrong-answer";
 import { hideElementsAnimation } from "./hide-animation";
 import { nextLevel } from "../levels/next-level";
+import { showPopup } from "../popup/show-popup";
 
 // Handle answer
 export function handleAnswer(): void {
@@ -32,10 +33,11 @@ export function handleAnswer(): void {
     if (isWin()) {
       console.log("🥳 Win!");
       // Handle win
+      showPopup();
     } else {
       // Handle correct answer
       hideElementsAnimation();
-      setTimeout(nextLevel, 1800);
+      setTimeout(nextLevel, 1500);
     }
   }
 

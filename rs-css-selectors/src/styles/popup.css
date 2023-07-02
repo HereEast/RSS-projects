@@ -9,9 +9,16 @@
   align-items: center;
 
   transform: translateY(-100%);
-  display: none;
+  visibility: hidden;
 
-  transition: all 1s ease-in-out;
+  transition: all 0.8s cubic-bezier(.47,1.64,.41,.8);
+}
+
+.show-popup {
+  visibility: visible;
+  transform: translateY(0);
+
+  transition: all 1.2s cubic-bezier(.47,1.64,.41,.8);
 }
 
 .overlay {

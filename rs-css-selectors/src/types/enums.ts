@@ -21,6 +21,8 @@ export const enum Selector {
   BlockEditors = ".block__editors",
   ResetButton = ".button--reset",
   Playground = ".playground",
+  Popup = ".popup__container",
+  PopupCloseButton = ".button--close-popup",
 }
 
 export const enum LevelStatus {
@@ -52,8 +54,7 @@ export const enum ButtonName {
   Enter = "Enter",
   Prev = "&lt;",
   Next = "&gt;",
-  Close = "Close",
-  Play = "Play Again",
+  Close = "Cool, thanks!",
 }
 
 export type ButtonData = {

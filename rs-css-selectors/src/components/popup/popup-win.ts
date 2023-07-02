@@ -12,10 +12,6 @@ export function createWinPopup(): HTMLElement {
       classNames: ["button", "button--close-popup"],
       name: ButtonName.Close,
     },
-    {
-      classNames: ["button", "button--play"],
-      name: ButtonName.Play,
-    },
   ];
 
   const popupButtons = createPopupButtons(buttons);
