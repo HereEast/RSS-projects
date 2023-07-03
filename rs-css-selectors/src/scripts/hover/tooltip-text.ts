@@ -6,7 +6,10 @@ export function createTooltipText(target: HTMLElement): string {
   const idx2 = outerTag.lastIndexOf("<");
 
   const tagString = outerTag.slice(0, idx1) + outerTag.slice(idx2);
-  const tooltipText = tagString.replace(/ dance/, "").replace(/ class="dance"/, "");
+  const tooltipText = tagString
+    .replace(/ dance/, "")
+    .replace(/ class="dance"/, "")
+    .replace(/ el="\d"/, "");
 
   return tooltipText;
 }

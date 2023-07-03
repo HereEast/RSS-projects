@@ -8,9 +8,9 @@ export const levelsData: Levels = [
     answer: "triangle",
     code: `
       <div class="playground">
-        <triangle/></triangle>
-        <circle/></circle>
-        <triangle/></triangle>
+        <triangle el="1"/></triangle>
+        <circle el="2"/></circle>
+        <triangle el="3"/></triangle>
       </div>`,
   },
   {
@@ -20,11 +20,11 @@ export const levelsData: Levels = [
     answer: "fish circle",
     code: `
       <div class="playground">
-        <fish>
-          <circle/>
-        </fish>
-        <circle/></circle>
-        <circle/></circle>
+        <fish el="1">
+          <circle el="2"/>
+        </fish el="3">
+        <circle el="4"/></circle>
+        <circle el="5"/></circle>
       </div>`,
   },
   {

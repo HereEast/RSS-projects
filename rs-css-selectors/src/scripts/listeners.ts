@@ -11,8 +11,9 @@ import { resetGame } from "./reset/reset";
 import { handleAnswerOnEnter } from "./answer/handle-enter";
 import { handleClosePopup } from "./popup/close-popup";
 import { handleHint } from "./hint/hint";
-import { handleTooltips } from "./hover/tooltips";
-import { handleHTMLHover } from "./hint/html-hover";
+import { handleShapesHover } from "./hover/shapes-hover";
+import { handleHTMLHover } from "./hover/html-hover";
+import { handleHTMLMouseOut } from "./hover/html-hover";
 
 // Listeners
 export function initListeners(): void {
@@ -47,6 +48,7 @@ export function initHovers(): void {
   const playground = getElement(Selector.Playground);
   const HTMLContent = getElement(Selector.HTMLEditorContentContainer);
 
-  playground.addEventListener("mouseover", handleTooltips);
+  playground.addEventListener("mouseover", handleShapesHover);
   HTMLContent.addEventListener("mouseover", handleHTMLHover);
+  HTMLContent.addEventListener("mouseout", handleHTMLMouseOut);
 }
