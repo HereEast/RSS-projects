@@ -22,6 +22,11 @@
   align-items: center;
 }
 
+.level--5 circle {
+  width: 110px;
+  height: 110px;
+}
+
 .level--5 circle.small {
   width: 40px;
   height: 40px;
@@ -36,4 +41,8 @@
   position: absolute;
   width: 60px;
   height: 40px;
+}
+
+.level--5 fish {
+  background-image: url("../../assets/fish--yellow.svg");
 }

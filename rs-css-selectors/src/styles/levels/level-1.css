@@ -1,5 +1,9 @@
 /* LEVEL 1 */
 
+.level--1 .playground {
+  gap: 10px;
+}
+
 .level--1 .tag-line:nth-child(2),
 .level--1 .tag-line:nth-child(3),
 .level--1 .tag-line:nth-child(4) {
@@ -7,9 +11,5 @@
 }
 
 .level--1 triangle {
-  transform: scale(1);
-}
-
-.level--1 circle {
-  transform: scale(1);
+  background-image: url("../../assets/triangle--green.svg");
 }

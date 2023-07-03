@@ -11,7 +11,7 @@
 
 .level--2 fish {
   position: relative;
-  width: 160px;
+  width: 180px;
   height: 100px;
 
   display: flex;
@@ -20,17 +20,16 @@
 }
 
 .level--2 fish circle {
+  width: 40px;
+  height: 40px;
+  background-image: url("../../assets/circle--yellow-2.svg");
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
 
   position: absolute;
-  width: 40px;
-  height: 40px;
-
-  transform: translateX(-25%);
 }
 
 .level--2 circle {
-  transform: scale(1);
+  background-image: url("../../assets/circle--green.svg");
 }

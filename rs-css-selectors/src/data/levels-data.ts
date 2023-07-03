@@ -16,7 +16,7 @@ export const levelsData: Levels = [
   {
     id: "2",
     title: "A B",
-    task: "Select a circle in a blue fish",
+    task: "Select a yellow circle in a pink fish",
     answer: "fish circle",
     code: `
       <div class="playground">
@@ -30,20 +30,20 @@ export const levelsData: Levels = [
   {
     id: "3",
     title: "#id",
-    task: "Select a purple trex",
+    task: "Select a purple rabbit",
     answer: "#purple",
     code: `
       <div class="playground">
-        <trex el="1"/></trex>
-        <trex el="2" id="purple"/></trex>
-        <trex el="3"/></trex>
-        <trex el="4"/></trex>
+        <rabbit el="1"/></rabbit>
+        <rabbit el="2" id="purple"/></rabbit>
+        <rabbit el="3"/></rabbit>
+        <rabbit el="4"/></rabbit>
       </div>`,
   },
   {
     id: "4",
     title: ".classname",
-    task: "Select small toys",
+    task: "Select all small toys",
     answer: ".small",
     code: `
       <div class="playground">
@@ -94,11 +94,13 @@ export const levelsData: Levels = [
     answer: "[kid]",
     code: `
       <div class="playground">
-        <trex el="1"/></trex>
+        <bear el="1"/></bear>
         <box el="2" kid="Mary">
           <bear el="3"/></bear>
         </box el="2">
-        <trex el="4" kid="Jacob"/></trex>
+        <circle el="4" kid="Jacob"/>
+          <bear el="5"></bear>
+        </circle el="4">
       </div>`,
   },
   {

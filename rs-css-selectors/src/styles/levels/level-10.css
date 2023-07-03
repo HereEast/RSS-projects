@@ -21,6 +21,10 @@
   align-items: center;
 }
 
+.level--10 triangle {
+  width: 80px;
+}
+
 .level--10 box triangle {
   background-image: url("../../assets/triangle--yellow.svg");
   background-position: center;
@@ -28,6 +32,7 @@
   background-repeat: no-repeat;
 
   position: absolute;
+  width: 80px;
 }
 
 .level--10 triangle.small {

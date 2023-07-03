@@ -1,7 +1,7 @@
 /* LEVEL 3 */
 
 .level--3 .playground {
-  gap: 5px;
+  gap: 10px;
 }
 
 .level--3 .tag-line {
@@ -13,10 +13,13 @@
   padding-left: 0;
 }
 
-.level--3 trex {
-  transform: scale(1);
+.level--3 rabbit:nth-child(2) {
+  background-image: url("../../assets/rabbit--purple.svg");
 }
 
-.level--3 trex:nth-child(2) {
-  background-image: url("../../assets/trex--purple.svg");
+@media all and (max-width: 550px) {
+  .level--3 rabbit {
+    width: 80px;
+    height: 80px;
+  }
 }
