@@ -26,6 +26,7 @@ export const enum Selector {
   HintButton = ".button--hint",
   Tooltip = ".tooltip",
   HTMLLine = ".editor--html .tag-line",
+  ElementAttribute = "[el]",
 }
 
 export const enum LevelStatus {

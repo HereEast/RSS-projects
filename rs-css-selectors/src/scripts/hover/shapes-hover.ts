@@ -8,11 +8,9 @@ import { highlightFromStart, highlightFromEnd } from "./html-highlight";
 // Tooltip on hover
 export function handleShapesHover(e: MouseEvent): void {
   const target = getTarget(e);
-
   if (target.classList.contains("playground")) return;
 
   const HTMLLines = getElementsArray(Selector.HTMLLine);
-
   const playground = getElement(Selector.Playground);
   const tooltip = createTooltip(target);
 

@@ -22,9 +22,9 @@ export const levelsData: Levels = [
       <div class="playground">
         <fish el="1">
           <circle el="2"/>
-        </fish el="3">
+        </fish el="1">
+        <circle el="3"/></circle>
         <circle el="4"/></circle>
-        <circle el="5"/></circle>
       </div>`,
   },
   {
@@ -51,8 +51,8 @@ export const levelsData: Levels = [
         <triangle el="2" class="small"/></triangle>
         <box el="3">
           <duck el="4" class="small"/></duck>
-        </box el="5">
-        <box el="6"/></box>
+        </box el="3">
+        <box el="5"/></box>
       </div>`,
   },
   {
@@ -64,12 +64,12 @@ export const levelsData: Levels = [
       <div class="playground">
         <fish el="1"/></fish>
         <circle el="2">
-          <fish  el="3" class="small"/>
-        </circle el="4">
-        <box el="5">
-          <fish el="6" class="small"/>
-        </box el="7">
-        <circle el="8" class="small"/></circle>
+          <fish el="3" class="small"/>
+        </circle el="2">
+        <box el="4">
+          <fish el="5" class="small"/>
+        </box el="4">
+        <circle el="6" class="small"/></circle>
       </div>`,
   },
   {
@@ -83,8 +83,8 @@ export const levelsData: Levels = [
         <duck el="2"/></duck>
         <box el="3">
           <triangle/ el="4">
-        </box el="5">
-        <circle el="6" class="small"/></circle>
+        </box el="3">
+        <circle el="5" class="small"/></circle>
       </div>`,
   },
   {
@@ -97,8 +97,8 @@ export const levelsData: Levels = [
         <trex el="1"/></trex>
         <box el="2" kid="Mary">
           <bear el="3"/></bear>
-        </box el="4">
-        <trex el="5" kid="Jacob"/></trex>
+        </box el="2">
+        <trex el="4" kid="Jacob"/></trex>
       </div>`,
   },
   {
@@ -126,7 +126,7 @@ export const levelsData: Levels = [
         <bear el="3" class="teddy"/></bear>
         <box el="4">
           <triangle el="5" class="yellow"/></triangle>
-        </box el="6">
+        </box el="4">
       </div>`,
   },
   {
@@ -138,12 +138,12 @@ export const levelsData: Levels = [
       <div class="playground">
         <box el="1">
           <triangle el="2" class="small yellow"/></triangle>
+        </box el="1">
+        <box el="3">
+          <triangle el="4" class="yellow"/></triangle>
         </box el="3">
-        <box el="4">
-          <triangle el="5" class="yellow"/></triangle>
-        </box el="6">
-        <triangle el="7"/></triangle>
-        <triangle el="8" class="small"/></triangle>
+        <triangle el="5"/></triangle>
+        <triangle el="6" class="small"/></triangle>
       </div>`,
   },
 ];
