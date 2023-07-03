@@ -13,7 +13,7 @@ import { handleClosePopup } from "./popup/close-popup";
 import { handleHint } from "./hint/hint";
 import { handleShapesHover } from "./hover/shapes-hover";
 import { handleHTMLHover } from "./hover/html-hover";
-import { removeHTMLHighlights } from "./hover/html-hover";
+import { removeHoverStates } from "./hover/remove-hovers";
 
 // Listeners
 export function initListeners(): void {
@@ -50,5 +50,5 @@ export function initHovers(): void {
 
   playground.addEventListener("mouseover", handleShapesHover);
   HTMLContent.addEventListener("mouseover", handleHTMLHover);
-  HTMLContent.addEventListener("mouseout", removeHTMLHighlights);
+  HTMLContent.addEventListener("mouseout", removeHoverStates);
 }
