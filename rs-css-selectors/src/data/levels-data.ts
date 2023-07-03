@@ -34,10 +34,10 @@ export const levelsData: Levels = [
     answer: "#purple",
     code: `
       <div class="playground">
-        <trex/></trex>
-        <trex id="purple"/></trex>
-        <trex/></trex>
-        <trex/></trex>
+        <trex el="1"/></trex>
+        <trex el="2" id="purple"/></trex>
+        <trex el="3"/></trex>
+        <trex el="4"/></trex>
       </div>`,
   },
   {
@@ -47,12 +47,12 @@ export const levelsData: Levels = [
     answer: ".small",
     code: `
       <div class="playground">
-        <duck/></duck>
-        <triangle class="small"/></triangle>
-        <box>
-          <duck class="small"/></duck>
-        </box>
-        <box/></box>
+        <duck el="1"/></duck>
+        <triangle el="2" class="small"/></triangle>
+        <box el="3">
+          <duck el="4" class="small"/></duck>
+        </box el="5">
+        <box el="6"/></box>
       </div>`,
   },
   {
@@ -62,14 +62,14 @@ export const levelsData: Levels = [
     answer: "fish.small",
     code: `
       <div class="playground">
-        <fish/></fish>
-        <circle>
-          <fish class="small"/>
-        </circle>
-        <box>
-          <fish class="small"/>
-        </box>
-        <circle class="small"/></circle>
+        <fish el="1"/></fish>
+        <circle el="2">
+          <fish  el="3" class="small"/>
+        </circle el="4">
+        <box el="5">
+          <fish el="6" class="small"/>
+        </box el="7">
+        <circle el="8" class="small"/></circle>
       </div>`,
   },
   {
@@ -79,12 +79,12 @@ export const levelsData: Levels = [
     answer: "*",
     code: `
       <div class="playground">
-        <triangle/></triangle>
-        <duck/></duck>
-        <box>
-          <triangle/>
-        </box>
-        <circle class="small"/></circle>
+        <triangle el="1"/></triangle>
+        <duck el="2"/></duck>
+        <box el="3">
+          <triangle/ el="4">
+        </box el="5">
+        <circle el="6" class="small"/></circle>
       </div>`,
   },
   {
@@ -94,11 +94,11 @@ export const levelsData: Levels = [
     answer: "[kid]",
     code: `
       <div class="playground">
-        <trex/></trex>
-        <box kid="Mary">
-          <bear/></bear>
-        </box>
-        <trex kid="Jacob"/></trex>
+        <trex el="1"/></trex>
+        <box el="2" kid="Mary">
+          <bear el="3"/></bear>
+        </box el="4">
+        <trex el="5" kid="Jacob"/></trex>
       </div>`,
   },
   {
@@ -108,10 +108,10 @@ export const levelsData: Levels = [
     answer: "duck:nth-child(3)",
     code: `
       <div class="playground">
-        <duck/></duck>
-        <duck/></duck>
-        <duck/></duck>
-        <duck/></duck>
+        <duck el="1"/></duck>
+        <duck el="2"/></duck>
+        <duck el="3"/></duck>
+        <duck el="4"/></duck>
       </div>`,
   },
   {
@@ -121,12 +121,12 @@ export const levelsData: Levels = [
     answer: "box:empty",
     code: `
       <div class="playground">
-        <box/></box>
-        <box/></box>
-        <bear class="teddy"/></bear>
-        <box>
-          <triangle class="yellow"/></triangle>
-        </box>
+        <box el="1"/></box>
+        <box el="2"/></box>
+        <bear el="3" class="teddy"/></bear>
+        <box el="4">
+          <triangle el="5" class="yellow"/></triangle>
+        </box el="6">
       </div>`,
   },
   {
@@ -136,14 +136,14 @@ export const levelsData: Levels = [
     answer: "triangle:not(.small)",
     code: `
       <div class="playground">
-        <box>
-          <triangle class="small yellow"/></triangle>
-        </box>
-        <box>
-          <triangle class="yellow"/></triangle>
-        </box>
-        <triangle/></triangle>
-        <triangle class="small"/></triangle>
+        <box el="1">
+          <triangle el="2" class="small yellow"/></triangle>
+        </box el="3">
+        <box el="4">
+          <triangle el="5" class="yellow"/></triangle>
+        </box el="6">
+        <triangle el="7"/></triangle>
+        <triangle el="8" class="small"/></triangle>
       </div>`,
   },
 ];
