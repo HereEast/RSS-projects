@@ -1,11 +1,12 @@
 /* LEVEL 2 */
 
 .level--2 .tag-line:nth-child(2),
-.level--2 .tag-line:nth-child(n+4):nth-child(-n+6) {
+.level--2 .tag-line:nth-child(n+5):nth-child(-n+7) {
   padding-left: 20px;
 }
 
-.level--2 .tag-line:nth-child(3) {
+.level--2 .tag-line:nth-child(3),
+.level--2 .tag-line:nth-child(4) {
   padding-left: 40px;
 }
 
@@ -19,17 +20,21 @@
   align-items: center;
 }
 
-.level--2 fish circle {
+.level--2 fish ball {
   width: 40px;
   height: 40px;
-  background-image: url("../../assets/circle--yellow-2.svg");
-  background-position: center;
-  background-size: contain;
-  background-repeat: no-repeat;
-
+  background-color: var(--yellow);
   position: absolute;
 }
 
-.level--2 circle {
-  background-image: url("../../assets/circle--green.svg");
+.level--2 fish ball:first-child {
+  left: 35px;
+}
+
+.level--2 fish ball:last-child {
+  right: 60px;
+}
+
+.level--2 ball {
+  background-color: var(--green);
 }

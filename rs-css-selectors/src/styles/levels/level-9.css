@@ -14,18 +14,21 @@
 }
 
 .level--9 box {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  background-color: var(--border);
+}
+
+.level--9 box:last-child {
+  background-color: var(--purple);
 }
 
 .level--9 box triangle {
-  background-image: url("../../assets/triangle--yellow.svg");
-  background-position: center;
-  background-size: contain;
-  background-repeat: no-repeat;
+  border-width: 0 30px 45px 30px;
+  border-color: transparent transparent var(--yellow) transparent;
+}
 
-  position: absolute;
-  transform: scale(0.5);
+@media all and (max-width: 550px) {
+  .level--9 box {
+    width: 90px;
+    height: 90px;
+  }
 }

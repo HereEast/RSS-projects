@@ -14,7 +14,7 @@
   padding-left: 0;
 }
 
-.level--5 circle,
+.level--5 ball,
 .level--5 box {
   position: relative;
   display: flex;
@@ -22,17 +22,12 @@
   align-items: center;
 }
 
-.level--5 circle {
+.level--5 ball {
   width: 110px;
   height: 110px;
 }
 
-.level--5 circle.small {
-  width: 40px;
-  height: 40px;
-}
-
-.level--5 circle fish,
+.level--5 ball fish,
 .level--5 box fish {
   background-position: center;
   background-size: contain;
@@ -45,4 +40,10 @@
 
 .level--5 fish {
   background-image: url("../../assets/fish--yellow.svg");
+}
+
+@media all and (max-width: 550px) {
+  .level--5 .playground {
+    gap: 15px;
+  }
 }

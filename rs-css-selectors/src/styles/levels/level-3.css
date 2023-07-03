@@ -13,13 +13,6 @@
   padding-left: 0;
 }
 
-.level--3 rabbit:nth-child(2) {
-  background-image: url("../../assets/rabbit--purple.svg");
-}
-
-@media all and (max-width: 550px) {
-  .level--3 rabbit {
-    width: 80px;
-    height: 80px;
-  }
+.level--3 bear:nth-child(2) {
+  background-image: url("../../assets/bear--pink.svg");
 }

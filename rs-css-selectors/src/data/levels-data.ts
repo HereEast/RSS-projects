@@ -9,35 +9,36 @@ export const levelsData: Levels = [
     code: `
       <div class="playground">
         <triangle el="1"/></triangle>
-        <circle el="2"/></circle>
+        <ball el="2"/></ball>
         <triangle el="3"/></triangle>
       </div>`,
   },
   {
     id: "2",
     title: "A B",
-    task: "Select a yellow circle in a pink fish",
-    answer: "fish circle",
+    task: "Select a yellow balls in a pink fish",
+    answer: "fish ball",
     code: `
       <div class="playground">
         <fish el="1">
-          <circle el="2"/>
+          <ball el="2"/></ball>
+          <ball el="3"/></ball>
         </fish el="1">
-        <circle el="3"/></circle>
-        <circle el="4"/></circle>
+        <ball el="4"/></ball>
+        <ball el="5"/></ball>
       </div>`,
   },
   {
     id: "3",
     title: "#id",
-    task: "Select a purple rabbit",
-    answer: "#purple",
+    task: "Select a pink teddy",
+    answer: "#pink",
     code: `
       <div class="playground">
-        <rabbit el="1"/></rabbit>
-        <rabbit el="2" id="purple"/></rabbit>
-        <rabbit el="3"/></rabbit>
-        <rabbit el="4"/></rabbit>
+        <bear el="1"/></bear>
+        <bear el="2" id="pink"/></bear>
+        <bear el="3"/></bear>
+        <bear el="4"/></bear>
       </div>`,
   },
   {
@@ -63,13 +64,13 @@ export const levelsData: Levels = [
     code: `
       <div class="playground">
         <fish el="1"/></fish>
-        <circle el="2">
+        <ball el="2">
           <fish el="3" class="small"/>
-        </circle el="2">
+        </ball el="2">
         <box el="4">
           <fish el="5" class="small"/>
         </box el="4">
-        <circle el="6" class="small"/></circle>
+        <ball el="6" class="small"/></ball>
       </div>`,
   },
   {
@@ -79,18 +80,18 @@ export const levelsData: Levels = [
     answer: "*",
     code: `
       <div class="playground">
-        <triangle el="1"/></triangle>
+        <ball el="1"/></ball>
         <duck el="2"/></duck>
         <box el="3">
           <triangle/ el="4">
         </box el="3">
-        <circle el="5" class="small"/></circle>
+        <ball el="5" class="small"/></ball>
       </div>`,
   },
   {
     id: "7",
     title: "[attribute]",
-    task: "Select somebody's toys",
+    task: "Select somebody's teddies",
     answer: "[kid]",
     code: `
       <div class="playground">
@@ -98,9 +99,9 @@ export const levelsData: Levels = [
         <box el="2" kid="Mary">
           <bear el="3"/></bear>
         </box el="2">
-        <circle el="4" kid="Jacob"/>
-          <bear el="5"></bear>
-        </circle el="4">
+        <ball el="4" kid="Patrick">
+          <bear el="5"/></bear>
+        </ball el="4">
       </div>`,
   },
   {
@@ -134,18 +135,18 @@ export const levelsData: Levels = [
   {
     id: "10",
     title: ":not(X)",
-    task: "Select big triangles",
-    answer: "triangle:not(.small)",
+    task: "Select big balls",
+    answer: "ball:not(.small)",
     code: `
       <div class="playground">
         <box el="1">
-          <triangle el="2" class="small yellow"/></triangle>
+          <ball el="2" class="small yellow"/></ball>
         </box el="1">
         <box el="3">
-          <triangle el="4" class="yellow"/></triangle>
+          <ball el="4" class="yellow"/></ball>
         </box el="3">
-        <triangle el="5"/></triangle>
-        <triangle el="6" class="small"/></triangle>
+        <ball el="5"/></ball>
+        <ball el="6" class="small"/></ball>
       </div>`,
   },
 ];

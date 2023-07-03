@@ -1,4 +1,4 @@
-/* LEVEL 6 */
+/* LEVEL 7 */
 
 .level--7 .tag-line {
   padding-left: 20px;
@@ -15,39 +15,26 @@
 }
 
 .level--7 box {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  background-color: var(--yellow);
+}
 
-  background-image: url("../../assets/rect--yellow.svg");
+.level--7 ball {
+  background-color: var(--border);
 }
 
 .level--7 box bear,
-.level--7 circle bear {
-  background-image: url("../../assets/bear.svg");
+.level--7 ball bear {
+  background-image: url("../../assets/bear--small.svg");
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
 
   position: absolute;
-  width: 60px;
-  height: 70px;
+  width: 50px;
+  height: 60px;
 }
 
-.level--7 box::after {
-  content: attr(kid);
-  position: absolute;
-  padding: 2px 5px;
-  background-color: whitesmoke;
-  color: var(--black);
-  font-family: Arial, Helvetica, sans-serif;
-
-  bottom: -10px;
-  right: 10px;
-}
-
-.level--7 circle {
+.level--7 ball {
   width: 120px;
   height: 120px;
   position: relative;
@@ -56,13 +43,15 @@
   align-items: center;
 }
 
-.level--7 circle::after {
+.level--7 box::after,
+.level--7 ball::after {
   content: attr(kid);
   position: absolute;
-  padding: 2px 5px;
+  padding: 3px 10px;
   background-color: whitesmoke;
   color: var(--black);
   font-family: Arial, Helvetica, sans-serif;
+  letter-spacing: 0.05ch;
 
   bottom: -10px;
   right: 10px;

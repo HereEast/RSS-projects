@@ -20,11 +20,6 @@
   align-items: center;
 }
 
-.level--4 triangle.small {
-  width: 60px;
-  height: 50px;
-}
-
 .level--4 box duck {
   background-position: center;
   background-size: contain;
@@ -33,4 +28,10 @@
   position: absolute;
   width: 50px;
   height: 50px;
+}
+
+@media all and (max-width: 550px) {
+  .level--4 .playground {
+    gap: 15px;
+  }
 }

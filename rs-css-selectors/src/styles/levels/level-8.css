@@ -1,5 +1,9 @@
 /* LEVEL 8 */
 
+.level--8 .playground {
+  gap: 10px;
+}
+
 .level--8 .tag-line {
   padding-left: 20px;
 }
@@ -9,7 +13,9 @@
   padding-left: 0;
 }
 
-.level--8 duck.small {
-  width: 60px;
-  height: 60px;
+@media all and (max-width: 550px) {
+  .level--8 duck {
+    width: 90px;
+    height: 90px;
+  }
 }
