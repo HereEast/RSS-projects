@@ -64,7 +64,7 @@ button {
 }
 
 .button--reset:hover {
-  background-color: var(--green);
+  background-color: var(--orange);
 }
 
 .header .button--levels:hover {
@@ -90,4 +90,8 @@ button {
 
 .button--hide:hover {
   background-color: var(--red);
+}
+
+.button--close-popup:hover {
+  background-color: var(--yellow);
 }

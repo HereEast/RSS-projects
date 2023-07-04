@@ -18,6 +18,7 @@ export function createWinPopup(): HTMLElement {
   const popupContent = createWinPopupContent();
 
   popup.append(popupContent, popupButtons);
+  popup.append(popupButtons);
   popupContainer.append(popup);
 
   return popupContainer;
