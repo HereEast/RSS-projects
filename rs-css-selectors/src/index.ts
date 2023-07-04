@@ -6,11 +6,6 @@ import { initListeners } from "./scripts/listeners";
 import { renderSelectedLevel } from "./scripts/levels/render-level";
 import { levelsData } from "./data/levels-data";
 
-alert(`Привет! 
-Хочу попросить 1 день поправить ошибки,
-которые выскочили при деплое. Подожди, пожалуйста, с проверкой до среды:)
-Спасибо!`);
-
 renderApp();
 
 window.addEventListener("DOMContentLoaded", (): void => {
