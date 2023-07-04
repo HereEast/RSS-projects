@@ -8,8 +8,13 @@ export function createFooter(): HTMLElement {
 
   const footerContainer = `
     <div class="footer__container">
-      <span>2023, <a href="${linkRS}" target="_blank">RS School</a> — RS CSS Selectors</span>
-      <a href="${linkGH}" target="_blank">Here East</a>
+      <div class="footer__copy">
+        <span>2023, 
+          <a class="footer__link" href="${linkRS}" target="_blank">RS School</a> — 
+        </span> 
+        <span>RS CSS Selectors</span>
+      </div>
+      <a class="footer__link" href="${linkGH}" target="_blank">Here East</a>
     </div>
   `;
 

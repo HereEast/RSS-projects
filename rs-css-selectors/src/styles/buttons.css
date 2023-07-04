@@ -31,7 +31,7 @@ button {
 }
 
 .button {
-  height: 20px;
+  height: var(--button-height);
   padding: 0 10px;
 
   display: flex;
