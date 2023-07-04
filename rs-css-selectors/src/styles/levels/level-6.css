@@ -32,3 +32,32 @@
   border-width: 0 30px 50px 30px;
   border-color: transparent transparent var(--yellow) transparent;
 }
+
+/**/
+
+@media all and (max-width: 480px) {
+  .level--6 .playground {
+    gap: 12px;
+  }
+}
+
+@media all and (max-width: 420px) {
+  .level--6 ball:first-child {
+    width: 80px;
+    height: 80px;
+  }
+
+  .level--6 duck {
+    width: 90px;
+  }
+
+  .level--6 box {
+    width: 90px;
+    height: 90px;
+  }
+
+  .level--6 ball.small {
+    width: 40px;
+    height: 40px;
+  }
+}

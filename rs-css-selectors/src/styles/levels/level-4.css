@@ -13,6 +13,10 @@
   padding-left: 0;
 }
 
+.level--4 duck {
+  margin-right: -5px;
+}
+
 .level--4 box {
   position: relative;
   display: flex;
@@ -28,10 +32,41 @@
   position: absolute;
   width: 50px;
   height: 50px;
+  margin-left: 0;
 }
 
 @media all and (max-width: 550px) {
   .level--4 .playground {
     gap: 15px;
   }
+}
+
+@media all and (max-width: 450px) {
+  .level--4 .playground {
+    gap: 12px;
+  }
+
+  .level--4 box {
+    width: 85px;
+    height: 85px;
+  }
+
+  .level--4 duck {
+    width: 85px;
+    height: 80px;
+    transform: rotate(-90deg);
+  }
+
+  .level--4 ball.small {
+    width: 45px;
+    height: 45px;
+  }
+
+  .level--4 box duck.small {
+    margin-top: 0;
+  }
+}
+
+@media all and (max-width: 420px) {
+  
 }

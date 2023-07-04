@@ -36,3 +36,26 @@
   height: 40px;
 }
 
+/**/
+
+@media all and (max-width: 480px) {
+  .level--10 .playground {
+    gap: 12px;
+  }
+
+  .level--10 box {
+    width: 95px;
+    height: 95px;
+  }
+
+  .level--10 ball {
+    width: 70px;
+    height: 70px;
+  }
+
+  .level--10 ball.small {
+    width: 25px;
+    height: 25px;
+  }
+}
+

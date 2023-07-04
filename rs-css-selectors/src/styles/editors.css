@@ -82,6 +82,19 @@
   flex-direction: column;
 }
 
+.editor--html .tag-line {
+  font-weight: 300;
+  opacity: 0.5;
+  cursor: default;
+
+  transition: all 0.1s ease-in-out;
+}
+
+.editor--html .tag-line.highlight {
+  opacity: 1;
+}
+
+
 /**/
 
 @media all and (max-width: 750px) {

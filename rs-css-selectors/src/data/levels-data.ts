@@ -16,7 +16,7 @@ export const levelsData: Levels = [
   {
     id: "2",
     title: "A B",
-    task: "Select a yellow balls in a pink fish",
+    task: "Select yellow balls in a pink fish",
     answer: "fish ball",
     code: `
       <div class="playground">
@@ -49,7 +49,7 @@ export const levelsData: Levels = [
     code: `
       <div class="playground">
         <duck el="1"/></duck>
-        <triangle el="2" class="small"/></triangle>
+        <ball el="2" class="small"/></ball>
         <box el="3">
           <duck el="4" class="small"/></duck>
         </box el="3">

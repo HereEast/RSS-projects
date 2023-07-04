@@ -98,7 +98,7 @@ h1 {
     padding: 20px;
     left: 0;
     top: 0;
-    z-index: 100;
+    z-index: 1000;
   }
 
   .header__levels {

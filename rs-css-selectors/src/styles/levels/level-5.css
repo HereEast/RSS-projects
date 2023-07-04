@@ -47,3 +47,44 @@
     gap: 15px;
   }
 }
+
+@media all and (max-width: 480px) {
+  .level--5 .playground {
+    gap: 12px;
+  }
+
+  .level--5 ball {
+    width: 90px;
+    height: 90px;
+  }
+
+  .level--5 box {
+    width: 85px;
+    height: 85px;
+  }
+
+  .level--5 fish.small {
+    width: 50px;
+  }
+}
+
+@media all and (max-width: 480px) {
+  .level--5 ball {
+    width: 80px;
+    height: 80px;
+  }
+
+  .level--5 box {
+    width: 75px;
+    height: 75px;
+  }
+
+  .level--5 fish.small {
+    width: 45px;
+  }
+
+  .level--5 ball.small {
+    width: 40px;
+    height: 40px;
+  }
+}

@@ -11,6 +11,7 @@ export function createWinPopupContent(): HTMLElement {
   `;
 
   const hintsLine = areHintsUsed() ? "with a little hint help" : "without using any hints";
+
   const text = `<p class="popup__text">Big congrats!!!<br>
     <span>You’ve got all levels right <br>${hintsLine}.</span>
   </p>`;

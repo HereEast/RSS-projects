@@ -1,13 +1,3 @@
-.block__task {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  gap: 20px;
-}
-
 .task__text {
   font-weight: 400;
   text-align: center;
@@ -28,14 +18,40 @@
   background-color: var(--black);
 }
 
+.playground {
+  min-width: 460px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.playground > * {
+  position: relative;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+
+  transform: translateX(0);
+}
+
+.playground .tooltip {
+  position: absolute;
+  padding: 10px 15px;
+  background-color: var(--white);
+  color: var(--black);
+  line-height: 1;
+  font-size: 13px;
+
+  pointer-events: none;
+  z-index: 100;
+}
+
 /**/
 
 @media all and (max-width: 750px) {
-  .block__task {
-    height: auto;
-  }
-
-  .task__graphics {
-    height: 200px;
+  .graphics__container {
+    height: 220px;
   }
 }

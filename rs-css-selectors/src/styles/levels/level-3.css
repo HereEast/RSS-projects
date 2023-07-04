@@ -16,3 +16,13 @@
 .level--3 bear:nth-child(2) {
   background-image: url("../../assets/bear--pink.svg");
 }
+
+@media all and (max-width: 420px) {
+  .level--3 .playground {
+    gap: 15px;
+  }
+
+  .level--3 bear {
+    width: 60px;
+  }
+}
