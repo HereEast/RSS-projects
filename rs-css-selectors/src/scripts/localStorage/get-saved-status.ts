@@ -1,4 +1,3 @@
-// Get saved status
 export function getSavedStatus(id: string): string {
   const savedResults = window.localStorage.getItem("results");
   const results = savedResults ? JSON.parse(savedResults) : {};

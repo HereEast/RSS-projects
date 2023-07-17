@@ -15,7 +15,6 @@ import { handleShapesHover } from "./hover/shapes-hover";
 import { handleHTMLHover } from "./hover/html-hover";
 import { removeHoverStates } from "./hover/remove-hovers";
 
-// Listeners
 export function initListeners(): void {
   const showLevelsButton = getElement(Selector.ShowLevelsBtn);
   const levelsContainer = getElement(Selector.LevelsContainer);
@@ -26,8 +25,6 @@ export function initListeners(): void {
   const resetButton = getElement(Selector.ResetButton);
   const closePopupButton = getElement(Selector.PopupCloseButton);
   const hintButton = getElement(Selector.HintButton);
-
-  // Listeners
 
   showLevelsButton.addEventListener("click", showPanel);
   window.addEventListener("click", hidePanel);

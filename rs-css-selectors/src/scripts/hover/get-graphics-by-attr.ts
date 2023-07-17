@@ -1,7 +1,6 @@
 import { Selector } from "../../types/enums";
 import { getElementsArray } from "../../utils/get-element";
 
-// Get graphic target
 export function getGraphicElement(target: HTMLElement): HTMLElement {
   const attr = target.getAttribute("el");
 

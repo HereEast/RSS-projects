@@ -1,7 +1,6 @@
 import { createElement } from "../../utils/create-element";
 import { createTooltipText } from "./tooltip-text";
 
-// Create tooltip
 export function createTooltip(target: HTMLElement): HTMLElement {
   const rect = target.getBoundingClientRect();
   const x = rect.left;

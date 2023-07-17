@@ -4,7 +4,6 @@ import { getHTMLLineTarget } from "./get-html-by-attr";
 import { highlightHTML } from "./highlight-html";
 import { showTooltip } from "./show-tooltip";
 
-// Graphics on hover
 export function handleShapesHover(e: MouseEvent): void {
   const target = getTarget(e);
   if (target.classList.contains("playground")) return;
@@ -14,6 +13,5 @@ export function handleShapesHover(e: MouseEvent): void {
   const targetLine = getHTMLLineTarget(target);
   highlightHTML(targetLine);
 
-  // Remove hovers
   target.addEventListener("mouseout", removeHoverStates);
 }

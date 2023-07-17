@@ -2,7 +2,6 @@ import { Selector } from "../../types/enums";
 import { getElement } from "../../utils/get-element";
 import { handleAnswer } from "./handle-answer";
 
-// Handle Enter
 export function handleAnswerOnEnter(e: KeyboardEvent): void {
   const input = getElement(Selector.Input);
 

@@ -12,15 +12,14 @@ export function createHeaderLevelInfo(): HTMLElement {
 
   const levelInfo = createElement("div", ["header__levels", `level--${savedStatus}`]);
 
-  const levelInfoContent = `
-    <div class="level__info">
-      <span class="level__status"></span>
-      <span class="header__data--level">${currentID}/${Info.TotalLevels}</span>
-    </div>
-  `;
+  const infoContainer = createElement("div", ["level__info"]);
+  const statusSpan = createElement("span", ["level__status"]);
+  const levelSpan = createElement("span", ["header__data--level"]);
 
-  levelInfo.insertAdjacentHTML("afterbegin", levelInfoContent);
-  levelInfo.append(buttonLevels);
+  levelSpan.textContent = `${currentID}/${Info.TotalLevels}`;
+
+  infoContainer.append(statusSpan, levelSpan);
+  levelInfo.append(infoContainer, buttonLevels);
 
   return levelInfo;
 }

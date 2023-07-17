@@ -2,7 +2,6 @@ import { Selector } from "../../types/enums";
 import { getElementsArray } from "../../utils/get-element";
 import { highlightFromStart, highlightFromEnd } from "./highlight-html-blocks";
 
-// HTML
 export function highlightHTML(target: HTMLElement): void {
   const lines = getElementsArray(Selector.HTMLLine);
 

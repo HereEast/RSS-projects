@@ -1,7 +1,6 @@
 import { Info, Selector } from "../../types/enums";
 import { getElement } from "../../utils/get-element";
 
-// Clean input
 export function cleanInput(): void {
   const input = getElement(Selector.Input);
 

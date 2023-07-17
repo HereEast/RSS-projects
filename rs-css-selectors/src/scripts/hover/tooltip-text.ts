@@ -1,4 +1,3 @@
-// Tooltip content
 export function createTooltipText(target: HTMLElement): string {
   const outerTag = target.outerHTML;
 

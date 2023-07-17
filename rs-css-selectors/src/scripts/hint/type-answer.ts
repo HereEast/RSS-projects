@@ -1,7 +1,6 @@
 import { Selector } from "../../types/enums";
 import { getElement } from "../../utils/get-element";
 
-// Typing animation
 export function typeAnswer(text: string): void {
   const input = getElement(Selector.Input);
 
@@ -9,16 +8,16 @@ export function typeAnswer(text: string): void {
     throw Error("Target is not an HTMLInputElement...");
   }
 
-  let i = 0;
+  let currentIndex = 0;
   let currentValue = "";
 
-  const int = setInterval(() => {
-    currentValue += text[i];
+  const intervalID = setInterval(() => {
+    currentValue += text[currentIndex];
     input.value = currentValue;
 
-    if (i >= text.length - 1) {
-      clearInterval(int);
+    if (currentIndex >= text.length - 1) {
+      clearInterval(intervalID);
     }
-    i++;
+    currentIndex++;
   }, 50);
 }

@@ -5,7 +5,6 @@ import { levelsData } from "../../data/levels-data";
 import { cleanInput } from "./clean-input";
 import { cleanStatusIcons } from "./clean-icons";
 
-// Reset
 export function resetGame(): void {
   cleanSavedResults();
   saveLevelID("1");

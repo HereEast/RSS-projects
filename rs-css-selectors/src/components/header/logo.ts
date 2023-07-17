@@ -3,6 +3,10 @@ import { createElement } from "../../utils/create-element";
 // Logo
 export function createLogo(): HTMLElement {
   const headerLogo = createElement("div", ["header__logo"]);
+  const logoTitle = createElement("div", ["logo__text"]);
+  const iconContainer = createElement("div", ["logo__icon"]);
+
+  logoTitle.textContent = "CSS Playground";
 
   const SVGIcon = `
     <svg class="icon" xmlns="http://www.w3.org/2000/svg">
@@ -12,14 +16,8 @@ export function createLogo(): HTMLElement {
     </svg>
   `;
 
-  const logoContent = `
-    <h1 class='logo__text'>CSS Playground</h1>
-    <div class="logo__icon">
-      ${SVGIcon}
-    </div>
-  `;
+  iconContainer.innerHTML = SVGIcon;
 
-  headerLogo.insertAdjacentHTML("afterbegin", logoContent);
-
+  headerLogo.append(logoTitle, iconContainer);
   return headerLogo;
 }

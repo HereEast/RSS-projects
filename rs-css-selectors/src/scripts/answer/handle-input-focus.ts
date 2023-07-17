@@ -1,7 +1,6 @@
 import { getTarget } from "../../utils/get-target";
 import { Info } from "../../types/enums";
 
-// Handle input
 export function handleInputFocus(e: Event): void {
   const input = getTarget(e);
 

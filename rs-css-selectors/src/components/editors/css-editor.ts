@@ -1,15 +1,21 @@
 import { ButtonName } from "../../types/enums";
 import { EditorParams } from "../../types/types";
+import { createElement } from "../../utils/create-element";
 import { createEditor } from "./editor-template";
 
 // CSS
 export function createCSSEditor(): HTMLElement {
-  const inputContainer = `
-    <div class="input__container">
-      <input type="text"></input>
-      <button class="button button--check">${ButtonName.Enter}</button>
-    </div>
-  `;
+  const inputContainer = createElement("div", ["input__container"]);
+  const input = createElement("input", []);
+  const button = createElement("button", ["button", "button--check"]);
+
+  if (input instanceof HTMLInputElement) {
+    input.type = "text";
+  }
+
+  button.textContent = ButtonName.Enter;
+
+  inputContainer.append(input, button);
 
   const params: EditorParams = {
     classNames: ["editor", "editor--css"],

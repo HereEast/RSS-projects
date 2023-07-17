@@ -19,8 +19,6 @@ export function handleAnswer(): void {
     throw Error("Target is not an HTMLInputElement...");
   }
 
-  // if (!input.value.trim()) return;
-
   const currentID = getCurrentLevelID();
   const levelData = getLevelData(currentID, levelsData);
 
@@ -28,15 +26,10 @@ export function handleAnswer(): void {
   const isHint = input.dataset.hint;
 
   if (isCorrect) {
-    if (isHint) {
-      saveStatus(currentID, LevelStatus.Hint);
-      setStatusIcon(currentID, LevelStatus.Hint);
-    }
+    const levelStatus = isHint ? LevelStatus.Hint : LevelStatus.Done;
 
-    if (!isHint) {
-      saveStatus(currentID, LevelStatus.Done);
-      setStatusIcon(currentID, LevelStatus.Done);
-    }
+    saveStatus(currentID, levelStatus);
+    setStatusIcon(currentID, levelStatus);
 
     if (isWin()) {
       console.log("🥳 Win!");

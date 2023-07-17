@@ -1,5 +1,3 @@
-console.log("✅ CSS Playground");
-
 import "./styles/index.css";
 import { renderApp } from "./components/app";
 import { initListeners } from "./scripts/listeners";
@@ -9,9 +7,7 @@ import { levelsData } from "./data/levels-data";
 renderApp();
 
 window.addEventListener("DOMContentLoaded", (): void => {
-  console.log("✅ DOM Rendered");
-
-  const savedID = window.localStorage.getItem("level") || "1";
+  const savedID = window.localStorage.getItem("level") ?? "1";
   renderSelectedLevel(savedID, levelsData);
 
   initListeners();

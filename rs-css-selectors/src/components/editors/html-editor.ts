@@ -1,9 +1,10 @@
 import { EditorParams } from "../../types/types";
+import { createElement } from "../../utils/create-element";
 import { createEditor } from "./editor-template";
 
 // HTML
 export function createHTMLEditor(): HTMLElement {
-  const content = "<div class='content__container'></div>";
+  const content = createElement("div", ["content__container"]);
 
   const params: EditorParams = {
     classNames: ["editor", "editor--html"],

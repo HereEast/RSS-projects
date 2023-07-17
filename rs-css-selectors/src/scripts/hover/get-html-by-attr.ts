@@ -1,7 +1,6 @@
 import { Selector } from "../../types/enums";
 import { getElementsArray } from "../../utils/get-element";
 
-// Get HTML by attr
 export function getHTMLLineTarget(target: HTMLElement): HTMLElement {
   const attr = target.getAttribute("el");
 
