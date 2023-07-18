@@ -1,6 +1,7 @@
 :root {
-  --black: rgb(28, 28, 28);
+  --black: #1C1C1C;
   --white: whitesmoke;
+  
   --red: #ff4500;
   --orange: rgb(255, 106, 0);
   --green: #66ce51;
@@ -17,5 +18,10 @@
   --text--grey: #868686;
   --overlay: rgba(28, 28, 28, 0.8);
 
-  --button-height: 24px;
+  --page-padding: 20px;
+  --font: "Inter", "Arial", sans-serif;
+
+  /* BUTTONS */
+  --button-font-size: 14px;
+  --button-dark--hover: #2d2d2d;
 }

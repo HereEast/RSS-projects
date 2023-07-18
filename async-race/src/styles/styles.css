@@ -10,15 +10,13 @@ body {
   width: 100%;
   min-height: 100vh;
   height: 100%;
-  background: var(--back);
-  font-family: "JetBrains Mono", monospace;
+  background: var(--black);
+  font-family: "Inter", "Arial", sans-serif;
 
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  gap: 20px;
-  padding: 20px;
 
   overflow: hidden;
 }
@@ -30,22 +28,6 @@ body {
 /**/
 
 @media all and (max-width: 980px) {
-  body {
-    overflow: scroll;
-    overflow-x: hidden;
-  }
-}
-
-@media all and (max-width: 750px) {
-  body {
-    gap: 60px;
-  }
-}
-
-@media all and (max-width: 450px) {
-  body {
-    padding: 10px;
-  }
 }
 
 
