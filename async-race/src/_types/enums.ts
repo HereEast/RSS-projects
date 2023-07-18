@@ -6,6 +6,7 @@ export const enum View {
 
 // Selectors
 export const enum Selector {
+  // Header
   Header = ".header",
   HeaderContainer = ".header__container",
   HeaderButtons = ".header__buttons",
@@ -14,6 +15,10 @@ export const enum Selector {
   ButtonGarage = "#button--garage",
   ButtonWinners = "#button--winners",
   Bubble = ".bubble",
+  // Footer
+  Footer = ".footer",
+  FooterContainer = ".footer__container",
+  FooterInfo = ".footer__info",
 }
 
 // Buttons
