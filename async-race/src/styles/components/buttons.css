@@ -1,0 +1,34 @@
+button {
+  border: 0;
+  outline: 0;
+  font-family: var(--font);
+  font-size: var(--button-font-size);
+  color: var(--black);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+
+  background-color: var(--white);
+
+  position: relative;
+  z-index: 100;
+  user-select: none;
+  cursor: pointer;
+}
+
+.button__view {
+  width: 120px;
+  height: 60px;
+  border-radius: 60px;
+  background-color: transparent;
+  color: var(--white);
+  font-size: 18px;
+
+  transition: all 0.2s ease-in;
+}
+
+.button__view.active {
+  color: var(--black);
+}
