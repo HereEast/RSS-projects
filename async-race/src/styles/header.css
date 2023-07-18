@@ -1,0 +1,41 @@
+.header {
+  width: 100%;
+  padding: var(--page-padding);
+}
+
+.header__container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.header__buttons {
+  display: flex;
+  position: relative;
+  border-radius: 60px;
+
+  cursor: pointer;
+  transition: all 0.2s ease-in;
+}
+
+.header__buttons:hover {
+  background-color: var(--button-dark--hover);
+}
+
+.bubble {
+  display: block;
+  width: 120px;
+  height: 60px;
+  border-radius: 60px;
+  background-color: var(--white);
+
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  transition: all 0.2s ease-in-out;
+}
+
+.bubble.winners {
+  left: 50%;
+}
