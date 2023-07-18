@@ -2,15 +2,3 @@
 
 @import "./styles.css";
 @import "./variables.css";
-@import "./buttons.css";
-@import "./header.css";
-@import "./main.css";
-@import "./footer";
-
-@import "./editors.css";
-@import "./graphics.css";
-@import "./input.css";
-@import "./panel.css";
-@import "./levels/levels-styles.css";
-@import "./animation/animation.css";
-@import "./popup.css";

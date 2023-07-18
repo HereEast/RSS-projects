@@ -31,23 +31,6 @@ export const enum Selector {
   ElementAttribute = "[el]",
 }
 
-export const enum LevelStatus {
-  Unfinished = "unfinished",
-  Done = "done",
-  Hint = "hint",
-}
-
-export const enum Animation {
-  Shake = "shake",
-  Hide = "hide",
-  Dance = "dance",
-}
-
-export const enum Entity {
-  Less = "&lt;",
-  Greater = "&gt;",
-}
-
 export const enum Info {
   TotalLevels = 10,
   InputPlaceholder = "Type in a CSS Selector...",
@@ -68,5 +51,3 @@ export type ButtonData = {
   classNames: string[];
   name: ButtonName;
 };
-
-export type PopupButtons = ButtonData[];

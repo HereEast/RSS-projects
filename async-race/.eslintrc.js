@@ -33,6 +33,7 @@ module.exports = {
     "no-console": "warn",
     "import/prefer-default-export": ["off", "warn", "error"],
     quotes: ["error", "double"],
+    "no-console": ["allow"],
     "no-use-before-define": [
       "error",
       {
