@@ -4,5 +4,5 @@ import { renderApp } from "./components/app";
 renderApp();
 
 window.addEventListener("DOMContentLoaded", (): void => {
-  console.log("DOM Loaded");
+  console.log("✅ DOM Loaded");
 });
