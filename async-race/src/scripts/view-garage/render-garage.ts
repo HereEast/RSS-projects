@@ -1,17 +1,17 @@
 import { saveView, getCurrentView } from "../_utils/save-view";
-import { getTarget } from "../_utils/get-target";
-import { setActiveButton } from "../menu/set-active-button";
-import { getElement } from "../_utils/get-element";
-import { Selector, View } from "../../types/enums";
+import { toggleViewButton } from "../menu/toggle-active-button";
+import { View } from "../../types/enums";
+import { toggleFormsDisplay } from "../menu/toggle-header-forms";
 
 // Render
 export function renderGarageView(e?: Event): void {
   if (getCurrentView() === View.Garage) return;
 
-  const button = e ? getTarget(e) : getElement(Selector.ButtonGarage);
+  // const button = e ? getTarget(e) : getElement(Selector.ButtonGarage);
 
-  setActiveButton(button);
-  saveView("garage");
+  toggleViewButton(View.Garage);
+  toggleFormsDisplay(View.Garage);
+  saveView(View.Garage);
 
-  console.log("Garage View");
+  console.log("Garage View", e?.target);
 }

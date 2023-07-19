@@ -26,7 +26,7 @@ export const enum Selector {
   ButtonUpdate = ".button__update",
   ButtonCancel = ".button__cancel",
   ButtonGenerate = ".button__generate",
-  FormsHidden = "forms--hidden",
+  FormsHidden = ".forms--hidden",
   // Footer
   Footer = ".footer",
   FooterContainer = ".footer__container",

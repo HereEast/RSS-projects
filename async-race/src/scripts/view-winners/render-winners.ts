@@ -1,17 +1,17 @@
 import { saveView, getCurrentView } from "../_utils/save-view";
-import { getTarget } from "../_utils/get-target";
-import { setActiveButton } from "../menu/set-active-button";
-import { getElement } from "../_utils/get-element";
-import { Selector, View } from "../../types/enums";
+import { toggleViewButton } from "../menu/toggle-active-button";
+import { View } from "../../types/enums";
+import { toggleFormsDisplay } from "../menu/toggle-header-forms";
 
 // Render
 export function renderWinnersView(e?: Event): void {
   if (getCurrentView() === View.Winners) return;
 
-  const button = e ? getTarget(e) : getElement(Selector.ButtonWinners);
+  // const button = e ? getTarget(e) : getElement(Selector.ButtonWinners);
 
-  setActiveButton(button);
+  toggleViewButton(View.Winners);
+  toggleFormsDisplay(View.Winners);
   saveView("winners");
 
-  console.log("Winner View");
+  console.log("Winner View", e?.target);
 }

@@ -6,7 +6,8 @@
 }
 
 .forms__container.forms--hidden {
-  display: none;
+  visibility: hidden;
+  opacity: 0;
 }
 
 .forms__container form {
