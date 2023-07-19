@@ -8,7 +8,7 @@ export function createViewHeader(): HTMLElement {
   const header = createElement("div", [Selector.ViewHeader]);
 
   const title = createElement("div", [Selector.TitleContainer]);
-  const titleText = createElement("h2", [], "Garage");
+  const titleText = createElement("h2", [Selector.Title], "Garage");
   const countElement = createCountElement();
 
   const buttons = createGarageHeaderButtons();

@@ -33,6 +33,7 @@ export const enum Selector {
   ViewBody = ".view__body",
   ViewHeader = ".view__header",
   TitleContainer = ".view__title",
+  Title = ".title",
   CarsCount = ".view__count",
   CurrentCount = ".count",
   ViewButtons = ".view__buttons",
