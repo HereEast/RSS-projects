@@ -1,4 +1,4 @@
-import { ButtonName, Selector } from "../../_types/enums";
+import { ButtonName, Selector } from "../../types/enums";
 import { createElement } from "../../scripts/_utils/create-element";
 
 // Header buttons

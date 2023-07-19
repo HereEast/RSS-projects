@@ -7,6 +7,7 @@
   width: 100%;
   display: flex;
   justify-content: space-between;
+  gap: 10px;
 }
 
 .header__buttons {
@@ -24,7 +25,7 @@
 
 .bubble {
   display: block;
-  width: 120px;
+  width: 50%;
   height: 60px;
   border-radius: 60px;
   background-color: var(--white);
@@ -38,4 +39,17 @@
 
 .bubble.winners {
   left: 50%;
+}
+
+/**/
+
+@media all and (max-width: 720px) {
+  .header__container {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .header__buttons {
+    width: 100%;
+  }
 }

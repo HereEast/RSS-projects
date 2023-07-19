@@ -1,4 +1,4 @@
-import { Selector } from "../../_types/enums";
+import { Selector } from "../../types/enums";
 
 // Get element
 export function getElement(selector: Selector): HTMLElement {

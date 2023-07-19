@@ -4,6 +4,7 @@ button {
   font-family: var(--font);
   font-size: var(--button-font-size);
   color: var(--black);
+  height: 30px;
 
   display: flex;
   justify-content: center;
@@ -11,24 +12,50 @@ button {
   flex-shrink: 0;
 
   background-color: var(--white);
+  border-radius: 30px;
 
   position: relative;
   z-index: 100;
   user-select: none;
   cursor: pointer;
+
+  transition: all 0.2s ease-in;
 }
 
 .button__view {
   width: 120px;
   height: 60px;
-  border-radius: 60px;
   background-color: transparent;
   color: var(--white);
   font-size: 18px;
 
-  transition: all 0.2s ease-in;
+  transition: color 0.2s ease-in;
 }
 
 .button__view.active {
   color: var(--black);
+}
+
+form button {
+  padding: 0 15px;
+  text-transform: uppercase;
+  font-size: 12px;
+}
+
+form button:hover {
+  opacity: 0.9;
+}
+
+.button__cancel {
+  background-color: transparent;
+  border: 1px solid var(--white);
+  color: var(--white);
+}
+
+/**/
+
+@media all and (max-width: 720px) {
+  .button__view {
+    width: 50%;
+  }
 }

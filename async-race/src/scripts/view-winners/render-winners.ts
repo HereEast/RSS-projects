@@ -2,7 +2,7 @@ import { saveView, getCurrentView } from "../_utils/save-view";
 import { getTarget } from "../_utils/get-target";
 import { setActiveButton } from "../menu/set-active-button";
 import { getElement } from "../_utils/get-element";
-import { Selector, View } from "../../_types/enums";
+import { Selector, View } from "../../types/enums";
 
 // Render
 export function renderWinnersView(e?: Event): void {

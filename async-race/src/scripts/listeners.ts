@@ -1,4 +1,4 @@
-import { Selector } from "../_types/enums";
+import { Selector } from "../types/enums";
 import { getElement } from "./_utils/get-element";
 import { renderGarageView } from "./view-garage/render-garage";
 import { renderWinnersView } from "./view-winners/render-winners";

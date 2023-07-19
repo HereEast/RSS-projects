@@ -1,4 +1,4 @@
-import { Selector } from "../../_types/enums";
+import { Selector } from "../../types/enums";
 import { createElement } from "../../scripts/_utils/create-element";
 import { createLink } from "../../scripts/_utils/create-link";
 
@@ -7,6 +7,7 @@ const GITHUB_URL = "https://github.com/HereEast";
 
 const SCHOOL_LINK_TEXT = "RS School (2023)";
 const GITHUB_LINK_TEXT = "Here East";
+const PROJECT_NAME = "Async Race,";
 
 // FOOTER
 export function createFooter(): HTMLElement {
@@ -16,7 +17,7 @@ export function createFooter(): HTMLElement {
   const projectInfo = createElement("div", [Selector.FooterInfo]);
   const githubInfo = createElement("div", [Selector.FooterInfo]);
 
-  const projectName = createElement("span", [], "Async Race,");
+  const projectName = createElement("span", [], PROJECT_NAME);
   const schoolLink = createLink(SCHOOL_LINK_TEXT, SCHOOL_URL);
   const githubLink = createLink(GITHUB_LINK_TEXT, GITHUB_URL);
 

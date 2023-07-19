@@ -1,5 +1,5 @@
 import { getElement, getElementsArray } from "../_utils/get-element";
-import { ButtonName, Selector } from "../../_types/enums";
+import { ButtonName, Selector } from "../../types/enums";
 
 // Active button
 export function setActiveButton(button?: HTMLElement): void {

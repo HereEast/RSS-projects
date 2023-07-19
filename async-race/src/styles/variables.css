@@ -24,4 +24,7 @@
   /* BUTTONS */
   --button-font-size: 14px;
   --black-light: #303030;
+
+  /*INPUTS*/
+  --input-border: #919191;
 }

@@ -15,6 +15,18 @@ export const enum Selector {
   ButtonGarage = "#button--garage",
   ButtonWinners = "#button--winners",
   Bubble = ".bubble",
+  // Form
+  FormsContainer = ".forms__container",
+  FormCreate = ".form__create",
+  FormUpdate = ".form__update",
+  InputContainer = ".input__container",
+  InputField = ".input-text",
+  InputColor = ".input-color",
+  ButtonCreate = ".button__create",
+  ButtonUpdate = ".button__update",
+  ButtonCancel = ".button__cancel",
+  ButtonGenerate = ".button__generate",
+  FormsHidden = "forms--hidden",
   // Footer
   Footer = ".footer",
   FooterContainer = ".footer__container",

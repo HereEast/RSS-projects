@@ -1,6 +1,7 @@
-import { Selector } from "../../_types/enums";
+import { Selector } from "../../types/enums";
 import { createElement } from "../../scripts/_utils/create-element";
 import { createHeaderButtons } from "./header-buttons";
+import { createHeaderForms } from "./header-form";
 
 // Header
 export function createHeader(): HTMLElement {
@@ -8,8 +9,9 @@ export function createHeader(): HTMLElement {
   const headerContainer = createElement("div", [Selector.HeaderContainer]);
 
   const headerButtons = createHeaderButtons();
+  const headerForms = createHeaderForms();
 
-  headerContainer.append(headerButtons);
+  headerContainer.append(headerButtons, headerForms);
   header.append(headerContainer);
 
   return header;
