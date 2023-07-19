@@ -21,4 +21,19 @@ export function toggleViewButton(view: View): void {
   } else {
     bubble.classList.add("winners");
   }
+
+  // if (!button) {
+  //   const activeButton = getElement(Selector.ButtonGarage);
+  //   activeButton.classList.add("active");
+  //   bubble.classList.remove("winners");
+  //   return;
+  // }
+
+  // button?.classList.add("active");
+
+  // if (button?.textContent?.includes(ButtonName.Garage)) {
+  //   bubble.classList.remove("winners");
+  // } else {
+  //   bubble.classList.add("winners");
+  // }
 }

@@ -4,7 +4,7 @@
   
   --red: #ff4500;
   --orange: rgb(255, 106, 0);
-  --green: #66ce51;
+  --green: #6BD856;
   --yellow: #ffd208;
   --purple: #7c69fa;
   --blue: rgb(88, 174, 255);
@@ -22,8 +22,10 @@
   --font: "Inter", "Arial", sans-serif;
 
   /* BUTTONS */
-  --button-font-size: 14px;
+  --button-font-size: 12px;
   --black-light: #303030;
+  --button-hover-white: #dbdbdb;
+  --button-hover-primary: #4aaa37;
 
   /*INPUTS*/
   --input-border: #919191;

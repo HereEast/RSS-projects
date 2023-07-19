@@ -1,10 +1,10 @@
 .header {
   width: 100%;
-  padding: var(--page-padding);
 }
 
 .header__container {
   width: 100%;
+  padding: var(--page-padding);
   display: flex;
   justify-content: space-between;
   gap: 10px;

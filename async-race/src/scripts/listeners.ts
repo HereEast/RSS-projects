@@ -1,7 +1,7 @@
 import { Selector } from "../types/enums";
 import { getElement } from "./_utils/get-element";
-import { renderGarageView } from "./view-garage/render-garage";
-import { renderWinnersView } from "./view-winners/render-winners";
+import { renderGarageView } from "./view/view-garage/render-garage";
+import { renderWinnersView } from "./view/view-winners/render-winners";
 
 // Listeners
 export function initListeners(): void {

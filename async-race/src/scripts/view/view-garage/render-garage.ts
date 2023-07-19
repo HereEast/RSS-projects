@@ -1,7 +1,7 @@
-import { saveView, getCurrentView } from "../_utils/save-view";
-import { toggleViewButton } from "../menu/toggle-active-button";
-import { View } from "../../types/enums";
-import { toggleFormsDisplay } from "../menu/toggle-header-forms";
+import { saveView, getCurrentView } from "../../_utils/save-view";
+import { toggleViewButton } from "../../menu/toggle-active-button";
+import { View } from "../../../types/enums";
+import { toggleFormsDisplay } from "../../menu/toggle-header-forms";
 
 // Render
 export function renderGarageView(e?: Event): void {
