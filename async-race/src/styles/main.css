@@ -10,3 +10,34 @@
 .main__container {
   padding: 40px var(--page-padding) 0;
 }
+
+/* HEADER */
+
+.view__header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.view__title {
+  display: flex;
+  gap: 5px;
+}
+
+.view__title h2,
+.view__title span {
+  font-size: 40px;
+  font-weight: 400;
+}
+
+.view__buttons {
+  display: flex;
+  gap: 5px;
+  margin-top: 5px;
+}
+
+.view__buttons.hidden {
+  visibility: hidden;
+  opacity: 0;
+}

@@ -1,5 +1,5 @@
 import { Selector, View } from "../../types/enums";
-import { getElement } from "../_utils/get-element";
+import { getElement } from "../utils/get-element";
 
 export function toggleFormsDisplay(string: View): void {
   const headerForms = getElement(Selector.FormsContainer);

@@ -30,7 +30,7 @@ export const enum Selector {
   // Main
   Main = ".main",
   MainContainer = ".main__container",
-  ViewBody = ".view__body",
+  // View header
   ViewHeader = ".view__header",
   TitleContainer = ".view__title",
   Title = ".title",
@@ -39,6 +39,8 @@ export const enum Selector {
   ViewButtons = ".view__buttons",
   ButtonRace = ".button__race",
   ButtonReset = ".button__reset",
+  // View body
+  ViewBody = ".view__body",
 
   // Pagination
   PagesContainer = ".pages",
@@ -58,13 +60,12 @@ export const enum ButtonName {
   Winners = "Winners",
 }
 
-export type ButtonData = {
-  classNames: string[];
-  name: ButtonName;
-};
+// API
 
-// Constants
-export const enum Info {
-  TotalLevels = 10,
-  InputPlaceholder = "Type in a CSS Selector...",
+export interface CarData {
+  name: string;
+  color: string;
+  id: number;
 }
+
+export type CarsData = CarData[];

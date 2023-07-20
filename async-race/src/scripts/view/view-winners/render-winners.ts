@@ -1,8 +1,8 @@
-import { saveView, getCurrentView } from "../../_utils/save-view";
-import { toggleViewButton } from "../../menu/toggle-active-button";
+import { saveView, getCurrentView } from "../../utils/save-view";
+import { toggleViewButton } from "../toggle-active-button";
 import { View } from "../../../types/enums";
-import { toggleFormsDisplay } from "../../menu/toggle-header-forms";
-import { toggleViewHeader } from "../togggle-view-header";
+import { toggleFormsDisplay } from "../toggle-header-forms";
+import { toggleViewHeader } from "../toggle-view-header";
 
 // Render
 export function renderWinnersView(e?: Event): void {

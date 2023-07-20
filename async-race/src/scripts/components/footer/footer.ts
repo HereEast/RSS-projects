@@ -1,6 +1,6 @@
-import { Selector } from "../../types/enums";
-import { createElement } from "../../scripts/_utils/create-element";
-import { createLink } from "../../scripts/_utils/create-link";
+import { Selector } from "../../../types/enums";
+import { createElement } from "../../utils/create-element";
+import { createLink } from "../../utils/create-link";
 
 const SCHOOL_URL = "https://rs.school/";
 const GITHUB_URL = "https://github.com/HereEast";

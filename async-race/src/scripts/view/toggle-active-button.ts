@@ -1,4 +1,4 @@
-import { getElement, getElementsArray } from "../_utils/get-element";
+import { getElement, getElementsArray } from "../utils/get-element";
 import { ButtonName, Selector, View } from "../../types/enums";
 
 // Toggle view button

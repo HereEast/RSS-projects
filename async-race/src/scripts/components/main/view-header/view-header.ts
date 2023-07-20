@@ -1,5 +1,5 @@
-import { createElement } from "../../../scripts/_utils/create-element";
-import { Selector } from "../../../types/enums";
+import { createElement } from "../../../utils/create-element";
+import { Selector } from "../../../../types/enums";
 import { createCountElement } from "./view-count";
 import { createGarageHeaderButtons } from "./view-buttons";
 

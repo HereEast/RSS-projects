@@ -1,11 +1,15 @@
 import { Selector, View } from "../../types/enums";
-import { getElement } from "../_utils/get-element";
+import { getElement } from "../utils/get-element";
 
 // Toggle header
-export function toggleViewHeader(view: View): void {
+export function toggleViewHeader(view: View, count: number = 119): void {
   // Title
   const title = getElement(Selector.Title);
   title.textContent = `${view[0].toUpperCase()}${view.slice(1)}`;
+
+  // Count
+  const countElement = getElement(Selector.CurrentCount);
+  countElement.textContent = String(count);
 
   // Buttons
   const buttons = getElement(Selector.ViewButtons);
@@ -15,6 +19,4 @@ export function toggleViewHeader(view: View): void {
   } else {
     buttons.classList.remove("hidden");
   }
-
-  // Count
 }

@@ -1,5 +1,5 @@
-import { Selector } from "../../types/enums";
-import { createElement } from "../../scripts/_utils/create-element";
+import { Selector } from "../../../types/enums";
+import { createElement } from "../../utils/create-element";
 
 // Create input
 export function createInputForm(buttonText: string, placeholder?: string): HTMLElement {

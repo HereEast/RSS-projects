@@ -1,8 +1,8 @@
 import { createHeader } from "./header/header";
-import { saveView } from "../scripts/_utils/save-view";
-import { toggleViewButton } from "../scripts/menu/toggle-active-button";
+import { saveView } from "../utils/save-view";
+import { toggleViewButton } from "../view/toggle-active-button";
 import { createFooter } from "./footer/footer";
-import { View } from "../types/enums";
+import { View } from "../../types/enums";
 import { createMain } from "./main/main";
 
 // Render App
