@@ -18,7 +18,7 @@ body {
   justify-content: space-between;
   align-items: center;
 
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 .content-width {

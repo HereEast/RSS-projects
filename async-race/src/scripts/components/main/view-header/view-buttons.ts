@@ -1,5 +1,5 @@
 import { createElement } from "../../../utils/create-element";
-import { Selector } from "../../../../types/enums";
+import { Selector } from "../../../../types/types";
 
 const BUTTON_RACE = "Race";
 const BUTTON_RESET = "Reset";

@@ -1,4 +1,4 @@
-import { Selector } from "../../types/enums";
+import { Selector } from "../../types/types";
 import { getElement } from "./get-element";
 
 // Clean element

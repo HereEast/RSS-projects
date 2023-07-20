@@ -18,6 +18,7 @@
   align-items: center;
 
   position: absolute;
+  margin-top: -4px;
 }
 
 .track__buttons {
@@ -48,7 +49,7 @@
 .track__body {
   width: 100%;
   position: relative;
-  height: 70px;
+  height: 65px;
   display: flex;
   align-items: flex-end;
 }
@@ -65,7 +66,7 @@
 
 .flag {
   width: 30px;
-  height: 70px;
+  height: 65px;
   background-image: url("../../assets/finish.svg");
   background-size: contain;
   background-position: center;

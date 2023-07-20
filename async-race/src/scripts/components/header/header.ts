@@ -1,4 +1,4 @@
-import { Selector } from "../../../types/enums";
+import { Selector } from "../../../types/types";
 import { createElement } from "../../utils/create-element";
 import { createHeaderButtons } from "./header-buttons";
 import { createHeaderForms } from "./header-form";

@@ -1,7 +1,6 @@
-import { createElement } from "../../../utils/create-element";
-import { Selector, Car } from "../../../../types/enums";
+import { createElement, createSVG } from "../../../utils/create-element";
+import { Selector, Car } from "../../../../types/types";
 import { createTrackButtons } from "./track-buttons";
-import { createSVGElement } from "../../../utils/create-svg";
 
 const NS = "http://www.w3.org/2000/svg";
 const CAR_WIDTH = "40px";
@@ -30,7 +29,7 @@ export function createTrackBody(car: Car): HTMLElement {
     color: car.color,
   };
 
-  const carElement = createSVGElement(carProps);
+  const carElement = createSVG(carProps);
   carElement.id = `car--${car.id}`;
 
   const finishElement = createElement("div", [Selector.Flag]);

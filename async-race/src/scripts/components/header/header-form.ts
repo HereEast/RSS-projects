@@ -1,4 +1,4 @@
-import { Selector } from "../../../types/enums";
+import { Selector } from "../../../types/types";
 import { createElement } from "../../utils/create-element";
 import { createInputForm } from "./form-input";
 
@@ -17,6 +17,7 @@ export function createHeaderForms(): HTMLElement {
   // Create car
   const formCreate = createElement("form", [Selector.FormCreate]);
   const inputCreate = createInputForm(BUTTON_CREATE, PLACEHOLDER);
+
   const generateButton = createElement("button", [Selector.ButtonGenerate], BUTTON_GENERATE);
 
   const divider = createElement("span", []);

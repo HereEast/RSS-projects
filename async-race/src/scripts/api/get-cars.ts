@@ -1,4 +1,4 @@
-import { CarsData, Car } from "../../types/enums";
+import { CarsData, Car } from "../../types/types";
 import { GARAGE_URL, GARAGE_LIMIT } from "./constants";
 
 // Get cars
@@ -16,8 +16,6 @@ export async function getCars(page: number = 1): Promise<CarsData> {
     items: data,
     count: totalCount,
   };
-
-  console.log(res.headers.get("X-Total-Count"));
 
   return cars;
 }
