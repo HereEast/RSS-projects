@@ -1,9 +1,7 @@
 import { createHeader } from "./header/header";
-import { saveView } from "../utils/save-view";
-import { toggleViewButton } from "../view/toggle-active-button";
 import { createFooter } from "./footer/footer";
-import { View } from "../../types/enums";
 import { createMain } from "./main/main";
+import { renderGarageView } from "../view/view-garage/render-garage";
 
 // Render App
 export function renderApp(): void {
@@ -13,6 +11,5 @@ export function renderApp(): void {
 
   document.body.append(header, main, footer);
 
-  toggleViewButton(View.Garage);
-  saveView(View.Garage);
+  renderGarageView();
 }

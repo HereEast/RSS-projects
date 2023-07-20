@@ -6,7 +6,7 @@ import { toggleViewHeader } from "../toggle-view-header";
 
 // Render
 export function renderWinnersView(e?: Event): void {
-  if (getCurrentView() === View.Winners) return;
+  if (e && getCurrentView() === View.Winners) return;
 
   // const button = e ? getTarget(e) : getElement(Selector.ButtonWinners);
 

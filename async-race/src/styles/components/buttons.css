@@ -72,6 +72,22 @@ button.button__race:hover {
   background-color: var(--button-hover-primary);
 }
 
+/* Track */
+.button__track {
+  font-size: 14px;
+  text-transform: capitalize;
+  background-color: transparent;
+  color: var(--track-button-color);
+
+  padding: 0 5px;
+  height: 20px;
+}
+
+button.button__track:hover {
+  color: var(--white);
+  background-color: var(--black-light);
+}
+
 /**/
 
 @media all and (max-width: 720px) {

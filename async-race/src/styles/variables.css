@@ -3,20 +3,9 @@
   --white: whitesmoke;
   
   --red: #ff4500;
-  --orange: rgb(255, 106, 0);
   --green: #6BD856;
   --yellow: #ffd208;
-  --purple: #7c69fa;
-  --blue: rgb(88, 174, 255);
-  --pink: #FF74E9;
-  --back: #313131;
   --border: #5d5d5d;
-  --item--back: #3d3d3d;
-  --button--grey: #f5f5f5;
-  --button--hover-grey: #d8d8d8;
-  --back--grey: #DDDDDD;
-  --text--grey: #868686;
-  --overlay: rgba(28, 28, 28, 0.8);
 
   --page-padding: 20px;
   --font: "Inter", "Arial", sans-serif;
@@ -26,6 +15,7 @@
   --black-light: #303030;
   --button-hover-white: #dbdbdb;
   --button-hover-primary: #4aaa37;
+  --track-button-color: #858585;
 
   /*INPUTS*/
   --input-border: #919191;

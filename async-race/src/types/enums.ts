@@ -41,6 +41,20 @@ export const enum Selector {
   ButtonReset = ".button__reset",
   // View body
   ViewBody = ".view__body",
+  // Tracks
+  Track = ".track",
+  TrackContainer = ".track__container",
+  TrackHeader = ".track__header",
+  TrackButtons = ".track__buttons",
+  ButtonTrack = ".button__track",
+  ButtonStart = ".button__start",
+  ButtonStop = ".button__stop",
+  ButtonDelete = ".button__delete",
+  ButtonEdit = ".button__edit",
+  Car = ".car",
+  TrackBody = ".track__body",
+  CarName = ".car__name",
+  Flag = ".flag",
 
   // Pagination
   PagesContainer = ".pages",
@@ -58,14 +72,31 @@ export const enum Selector {
 export const enum ButtonName {
   Garage = "Garage",
   Winners = "Winners",
+  Start = "Start",
+  Stop = "Stop",
+  Edit = "Edit",
+  Delete = "Delete",
 }
 
 // API
 
-export interface CarData {
+export interface Car {
   name: string;
   color: string;
   id: number;
 }
 
-export type CarsData = CarData[];
+export interface CarsData {
+  items: Car[],
+  count: string
+}
+
+// SVG
+
+export interface SVGElement {
+  divClass: string;
+  ns: string;
+  width: string;
+  height: string;
+  color?: string;
+}
