@@ -3,15 +3,14 @@ import { getFormInputs } from "../../../utils/get-element";
 import { hideUpdateForm } from "./show-update-form";
 import { updateCarAPI } from "../../../api/update-car";
 import { updateCarUI } from "./update-car-ui";
+import { getEditCarData } from "../../../utils/helpers";
 
 // Handle update
 export async function handleUpdate(e: Event): Promise<void> {
   e.preventDefault();
 
   const { inputText, inputColor } = getFormInputs(Selector.FormUpdate);
-
-  const savedParams = localStorage.getItem("editItem");
-  const editCar = savedParams ? JSON.parse(savedParams) : "";
+  const editCar = getEditCarData();
 
   if (!inputText.value.trim()) {
     inputText.focus();
@@ -19,7 +18,7 @@ export async function handleUpdate(e: Event): Promise<void> {
   }
 
   if (inputText.value === editCar.name && inputColor.value === editCar.color) {
-    hideUpdateForm(e);
+    hideUpdateForm();
     return;
   }
 
@@ -33,5 +32,5 @@ export async function handleUpdate(e: Event): Promise<void> {
   await updateCarAPI(id, patch);
 
   updateCarUI(id, patch);
-  hideUpdateForm(e);
+  hideUpdateForm();
 }

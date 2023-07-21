@@ -113,3 +113,11 @@ export interface SVGElement {
 
 // Types
 export type Callback = (this: HTMLElement, e: Event) => void;
+
+// Local Storage
+
+export interface StorageObject {
+  [key: string]: string;
+}
+
+export type StorageData = StorageObject | string;

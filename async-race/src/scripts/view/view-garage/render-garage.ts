@@ -1,4 +1,4 @@
-import { toggleUIElements } from "../UI/toggle-elements";
+import { toggleUIElements } from "../interface/toggle-elements";
 import { View } from "../../../types/types";
 import { getCarsAPI } from "../../api/get-cars";
 import { setCount, saveView, getCurrentView } from "../../utils/helpers";

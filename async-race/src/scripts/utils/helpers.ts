@@ -1,5 +1,5 @@
 import { getElement, getElementsArray, getTarget, getClosest } from "./get-element";
-import { Selector, CarsData } from "../../types/types";
+import { Selector, CarsData, Car } from "../../types/types";
 import { GARAGE_LIMIT } from "../api/constants";
 
 // Get ID
@@ -13,6 +13,18 @@ export function getTargetID(e: Event): string {
   }
 
   return id;
+}
+
+// Get item from LS
+export function getEditCarData(): Car {
+  const savedItem = localStorage.getItem("editItem");
+
+  if (!savedItem) {
+    throw Error("Couldn't get 'editItem' from Local Storage.");
+  }
+
+  const editItem = JSON.parse(savedItem);
+  return editItem;
 }
 
 // Last page

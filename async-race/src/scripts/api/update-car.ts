@@ -2,7 +2,7 @@ import { Car, NewCar } from "../../types/types";
 import { GARAGE_URL } from "./constants";
 
 // Get cars
-export async function updateCarAPI(id: string, body: NewCar): Promise<Car> {
+export async function updateCarAPI(id: number, body: NewCar): Promise<Car> {
   const res = await fetch(`${GARAGE_URL}/${id}`, {
     method: "PUT",
     body: JSON.stringify(body),

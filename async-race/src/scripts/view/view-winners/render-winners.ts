@@ -1,5 +1,5 @@
 import { saveView, getCurrentView, cleanContent } from "../../utils/helpers";
-import { toggleUIElements } from "../UI/toggle-elements";
+import { toggleUIElements } from "../interface/toggle-elements";
 import { View } from "../../../types/types";
 
 // Render

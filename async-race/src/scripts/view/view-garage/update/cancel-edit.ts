@@ -4,5 +4,5 @@ import { hideUpdateForm } from "./show-update-form";
 export function handleCancelEdit(e: Event): void {
   e.preventDefault();
 
-  hideUpdateForm(e);
+  hideUpdateForm();
 }
