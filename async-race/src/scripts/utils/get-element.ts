@@ -1,6 +1,6 @@
 import { Selector } from "../../types/types";
 
-// Target
+// TARGET
 export function getTarget(e: Event): HTMLElement {
   const target = e.target;
 
@@ -10,7 +10,7 @@ export function getTarget(e: Event): HTMLElement {
   return target;
 }
 
-// Closest
+// CLOSEST
 export function getClosest(targetElement: HTMLElement, selector: Selector): HTMLElement {
   const element = targetElement.closest(selector);
 
@@ -21,7 +21,7 @@ export function getClosest(targetElement: HTMLElement, selector: Selector): HTML
   return element;
 }
 
-// Element
+// HTML
 export function getElement(selector: Selector | string): HTMLElement {
   const element = document.querySelector(selector);
 
@@ -32,7 +32,7 @@ export function getElement(selector: Selector | string): HTMLElement {
   return element;
 }
 
-// Array
+// ARRAY
 export function getElementsArray(selector: Selector): HTMLElement[] {
   const elements: HTMLElement[] = Array.from(document.querySelectorAll(selector));
 

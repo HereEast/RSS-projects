@@ -1,28 +1,22 @@
 import { Selector } from "../../../../types/types";
-// import { getCars } from "../../../api/get-cars";
 import { deleteCarAPI } from "../../../api/delete-car";
 import { getClosest, getTarget } from "../../../utils/get-element";
-import { updateTotalCount } from "../../../utils/helpers";
+import { updateUIOnDelete } from "../../UI/ui-on-delete";
+// import { getCarsAPI } from "../../../api/get-cars";
 
 // Delete
-export function handleDelete(e: Event): void {
+export async function handleDelete(e: Event): Promise<void> {
   const target = getTarget(e);
   const track = getClosest(target, Selector.Track);
   const id = track.id.split("--").at(-1);
 
   if (!id) {
-    throw Error("Couldn't get car's ID.");
+    throw Error("Couldn't get car's ID...");
   }
 
-  console.log(track);
+  await deleteCarAPI(id);
+  updateUIOnDelete(track);
 
-  deleteCarAPI(id)
-    .then(() => {
-      track.remove();
-      updateTotalCount(-1);
-    })
-    // .then(() => getCars(1))
-    .then((cars) => console.log(cars));
-
-  console.log(id);
+  const event = new Event("delete", { bubbles: true });
+  target.dispatchEvent(event);
 }

@@ -1,6 +1,6 @@
 import { SVGElement } from "../../types/types";
 
-// Element
+// HTML
 export function createElement(tag: string, classes?: string[], text?: string): HTMLElement {
   const element = document.createElement(tag);
 
@@ -14,7 +14,7 @@ export function createElement(tag: string, classes?: string[], text?: string): H
   return element;
 }
 
-// Link
+// LINK
 export function createLink(text: string, url: string, classes?: string[]): HTMLAnchorElement {
   const link = createElement("a", classes, text);
 

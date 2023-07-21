@@ -1,9 +1,6 @@
-import { saveView, getCurrentView } from "../../utils/save-view";
-import { toggleUIElements } from "../toggle-UI/toggle-elements";
+import { saveView, getCurrentView, cleanContent } from "../../utils/helpers";
+import { toggleUIElements } from "../UI/toggle-elements";
 import { View } from "../../../types/types";
-// import { toggleFormsDisplay } from "../toggle-UI/toggle-header-forms";
-// import { toggleViewHeader } from "../toggle-UI/toggle-view-header";
-import { cleanView } from "../../utils/clean-element";
 
 // Render
 export function renderWinnersView(e?: Event): void {
@@ -11,9 +8,9 @@ export function renderWinnersView(e?: Event): void {
 
   // const button = e ? getTarget(e) : getElement(Selector.ButtonWinners);
 
-  cleanView();
+  cleanContent();
   toggleUIElements(View.Winners);
   saveView("winners");
 
-  console.log("Winner View", e?.target);
+  console.log("🙂 Winner View");
 }

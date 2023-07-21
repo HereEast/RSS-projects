@@ -33,3 +33,30 @@ export function updateTotalCount(value: number): void {
 
   countElement.textContent = `${currentCount + value}`;
 }
+
+// Save
+export function saveView(currentView = "garage"): void {
+  document.body.dataset.view = currentView;
+  window.localStorage.setItem("view", currentView);
+}
+
+// Get
+export function getCurrentView(): string {
+  return window.localStorage.getItem("view") ?? "";
+}
+
+// Clean element
+export function cleanElement(parentElement: HTMLElement): void {
+  while (parentElement.firstChild) {
+    parentElement.firstChild.remove();
+  }
+}
+
+// Clean view
+export function cleanContent(): void {
+  const viewBody = getElement(Selector.ViewBody);
+
+  while (viewBody.firstChild) {
+    viewBody.firstChild.remove();
+  }
+}

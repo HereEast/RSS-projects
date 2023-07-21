@@ -35,15 +35,15 @@ export function createTrackBody(car: Car): HTMLElement {
   const finishElement = createElement("div", [Selector.Flag]);
 
   trackBody.append(carElement, finishElement);
-
   return trackBody;
 }
 
 // Create track
 export function createTrack(car: Car): HTMLElement {
   const track = createElement("div", [Selector.Track]);
-  const trackContainer = createElement("div", [Selector.TrackContainer]);
+  track.id = `track--${car.id}`;
 
+  const trackContainer = createElement("div", [Selector.TrackContainer]);
   const trackHeader = createTrackHeader(car);
   const trackBody = createTrackBody(car);
 
