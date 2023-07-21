@@ -19,7 +19,8 @@ export function createInputForm(buttonText: string, placeholder?: string): HTMLE
     colorInput.value = "#f6b73c";
   }
 
-  const button = createElement("button", [Selector.ButtonCreate]);
+  const button = createElement("button", [`.button__${buttonText.toLowerCase()}`]);
+  button.id = `button__${buttonText.toLowerCase()}`;
   button.textContent = buttonText;
 
   container.append(textInput, colorInput, button);

@@ -19,3 +19,11 @@ export async function getCarsAPI(page: number = 1): Promise<CarsData> {
 
   return cars;
 }
+
+// Get car
+export async function getCarAPI(id: string): Promise<Car> {
+  const res = await fetch(`${GARAGE_URL}/${id}`);
+  const car: Car = await res.json();
+
+  return car;
+}

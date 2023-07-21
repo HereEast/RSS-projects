@@ -25,7 +25,10 @@ export function createHeaderForms(): HTMLElement {
   // Update car
   const formUpdate = createElement("form", [Selector.FormUpdate]);
   const inputUpdate = createInputForm(BUTTON_UPDATE, PLACEHOLDER);
+
   const cancelButton = createElement("button", [Selector.ButtonCancel], BUTTON_CANCEL);
+  cancelButton.id = Selector.ButtonCancel.slice(1);
+
   const title = createElement("h2", [], EDIT_TITLE);
 
   inputUpdate.append(cancelButton);
