@@ -12,7 +12,6 @@ export async function renderGarageView(e?: Event): Promise<void> {
 
   cleanContent();
   saveView(View.Garage);
-
   toggleUIElements(View.Garage);
 
   const page = 1;

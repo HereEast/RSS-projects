@@ -1,8 +1,7 @@
 import { Selector } from "../../../../types/types";
 import { deleteCarAPI } from "../../../api/delete-car";
 import { getClosest, getTarget } from "../../../utils/get-element";
-import { updateUIOnDelete } from "../../UI/ui-on-delete";
-// import { getCarsAPI } from "../../../api/get-cars";
+// import { updateUIOnDelete } from "../../UI/ui-on-delete";
 
 // Delete
 export async function handleDelete(e: Event): Promise<void> {
@@ -15,8 +14,10 @@ export async function handleDelete(e: Event): Promise<void> {
   }
 
   await deleteCarAPI(id);
-  updateUIOnDelete(track);
+  // updateUIOnDelete(track);
 
-  const event = new Event("delete", { bubbles: true });
+  const event = new Event("delete");
   target.dispatchEvent(event);
+
+  target.addEventListener("delete", () => console.log("Delete"));
 }

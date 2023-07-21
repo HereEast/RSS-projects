@@ -18,6 +18,7 @@ export function createButton(name: ButtonName, callback: Callback): HTMLElement 
 // Buttons
 export function createTrackButtons(): HTMLElement {
   const trackButtons = createElement("div", [Selector.TrackButtons]);
+  // const buttonsNames = [ButtonName.Start, ButtonName.Stop, ButtonName.Edit, ButtonName.Delete];
 
   const startBtn = createButton(ButtonName.Start, (e) => console.log(e.target));
   const stopBtn = createButton(ButtonName.Stop, (e) => console.log(e.target));
@@ -31,8 +32,9 @@ export function createTrackButtons(): HTMLElement {
   //   button.classList.add(buttonID);
   //   button.id = buttonID;
 
-  //   trackButtons.append(button);
+  //   buttons.push(button);
   // });
+
   trackButtons.append(startBtn, stopBtn, editBtn, deleteBtn);
 
   return trackButtons;
