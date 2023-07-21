@@ -1,28 +1,29 @@
-import { ButtonName, Selector, Callback } from "../../../../types/types";
-import { createElement } from "../../../utils/create-element";
-import { handleDelete } from "../handlers/handle-delete";
+import { ButtonName, Selector } from "../../../../types/types";
+import { createElement, createButton } from "../../../utils/create-element";
+// import { handleDelete } from "../handlers/handle-delete";
+import { deleteCarAPI } from "../../../api/delete-car";
+import { renderGaragePage } from "../render-garage";
+import { getTargetID } from "../../../utils/helpers";
+import { startUpdate } from "../update/start-update";
 
-// Button
-export function createButton(name: ButtonName, callback: Callback): HTMLElement {
-  const button = createElement("button", [Selector.ButtonTrack], name);
-  const buttonID = `button__${name.toLowerCase()}`;
+// DELETE
+export async function handleDelete(e: Event): Promise<void> {
+  const id = getTargetID(e);
 
-  button.classList.add(buttonID);
-  button.id = buttonID;
+  await deleteCarAPI(id);
+  // deleteTrack(track);
 
-  button.addEventListener("click", callback);
-
-  return button;
+  const currentPage = 1;
+  renderGaragePage(currentPage);
 }
 
-// Buttons
+// BUTTONS
 export function createTrackButtons(): HTMLElement {
   const trackButtons = createElement("div", [Selector.TrackButtons]);
-  // const buttonsNames = [ButtonName.Start, ButtonName.Stop, ButtonName.Edit, ButtonName.Delete];
 
   const startBtn = createButton(ButtonName.Start, (e) => console.log(e.target));
   const stopBtn = createButton(ButtonName.Stop, (e) => console.log(e.target));
-  const editBtn = createButton(ButtonName.Edit, (e) => console.log(e.target));
+  const editBtn = createButton(ButtonName.Edit, startUpdate);
   const deleteBtn = createButton(ButtonName.Delete, handleDelete);
 
   // buttonsNames.forEach((name) => {

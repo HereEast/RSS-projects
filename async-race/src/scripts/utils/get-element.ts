@@ -46,3 +46,22 @@ export function getElementsArray(selector: Selector): HTMLElement[] {
 
   return elements;
 }
+
+// GET FORM INPUTS
+export function getFormInputs(form: Selector): { inputText: HTMLInputElement; inputColor: HTMLInputElement } {
+  const inputText = getElement(`${form} .input-text`);
+  const inputColor = getElement(`${form} .input-color`);
+
+  if (!(inputText instanceof HTMLInputElement)) {
+    throw Error("Text input isn't found.");
+  }
+
+  if (!(inputColor instanceof HTMLInputElement)) {
+    throw Error("Color input isn't found.");
+  }
+
+  return {
+    inputText,
+    inputColor,
+  };
+}

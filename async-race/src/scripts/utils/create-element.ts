@@ -1,4 +1,4 @@
-import { SVGElement } from "../../types/types";
+import { SVGElement, Selector, ButtonName, Callback } from "../../types/types";
 
 // HTML
 export function createElement(tag: string, classes?: string[], text?: string): HTMLElement {
@@ -12,6 +12,24 @@ export function createElement(tag: string, classes?: string[], text?: string): H
   if (text) element.textContent = text;
 
   return element;
+}
+
+// BUTTON
+export function createButton(name: ButtonName, callback: Callback): HTMLButtonElement {
+  const button = createElement("button", [Selector.ButtonTrack], name);
+
+  if (!(button instanceof HTMLButtonElement)) {
+    throw Error(`Couldn't create button ${name}`);
+  }
+
+  const buttonID = `button__${name.toLowerCase()}`;
+
+  button.classList.add(buttonID);
+  button.id = buttonID;
+
+  button.addEventListener("click", callback);
+
+  return button;
 }
 
 // LINK

@@ -40,6 +40,7 @@
         "object": false
       }
     ],
-    "no-use-before-define": ["error", { "functions": false }]
+    "no-use-before-define": ["error", { "functions": false }],
+    "import/no-cycle": "off"
   }
 }

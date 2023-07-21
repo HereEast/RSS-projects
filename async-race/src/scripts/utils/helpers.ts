@@ -1,6 +1,19 @@
-import { getElement, getElementsArray } from "./get-element";
+import { getElement, getElementsArray, getTarget, getClosest } from "./get-element";
 import { Selector, CarsData } from "../../types/types";
 import { GARAGE_LIMIT } from "../api/constants";
+
+// Get ID
+export function getTargetID(e: Event): string {
+  const target = getTarget(e);
+  const track = getClosest(target, Selector.Track);
+  const id = track.id.split("--").at(-1);
+
+  if (!id) {
+    throw Error("Couldn't get car's ID...");
+  }
+
+  return id;
+}
 
 // Last page
 export function isLastPage(): boolean {
@@ -19,7 +32,7 @@ export function isEnoughSpace(): boolean {
 }
 
 // Total count
-export function setTotalCount(cars: CarsData): void {
+export function setCount(cars: CarsData): void {
   const countElement = getElement(Selector.CurrentCount);
   countElement.textContent = cars.count;
 

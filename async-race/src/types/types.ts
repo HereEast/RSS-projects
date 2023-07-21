@@ -19,6 +19,7 @@ export const enum Selector {
   FormsContainer = ".forms__container",
   FormCreate = ".form__create",
   FormUpdate = ".form__update",
+  FormUpdateOpen = ".form__update--open",
   InputContainer = ".input__container",
   InputField = ".input-text",
   InputColor = ".input-color",
@@ -76,6 +77,8 @@ export const enum ButtonName {
   Stop = "Stop",
   Edit = "Edit",
   Delete = "Delete",
+  SaveEdit = "Save",
+  CancelEdit = "Cancel"
 }
 
 // API

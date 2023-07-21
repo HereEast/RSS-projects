@@ -1,8 +1,15 @@
 import { toggleUIElements } from "../UI/toggle-elements";
 import { View } from "../../../types/types";
 import { getCarsAPI } from "../../api/get-cars";
-import { setTotalCount, saveView, getCurrentView, cleanContent } from "../../utils/helpers";
-import { renderTracks } from "./tracks/render-tracks";
+import { setCount, saveView, getCurrentView } from "../../utils/helpers";
+import { appendTracks } from "./tracks/append-tracks";
+
+// PAGE
+export async function renderGaragePage(page: number): Promise<void> {
+  const cars = await getCarsAPI(page);
+  setCount(cars);
+  appendTracks(cars);
+}
 
 // GARAGE
 export async function renderGarageView(e?: Event): Promise<void> {
@@ -10,16 +17,11 @@ export async function renderGarageView(e?: Event): Promise<void> {
 
   // const button = e ? getTarget(e) : getElement(Selector.ButtonGarage);
 
-  cleanContent();
   saveView(View.Garage);
   toggleUIElements(View.Garage);
 
   const page = 1;
+  renderGaragePage(page);
 
-  const cars = await getCarsAPI(page);
-  setTotalCount(cars);
-  renderTracks(cars);
-
-  console.log(localStorage.getItem("totalCars"));
   console.log("🙂 Garage View");
 }
