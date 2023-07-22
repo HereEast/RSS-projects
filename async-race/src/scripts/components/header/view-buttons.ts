@@ -1,4 +1,4 @@
-import { ButtonName, Selector } from "../../../types/types";
+import { Button, Selector } from "../../../types/types";
 import { createElement } from "../../utils/create-element";
 
 // Header buttons
@@ -6,8 +6,8 @@ export function createHeaderButtons(): HTMLElement {
   const container = createElement("div", [Selector.HeaderButtons]);
   const bubbleElement = createElement("span", [Selector.Bubble]);
 
-  const garageButton = createElement("button", [Selector.ViewButton], ButtonName.Garage);
-  const winnersButton = createElement("button", [Selector.ViewButton], ButtonName.Winners);
+  const garageButton = createElement("button", [Selector.ViewButton], Button.Garage);
+  const winnersButton = createElement("button", [Selector.ViewButton], Button.Winners);
 
   garageButton.id = Selector.ButtonGarage.slice(1);
   winnersButton.id = Selector.ButtonWinners.slice(1);

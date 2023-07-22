@@ -1,4 +1,4 @@
-import { SVGElement, Selector, ButtonName, Callback } from "../../types/types";
+import { SVGElement, Selector, Button, Callback, Action } from "../../types/types";
 
 // HTML
 export function createElement(tag: string, classes?: string[], text?: string): HTMLElement {
@@ -15,21 +15,36 @@ export function createElement(tag: string, classes?: string[], text?: string): H
 }
 
 // BUTTON
-export function createButton(name: ButtonName, callback: Callback): HTMLButtonElement {
-  const button = createElement("button", [Selector.ButtonTrack], name);
+export function createButton(name: Button, classNames: Selector[], callback: Callback): HTMLButtonElement {
+  const button = createElement("button", classNames, name);
 
   if (!(button instanceof HTMLButtonElement)) {
     throw Error(`Couldn't create button ${name}`);
   }
 
   const buttonID = `button__${name.toLowerCase()}`;
-
   button.classList.add(buttonID);
-  button.id = buttonID;
 
   button.addEventListener("click", callback);
 
   return button;
+}
+
+// INPUT
+export function createInput(type: string, action: Action): HTMLInputElement {
+  const classList = type === "text" ? Selector.InputField : Selector.InputColor;
+  const input = createElement("input", [classList]);
+
+  input.id = `input-${type}__${action}`;
+
+  if (!(input instanceof HTMLInputElement)) {
+    throw Error("🅾️ Failed to create HTMLInput Element...");
+  }
+
+  input.type = type;
+  input.autocomplete = "off";
+
+  return input;
 }
 
 // LINK

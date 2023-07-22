@@ -1,6 +1,6 @@
 import { Selector } from "../../../../types/types";
 import { getFormInputs } from "../../../utils/get-element";
-import { hideUpdateForm } from "./show-update-form";
+import { hideUpdateForm } from "./display-update-form";
 import { updateCarAPI } from "../../../api/update-car";
 import { updateCarUI } from "./update-car-ui";
 import { getEditCarData } from "../../../utils/helpers";
@@ -18,7 +18,7 @@ export async function handleUpdate(e: Event): Promise<void> {
   }
 
   if (inputText.value === editCar.name && inputColor.value === editCar.color) {
-    hideUpdateForm();
+    hideUpdateForm(e);
     return;
   }
 
@@ -32,5 +32,5 @@ export async function handleUpdate(e: Event): Promise<void> {
   await updateCarAPI(id, patch);
 
   updateCarUI(id, patch);
-  hideUpdateForm();
+  hideUpdateForm(e);
 }

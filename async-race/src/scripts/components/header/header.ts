@@ -1,7 +1,7 @@
 import { Selector } from "../../../types/types";
 import { createElement } from "../../utils/create-element";
-import { createHeaderButtons } from "./header-buttons";
-import { createHeaderForms } from "./header-form";
+import { createHeaderButtons } from "./view-buttons";
+import { createHeaderForms } from "./forms";
 
 // Header
 export function createHeader(): HTMLElement {

@@ -1,4 +1,4 @@
-import { getElement, getFormInputs } from "../../../utils/get-element";
+import { getElement, getFormInputs, getTarget } from "../../../utils/get-element";
 import { Selector, Car } from "../../../../types/types";
 
 // SET INPUTS
@@ -22,7 +22,12 @@ export function showUpdateForm(car: Car): void {
 }
 
 // HIDE
-export function hideUpdateForm(): void {
+export function hideUpdateForm(e: Event): void {
+  const target = getTarget(e);
+
+  if (target.classList.contains("button__edit")) return;
+  if (!(target.tagName === "BUTTON")) return;
+
   const form = getElement(Selector.FormUpdate);
   form.classList.remove(Selector.FormUpdateOpen.slice(1));
 }

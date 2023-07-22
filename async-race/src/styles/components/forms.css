@@ -21,7 +21,7 @@ form {
   justify-content: space-between;
 }
 
-form .input__container {
+form .form__container {
   width: 100%;
   display: flex;
   justify-content: space-between;

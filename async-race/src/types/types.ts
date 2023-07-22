@@ -1,8 +1,10 @@
 // View
 export const enum View {
   Garage = "garage",
-  Winners = "winners"
+  Winners = "winners",
 }
+
+export type Action = "create" | "update";
 
 // Selectors
 export const enum Selector {
@@ -20,8 +22,12 @@ export const enum Selector {
   FormCreate = ".form__create",
   FormUpdate = ".form__update",
   FormUpdateOpen = ".form__update--open",
-  InputContainer = ".input__container",
+  FormContainer = ".form__container",
   InputField = ".input-text",
+  InputCreate = ".input-text__create",
+  InputUpdate = ".input-text__update",
+  InputColorCreate = ".input-color__create",
+  InputColorUpdate = ".input-color__update",
   InputColor = ".input-color",
   ButtonCreate = ".button__create",
   ButtonUpdate = ".button__update",
@@ -70,7 +76,7 @@ export const enum Selector {
 }
 
 // Buttons
-export const enum ButtonName {
+export const enum Button {
   Garage = "Garage",
   Winners = "Winners",
   Start = "Start",
@@ -78,7 +84,15 @@ export const enum ButtonName {
   Edit = "Edit",
   Delete = "Delete",
   SaveEdit = "Save",
-  CancelEdit = "Cancel"
+  CancelEdit = "Cancel",
+}
+
+// Create button params
+export interface ButtonParams {
+  name: Button,
+  classNames: Selector[],
+  id: string,
+  callback: Callback
 }
 
 // API
@@ -91,8 +105,8 @@ export interface Car {
 }
 
 export interface CarsData {
-  items: Car[],
-  count: string
+  items: Car[];
+  count: string;
 }
 
 // Create
@@ -116,8 +130,16 @@ export type Callback = (this: HTMLElement, e: Event) => void;
 
 // Local Storage
 
-export interface StorageObject {
-  [key: string]: string;
+export interface InputProps {
+  buttonText: string;
+  placeholder?: string;
+  textInputClasses: string[];
+  textInputID: string;
+  colorInputClasses: string[];
+  colorInputID: string;
+  initColor?: string;
+  buttonClasses: string[];
+  buttonID: string;
 }
 
-export type StorageData = StorageObject | string;
+// export type StorageData = StorageObject | string;

@@ -1,6 +1,6 @@
 import { getTargetID } from "../../../utils/helpers";
 import { getCarAPI } from "../../../api/get-cars";
-import { showUpdateForm } from "./show-update-form";
+import { showUpdateForm, hideUpdateForm } from "./display-update-form";
 
 // Start update
 export async function startUpdate(e: Event): Promise<void> {
@@ -9,4 +9,12 @@ export async function startUpdate(e: Event): Promise<void> {
 
   showUpdateForm(car);
   localStorage.setItem("editItem", JSON.stringify(car));
+}
+
+// Cancel update
+export function handleCancelEdit(e: Event): void {
+  e.preventDefault();
+
+  hideUpdateForm(e);
+  localStorage.setItem("editItem", "");
 }

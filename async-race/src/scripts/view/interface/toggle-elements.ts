@@ -1,5 +1,5 @@
 import { getElement, getElementsArray } from "../../utils/get-element";
-import { ButtonName, Selector, View } from "../../../types/types";
+import { Button, Selector, View } from "../../../types/types";
 
 // TOGGLE BUTTON
 export function toggleViewButton(view: View): void {
@@ -16,7 +16,7 @@ export function toggleViewButton(view: View): void {
 
   button.classList.add("active");
 
-  if (button.textContent?.includes(ButtonName.Garage)) {
+  if (button.textContent?.includes(Button.Garage)) {
     bubble.classList.remove("winners");
   } else {
     bubble.classList.add("winners");
