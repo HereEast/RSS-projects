@@ -19,10 +19,13 @@ export async function handleDelete(e: Event): Promise<void> {
 export function createTrackButtons(): HTMLElement {
   const trackButtons = createElement("div", [Selector.TrackButtons]);
 
-  const startBtn = createButton(Button.Start, [Selector.ButtonTrack], (e) => console.log(e.target));
-  const stopBtn = createButton(Button.Stop, [Selector.ButtonTrack], (e) => console.log(e.target));
-  const editBtn = createButton(Button.Edit, [Selector.ButtonTrack], startUpdate);
-  const deleteBtn = createButton(Button.Delete, [Selector.ButtonTrack], handleDelete);
+  const startBtn = createButton(Button.Start, [Selector.ButtonTrack, Selector.ButtonStart]);
+  const stopBtn = createButton(Button.Stop, [Selector.ButtonTrack, Selector.ButtonStop]);
+  const editBtn = createButton(Button.Edit, [Selector.ButtonTrack, Selector.ButtonEdit]);
+  const deleteBtn = createButton(Button.Delete, [Selector.ButtonTrack, Selector.ButtonDelete]);
+
+  editBtn.addEventListener("click", startUpdate);
+  deleteBtn.addEventListener("click", handleDelete);
 
   trackButtons.append(startBtn, stopBtn, editBtn, deleteBtn);
 

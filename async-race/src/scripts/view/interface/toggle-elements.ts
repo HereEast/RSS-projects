@@ -8,7 +8,7 @@ export function toggleViewButton(view: View): void {
   const buttons = getElementsArray(Selector.ViewButton);
   buttons.forEach((btn) => btn.classList.remove("active"));
 
-  const button = buttons.find((btn) => btn.id === `button--${view}`);
+  const button = buttons.find((btn) => btn.id === `button__${view}`);
 
   if (!button) {
     throw Error("Couldn't find a View Button.");

@@ -4,8 +4,6 @@ export const enum View {
   Winners = "winners",
 }
 
-export type Action = "create" | "update";
-
 // Selectors
 export const enum Selector {
   // Header
@@ -14,8 +12,8 @@ export const enum Selector {
   HeaderButtons = ".header__buttons",
   ViewButton = ".button__view",
   ViewButtonActive = ".button__view.active",
-  ButtonGarage = "#button--garage",
-  ButtonWinners = "#button--winners",
+  ButtonGarage = "#button__garage",
+  ButtonWinners = "#button__winners",
   Bubble = ".bubble",
   // Form
   FormsContainer = ".forms__container",
@@ -77,14 +75,16 @@ export const enum Selector {
 
 // Buttons
 export const enum Button {
-  Garage = "Garage",
-  Winners = "Winners",
-  Start = "Start",
-  Stop = "Stop",
-  Edit = "Edit",
-  Delete = "Delete",
-  SaveEdit = "Save",
-  CancelEdit = "Cancel",
+  Garage = "garage",
+  Winners = "winners",
+  Start = "start",
+  Stop = "stop",
+  Edit = "edit",
+  Delete = "delete",
+  Create = "create",
+  Update = "update",
+  CancelEdit = "cancel",
+  Generate = "generate",
 }
 
 // Create button params
