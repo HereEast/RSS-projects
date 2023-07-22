@@ -85,6 +85,8 @@ export const enum Button {
   Update = "update",
   CancelEdit = "cancel",
   Generate = "generate",
+  Race = "race",
+  Reset = "reset",
 }
 
 // Create button params

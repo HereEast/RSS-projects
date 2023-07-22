@@ -3,7 +3,7 @@ import { createButton, createElement } from "../../utils/create-element";
 import { createBasicForm } from "./form-basic";
 
 const BUTTON_GENERATE = "Generate Cars";
-const EDIT_TITLE = "Edit car ⚙️";
+const TITLE_TEXT = "Edit car ⚙️";
 
 // CREATE
 export function createCreateForm(): HTMLElement {
@@ -13,7 +13,7 @@ export function createCreateForm(): HTMLElement {
   const generateButton = createButton(Button.Generate, [Selector.ButtonGenerate]);
   generateButton.textContent = BUTTON_GENERATE;
 
-  const dots = createElement("span", []);
+  const dots = createElement("span");
 
   formCreate.append(formElements, dots, generateButton);
 
@@ -25,7 +25,7 @@ export function createUpdateForm(): HTMLElement {
   const formUpdate = createElement("form", [Selector.FormUpdate]);
   const formElements = createBasicForm(Button.Update);
   const buttonCancel = createButton(Button.CancelEdit, [Selector.ButtonCancel]);
-  const title = createElement("h2", [], EDIT_TITLE);
+  const title = createElement("h2", [], TITLE_TEXT);
 
   formElements.append(buttonCancel);
   formUpdate.append(title, formElements);

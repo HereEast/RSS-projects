@@ -1,17 +1,17 @@
 import { createElement } from "../../../utils/create-element";
 import { Selector } from "../../../../types/types";
-import { createCountElement } from "./view-count";
-import { createGarageHeaderButtons } from "./view-buttons";
+import { createCountElement } from "./count-element";
+import { createGarageButtons } from "./garage-buttons";
 
-// View header
-export function createViewHeader(): HTMLElement {
+// Page header
+export function createPageHeader(): HTMLElement {
   const header = createElement("div", [Selector.ViewHeader]);
 
   const title = createElement("div", [Selector.TitleContainer]);
-  const titleText = createElement("h2", [Selector.Title], "Garage");
+  const titleText = createElement("h2", [Selector.Title], "");
   const countElement = createCountElement();
 
-  const buttons = createGarageHeaderButtons();
+  const buttons = createGarageButtons();
 
   title.append(titleText, countElement);
   header.append(title, buttons);
