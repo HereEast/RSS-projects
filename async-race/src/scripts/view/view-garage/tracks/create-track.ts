@@ -1,10 +1,9 @@
 import { createElement, createSVG } from "../../../utils/create-element";
 import { Selector, Car } from "../../../../types/types";
-import { createTrackButtons } from "./track-buttons";
+import { createTrackButtons } from "./create-track-buttons";
 
 const NS = "http://www.w3.org/2000/svg";
-const CAR_WIDTH = "40px";
-const CAR_HEIGHT = "40px";
+const CAR_SIZE = "40px";
 
 // Track header
 export function createTrackHeader(car: Car): HTMLElement {
@@ -24,8 +23,8 @@ export function createTrackBody(car: Car): HTMLElement {
   const carProps = {
     divClass: Selector.Car,
     ns: NS,
-    width: CAR_WIDTH,
-    height: CAR_HEIGHT,
+    width: CAR_SIZE,
+    height: CAR_SIZE,
     color: car.color,
   };
 

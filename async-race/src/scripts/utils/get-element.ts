@@ -1,4 +1,4 @@
-import { Selector } from "../../types/types";
+import { Selector, FormInputs } from "../../types/types";
 
 // TARGET
 export function getTarget(e: Event): HTMLElement {
@@ -11,7 +11,7 @@ export function getTarget(e: Event): HTMLElement {
 }
 
 // CLOSEST
-export function getClosest(targetElement: HTMLElement, selector: Selector): HTMLElement {
+export function getClosest(targetElement: HTMLElement, selector: Selector | string): HTMLElement {
   const element = targetElement.closest(selector);
 
   if (!element || !(element instanceof HTMLElement)) {
@@ -33,7 +33,7 @@ export function getElement(selector: Selector | string): HTMLElement {
 }
 
 // ARRAY
-export function getElementsArray(selector: Selector): HTMLElement[] {
+export function getElementsArray(selector: Selector | string): HTMLElement[] {
   const elements: HTMLElement[] = Array.from(document.querySelectorAll(selector));
 
   if (!elements) throw Error(`${selector} elements are not found...`);
@@ -48,7 +48,7 @@ export function getElementsArray(selector: Selector): HTMLElement[] {
 }
 
 // GET FORM INPUTS
-export function getFormInputs(form: Selector): { inputText: HTMLInputElement; inputColor: HTMLInputElement } {
+export function getFormInputs(form: Selector | string): FormInputs {
   const inputText = getElement(`${form} .input-text`);
   const inputColor = getElement(`${form} .input-color`);
 

@@ -1,9 +1,10 @@
 import "./styles/index.css";
 import { renderApp } from "./scripts/components/app";
-// import { setView } from "./scripts/utils/set-view";
 import { initListeners } from "./scripts/listeners";
+import { renderGarageView } from "./scripts/view/view-garage/render-garage";
 
 renderApp();
+renderGarageView();
 
 window.addEventListener("DOMContentLoaded", (): void => {
   console.log("✅ DOM Loaded");

@@ -1,6 +1,6 @@
-import { getTargetID } from "../../../utils/helpers";
+import { getTargetID } from "../../../utils/get-target-id";
 import { getCarAPI } from "../../../api/get-cars";
-import { showUpdateForm, hideUpdateForm } from "./display-update-form";
+import { showUpdateForm, hideUpdateForm } from "./handle-form";
 
 // Start update
 export async function startUpdate(e: Event): Promise<void> {
@@ -12,7 +12,7 @@ export async function startUpdate(e: Event): Promise<void> {
 }
 
 // Cancel update
-export function handleCancelEdit(e: Event): void {
+export function cancelUpdate(e: Event): void {
   e.preventDefault();
 
   hideUpdateForm(e);

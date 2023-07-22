@@ -1,16 +1,15 @@
-import { saveView, getCurrentView, cleanContent } from "../../utils/helpers";
-import { toggleUIElements } from "../interface/toggle-elements";
+import { cleanContent } from "../../utils/helpers";
+import { saveCurrentView, getCurrentView } from "../../utils/save-view";
+import { toggleUIElements } from "../toggle/toggle-elements";
 import { View } from "../../../types/types";
 
 // Render
 export function renderWinnersView(e?: Event): void {
   if (e && getCurrentView() === View.Winners) return;
 
-  // const button = e ? getTarget(e) : getElement(Selector.ButtonWinners);
-
   cleanContent();
   toggleUIElements(View.Winners);
-  saveView("winners");
+  saveCurrentView("winners");
 
   console.log("🙂 Winner View");
 }

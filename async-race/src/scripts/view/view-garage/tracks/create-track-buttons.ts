@@ -1,21 +1,21 @@
 import { Button, Selector } from "../../../../types/types";
 import { createElement, createButton } from "../../../utils/create-element";
 import { deleteCarAPI } from "../../../api/delete-car";
-import { renderGaragePage } from "../render-garage";
-import { getTargetID } from "../../../utils/helpers";
-import { startUpdate } from "../update/start-update";
+import { updateGarage } from "../render-garage";
+import { getTargetID } from "../../../utils/get-target-id";
+import { startUpdate } from "../handle-update/start-update";
 
-// DELETE
+// Delete
 export async function handleDelete(e: Event): Promise<void> {
   const id = getTargetID(e);
 
   await deleteCarAPI(id);
 
   const currentPage = 1;
-  renderGaragePage(currentPage);
+  updateGarage(currentPage);
 }
 
-// BUTTONS
+// Buttons
 export function createTrackButtons(): HTMLElement {
   const trackButtons = createElement("div", [Selector.TrackButtons]);
 

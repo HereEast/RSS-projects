@@ -1,28 +1,28 @@
 import { Selector } from "../../../../types/types";
 import { getFormInputs } from "../../../utils/get-element";
-import { hideUpdateForm } from "./display-update-form";
+import { hideUpdateForm } from "./handle-form";
 import { updateCarAPI } from "../../../api/update-car";
 import { updateCarUI } from "./update-car-ui";
-import { getEditCarData } from "../../../utils/helpers";
+import { getSelectedCar } from "./get-selected-car";
 
 // Handle update
 export async function handleUpdate(e: Event): Promise<void> {
   e.preventDefault();
 
   const { inputText, inputColor } = getFormInputs(Selector.FormUpdate);
-  const editCar = getEditCarData();
+  const selectedCar = getSelectedCar();
 
   if (!inputText.value.trim()) {
     inputText.focus();
     return;
   }
 
-  if (inputText.value === editCar.name && inputColor.value === editCar.color) {
+  if (inputText.value === selectedCar.name && inputColor.value === selectedCar.color) {
     hideUpdateForm(e);
     return;
   }
 
-  const id = editCar.id;
+  const id = selectedCar.id;
 
   const patch = {
     name: inputText.value,

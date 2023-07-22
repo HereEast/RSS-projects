@@ -89,14 +89,6 @@ export const enum Button {
   Reset = "reset",
 }
 
-// Create button params
-export interface ButtonParams {
-  name: Button,
-  classNames: Selector[],
-  id: string,
-  callback: Callback
-}
-
 // API
 
 // Get
@@ -118,7 +110,6 @@ export interface NewCar {
 }
 
 // SVG
-
 export interface SVGElement {
   divClass: string;
   ns: string;
@@ -127,21 +118,12 @@ export interface SVGElement {
   color?: string;
 }
 
-// Types
-export type Callback = (this: HTMLElement, e: Event) => void;
-
-// Local Storage
-
-export interface InputProps {
-  buttonText: string;
-  placeholder?: string;
-  textInputClasses: string[];
-  textInputID: string;
-  colorInputClasses: string[];
-  colorInputID: string;
-  initColor?: string;
-  buttonClasses: string[];
-  buttonID: string;
+// Form inputs
+export interface FormInputs {
+  inputText: HTMLInputElement;
+  inputColor: HTMLInputElement;
 }
 
-// export type StorageData = StorageObject | string;
+// Types
+export type Callback = (this: HTMLElement, e: Event) => void;
+export type ClassNames = Selector[] | string[];

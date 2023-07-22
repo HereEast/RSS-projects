@@ -1,11 +1,15 @@
-import { SVGElement, Selector, Button } from "../../types/types";
+import { SVGElement, Selector, Button, ClassNames } from "../../types/types";
 
 // HTML
-export function createElement(tag: string, classes?: string[], text?: string): HTMLElement {
+export function createElement(tag: string, classNames?: ClassNames, text?: string): HTMLElement {
   const element = document.createElement(tag);
 
-  if (classes?.length) {
-    const classList = classes.map((el) => el.slice(1));
+  if (!(element instanceof HTMLElement)) {
+    throw Error(`Couldn't create HTML element ${tag}`);
+  }
+
+  if (classNames?.length) {
+    const classList = classNames.map((el) => el.slice(1));
     element.classList.add(...classList);
   }
 
@@ -15,14 +19,14 @@ export function createElement(tag: string, classes?: string[], text?: string): H
 }
 
 // BUTTON//
-export function createButton(name: Button, classNames: Selector[] | string[]): HTMLButtonElement {
+export function createButton(name: Button, classNames?: ClassNames): HTMLButtonElement {
   const button = createElement("button", classNames, name);
 
   if (!(button instanceof HTMLButtonElement)) {
     throw Error(`Couldn't create button ${name}`);
   }
 
-  if (!classNames.includes(Selector.ButtonTrack)) {
+  if (classNames && !classNames.includes(Selector.ButtonTrack)) {
     const buttonID = `button__${name.toLowerCase()}`;
     button.id = buttonID;
   }
@@ -32,15 +36,13 @@ export function createButton(name: Button, classNames: Selector[] | string[]): H
 
 // INPUT
 export function createInput(type: string, action: Button): HTMLInputElement {
-  const classList = type === "text" ? Selector.InputField : Selector.InputColor;
-  const input = createElement("input", [classList]);
-
-  input.id = `input-${type}__${action}`;
+  const input = createElement("input", [`.input-${type}`]);
 
   if (!(input instanceof HTMLInputElement)) {
-    throw Error("🅾️ Failed to create HTMLInput Element...");
+    throw Error("Failed to create HTMLInput Element...");
   }
 
+  input.id = `input-${type}__${action}`;
   input.type = type;
   input.autocomplete = "off";
 
@@ -48,8 +50,8 @@ export function createInput(type: string, action: Button): HTMLInputElement {
 }
 
 // LINK
-export function createLink(text: string, url: string, classes?: string[]): HTMLAnchorElement {
-  const link = createElement("a", classes, text);
+export function createLink(text: string, url: string, classNames?: ClassNames): HTMLAnchorElement {
+  const link = createElement("a", classNames, text);
 
   if (!(link instanceof HTMLAnchorElement)) {
     throw Error("Failed to create a <a> element...");
@@ -64,6 +66,7 @@ export function createSVG(params: SVGElement): HTMLElement {
   const div = createElement("div", [params.divClass]);
 
   const svg = document.createElementNS(params.ns, "svg");
+
   svg.setAttribute("width", params.width);
   svg.setAttribute("height", params.height);
 

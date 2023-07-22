@@ -2,7 +2,7 @@ import { getElement, getFormInputs, getTarget } from "../../../utils/get-element
 import { Selector, Car } from "../../../../types/types";
 
 // SET INPUTS
-export function setEditInputs(car: Car): void {
+export function setUpdateInputs(car: Car): void {
   const { inputText, inputColor } = getFormInputs(Selector.FormUpdate);
 
   inputText.value = car.name;
@@ -11,9 +11,9 @@ export function setEditInputs(car: Car): void {
 
 // SHOW
 export function showUpdateForm(car: Car): void {
-  setEditInputs(car);
+  setUpdateInputs(car);
 
-  console.log(car);
+  console.log(car); // Current values
 
   const form = getElement(Selector.FormUpdate);
   form.classList.add(Selector.FormUpdateOpen.slice(1));
