@@ -63,10 +63,12 @@ export const enum Selector {
 
   // Pagination
   PagesContainer = ".pages",
-  PageCurrent = ".pages__current",
+  Page = ".page",
+  CurrentPage = ".page--current",
   PagesButtons = ".pages__buttons",
-  PagePrev = ".button__prev",
-  PageNext = ".button__next",
+  ButtonPage = ".button__page",
+  ButtonPrev = ".button__prev",
+  ButtonNext = ".button__next",
   // Footer
   Footer = ".footer",
   FooterContainer = ".footer__container",
@@ -87,6 +89,8 @@ export const enum Button {
   Generate = "generate",
   Race = "race",
   Reset = "reset",
+  Prev = "prev",
+  Next = "next",
 }
 
 // API

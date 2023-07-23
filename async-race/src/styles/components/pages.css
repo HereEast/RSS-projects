@@ -1,0 +1,22 @@
+.pages {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+
+  margin-top: 20px;
+}
+
+.page {
+  display: flex;
+  gap: 5px;
+}
+
+.page span {
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+.pages__buttons {
+  display: flex;
+  gap: 5px;
+}

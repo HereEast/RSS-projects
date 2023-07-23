@@ -52,14 +52,16 @@ form button {
 }
 
 .button__cancel,
-.button__reset {
+.button__reset,
+.button__page {
   background-color: transparent;
   border: 1px solid var(--white);
   color: var(--white);
 }
 
 .button__cancel:hover,
-.button__reset:hover {
+.button__reset:hover,
+.button__page:hover {
   background-color: var(--white);
   color: var(--black);
 }
@@ -70,6 +72,17 @@ form button {
 
 button.button__race:hover {
   background-color: var(--button-hover-primary);
+}
+
+.button__page {
+  height: 20px;
+  padding: 0 10px;
+}
+
+.button__page:disabled,
+.button__page:hover:disabled {
+  cursor: default;
+  opacity: 0.5;
 }
 
 /* Track */
