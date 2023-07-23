@@ -127,3 +127,9 @@ export interface FormInputs {
 // Types
 export type Callback = (this: HTMLElement, e: Event) => void;
 export type ClassNames = Selector[] | string[];
+
+// Makes and Models
+export interface MakeModel {
+  make: string;
+  models: string[];
+}

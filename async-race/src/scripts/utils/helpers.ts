@@ -9,3 +9,9 @@ export function cleanContent(element?: HTMLElement): void {
     child.remove();
   });
 }
+
+// Random index
+export function getRandomIndex<T>(array: Array<T>): number {
+  const index = Math.floor(Math.random() * array.length);
+  return index;
+}

@@ -13,6 +13,8 @@ export function setTotalCount(cars: CarsData): void {
 export function updateTotalCount(value: number): void {
   const countElement = getElement(Selector.CurrentCount);
   const currentCount = Number(countElement.textContent);
+  const newCount = `${currentCount + value}`;
 
-  countElement.textContent = `${currentCount + value}`;
+  countElement.textContent = newCount;
+  // localStorage.setItem("totalCars", newCount);
 }

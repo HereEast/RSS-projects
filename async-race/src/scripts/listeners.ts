@@ -6,6 +6,7 @@ import { handleCreateCar } from "./view/view-garage/handle-create/handle-create"
 import { cancelUpdate } from "./view/view-garage/handle-update/start-update";
 import { handleUpdate } from "./view/view-garage/handle-update/handle-update";
 import { hideUpdateForm } from "./view/view-garage/handle-update/handle-form";
+import { handleGenerate } from "./view/view-garage/handle-generate/handle-generate";
 
 // Listeners
 export function initListeners(): void {
@@ -14,6 +15,7 @@ export function initListeners(): void {
   const createButton = getElement(Selector.ButtonCreate);
   const cancelEditButton = getElement(Selector.ButtonCancel);
   const updateButton = getElement(Selector.ButtonUpdate);
+  const buttonGenerate = getElement(Selector.ButtonGenerate);
 
   // Events
   document.addEventListener("click", hideUpdateForm);
@@ -22,4 +24,5 @@ export function initListeners(): void {
   createButton.addEventListener("click", handleCreateCar);
   cancelEditButton.addEventListener("click", cancelUpdate);
   updateButton.addEventListener("click", handleUpdate);
+  buttonGenerate.addEventListener("click", handleGenerate);
 }
