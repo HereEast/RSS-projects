@@ -2,8 +2,10 @@ import { createCarAPI } from "../../../api/create-car";
 import { getRandomColor } from "./random-color";
 import { getRandomMake } from "./random-make";
 import { updateGarage } from "../render-garage";
-import { isEnoughSpace } from "../../../utils/check-last-page";
-import { updateTotalCount } from "../../../utils/total-count";
+import { getCurrentPage, isEnoughSpace } from "../../../utils/pagination-helpers";
+import { setTotalPages } from "../pages/page-utils";
+import { updateTotalCars } from "../../../utils/total-cars";
+import { View } from "../../../../types/types";
 
 const MAX_ADD = 2;
 
@@ -25,8 +27,12 @@ export async function handleGenerate(e: Event): Promise<void> {
   await generateCars(MAX_ADD);
 
   if (isEnoughSpace()) {
-    updateGarage(1);
-  } else {
-    updateTotalCount(MAX_ADD);
+    const page = getCurrentPage(View.Garage);
+    await updateGarage(page);
   }
+
+  updateTotalCars(MAX_ADD);
+  setTotalPages();
+
+  console.log("Generate:", localStorage);
 }

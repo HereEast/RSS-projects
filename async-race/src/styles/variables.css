@@ -20,3 +20,9 @@
   /*INPUTS*/
   --input-border: #919191;
 }
+
+@media all and (max-width: 550px) {
+  :root {
+    --page-padding: 15px;
+  }
+}

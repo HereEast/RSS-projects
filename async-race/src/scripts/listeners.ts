@@ -7,6 +7,8 @@ import { cancelUpdate } from "./view/view-garage/handle-update/start-update";
 import { handleUpdate } from "./view/view-garage/handle-update/handle-update";
 import { hideUpdateForm } from "./view/view-garage/handle-update/handle-form";
 import { handleGenerate } from "./view/view-garage/handle-generate/handle-generate";
+// import { handleNextPage, handlePrevPage } from "./view/view-garage/pages/handle-pagination";
+import { handlePagination } from "./view/view-garage/pages/handle-pagination";
 
 // Listeners
 export function initListeners(): void {
@@ -16,6 +18,8 @@ export function initListeners(): void {
   const cancelEditButton = getElement(Selector.ButtonCancel);
   const updateButton = getElement(Selector.ButtonUpdate);
   const buttonGenerate = getElement(Selector.ButtonGenerate);
+  const buttonPrev = getElement(Selector.ButtonPrev);
+  const buttonNext = getElement(Selector.ButtonNext);
 
   // Events
   document.addEventListener("click", hideUpdateForm);
@@ -25,4 +29,6 @@ export function initListeners(): void {
   cancelEditButton.addEventListener("click", cancelUpdate);
   updateButton.addEventListener("click", handleUpdate);
   buttonGenerate.addEventListener("click", handleGenerate);
+  buttonPrev.addEventListener("click", handlePagination);
+  buttonNext.addEventListener("click", handlePagination);
 }

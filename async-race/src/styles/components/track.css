@@ -18,12 +18,13 @@
   align-items: center;
 
   position: absolute;
-  margin-top: -4px;
+  margin-top: -5px;
 }
 
 .track__buttons {
   display: flex;
   gap: 4px;
+  margin-left: -2px;
 }
 
 .car__name {

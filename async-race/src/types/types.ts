@@ -65,10 +65,12 @@ export const enum Selector {
   PagesContainer = ".pages",
   Page = ".page",
   CurrentPage = ".page--current",
+  TotalPages = ".page--total",
   PagesButtons = ".pages__buttons",
   ButtonPage = ".button__page",
   ButtonPrev = ".button__prev",
   ButtonNext = ".button__next",
+  ButtonPageDisabled = ".button__page--disabled",
   // Footer
   Footer = ".footer",
   FooterContainer = ".footer__container",
