@@ -1,19 +1,18 @@
-.pages {
+.pagination {
   width: 200px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* gap: 10px; */
 
   margin-top: 15px;
 }
 
-.page {
+.page__container {
   display: flex;
   gap: 5px;
 }
 
-.page span {
+.page__container span {
   font-size: 12px;
   text-transform: uppercase;
 }

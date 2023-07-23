@@ -21,13 +21,9 @@ export function isFirstPage(view: View): boolean {
 
 // Last page
 export function isLastPage(view: View): boolean {
-  // const totalCars = Number(getElement(Selector.CurrentCount).textContent);
-  // const totalPages = Math.ceil(totalCars / GARAGE_LIMIT);
-
   const currentPage = localStorage.getItem(`${view}-page`);
   const totalPages = localStorage.getItem("totalPages");
 
-  // const currentPage = getCurrentPage(view);
   return currentPage === totalPages;
 }
 

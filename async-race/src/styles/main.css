@@ -1,13 +1,17 @@
-.main,
-.main__container {
+.main {
   width: 100%;
   display: flex;
   flex-direction: column;
-  align-self: flex-start;
+  /* align-self: flex-start; */
   flex-grow: 1;
 }
 
 .main__container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  /* align-self: flex-start; */
+  flex-grow: 1;
   padding: 40px var(--page-padding);
 }
 
@@ -18,7 +22,7 @@
   justify-content: space-between;
   align-items: center;
   gap: 15px;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
 .view__title {

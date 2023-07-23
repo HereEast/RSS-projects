@@ -62,8 +62,8 @@ export const enum Selector {
   Flag = ".flag",
 
   // Pagination
-  PagesContainer = ".pages",
-  Page = ".page",
+  PagesContainer = ".pagination",
+  Page = ".page__container",
   CurrentPage = ".page--current",
   TotalPages = ".page--total",
   PagesButtons = ".pages__buttons",

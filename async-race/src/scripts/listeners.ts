@@ -7,7 +7,6 @@ import { cancelUpdate } from "./view/view-garage/handle-update/start-update";
 import { handleUpdate } from "./view/view-garage/handle-update/handle-update";
 import { hideUpdateForm } from "./view/view-garage/handle-update/handle-form";
 import { handleGenerate } from "./view/view-garage/handle-generate/handle-generate";
-// import { handleNextPage, handlePrevPage } from "./view/view-garage/pages/handle-pagination";
 import { handlePagination } from "./view/view-garage/pages/handle-pagination";
 
 // Listeners
