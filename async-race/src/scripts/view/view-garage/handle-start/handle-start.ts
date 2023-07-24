@@ -1,25 +1,35 @@
 import { getTargetID } from "../../../utils/get-target-id";
 import { driveCarAPI, stopCarAPI } from "../../../api/drive-car";
 import { getElement } from "../../../utils/get-element";
-import { Selector } from "../../../../types/types";
+import { Selector, DriveResult } from "../../../../types/types";
 import { getDriveTime, getDistance, toggleControls } from "./helpers";
 
 let requestId: number;
+let winner: DriveResult = {
+  id: "",
+  time: 0,
+};
 
 // Handle drive
-export async function controlDrive(id: string): Promise<void> {
+export async function controlDrive(id: string, time: number): Promise<boolean> {
   const { success } = await driveCarAPI(Number(id));
 
   if (success) {
-    console.log("🏁 Finish!");
+    if (!winner.id) {
+      // Set winner
+      winner = { id, time };
+      console.log("WINNER", winner);
+    }
   } else {
     cancelAnimationFrame(requestId);
   }
+
+  return success;
 }
 
 // Start animation
-export async function startAnimation(id: string, car: HTMLElement): Promise<void> {
-  const targetCar: HTMLElement = car;
+export async function startAnimation(id: string): Promise<void> {
+  const car = getElement(`#car--${id}`);
 
   const time = await getDriveTime(id);
   const dist = getDistance() - 40;
@@ -30,7 +40,7 @@ export async function startAnimation(id: string, car: HTMLElement): Promise<void
 
   function animate(): void {
     startX += step;
-    targetCar.style.transform = `translate(${startX}px)`;
+    car.style.transform = `translate(${startX}px)`;
 
     if (startX <= dist) {
       requestId = requestAnimationFrame(animate);
@@ -38,10 +48,10 @@ export async function startAnimation(id: string, car: HTMLElement): Promise<void
   }
 
   animate();
-  controlDrive(id);
+  await controlDrive(id, time);
 }
 
-// Start
+// Handle Start
 export async function handleStart(e: Event): Promise<void> {
   const id = getTargetID(e);
   const car = getElement(`#car--${id}`);
@@ -51,7 +61,7 @@ export async function handleStart(e: Event): Promise<void> {
 
   car.classList.add(Selector.CarDriving.slice(1));
 
-  startAnimation(id, car);
+  startAnimation(id);
   toggleControls(e);
 }
 
@@ -66,7 +76,7 @@ export async function stopCar(id: number): Promise<void> {
   car.classList.remove(Selector.CarDriving.slice(1));
 }
 
-// Handle stop
+// Handle Stop
 export async function handleStop(e: Event): Promise<void> {
   const id = Number(getTargetID(e));
 

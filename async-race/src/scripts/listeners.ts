@@ -9,6 +9,7 @@ import { hideUpdateForm } from "./view/view-garage/handle-update/handle-form";
 import { handleGenerate } from "./view/view-garage/handle-generate/handle-generate";
 import { handlePagination } from "./view/view-garage/pages/handle-pagination";
 import { handleReset } from "./view/view-garage/handle-reset/handle-reset";
+import { handleRace } from "./view/view-garage/handle-start/handle-race";
 
 // Listeners
 export function initListeners(): void {
@@ -21,6 +22,7 @@ export function initListeners(): void {
   const buttonPrev = getElement(Selector.ButtonPrev);
   const buttonNext = getElement(Selector.ButtonNext);
   const buttonReset = getElement(Selector.ButtonReset);
+  const buttonRace = getElement(Selector.ButtonRace);
 
   // Events
   document.addEventListener("click", hideUpdateForm);
@@ -33,4 +35,5 @@ export function initListeners(): void {
   buttonPrev.addEventListener("click", handlePagination);
   buttonNext.addEventListener("click", handlePagination);
   buttonReset.addEventListener("click", handleReset);
+  buttonRace.addEventListener("click", handleRace);
 }

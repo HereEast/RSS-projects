@@ -97,6 +97,9 @@ export const enum Button {
   Next = "next",
 }
 
+// Button State
+export type ButtonState = "disable" | "enable";
+
 // API
 
 // Get
@@ -130,6 +133,11 @@ export interface DriveResponse {
 export interface StartData {
   velocity: number;
   distance: number;
+}
+
+export interface DriveResult {
+  time: number;
+  id: string;
 }
 
 //

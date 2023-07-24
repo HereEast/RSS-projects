@@ -5,7 +5,7 @@ import { updateGarage } from "../render-garage";
 import { getTargetID } from "../../../utils/get-target-id";
 import { startUpdate } from "../handle-update/start-update";
 import { getCurrentPage, isLastTrack } from "../../../utils/pagination-helpers";
-import { handleStart, handleStop } from "../handle-drive/handle-drive";
+import { handleStart, handleStop } from "../handle-start/handle-start";
 
 // Delete
 export async function handleDelete(e: Event): Promise<void> {

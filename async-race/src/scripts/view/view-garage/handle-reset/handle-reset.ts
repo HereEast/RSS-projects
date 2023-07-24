@@ -1,32 +1,15 @@
-import { Selector } from "../../../../types/types";
-import { getElementsArray } from "../../../utils/get-element";
-import { stopCar } from "../handle-drive/handle-drive";
+import { stopCar } from "../handle-start/handle-start";
+import { getCarsIds, disableStartButtons, disableStopButtons } from "../handle-start/helpers";
 
 // Handle reset
 export function handleReset(e: Event): void {
   e.preventDefault();
 
-  const tracks = [...getElementsArray(Selector.Track)];
-  const ids = tracks.map((track) => track.id.split("--").at(-1));
-
+  const ids = getCarsIds();
   ids.forEach((id) => stopCar(Number(id)));
 
-  const stopButtons = [...getElementsArray(Selector.ButtonStop)];
-  const startButtons = [...getElementsArray(Selector.ButtonStart)];
+  disableStartButtons(false);
+  disableStopButtons(true);
 
-  stopButtons.forEach((button) => {
-    const stopButton = button;
-    if (stopButton instanceof HTMLButtonElement) {
-      stopButton.disabled = true;
-    }
-  });
-
-  startButtons.forEach((button) => {
-    const startButton = button;
-    if (startButton instanceof HTMLButtonElement) {
-      startButton.disabled = false;
-    }
-  });
-
-  console.log("Reset", ids);
+  console.log("Reset");
 }
