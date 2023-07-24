@@ -3,6 +3,7 @@ import { driveCarAPI, stopCarAPI } from "../../../api/drive-car";
 import { getElement } from "../../../utils/get-element";
 import { Selector, DriveResult } from "../../../../types/types";
 import { getDriveTime, getDistance, toggleControls } from "./helpers";
+// import { showPopup } from "../popup/show-popup";
 
 let requestId: number;
 let winner: DriveResult = {
@@ -18,6 +19,7 @@ export async function controlDrive(id: string, time: number): Promise<boolean> {
     if (!winner.id) {
       // Set winner
       winner = { id, time };
+      // showPopup(winner);
       console.log("WINNER", winner);
     }
   } else {

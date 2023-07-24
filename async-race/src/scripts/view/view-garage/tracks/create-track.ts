@@ -10,6 +10,7 @@ export function createTrackHeader(car: Car): HTMLElement {
   const trackHeader = createElement("div", [Selector.TrackHeader]);
   const buttons = createTrackButtons();
   const carName = createElement("span", [Selector.CarName], car.name);
+  carName.id = `${Selector.CarName.slice(1)}--${car.id}`;
 
   trackHeader.append(buttons, carName);
 

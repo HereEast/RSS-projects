@@ -77,6 +77,14 @@ export const enum Selector {
   Footer = ".footer",
   FooterContainer = ".footer__container",
   FooterInfo = ".footer__info",
+  // Popup
+  Popup = ".popup",
+  PopupOpen = ".popup--open",
+  PopupContainer = ".popup__container",
+  PopupContent = ".popup__content",
+  PopupMessage = ".popup__message",
+  PopupWinner = ".popup__winner",
+  PopupTime = ".popup__time",
 }
 
 // Buttons
