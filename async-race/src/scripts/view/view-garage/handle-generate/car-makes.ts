@@ -23,11 +23,11 @@ export const carMakes: MakeModel[] = [
   },
   {
     make: "Lamborghini",
-    models: ["Auténtica", "SC20 Roadster", "Urus Performante", "Huracán Evo Spyder", "Huracán Tecnica", "Revuelto"],
+    models: ["Auténtica", "SC20 Roadster", "Urus Performante", "Huracán", "Revuelto"],
   },
   {
     make: "Bugatti",
-    models: ["Chiron Profilée", "Chiron", "Mistral", "Centodieci", "Veyron 16.4", "EB110 SS"],
+    models: ["Chiron Profilée", "Chiron", "Mistral", "Centodieci", "Veyron", "EB110 SS"],
   },
   {
     make: "McLaren",
@@ -39,10 +39,14 @@ export const carMakes: MakeModel[] = [
   },
   {
     make: "Maserati",
-    models: ["Ghibli GT", "Quattroporte Trofeo", "GranTurismo Modena", "MC20"],
+    models: ["Ghibli GT", "MC20"],
   },
   {
     make: "Aston Martin",
-    models: ["Victor", "Vantage GT12 Roadster", "V8 Vantage", "V8 Vantage F1 Edition", "DB12 Super Tourer", "DBS Volante", "DBS 770 Ultimate"],
+    models: ["Victor", "Vantage GT12", "V8 Vantage", "DBS Volante"],
+  },
+  {
+    make: "Ford",
+    models: ["F-150 Raptor", "Mustang", "Bronco Raptor"],
   },
 ];

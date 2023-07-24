@@ -1,11 +1,8 @@
 :root {
   --black: #1C1C1C;
   --white: whitesmoke;
-  
-  --red: #ff4500;
   --green: #6BD856;
-  --yellow: #ffd208;
-  --border: #5d5d5d;
+  --shadow: #131313;
 
   --page-padding: 20px;
   --font: "Inter", "Arial", sans-serif;

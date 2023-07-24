@@ -56,6 +56,8 @@ form .form__container {
   top: 0;
   z-index: 100;
 
+  box-shadow: 10px 10px 10px var(--shadow);
+
   transform: translateY(-200%);
   transition: all 0.3s ease-in-out;
 }
