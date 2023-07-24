@@ -58,3 +58,9 @@
     width: 100%;
   }
 }
+
+@media all and (max-width: 550px) {
+  .header__container {
+    padding-top: 20px;
+  }
+}

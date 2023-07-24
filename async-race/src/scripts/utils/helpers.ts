@@ -15,3 +15,12 @@ export function getRandomIndex<T>(array: Array<T>): number {
   const index = Math.floor(Math.random() * array.length);
   return index;
 }
+
+// Disable button
+export function toggleDisable(button: HTMLElement | HTMLButtonElement): void {
+  const buttonElement = button;
+
+  if (buttonElement instanceof HTMLButtonElement) {
+    buttonElement.disabled = !buttonElement.disabled;
+  }
+}

@@ -52,11 +52,13 @@ export const enum Selector {
   TrackHeader = ".track__header",
   TrackButtons = ".track__buttons",
   ButtonTrack = ".button__track",
+  // ButtonTrackDisabled
   ButtonStart = ".button__start",
   ButtonStop = ".button__stop",
   ButtonDelete = ".button__delete",
   ButtonEdit = ".button__edit",
   Car = ".car",
+  CarDriving = ".car--driving",
   TrackBody = ".track__body",
   CarName = ".car__name",
   Flag = ".flag",
@@ -115,6 +117,22 @@ export interface NewCar {
   color: string;
 }
 
+// Start
+export interface Start {
+  success: boolean
+}
+
+// Drive
+export interface DriveResponse {
+  success: boolean;
+}
+
+export interface StartData {
+  velocity: number;
+  distance: number;
+}
+
+//
 // SVG
 export interface SVGElement {
   divClass: string;

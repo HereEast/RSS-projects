@@ -19,3 +19,11 @@
   display: flex;
   gap: 5px;
 }
+
+/**/
+
+@media all and (max-width: 550px) {
+  .footer {
+    padding-bottom: 20px;
+  }
+}

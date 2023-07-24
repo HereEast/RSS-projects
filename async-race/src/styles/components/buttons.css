@@ -107,6 +107,13 @@ button.button__track:hover {
   background-color: var(--black-light);
 }
 
+button.button__track:disabled,
+button.button__track:disabled {
+  cursor: default;
+  background-color: transparent;
+  color: var(--track-button-color);
+}
+
 /**/
 
 @media all and (max-width: 720px) {

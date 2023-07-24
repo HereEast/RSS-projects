@@ -5,6 +5,7 @@ import { updateGarage } from "../render-garage";
 import { getTargetID } from "../../../utils/get-target-id";
 import { startUpdate } from "../handle-update/start-update";
 import { getCurrentPage, isLastTrack } from "../../../utils/pagination-helpers";
+import { handleStart, handleStop } from "../handle-drive/handle-drive";
 
 // Delete
 export async function handleDelete(e: Event): Promise<void> {
@@ -32,8 +33,11 @@ export function createTrackButtons(): HTMLElement {
 
   editBtn.addEventListener("click", startUpdate);
   deleteBtn.addEventListener("click", handleDelete);
+  startBtn.addEventListener("click", handleStart);
+  stopBtn.addEventListener("click", handleStop);
+
+  stopBtn.disabled = true;
 
   trackButtons.append(startBtn, stopBtn, editBtn, deleteBtn);
-
   return trackButtons;
 }

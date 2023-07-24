@@ -1,6 +1,6 @@
 import { createElement, createSVG } from "../../../utils/create-element";
 import { Selector, Car } from "../../../../types/types";
-import { createTrackButtons } from "./create-track-buttons";
+import { createTrackButtons } from "./track-buttons";
 
 const NS = "http://www.w3.org/2000/svg";
 const CAR_SIZE = "40px";
