@@ -4,7 +4,7 @@ import { getRandomMake } from "./random-make";
 import { updateGarage } from "../render-garage";
 import { getCurrentPage, isEnoughSpace } from "../../../utils/pagination-helpers";
 import { setTotalPages } from "../pages/page-utils";
-import { updateTotalCars } from "../../../utils/total-cars";
+import { updateTotalCars } from "../../../utils/total-helpers";
 import { View } from "../../../../types/types";
 
 const MAX_ADD = 2;

@@ -15,4 +15,8 @@ export function showPopup(winner: DriveResult): void {
   timeElement.textContent = `${time} sec`;
 
   popup.classList.add(Selector.PopupOpen.slice(1));
+
+  setTimeout(() => {
+    popup.classList.remove(Selector.PopupOpen.slice(1));
+  }, 2000);
 }

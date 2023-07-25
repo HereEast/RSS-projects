@@ -1,14 +1,24 @@
-import { getTargetID } from "../../../utils/get-target-id";
+import { getTargetID } from "../../../utils/helpers";
 import { driveCarAPI, stopCarAPI } from "../../../api/drive-car";
 import { getElement } from "../../../utils/get-element";
-import { Selector, DriveResult } from "../../../../types/types";
+import { Selector, RaceData } from "../../../../types/types";
 import { getDriveTime, getDistance, toggleControls } from "./helpers";
-// import { showPopup } from "../popup/show-popup";
+import { handleWinner } from "./handle-win";
 
-let requestId: number;
-let winner: DriveResult = {
-  id: "",
-  time: 0,
+export interface Animation {
+  id: number;
+}
+
+export const animation = {
+  id: 0,
+};
+
+export const race: RaceData = {
+  winner: {
+    id: "",
+    time: 0,
+  },
+  isRace: false,
 };
 
 // Handle drive
@@ -16,14 +26,9 @@ export async function controlDrive(id: string, time: number): Promise<boolean> {
   const { success } = await driveCarAPI(Number(id));
 
   if (success) {
-    if (!winner.id) {
-      // Set winner
-      winner = { id, time };
-      // showPopup(winner);
-      console.log("WINNER", winner);
-    }
+    console.log("Finish!", id, time);
   } else {
-    cancelAnimationFrame(requestId);
+    cancelAnimationFrame(animation.id);
   }
 
   return success;
@@ -45,7 +50,16 @@ export async function startAnimation(id: string): Promise<void> {
     car.style.transform = `translate(${startX}px)`;
 
     if (startX <= dist) {
-      requestId = requestAnimationFrame(animate);
+      animation.id = requestAnimationFrame(animate);
+    }
+
+    if (startX >= dist) {
+      if (!race.winner.id && race.isRace) {
+        handleWinner(id, time);
+        console.log(car, race.winner);
+      }
+
+      race.isRace = false;
     }
   }
 
@@ -69,7 +83,7 @@ export async function handleStart(e: Event): Promise<void> {
 
 // Stop car
 export async function stopCar(id: number): Promise<void> {
-  cancelAnimationFrame(requestId);
+  cancelAnimationFrame(animation.id);
 
   const car = getElement(`#car--${id}`);
   car.style.transform = "translate(0px)";
@@ -82,6 +96,6 @@ export async function stopCar(id: number): Promise<void> {
 export async function handleStop(e: Event): Promise<void> {
   const id = Number(getTargetID(e));
 
-  stopCar(id);
+  await stopCar(id);
   toggleControls(e);
 }

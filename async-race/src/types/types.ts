@@ -101,6 +101,7 @@ export const enum Button {
   Generate = "generate",
   Race = "race",
   Reset = "reset",
+  Page = "page",
   Prev = "prev",
   Next = "next",
 }
@@ -146,6 +147,11 @@ export interface StartData {
 export interface DriveResult {
   time: number;
   id: string;
+}
+
+export interface RaceData {
+  winner: DriveResult;
+  isRace: boolean;
 }
 
 //

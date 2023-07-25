@@ -74,17 +74,24 @@ button.button__race:hover {
   background-color: var(--button-hover-primary);
 }
 
+.button__race:disabled,
+button.button__race:disabled:hover {
+  background-color: var(--green);
+  opacity: 0.6;
+  cursor: default;
+}
+
 .button__page {
   height: 20px;
   padding: 0 10px;
 }
 
-.button__page--disabled {
+.button__page:disabled {
   cursor: default;
   opacity: 0.5;
 }
 
-button.button__page--disabled:hover {
+button.button__page:disabled:hover {
   cursor: default;
   opacity: 0.5;
   background-color: transparent;

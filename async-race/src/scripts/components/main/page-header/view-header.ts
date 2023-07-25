@@ -4,7 +4,7 @@ import { createCountElement } from "./count-element";
 import { createGarageButtons } from "./garage-buttons";
 
 // Page header
-export function createPageHeader(): HTMLElement {
+export function createViewHeader(): HTMLElement {
   const header = createElement("div", [Selector.ViewHeader]);
 
   const title = createElement("div", [Selector.TitleContainer]);

@@ -1,4 +1,4 @@
-import { getTargetID } from "../../../utils/get-target-id";
+import { getTargetID } from "../../../utils/helpers";
 import { getCarAPI } from "../../../api/get-cars";
 import { showUpdateForm, hideUpdateForm } from "./handle-form";
 

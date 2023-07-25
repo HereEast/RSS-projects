@@ -14,7 +14,7 @@ export function toggleFormsDisplay(view: View): void {
 }
 
 // Page Header
-export function togglePageTittle(view: View, count: number = 0): void {
+export function togglePageTitle(view: View, count: number = 0): void {
   const title = getElement(Selector.Title);
   title.textContent = `${view[0].toUpperCase()}${view.slice(1)}`;
 
@@ -34,5 +34,5 @@ export function togglePageTittle(view: View, count: number = 0): void {
 export function toggleUIElements(view: View): void {
   toggleViewButton(view);
   toggleFormsDisplay(view);
-  togglePageTittle(view);
+  togglePageTitle(view);
 }

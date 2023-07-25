@@ -16,8 +16,8 @@ export function showUpdateForm(car: Car): void {
   console.log(car); // Current values
 
   const form = getElement(Selector.FormUpdate);
-  form.classList.add(Selector.FormUpdateOpen.slice(1));
 
+  form.classList.add(Selector.FormUpdateOpen.slice(1));
   form.dataset.editId = String(car.id);
 }
 

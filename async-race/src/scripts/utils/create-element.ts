@@ -58,6 +58,7 @@ export function createLink(text: string, url: string, classNames?: ClassNames): 
   }
 
   link.href = url;
+
   return link;
 }
 

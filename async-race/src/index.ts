@@ -6,10 +6,10 @@ import { renderGarageView } from "./scripts/view/view-garage/render-garage";
 renderApp();
 renderGarageView();
 
-alert(`Привет!
-Если есть возможность, дай мне, пожалуйста, еще полтора дня, чтобы закончить задание. До вечера среды.
-Буду очень благодарна!
-(=^･ω･^=)`);
+// alert(`Привет!
+// Если есть возможность, дай мне, пожалуйста, еще полтора дня, чтобы закончить задание. До вечера среды.
+// Буду очень благодарна!
+// (=^･ω･^=)`);
 
 window.addEventListener("DOMContentLoaded", (): void => {
   console.log("✅ DOM Loaded");

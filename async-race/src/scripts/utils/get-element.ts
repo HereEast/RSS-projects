@@ -5,7 +5,10 @@ export function getTarget(e: Event): HTMLElement {
   const target = e.target;
 
   if (!target) throw Error("Target element is not found...");
-  if (!(target instanceof HTMLElement)) throw Error("Target is not an HTMLElement...");
+
+  if (!(target instanceof HTMLElement)) {
+    throw Error("Target is not an HTMLElement...");
+  }
 
   return target;
 }
@@ -31,6 +34,16 @@ export function getElement(selector: Selector | string): HTMLElement {
 
   return element;
 }
+
+// export function getElement<T extends Element>(selector: Selector | string): T {
+//   const element = document.querySelector(selector);
+
+//   if (!element) {
+//     throw Error(`Element ${selector} is not found...`);
+//   }
+
+//   return element as T;
+// }
 
 // ARRAY
 export function getElementsArray(selector: Selector | string): HTMLElement[] {

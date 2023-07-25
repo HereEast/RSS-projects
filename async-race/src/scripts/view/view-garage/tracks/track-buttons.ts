@@ -2,10 +2,11 @@ import { Button, Selector, View } from "../../../../types/types";
 import { createElement, createButton } from "../../../utils/create-element";
 import { deleteCarAPI } from "../../../api/delete-car";
 import { updateGarage } from "../render-garage";
-import { getTargetID } from "../../../utils/get-target-id";
+import { getTargetID } from "../../../utils/helpers";
 import { startUpdate } from "../handle-update/start-update";
 import { getCurrentPage, isLastTrack } from "../../../utils/pagination-helpers";
-import { handleStart, handleStop } from "../handle-start/handle-start";
+import { handleStart, handleStop } from "../handle-race/handle-start";
+import { hideUpdateForm } from "../handle-update/handle-form";
 
 // Delete
 export async function handleDelete(e: Event): Promise<void> {
@@ -18,7 +19,7 @@ export async function handleDelete(e: Event): Promise<void> {
   const page = isLastTrack() ? currentPage - 1 : currentPage;
   await updateGarage(page);
 
-  //
+  hideUpdateForm(e);
   console.log("Delete:", localStorage);
 }
 

@@ -3,10 +3,10 @@ import { getCarsAPI } from "../../api/get-cars";
 import { toggleUIElements } from "../toggle/toggle-elements";
 import { getCurrentPage } from "../../utils/pagination-helpers";
 import { updatePagination } from "./pages/page-utils";
-import { saveCurrentView, getCurrentView } from "../../utils/save-view";
-import { setTotalCars } from "../../utils/total-cars";
+import { saveCurrentView, getCurrentView } from "../../utils/helpers";
+import { setTotalCars } from "../../utils/total-helpers";
 import { appendTracks } from "./tracks/append-tracks";
-import { togglePageButtons } from "./pages/toggle-page-buttons";
+import { togglePageButtons } from "./pages/toggle-pagination";
 
 // Update Garage
 export async function updateGarage(page: number): Promise<void> {

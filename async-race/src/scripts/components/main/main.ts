@@ -1,6 +1,6 @@
 import { createElement } from "../../utils/create-element";
 import { Selector } from "../../../types/types";
-import { createPageHeader } from "./page-header/page-header";
+import { createViewHeader } from "./page-header/view-header";
 import { createPagination } from "./pagination/pagination";
 
 // Main
@@ -8,7 +8,7 @@ export function createMain(): HTMLElement {
   const main = createElement("main", [Selector.Main]);
   const mainContainer = createElement("div", [Selector.MainContainer]);
 
-  const viewHeader = createPageHeader();
+  const viewHeader = createViewHeader();
   const viewBody = createElement("div", [Selector.ViewBody]);
   const pagination = createPagination();
 

@@ -2,10 +2,10 @@ import { Selector, View } from "../../../../types/types";
 import { getFormInputs } from "../../../utils/get-element";
 import { createCarAPI } from "../../../api/create-car";
 import { setTotalPages } from "../pages/page-utils";
-import { updateTotalCars } from "../../../utils/total-cars";
+import { updateTotalCars } from "../../../utils/total-helpers";
 import { appendTrack } from "../tracks/append-tracks";
 import { isLastPage, isEnoughSpace } from "../../../utils/pagination-helpers";
-import { togglePageButtons } from "../pages/toggle-page-buttons";
+import { togglePageButtons } from "../pages/toggle-pagination";
 
 // Handle create
 export async function handleCreateCar(e: Event): Promise<void> {

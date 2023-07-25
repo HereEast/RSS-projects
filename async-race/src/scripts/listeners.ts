@@ -5,11 +5,11 @@ import { renderWinnersView } from "./view/view-winners/render-winners";
 import { handleCreateCar } from "./view/view-garage/handle-create/handle-create";
 import { cancelUpdate } from "./view/view-garage/handle-update/start-update";
 import { handleUpdate } from "./view/view-garage/handle-update/handle-update";
-import { hideUpdateForm } from "./view/view-garage/handle-update/handle-form";
+// import { hideUpdateForm } from "./view/view-garage/handle-update/handle-form";
 import { handleGenerate } from "./view/view-garage/handle-generate/handle-generate";
 import { handlePagination } from "./view/view-garage/pages/handle-pagination";
-import { handleReset } from "./view/view-garage/handle-reset/handle-reset";
-import { handleRace } from "./view/view-garage/handle-start/handle-race";
+import { handleReset } from "./view/view-garage/handle-race/handle-reset";
+import { handleRace } from "./view/view-garage/handle-race/handle-race";
 
 // Listeners
 export function initListeners(): void {
@@ -25,7 +25,7 @@ export function initListeners(): void {
   const buttonRace = getElement(Selector.ButtonRace);
 
   // Events
-  document.addEventListener("click", hideUpdateForm);
+  // document.addEventListener("click", hideUpdateForm);
   garageButton.addEventListener("click", renderGarageView);
   winnersButton.addEventListener("click", renderWinnersView);
   createButton.addEventListener("click", handleCreateCar);

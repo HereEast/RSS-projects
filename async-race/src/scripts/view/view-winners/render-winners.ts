@@ -1,5 +1,4 @@
-import { cleanContent } from "../../utils/helpers";
-import { saveCurrentView, getCurrentView } from "../../utils/save-view";
+import { cleanContent, saveCurrentView, getCurrentView } from "../../utils/helpers";
 import { toggleUIElements } from "../toggle/toggle-elements";
 import { View } from "../../../types/types";
 

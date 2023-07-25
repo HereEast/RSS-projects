@@ -1,5 +1,5 @@
 import { startCarAPI } from "../../../api/drive-car";
-import { Selector } from "../../../../types/types";
+import { Selector, Button } from "../../../../types/types";
 import { getTarget, getElementsArray } from "../../../utils/get-element";
 import { toggleDisable } from "../../../utils/helpers";
 
@@ -54,28 +54,22 @@ export function getCarsIds(): string[] {
   return ids;
 }
 
-// Disable Stop Buttons
-export function disableStopButtons(state: boolean): void {
-  const stopButtons = [...getElementsArray(Selector.ButtonStop)];
+// Disable buttons
+export function disableButtons(buttonName: Button | string, state: boolean): void {
+  const buttons = [...getElementsArray(`.button__${buttonName}`)];
 
-  stopButtons.forEach((button) => {
-    const stopButton = button;
+  buttons.forEach((btn) => {
+    const button = btn;
 
-    if (stopButton instanceof HTMLButtonElement) {
-      stopButton.disabled = state;
+    if (button instanceof HTMLButtonElement) {
+      button.disabled = state;
     }
   });
 }
 
-// Disable Start Buttons
-export function disableStartButtons(state: boolean): void {
-  const startButtons = [...getElementsArray(Selector.ButtonStart)];
-
-  startButtons.forEach((button) => {
-    const startButton = button;
-
-    if (startButton instanceof HTMLButtonElement) {
-      startButton.disabled = state;
-    }
+// Disable all
+export function disableAllButtons(buttons: Button[], state: boolean): void {
+  buttons.forEach((button) => {
+    disableButtons(button, state);
   });
 }
