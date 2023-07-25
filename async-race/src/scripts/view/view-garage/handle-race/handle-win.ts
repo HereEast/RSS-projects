@@ -1,4 +1,4 @@
-import { race } from "./handle-start";
+import { race } from "./animation";
 import { showPopup } from "../popup/show-popup";
 
 // Clean winner
@@ -10,7 +10,7 @@ export function cleanWinner(): void {
 
 // Handle winner
 export function handleWinner(id: string, time: number): void {
-  cleanWinner();
+  // cleanWinner();
 
   if (race.winner.id) return;
 

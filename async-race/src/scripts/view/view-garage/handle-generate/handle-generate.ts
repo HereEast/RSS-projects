@@ -3,7 +3,7 @@ import { getRandomColor } from "./random-color";
 import { getRandomMake } from "./random-make";
 import { updateGarage } from "../render-garage";
 import { getCurrentPage, isEnoughSpace } from "../../../utils/pagination-helpers";
-import { setTotalPages } from "../pages/page-utils";
+import { setTotalPages, togglePageButtons } from "../pages/page-utils";
 import { updateTotalCars } from "../../../utils/total-helpers";
 import { View } from "../../../../types/types";
 
@@ -29,10 +29,11 @@ export async function handleGenerate(e: Event): Promise<void> {
   if (isEnoughSpace()) {
     const page = getCurrentPage(View.Garage);
     await updateGarage(page);
+  } else {
+    updateTotalCars(MAX_ADD);
+    setTotalPages();
+    togglePageButtons();
   }
-
-  updateTotalCars(MAX_ADD);
-  setTotalPages();
 
   console.log("Generate:", localStorage);
 }

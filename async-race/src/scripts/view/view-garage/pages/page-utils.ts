@@ -1,6 +1,8 @@
 import { GARAGE_LIMIT } from "../../../api/constants";
 import { getElement } from "../../../utils/get-element";
-import { Selector } from "../../../../types/types";
+import { Selector, View, Button } from "../../../../types/types";
+import { isLastPage, getCurrentPage } from "../../../utils/pagination-helpers";
+import { disableButton } from "../handle-race/helpers";
 
 // Get total pages
 export function getTotalPages(): number {
@@ -28,8 +30,22 @@ export function setCurrentPage(page: number): void {
   localStorage.setItem("garage-page", String(newPage));
 }
 
+// Toggle page buttons
+export function togglePageButtons(): void {
+  disableButton(Button.Page, false);
+
+  if (getCurrentPage(View.Garage) === 1) {
+    disableButton(Button.Prev, true);
+  }
+
+  if (isLastPage(View.Garage)) {
+    disableButton(Button.Next, true);
+  }
+}
+
 // Update pagination
-export function updatePagination(page: number): void {
+export function setPagination(page: number): void {
   setCurrentPage(page);
   setTotalPages();
+  togglePageButtons();
 }

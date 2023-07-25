@@ -2,11 +2,10 @@ import { View } from "../../../types/types";
 import { getCarsAPI } from "../../api/get-cars";
 import { toggleUIElements } from "../toggle/toggle-elements";
 import { getCurrentPage } from "../../utils/pagination-helpers";
-import { updatePagination } from "./pages/page-utils";
+import { setPagination } from "./pages/page-utils";
 import { saveCurrentView, getCurrentView } from "../../utils/helpers";
 import { setTotalCars } from "../../utils/total-helpers";
 import { appendTracks } from "./tracks/append-tracks";
-import { togglePageButtons } from "./pages/toggle-pagination";
 
 // Update Garage
 export async function updateGarage(page: number): Promise<void> {
@@ -14,8 +13,7 @@ export async function updateGarage(page: number): Promise<void> {
 
   appendTracks(cars);
   setTotalCars(cars.count);
-  updatePagination(page);
-  togglePageButtons();
+  setPagination(page);
 }
 
 // Render Garage view

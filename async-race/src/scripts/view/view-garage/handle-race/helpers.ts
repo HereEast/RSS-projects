@@ -3,6 +3,16 @@ import { Selector, Button } from "../../../../types/types";
 import { getTarget, getElementsArray } from "../../../utils/get-element";
 import { toggleDisable } from "../../../utils/helpers";
 
+// Move to start
+export function moveToStart(): void {
+  const cars = [...getElementsArray(Selector.Car)];
+
+  cars.forEach((carEl) => {
+    const car = carEl;
+    car.style.transform = "translate(0px)";
+  });
+}
+
 // Get drive time
 export async function getDriveTime(id: string): Promise<number> {
   const startData = await startCarAPI(Number(id));
@@ -55,7 +65,7 @@ export function getCarsIds(): string[] {
 }
 
 // Disable buttons
-export function disableButtons(buttonName: Button | string, state: boolean): void {
+export function disableButton(buttonName: Button | string, state: boolean): void {
   const buttons = [...getElementsArray(`.button__${buttonName}`)];
 
   buttons.forEach((btn) => {
@@ -68,8 +78,8 @@ export function disableButtons(buttonName: Button | string, state: boolean): voi
 }
 
 // Disable all
-export function disableAllButtons(buttons: Button[], state: boolean): void {
+export function disableButtons(buttons: Button[], state: boolean): void {
   buttons.forEach((button) => {
-    disableButtons(button, state);
+    disableButton(button, state);
   });
 }

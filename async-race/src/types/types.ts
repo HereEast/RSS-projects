@@ -152,6 +152,7 @@ export interface DriveResult {
 export interface RaceData {
   winner: DriveResult;
   isRace: boolean;
+  reset: boolean;
 }
 
 //

@@ -25,7 +25,7 @@ export async function stopCarAPI(id: number): Promise<StartData> {
 export async function driveCarAPI(id: number): Promise<DriveResponse> {
   const res = await fetch(`${ENGINE_URL}?id=${id}&status=drive`, {
     method: "PATCH",
-  });
+  }).catch();
 
   if (res.status !== 200) {
     return { success: false };

@@ -121,6 +121,15 @@ button.button__track:disabled {
   color: var(--track-button-color);
 }
 
+.button__create:disabled,
+.button__create:disabled:hover,
+.button__generate:disabled,
+.button__generate:disabled:hover {
+  background-color: var(--white);
+  opacity: 0.5;
+  cursor: default;
+}
+
 /**/
 
 @media all and (max-width: 720px) {

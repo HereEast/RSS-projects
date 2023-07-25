@@ -1,6 +1,12 @@
 import { getElement } from "../../../utils/get-element";
 import { Selector, DriveResult } from "../../../../types/types";
 
+// Hide popup
+export function hidePopup(popup?: HTMLElement): void {
+  const openedPopup = popup || getElement(Selector.Popup);
+  openedPopup.classList.remove(Selector.PopupOpen.slice(1));
+}
+
 // Show popup
 export function showPopup(winner: DriveResult): void {
   const popup = getElement(Selector.Popup);
@@ -16,7 +22,7 @@ export function showPopup(winner: DriveResult): void {
 
   popup.classList.add(Selector.PopupOpen.slice(1));
 
-  setTimeout(() => {
-    popup.classList.remove(Selector.PopupOpen.slice(1));
-  }, 2000);
+  // setTimeout(() => {
+  //   hidePopup(popup);
+  // }, 3000);
 }
