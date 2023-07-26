@@ -2,14 +2,6 @@ import { Selector } from "../../../../types/types";
 import { getElementsArray } from "../../../utils/get-element";
 import { getCurrentPage } from "../../../utils/pagination-helpers";
 
-// Get number
-export function getNum(index: number): number {
-  const currentPage = getCurrentPage();
-  const num = (currentPage - 1) * 10 + 1 + index;
-
-  return num;
-}
-
 // Order rows
 export function orderRows(): void {
   function setNumbers(): void {

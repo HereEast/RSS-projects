@@ -19,6 +19,8 @@ export async function updateWinners(sortParams: SortParams): Promise<void> {
 
   const page = Number(sortParams.page);
   setPagination(page);
+
+  console.log(localStorage);
 }
 
 //

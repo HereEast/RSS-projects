@@ -14,6 +14,8 @@ export async function updateGarage(page: number): Promise<void> {
   appendTracks(cars);
   setTotalCount(cars.count);
   setPagination(page);
+
+  console.log(cars);
 }
 
 // Render Garage view

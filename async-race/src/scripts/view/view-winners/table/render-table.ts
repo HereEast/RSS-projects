@@ -6,15 +6,19 @@ import { cleanContent } from "../../../utils/helpers";
 import { createTableHeader } from "./table-header";
 import { createRow } from "./table-row";
 import { orderRows } from "./order-numbers";
+import { updateTotalCount } from "../../../utils/set-total";
 
 // Rows
 export async function appendRows(winners: Winner[]): Promise<HTMLElement> {
   const rowsContainer = createElement("div", [Selector.RowsContainer]);
 
-  winners.forEach(async (winner, idx) => {
+  winners.forEach(async (winner) => {
     const car = await getCarAPI(String(winner.id));
 
-    if (!car.id) return;
+    if (!car.id) {
+      updateTotalCount(-1);
+      return;
+    }
 
     const props = {
       color: car.color,
@@ -24,7 +28,7 @@ export async function appendRows(winners: Winner[]): Promise<HTMLElement> {
       time: Number((winner.time / 1000).toFixed(2)),
     };
 
-    const row = createRow(props, idx);
+    const row = createRow(props);
     rowsContainer.append(row);
   });
 

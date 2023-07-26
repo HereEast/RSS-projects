@@ -5,6 +5,7 @@ import { getCurrentView } from "./helpers";
 // Set total count
 export function setTotalCount(count: number | string): void {
   const view = getCurrentView();
+
   const countElement = getElement(Selector.CurrentCount);
   countElement.textContent = String(count);
 
@@ -12,10 +13,12 @@ export function setTotalCount(count: number | string): void {
 }
 
 // Update count
-export function updateTotalCars(number: number): void {
+export function updateTotalCount(number: number): void {
+  const view = getCurrentView();
+
   const countElement = getElement(Selector.CurrentCount);
   const newCount = `${Number(countElement.textContent) + number}`;
 
   countElement.textContent = newCount;
-  localStorage.setItem("total--garage", newCount);
+  localStorage.setItem(`total--${view}`, newCount);
 }

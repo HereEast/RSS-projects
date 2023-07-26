@@ -23,7 +23,7 @@ export async function handleDelete(e: Event): Promise<void> {
   await updateGarage(page);
 
   hideUpdateForm(e);
-  console.log("Delete:", localStorage);
+  console.log("Delete");
 }
 
 // Buttons
@@ -35,10 +35,21 @@ export function createTrackButtons(): HTMLElement {
   const editBtn = createButton(Button.Edit, [Selector.ButtonTrack, Selector.ButtonEdit]);
   const deleteBtn = createButton(Button.Delete, [Selector.ButtonTrack, Selector.ButtonDelete]);
 
-  editBtn.addEventListener("click", startUpdate);
-  deleteBtn.addEventListener("click", handleDelete);
-  startBtn.addEventListener("click", handleStart);
-  stopBtn.addEventListener("click", handleStop);
+  editBtn.addEventListener("click", async (e) => {
+    await startUpdate(e);
+  });
+
+  deleteBtn.addEventListener("click", async (e) => {
+    await handleDelete(e);
+  });
+
+  startBtn.addEventListener("click", async (e) => {
+    await handleStart(e);
+  });
+
+  stopBtn.addEventListener("click", async (e) => {
+    await handleStop(e);
+  });
 
   stopBtn.disabled = true;
 

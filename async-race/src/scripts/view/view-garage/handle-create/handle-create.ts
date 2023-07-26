@@ -2,7 +2,7 @@ import { Selector } from "../../../../types/types";
 import { getFormInputs } from "../../../utils/get-element";
 import { createCarAPI } from "../../../api/create-car";
 import { setTotalPages, togglePageButtons } from "../../pagination/page-utils";
-import { updateTotalCars } from "../../../utils/set-total";
+import { updateTotalCount } from "../../../utils/set-total";
 import { appendTrack } from "../tracks/append-tracks";
 import { isLastPage, isEnoughSpace } from "../../../utils/pagination-helpers";
 
@@ -26,7 +26,7 @@ export async function handleCreateCar(e: Event): Promise<void> {
     appendTrack(newCar);
   }
 
-  updateTotalCars(1);
+  updateTotalCount(1);
   setTotalPages();
   togglePageButtons();
 

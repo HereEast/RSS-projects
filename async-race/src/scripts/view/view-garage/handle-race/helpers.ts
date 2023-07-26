@@ -2,6 +2,14 @@ import { startCarAPI } from "../../../api/drive-car";
 import { Selector, Button } from "../../../../types/types";
 import { getTarget, getElementsArray } from "../../../utils/get-element";
 import { toggleDisable } from "../../../utils/helpers";
+import { race } from "./animation";
+
+// Clean winner
+export function cleanWinner(): void {
+  race.winner.id = "";
+  race.winner.time = 0;
+  race.isRace = false;
+}
 
 // Move to start
 export function moveToStart(): void {

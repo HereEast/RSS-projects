@@ -1,8 +1,7 @@
 import { getTargetID } from "../../../utils/helpers";
 import { stopCarAPI } from "../../../api/drive-car";
 import { getElement } from "../../../utils/get-element";
-import { toggleControls, disableButtons, getCarsIds, moveToStart } from "./helpers";
-import { cleanWinner } from "../../view-winners/handle-win";
+import { toggleControls, disableButtons, getCarsIds, moveToStart, cleanWinner } from "./helpers";
 import { startAnimation, animation, race } from "./animation";
 import { Button, Selector } from "../../../../types/types";
 import { getCurrentPage } from "../../../utils/pagination-helpers";
