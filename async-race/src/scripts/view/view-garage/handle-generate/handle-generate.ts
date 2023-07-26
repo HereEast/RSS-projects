@@ -6,7 +6,7 @@ import { getCurrentPage, isEnoughSpace } from "../../../utils/pagination-helpers
 import { setTotalPages, togglePageButtons } from "../pages/page-utils";
 import { updateTotalCars } from "../../../utils/set-total";
 
-const MAX_ADD = 2;
+const MAX_ADD = 100;
 
 // Generate 100 cars
 export async function generateCars(n: number): Promise<void> {
