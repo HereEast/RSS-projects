@@ -17,7 +17,7 @@ export async function handleWinner(id: string, time: number): Promise<void> {
   const props: Winner = {
     id: Number(id),
     win: 1,
-    time: Number((time / 1000).toFixed(2)),
+    time: Number(time),
   };
 
   await saveWinnerAPI(props);

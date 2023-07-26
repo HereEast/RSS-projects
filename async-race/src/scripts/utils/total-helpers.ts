@@ -1,12 +1,16 @@
 import { getElement } from "./get-element";
-import { Selector } from "../../types/types";
+import { Selector, View } from "../../types/types";
 
 // Set total count
-export function setTotalCars(count: number | string): void {
+export function setTotalCount(view: View, count: number | string): void {
   const countElement = getElement(Selector.CurrentCount);
   countElement.textContent = String(count);
 
-  localStorage.setItem("totalCars", String(count));
+  if (view === View.Garage) {
+    localStorage.setItem("totalCars", String(count));
+  } else {
+    localStorage.setItem("totalWinners", String(count));
+  }
 }
 
 // Update count

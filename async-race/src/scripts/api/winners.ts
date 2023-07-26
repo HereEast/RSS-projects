@@ -36,7 +36,7 @@ export async function saveWinnerAPI(body: Winner): Promise<Winner> {
 }
 
 // Delete winner
-export async function deleteWinnerAPI(id: string): Promise<void> {
+export async function deleteWinnerAPI(id: string | number): Promise<void> {
   await fetch(`${WINNERS_URL}/${id}`, {
     method: "DELETE",
   }).then((res) => res.json());

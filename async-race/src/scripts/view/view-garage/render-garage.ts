@@ -4,7 +4,7 @@ import { toggleUIElements } from "../toggle/toggle-elements";
 import { getCurrentPage } from "../../utils/pagination-helpers";
 import { setPagination } from "./pages/page-utils";
 import { saveCurrentView, getCurrentView } from "../../utils/helpers";
-import { setTotalCars } from "../../utils/total-helpers";
+import { setTotalCount } from "../../utils/total-helpers";
 import { appendTracks } from "./tracks/append-tracks";
 
 // Update Garage
@@ -12,7 +12,7 @@ export async function updateGarage(page: number): Promise<void> {
   const cars = await getCarsAPI(page);
 
   appendTracks(cars);
-  setTotalCars(cars.count);
+  setTotalCount(View.Garage, cars.count);
   setPagination(page);
 }
 
