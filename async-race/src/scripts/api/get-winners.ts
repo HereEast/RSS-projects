@@ -1,8 +1,8 @@
 import { WINNERS_URL, WINNERS_LIMIT } from "./constants";
-import { WinnersParam, WinnersData, Winner } from "../../types/types";
+import { SortParams, WinnersData, Winner } from "../../types/types";
 
 // Winners
-export async function getWinnersAPI({ page, sort = "id", order = "DESC" }: WinnersParam): Promise<WinnersData> {
+export async function getWinnersAPI({ page, sort = "id", order = "DESC" }: SortParams): Promise<WinnersData> {
   const url = `${WINNERS_URL}?_page=${page}&_limit=${WINNERS_LIMIT}&_sort=${sort}&_order=${order}`;
 
   const res = await fetch(url);

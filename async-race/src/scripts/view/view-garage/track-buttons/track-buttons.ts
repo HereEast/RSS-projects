@@ -1,4 +1,4 @@
-import { Button, Selector, View } from "../../../../types/types";
+import { Button, Selector } from "../../../../types/types";
 import { createElement, createButton } from "../../../utils/create-element";
 import { deleteCarAPI } from "../../../api/create-car";
 import { updateGarage } from "../render-garage";
@@ -11,14 +11,14 @@ import { deleteWinnerAPI } from "../../../api/create-winners";
 
 // Delete
 export async function handleDelete(e: Event): Promise<void> {
-  if (getCurrentPage(View.Garage) === 1 && isLastTrack()) return;
+  if (getCurrentPage() === 1 && isLastTrack()) return;
 
   const id = getTargetID(e);
 
   await deleteCarAPI(id);
   await deleteWinnerAPI(id);
 
-  const currentPage = getCurrentPage(View.Garage);
+  const currentPage = getCurrentPage();
   const page = isLastTrack() ? currentPage - 1 : currentPage;
   await updateGarage(page);
 

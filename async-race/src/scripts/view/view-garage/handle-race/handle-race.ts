@@ -4,7 +4,7 @@ import { getElement } from "../../../utils/get-element";
 import { toggleControls, disableButtons, getCarsIds, moveToStart } from "./helpers";
 import { cleanWinner } from "../../view-winners/handle-win";
 import { startAnimation, animation, race } from "./animation";
-import { Button, Selector, View } from "../../../../types/types";
+import { Button, Selector } from "../../../../types/types";
 import { getCurrentPage } from "../../../utils/pagination-helpers";
 import { updateGarage } from "../render-garage";
 import { togglePageButtons } from "../pages/page-utils";
@@ -69,7 +69,7 @@ export async function handleReset(e: Event): Promise<void> {
   const buttons = [Button.Race, Button.Create, Button.Generate];
   disableButtons(buttons, false);
 
-  const page = getCurrentPage(View.Garage);
+  const page = getCurrentPage();
   await updateGarage(page);
 
   console.log("Reset");

@@ -177,7 +177,7 @@ export interface RaceData {
 export type SortOptions = "id" | "wins" | "time" | string;
 export type OrderOptions = "ASC" | "DESC" | string;
 
-export interface WinnersParam {
+export interface SortParams {
   page: number | string;
   sort: SortOptions;
   order: OrderOptions;

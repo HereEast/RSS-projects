@@ -4,8 +4,7 @@ import { getRandomMake } from "./random-make";
 import { updateGarage } from "../render-garage";
 import { getCurrentPage, isEnoughSpace } from "../../../utils/pagination-helpers";
 import { setTotalPages, togglePageButtons } from "../pages/page-utils";
-import { updateTotalCars } from "../../../utils/total-helpers";
-import { View } from "../../../../types/types";
+import { updateTotalCars } from "../../../utils/set-total";
 
 const MAX_ADD = 2;
 
@@ -27,7 +26,7 @@ export async function handleGenerate(e: Event): Promise<void> {
   await generateCars(MAX_ADD);
 
   if (isEnoughSpace()) {
-    const page = getCurrentPage(View.Garage);
+    const page = getCurrentPage();
     await updateGarage(page);
   } else {
     updateTotalCars(MAX_ADD);

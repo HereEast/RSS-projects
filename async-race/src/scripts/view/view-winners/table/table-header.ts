@@ -1,6 +1,6 @@
 import { createButton, createElement } from "../../../utils/create-element";
-import { Button, Selector, SortOptions, View } from "../../../../types/types";
-import { getSortOrder, saveSortOption } from "../helpers/get-sort-params";
+import { Button, Selector, SortOptions } from "../../../../types/types";
+import { getSortOrder, saveSortOption } from "../sort-params";
 import { getCurrentPage } from "../../../utils/pagination-helpers";
 import { updateWinners } from "../render-winners";
 
@@ -9,7 +9,7 @@ export async function sortWinners(sortOpt: SortOptions): Promise<void> {
   const { sort, order } = getSortOrder(sortOpt);
 
   const newOrder = order === "DESC" ? "ASC" : "DESC";
-  const page = getCurrentPage(View.Winners);
+  const page = getCurrentPage();
 
   saveSortOption(sort, newOrder);
   await updateWinners({ page, sort, order: newOrder });

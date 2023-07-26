@@ -1,8 +1,8 @@
-import { Selector, View } from "../../../../types/types";
+import { Selector } from "../../../../types/types";
 import { getFormInputs } from "../../../utils/get-element";
 import { createCarAPI } from "../../../api/create-car";
 import { setTotalPages, togglePageButtons } from "../pages/page-utils";
-import { updateTotalCars } from "../../../utils/total-helpers";
+import { updateTotalCars } from "../../../utils/set-total";
 import { appendTrack } from "../tracks/append-tracks";
 import { isLastPage, isEnoughSpace } from "../../../utils/pagination-helpers";
 
@@ -22,7 +22,7 @@ export async function handleCreateCar(e: Event): Promise<void> {
 
   const newCar = await createCarAPI({ name, color });
 
-  if (isLastPage(View.Garage) && isEnoughSpace()) {
+  if (isLastPage() && isEnoughSpace()) {
     appendTrack(newCar);
   }
 

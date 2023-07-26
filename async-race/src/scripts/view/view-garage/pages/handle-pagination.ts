@@ -1,4 +1,4 @@
-import { Selector, View } from "../../../../types/types";
+import { Selector } from "../../../../types/types";
 import { getTarget } from "../../../utils/get-element";
 import { getCurrentPage, isFirstPage, isLastPage } from "../../../utils/pagination-helpers";
 import { updateGarage } from "../render-garage";
@@ -11,17 +11,17 @@ export async function handleGaragePages(e: Event): Promise<void> {
   const isNextButton = target.id === Selector.ButtonNext.slice(1);
   const isPrevButton = target.id === Selector.ButtonPrev.slice(1);
 
-  if (isNextButton && isLastPage(View.Garage)) {
+  if (isNextButton && isLastPage()) {
     console.log("Last page");
     return;
   }
 
-  if (isPrevButton && isFirstPage(View.Garage)) {
+  if (isPrevButton && isFirstPage()) {
     console.log("First page");
     return;
   }
 
-  const currentPage = getCurrentPage(View.Garage);
+  const currentPage = getCurrentPage();
   const newPage = isNextButton ? currentPage + 1 : currentPage - 1;
 
   await updateGarage(newPage);

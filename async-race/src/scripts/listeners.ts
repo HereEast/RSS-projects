@@ -8,7 +8,7 @@ import { handleUpdate } from "./view/view-garage/handle-update/handle-update";
 import { handleGenerate } from "./view/view-garage/handle-generate/handle-generate";
 import { handleGaragePages } from "./view/view-garage/pages/handle-pagination";
 import { handleReset, handleRace } from "./view/view-garage/handle-race/handle-race";
-// import { handleWinnersPages } from "./view/view-winners/pages/winners-pages";
+import { handleWinnersPages } from "./view/view-winners/pages/winners-pages";
 
 // Listeners
 export function initListeners(): void {
@@ -39,12 +39,18 @@ export function initPagination(view: View): void {
   const buttonNext = getElement(Selector.ButtonNext);
 
   if (view === View.Garage) {
+    buttonPrev.removeEventListener("click", handleWinnersPages);
+    buttonNext.removeEventListener("click", handleWinnersPages);
+
     buttonPrev.addEventListener("click", handleGaragePages);
     buttonNext.addEventListener("click", handleGaragePages);
   }
 
-  // if (view === View.Winners) {
-  //   buttonPrev.addEventListener("click", handleWinnersPages);
-  //   buttonNext.addEventListener("click", handleWinnersPages);
-  // }
+  if (view === View.Winners) {
+    buttonPrev.removeEventListener("click", handleGaragePages);
+    buttonNext.removeEventListener("click", handleGaragePages);
+
+    buttonPrev.addEventListener("click", handleWinnersPages);
+    buttonNext.addEventListener("click", handleWinnersPages);
+  }
 }

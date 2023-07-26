@@ -1,6 +1,7 @@
 import { getElementsArray } from "./get-element";
-import { Selector, View } from "../../types/types";
+import { Selector } from "../../types/types";
 import { GARAGE_LIMIT } from "../api/constants";
+import { getCurrentView } from "./helpers";
 
 // Last track
 export function isLastTrack(): boolean {
@@ -9,20 +10,22 @@ export function isLastTrack(): boolean {
 }
 
 // Current page
-export function getCurrentPage(view: View): number {
+export function getCurrentPage(): number {
+  const view = getCurrentView();
   const page = localStorage.getItem(`${view}-page`) || 1;
   return Number(page);
 }
 
 // First page
-export function isFirstPage(view: View): boolean {
-  return getCurrentPage(view) === 1;
+export function isFirstPage(): boolean {
+  return getCurrentPage() === 1;
 }
 
 // Last page
-export function isLastPage(view: View): boolean {
+export function isLastPage(): boolean {
+  const view = getCurrentView();
   const currentPage = localStorage.getItem(`${view}-page`);
-  const totalPages = localStorage.getItem("totalPages");
+  const totalPages = localStorage.getItem(`${view}-totalPages`);
 
   return currentPage === totalPages;
 }
