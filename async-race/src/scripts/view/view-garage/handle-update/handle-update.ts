@@ -1,7 +1,7 @@
 import { Selector } from "../../../../types/types";
 import { getFormInputs } from "../../../utils/get-element";
 import { hideUpdateForm } from "./handle-form";
-import { updateCarAPI } from "../../../api/update-car";
+import { updateCarAPI } from "../../../api/create-car";
 import { updateCarUI } from "./update-car-ui";
 import { getSelectedCar } from "./get-selected-car";
 
