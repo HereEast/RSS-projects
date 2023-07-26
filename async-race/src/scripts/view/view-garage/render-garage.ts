@@ -6,16 +6,19 @@ import { setPagination } from "../pagination/page-utils";
 import { saveCurrentView, getCurrentView } from "../../utils/helpers";
 import { setTotalCount } from "../../utils/set-total";
 import { appendTracks } from "./tracks/append-tracks";
+import { generateCars } from "./handle-generate/handle-generate";
 
 // Update Garage
 export async function updateGarage(page: number): Promise<void> {
   const cars = await getCarsAPI(page);
 
+  if (!cars.count) {
+    await generateCars(1);
+  }
+
   appendTracks(cars);
   setTotalCount(cars.count);
   setPagination(page);
-
-  console.log(cars);
 }
 
 // Render Garage view
