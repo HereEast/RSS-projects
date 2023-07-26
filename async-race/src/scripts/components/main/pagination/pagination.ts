@@ -1,5 +1,5 @@
 import { createButton, createElement } from "../../../utils/create-element";
-import { Button, Selector, View } from "../../../../types/types";
+import { Button, Selector } from "../../../../types/types";
 
 // Pagination
 export function createPagination(): HTMLElement {
