@@ -1,10 +1,11 @@
-import { Selector, Winner } from "../../../types/types";
-import { getCarAPI } from "../../api/get-cars";
-import { createElement } from "../../utils/create-element";
-import { getElement } from "../../utils/get-element";
-import { cleanContent } from "../../utils/helpers";
-import { createTableHeader } from "./table/table-header";
-import { createRow } from "./table/table-row";
+import { Selector, Winner } from "../../../../types/types";
+import { getCarAPI } from "../../../api/get-cars";
+import { createElement } from "../../../utils/create-element";
+import { getElement } from "../../../utils/get-element";
+import { cleanContent } from "../../../utils/helpers";
+import { createTableHeader } from "./table-header";
+import { createRow } from "./table-row";
+import { orderRows } from "./order-numbers";
 
 // Rows
 export async function appendRows(winners: Winner[]): Promise<HTMLElement> {
@@ -38,6 +39,8 @@ export async function renderWinnersTable(winners: Winner[]): Promise<HTMLElement
   const table = createElement("div", [Selector.Table]);
   const tableHeader = createTableHeader();
   const rows = await appendRows(winners);
+
+  orderRows();
 
   table.append(tableHeader, rows);
   viewBody.append(table);

@@ -1,4 +1,4 @@
-import { SortOptions, OrderOptions } from "../../../types/types";
+import { SortOptions, OrderOptions } from "../../../../types/types";
 
 // Get sort order
 export function getSortOrder(sortOption: SortOptions): { sort: SortOptions; order: OrderOptions } {

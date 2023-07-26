@@ -89,7 +89,7 @@ export const enum Selector {
   Table = ".table",
   TableHeader = ".table__header",
   RowsContainer = ".rows__container",
-  TableRow = ".table__row",
+  Row = ".row",
   RowItem = ".row__item",
   RowNumber = ".row__number",
   RowCar = ".row__car",

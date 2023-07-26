@@ -7,7 +7,7 @@ import { startAnimation, animation, race } from "./animation";
 import { Button, Selector } from "../../../../types/types";
 import { getCurrentPage } from "../../../utils/pagination-helpers";
 import { updateGarage } from "../render-garage";
-import { togglePageButtons } from "../pages/page-utils";
+import { togglePageButtons } from "../../pagination/page-utils";
 import { hidePopup } from "../popup/show-popup";
 
 export const someCar = {

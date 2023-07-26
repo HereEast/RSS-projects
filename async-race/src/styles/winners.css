@@ -1,4 +1,4 @@
-.table__row,
+.row,
 .table__header {
   width: 100%;
   height: 40px;
@@ -12,7 +12,7 @@
   opacity: 0.5;
 }
 
-.table__row:last-child {
+.row:last-child {
   border-bottom: 1px solid var(--white);
 }
 

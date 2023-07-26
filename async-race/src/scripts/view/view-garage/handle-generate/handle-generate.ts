@@ -3,7 +3,7 @@ import { getRandomColor } from "./random-color";
 import { getRandomMake } from "./random-make";
 import { updateGarage } from "../render-garage";
 import { getCurrentPage, isEnoughSpace } from "../../../utils/pagination-helpers";
-import { setTotalPages, togglePageButtons } from "../pages/page-utils";
+import { setTotalPages, togglePageButtons } from "../../pagination/page-utils";
 import { updateTotalCars } from "../../../utils/set-total";
 
 const MAX_ADD = 100;

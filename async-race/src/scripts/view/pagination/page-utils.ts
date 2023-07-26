@@ -1,9 +1,9 @@
-import { GARAGE_LIMIT, WINNERS_LIMIT } from "../../../api/constants";
-import { getElement } from "../../../utils/get-element";
-import { Selector, View, Button } from "../../../../types/types";
-import { isLastPage, getCurrentPage } from "../../../utils/pagination-helpers";
-import { disableButton } from "../handle-race/helpers";
-import { getCurrentView } from "../../../utils/helpers";
+import { GARAGE_LIMIT, WINNERS_LIMIT } from "../../api/constants";
+import { getElement } from "../../utils/get-element";
+import { Selector, View, Button } from "../../../types/types";
+import { isLastPage, getCurrentPage } from "../../utils/pagination-helpers";
+import { disableButton } from "../view-garage/handle-race/helpers";
+import { getCurrentView } from "../../utils/helpers";
 
 // Get total pages
 export function getTotalPages(): number {
@@ -18,6 +18,7 @@ export function getTotalPages(): number {
 // Set total pages
 export function setTotalPages(): void {
   const view = getCurrentView();
+
   const totalPagesElement = getElement(Selector.TotalPages);
   const totalPages = String(getTotalPages());
 
@@ -28,6 +29,7 @@ export function setTotalPages(): void {
 // Save page
 export function setCurrentPage(page: number): void {
   const view = getCurrentView();
+
   const pageElement = getElement(Selector.CurrentPage);
   const newPage = page || 1;
 

@@ -3,11 +3,10 @@ import { toggleUIElements } from "../toggle/toggle-elements";
 import { View, SortParams } from "../../../types/types";
 import { getCurrentPage } from "../../utils/pagination-helpers";
 import { getWinnersAPI } from "../../api/get-winners";
-import { renderWinnersTable } from "./render-table";
+import { renderWinnersTable } from "./table/render-table";
 import { setTotalCount } from "../../utils/set-total";
-import { initPagination } from "../../listeners";
-import { getCurrentSort, getSortOrder } from "./sort-params";
-import { setPagination } from "../view-garage/pages/page-utils";
+import { getCurrentSort, getSortOrder } from "./sort/sort-params";
+import { setPagination } from "../pagination/page-utils";
 
 //
 // Update winners
@@ -16,7 +15,6 @@ export async function updateWinners(sortParams: SortParams): Promise<void> {
   const { cars: winners, count } = await getWinnersAPI(sortParams);
 
   await renderWinnersTable(winners);
-
   setTotalCount(count);
 
   const page = Number(sortParams.page);
@@ -31,7 +29,6 @@ export async function renderWinnersView(e?: Event): Promise<void> {
 
   saveCurrentView(View.Winners);
   toggleUIElements(View.Winners);
-  initPagination(View.Winners);
 
   const page = getCurrentPage();
   const currentSort = getCurrentSort();

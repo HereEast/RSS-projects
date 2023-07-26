@@ -1,19 +1,6 @@
 import { createButton, createElement } from "../../../utils/create-element";
-import { Button, Selector, SortOptions } from "../../../../types/types";
-import { getSortOrder, saveSortOption } from "../sort-params";
-import { getCurrentPage } from "../../../utils/pagination-helpers";
-import { updateWinners } from "../render-winners";
-
-// Sort winners
-export async function sortWinners(sortOpt: SortOptions): Promise<void> {
-  const { sort, order } = getSortOrder(sortOpt);
-
-  const newOrder = order === "DESC" ? "ASC" : "DESC";
-  const page = getCurrentPage();
-
-  saveSortOption(sort, newOrder);
-  await updateWinners({ page, sort, order: newOrder });
-}
+import { Button, Selector } from "../../../../types/types";
+import { sortWinners } from "../sort/sort-table";
 
 // Table header
 export function createTableHeader(): HTMLElement {
@@ -24,8 +11,6 @@ export function createTableHeader(): HTMLElement {
 
   const nameContainer = createElement("div", [Selector.RowCar]);
   const nameSpan = createElement("span", [], "Car");
-  const buttonSortIds = createButton(Button.SortIds, [Selector.ButtonSortIds]);
-  buttonSortIds.textContent = "";
 
   const winsContainer = createElement("div", [Selector.RowWins]);
   const winsSpan = createElement("span", [], "Wins");
@@ -37,11 +22,15 @@ export function createTableHeader(): HTMLElement {
   const buttonSortTime = createButton(Button.SortTime, [Selector.ButtonSortTime]);
   buttonSortTime.textContent = "";
 
-  buttonSortTime.addEventListener("click", () => sortWinners("time"));
-  buttonSortWins.addEventListener("click", () => sortWinners("wins"));
-  buttonSortIds.addEventListener("click", () => sortWinners("id"));
+  buttonSortTime.addEventListener("click", async () => {
+    await sortWinners("time");
+  });
 
-  nameContainer.append(nameSpan, buttonSortIds);
+  buttonSortWins.addEventListener("click", async () => {
+    await sortWinners("wins");
+  });
+
+  nameContainer.append(nameSpan);
   winsContainer.append(winsSpan, buttonSortWins);
   timeContainer.append(timeSpan, buttonSortTime);
 

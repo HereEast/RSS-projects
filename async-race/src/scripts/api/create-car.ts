@@ -17,7 +17,7 @@ export async function createCarAPI(body: NewCar): Promise<Car> {
 }
 
 // Update
-export async function updateCarAPI(id: number, body: NewCar): Promise<Car> {
+export async function updateCarAPI(id: number | string, body: NewCar): Promise<Car> {
   const res = await fetch(`${GARAGE_URL}/${id}`, {
     method: "PUT",
     body: JSON.stringify(body),
@@ -32,7 +32,7 @@ export async function updateCarAPI(id: number, body: NewCar): Promise<Car> {
 }
 
 // Get cars
-export async function deleteCarAPI(id: string): Promise<void> {
+export async function deleteCarAPI(id: string | number): Promise<void> {
   const res = await fetch(`${GARAGE_URL}/${id}`, {
     method: "DELETE",
   });
