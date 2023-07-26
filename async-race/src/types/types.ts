@@ -96,6 +96,9 @@ export const enum Selector {
   RowColor = ".row__color",
   RowWins = ".row__wins",
   RowTime = ".row__time",
+  ButtonSortWins = ".button__sort--wins",
+  ButtonSortTime = ".button__sort--time",
+  ButtonSortIds = ".button__sort--ids",
 }
 
 // Buttons
@@ -115,6 +118,9 @@ export const enum Button {
   Page = "page",
   Prev = "prev",
   Next = "next",
+  SortWin = "sort--wins",
+  SortTime = "sort--time",
+  SortIds = "sort--ids",
 }
 
 // Button State
@@ -168,10 +174,13 @@ export interface RaceData {
 
 // WINNERS
 
+export type SortOptions = "id" | "wins" | "time" | string;
+export type OrderOptions = "ASC" | "DESC" | string;
+
 export interface WinnersParam {
-  page: number;
-  // sort: "id" | "wins" | "time";
-  // order: "ASC" | "DESC";
+  page: number | string;
+  sort: SortOptions;
+  order: OrderOptions;
 }
 
 export interface Winner {

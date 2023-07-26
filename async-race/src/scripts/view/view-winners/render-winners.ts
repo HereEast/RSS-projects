@@ -1,20 +1,24 @@
-import { cleanContent, saveCurrentView, getCurrentView } from "../../utils/helpers";
+import { saveCurrentView, getCurrentView } from "../../utils/helpers";
 import { toggleUIElements } from "../toggle/toggle-elements";
-import { View } from "../../../types/types";
+import { View, WinnersParam } from "../../../types/types";
 import { getCurrentPage } from "../../utils/pagination-helpers";
 import { getWinnersAPI } from "../../api/get-winners";
-import { appendWinners } from "./append-winners";
+import { renderWinnersTable } from "./render-table";
 import { setTotalCount } from "../../utils/total-helpers";
+// import { initPagination } from "../../listeners";
+// import { initSortButtons } from "./init-sort";
+import { getSortOrder } from "./helpers/get-sort-params";
 
 //
-export async function updateWinners(page: number): Promise<void> {
-  const { cars: winners, count } = await getWinnersAPI({ page });
+// Update winners
+//
+export async function updateWinners(sortParams: WinnersParam): Promise<void> {
+  const { cars: winners, count } = await getWinnersAPI(sortParams);
 
-  console.log(winners);
-  // await deleteWinnerAPI(178);
+  await renderWinnersTable(winners);
 
-  await appendWinners(winners);
   setTotalCount(View.Winners, count);
+  // initPagination(View.Winners);
 }
 
 //
@@ -23,12 +27,13 @@ export async function updateWinners(page: number): Promise<void> {
 export async function renderWinnersView(e?: Event): Promise<void> {
   if (e && getCurrentView() === View.Winners) return;
 
-  cleanContent();
+  saveCurrentView(View.Winners);
   toggleUIElements(View.Winners);
-  saveCurrentView("winners");
 
   const page = getCurrentPage(View.Winners);
-  await updateWinners(page);
+  const { sort, order } = getSortOrder("id");
+
+  await updateWinners({ page, sort, order });
 
   console.log("🙂 Winner View");
 }

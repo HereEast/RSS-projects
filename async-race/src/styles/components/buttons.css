@@ -130,6 +130,29 @@ button.button__track:disabled {
   cursor: default;
 }
 
+/* Sort */
+
+button.button__sort--wins,
+button.button__sort--time,
+button.button__sort--ids {
+  padding: 0 2px 0 1px;
+  width: 15px;
+  height: 24px;
+  border-radius: 10px;
+
+  background-color: var(--black-light);
+  background-image: url("../../assets/sort.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 50%;
+}
+
+button.button__sort--wins:hover,
+button.button__sort--time:hover,
+button.button__sort--ids:hover {
+  background-image: url("../../assets/sort-black.svg");
+}
+
 /**/
 
 @media all and (max-width: 720px) {

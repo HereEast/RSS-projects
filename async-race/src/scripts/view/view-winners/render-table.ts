@@ -3,10 +3,11 @@ import { getCarAPI } from "../../api/get-cars";
 import { createElement } from "../../utils/create-element";
 import { getElement } from "../../utils/get-element";
 import { cleanContent } from "../../utils/helpers";
-import { createTableHeader, createRow } from "./table/table";
+import { createTableHeader } from "./table/table-header";
+import { createRow } from "./table/table-row";
 
 // Rows
-export async function createRows(winners: Winner[]): Promise<HTMLElement> {
+export async function appendRows(winners: Winner[]): Promise<HTMLElement> {
   const rowsContainer = createElement("div", [Selector.RowsContainer]);
 
   winners.forEach(async (winner, idx) => {
@@ -30,13 +31,13 @@ export async function createRows(winners: Winner[]): Promise<HTMLElement> {
 }
 
 // Render tracks
-export async function appendWinners(winners: Winner[]): Promise<HTMLElement> {
+export async function renderWinnersTable(winners: Winner[]): Promise<HTMLElement> {
   const viewBody = getElement(Selector.ViewBody);
   cleanContent(viewBody);
 
   const table = createElement("div", [Selector.Table]);
   const tableHeader = createTableHeader();
-  const rows = await createRows(winners);
+  const rows = await appendRows(winners);
 
   table.append(tableHeader, rows);
   viewBody.append(table);

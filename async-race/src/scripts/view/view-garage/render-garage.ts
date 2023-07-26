@@ -6,6 +6,7 @@ import { setPagination } from "./pages/page-utils";
 import { saveCurrentView, getCurrentView } from "../../utils/helpers";
 import { setTotalCount } from "../../utils/total-helpers";
 import { appendTracks } from "./tracks/append-tracks";
+// import { initPagination } from "../../listeners";
 
 // Update Garage
 export async function updateGarage(page: number): Promise<void> {
@@ -23,9 +24,10 @@ export async function renderGarageView(e?: Event): Promise<void> {
   saveCurrentView(View.Garage);
   toggleUIElements(View.Garage);
 
+  // initPagination(View.Garage);
+
   const page = getCurrentPage(View.Garage);
   await updateGarage(page);
 
-  console.log("Render:", localStorage);
   console.log("🙂 Garage View");
 }

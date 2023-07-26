@@ -19,7 +19,7 @@ export function createElement(tag: string, classNames?: ClassNames, text?: strin
 }
 
 // BUTTON//
-export function createButton(name: Button, classNames?: ClassNames): HTMLButtonElement {
+export function createButton(name: Button | string, classNames?: ClassNames): HTMLButtonElement {
   const button = createElement("button", classNames, name);
 
   if (!(button instanceof HTMLButtonElement)) {
