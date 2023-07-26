@@ -12,7 +12,7 @@ export function createRow(winner: TableData): HTMLElement {
   colorContainer.append(color);
 
   const name = createElement("span", [Selector.RowCar], winner.name);
-  const wins = createElement("span", [Selector.RowWins], String(winner.win));
+  const wins = createElement("span", [Selector.RowWins], String(winner.win || 1));
   const time = createElement("span", [Selector.RowTime], String(winner.time));
 
   color.style.backgroundColor = winner.color;
