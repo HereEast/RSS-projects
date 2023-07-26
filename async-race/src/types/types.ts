@@ -85,6 +85,17 @@ export const enum Selector {
   PopupMessage = ".popup__message",
   PopupWinner = ".popup__winner",
   PopupTime = ".popup__time",
+  // Winners
+  Table = ".table",
+  TableHeader = ".table__header",
+  RowsContainer = ".rows__container",
+  TableRow = ".table__row",
+  RowItem = ".row__item",
+  RowNumber = ".row__number",
+  RowCar = ".row__car",
+  RowColor = ".row__color",
+  RowWins = ".row__wins",
+  RowTime = ".row__time",
 }
 
 // Buttons
@@ -153,6 +164,34 @@ export interface RaceData {
   winner: DriveResult;
   isRace: boolean;
   reset: boolean;
+}
+
+// WINNERS
+
+export interface WinnersParam {
+  page: number;
+  // sort: "id" | "wins" | "time";
+  // order: "ASC" | "DESC";
+}
+
+export interface Winner {
+  id: number;
+  win: number;
+  time: number;
+}
+
+export interface WinnersData {
+  cars: Winner[];
+  count: string;
+}
+
+// Table
+export interface TableData {
+  color: string;
+  name: string;
+  win: number;
+  time: number;
+  id: number;
 }
 
 //

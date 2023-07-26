@@ -15,14 +15,10 @@ export function showPopup(winner: DriveResult): void {
   const timeElement = getElement(Selector.PopupTime);
 
   const name = getElement(`#car__name--${winner.id}`).textContent;
-  const time = Number(winner.time / 1000).toFixed(3);
+  const time = Number(winner.time / 1000).toFixed(2);
 
   winnerElement.textContent = name;
   timeElement.textContent = `${time} sec`;
 
   popup.classList.add(Selector.PopupOpen.slice(1));
-
-  // setTimeout(() => {
-  //   hidePopup(popup);
-  // }, 3000);
 }

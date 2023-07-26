@@ -2,7 +2,7 @@ import { getTargetID } from "../../../utils/helpers";
 import { stopCarAPI } from "../../../api/drive-car";
 import { getElement } from "../../../utils/get-element";
 import { toggleControls, disableButtons, getCarsIds, moveToStart } from "./helpers";
-import { cleanWinner } from "./handle-win";
+import { cleanWinner } from "../../view-winners/handle-win";
 import { startAnimation, animation, race } from "./animation";
 import { Button, Selector, View } from "../../../../types/types";
 import { getCurrentPage } from "../../../utils/pagination-helpers";

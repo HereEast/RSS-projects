@@ -1,0 +1,54 @@
+.table__row,
+.table__header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 10px 0;
+  border-top: 1px solid var(--white);
+}
+
+.table__header span {
+  opacity: 0.5;
+}
+
+.table__row:last-child {
+  border-bottom: 1px solid var(--white);
+}
+
+.table span {
+  display: flex;
+  font-size: 14px;
+}
+
+.row__number {
+  width: 30px;
+}
+
+.row__car {
+  flex-grow: 1;
+  margin-left: 20px;
+}
+
+.row__wins {
+  margin-left: 20px;
+  justify-content: flex-end;
+}
+
+.row__time {
+  width: 50px;
+  margin-left: 20px;
+  justify-content: flex-end;
+}
+
+.rows__header .span__color,
+.color__container {
+  width: 40px;
+  display: flex;
+  justify-content: center;
+}
+
+.rows__container .row__color {
+  width: 20px;
+  height: 20px;
+  border-radius: 20px;
+}

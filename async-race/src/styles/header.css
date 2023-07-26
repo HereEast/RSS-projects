@@ -20,12 +20,10 @@
   position: relative;
   border-radius: 60px;
 
+  background-color: var(--black-light);
+
   cursor: pointer;
   transition: all 0.2s ease-in;
-}
-
-.header__buttons:hover {
-  background-color: var(--black-light);
 }
 
 .bubble {
