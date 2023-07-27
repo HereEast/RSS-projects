@@ -17,7 +17,13 @@ export async function handleWinner(id: string, time: number): Promise<void> {
   const winnerInWinners = await getWinnerAPI(id);
 
   if (winnerInWinners.id) {
-    const bestTime = winnerInWinners.time > time ? winnerInWinners.time : time;
+    let bestTime = 0;
+    if (winnerInWinners.time > time) {
+      bestTime = time;
+    } else {
+      bestTime = winnerInWinners.time;
+    }
+
     const winCount = winnerInWinners.win + 1;
 
     await updateWinnerAPI(id, { win: winCount, time: bestTime });

@@ -148,7 +148,7 @@ export interface NewCar {
 
 // Start
 export interface Start {
-  success: boolean
+  success: boolean;
 }
 
 // Drive
@@ -169,7 +169,6 @@ export interface DriveResult {
 export interface RaceData {
   winner: DriveResult;
   isRace: boolean;
-  reset: boolean;
 }
 
 // WINNERS

@@ -15,7 +15,6 @@ export const race: RaceData = {
     time: 0,
   },
   isRace: false,
-  reset: false,
 };
 
 // Handle drive
@@ -52,8 +51,9 @@ export async function startAnimation(id: string): Promise<void> {
     }
 
     if (startX >= dist) {
-      console.log("Finish data:", race.winner, race.isRace);
+      // console.log("Finish data:", time, race.winner.time);
       if (!race.winner.id && race.isRace) {
+        // console.log(time, race.winner.time);
         handleWinner(id, time);
       }
 
