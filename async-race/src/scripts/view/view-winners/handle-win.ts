@@ -18,6 +18,7 @@ export async function handleWinner(id: string, time: number): Promise<void> {
 
   if (winnerInWinners.id) {
     let bestTime = 0;
+
     if (winnerInWinners.time > time) {
       bestTime = time;
     } else {
