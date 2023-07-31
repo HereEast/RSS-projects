@@ -1,6 +1,5 @@
-YouTube: https://youtu.be/Pxww1WaqPRc
-Slides: 
-Transcript: https://docs.google.com/document/d/1pWVeweTtD9h8itk3WRxrUKmP9A5gAVF_dAY3ckvy4tM/edit?usp=sharing
+[YouTube](https://youtu.be/Pxww1WaqPRc)
+[Transcript] (https://docs.google.com/document/d/1pWVeweTtD9h8itk3WRxrUKmP9A5gAVF_dAY3ckvy4tM/edit?usp=sharing)
 
 
 # WebGL/Three.js (Transcript)
