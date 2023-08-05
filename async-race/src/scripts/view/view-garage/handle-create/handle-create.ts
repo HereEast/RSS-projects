@@ -6,7 +6,6 @@ import { updateTotalCount } from "../../../utils/set-total";
 import { appendTrack } from "../tracks/append-tracks";
 import { isLastPage, isEnoughSpace } from "../../../utils/pagination-helpers";
 
-// Handle create
 export async function handleCreateCar(e: Event): Promise<void> {
   e.preventDefault();
 
@@ -31,6 +30,4 @@ export async function handleCreateCar(e: Event): Promise<void> {
   togglePageButtons();
 
   inputText.value = "";
-
-  console.log("Create:", localStorage);
 }

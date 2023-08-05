@@ -9,7 +9,6 @@ import { handleGenerate } from "./view/view-garage/handle-generate/handle-genera
 import { handleReset, handleRace } from "./view/view-garage/handle-race/handle-race";
 import { handlePagination } from "./view/pagination/handle-pagination";
 
-// Init pagination
 export function initPagination(): void {
   const buttonPrev = getElement(Selector.ButtonPrev);
   const buttonNext = getElement(Selector.ButtonNext);
@@ -18,7 +17,6 @@ export function initPagination(): void {
   buttonNext.addEventListener("click", handlePagination);
 }
 
-// Listeners
 export function initListeners(): void {
   const buttonGarage = getElement(Selector.ButtonGarage);
   const buttonWinners = getElement(Selector.ButtonWinners);
@@ -29,7 +27,6 @@ export function initListeners(): void {
   const buttonReset = getElement(Selector.ButtonReset);
   const buttonRace = getElement(Selector.ButtonRace);
 
-  // Events
   buttonGarage.addEventListener("click", renderGarageView);
   buttonWinners.addEventListener("click", renderWinnersView);
   buttonCreate.addEventListener("click", handleCreateCar);

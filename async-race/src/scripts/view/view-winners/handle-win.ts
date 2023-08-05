@@ -3,7 +3,6 @@ import { showPopup } from "../view-garage/popup/show-popup";
 import { saveWinnerAPI, updateWinnerAPI, getWinnerAPI } from "../../api/winners-api";
 import { Winner } from "../../../types/types";
 
-// Handle winner
 export async function handleWinner(id: string, time: number): Promise<void> {
   if (race.winner.id) return;
 

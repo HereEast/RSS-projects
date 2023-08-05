@@ -1,7 +1,6 @@
 import { getElement, getClosest, getTarget } from "./get-element";
 import { Selector } from "../../types/types";
 
-// Clean content
 export function cleanContent(element?: HTMLElement): void {
   const parentElement = element || getElement(Selector.ViewBody);
 
@@ -10,13 +9,11 @@ export function cleanContent(element?: HTMLElement): void {
   });
 }
 
-// Random index
 export function getRandomIndex<T>(array: Array<T>): number {
   const index = Math.floor(Math.random() * array.length);
   return index;
 }
 
-// Toggle disable button
 export function toggleDisable(button: HTMLElement | HTMLButtonElement): void {
   const buttonElement = button;
 
@@ -25,7 +22,6 @@ export function toggleDisable(button: HTMLElement | HTMLButtonElement): void {
   }
 }
 
-// Get target ID
 export function getTargetID(e: Event): string {
   const target = getTarget(e);
   const track = getClosest(target, Selector.Track);
@@ -38,7 +34,6 @@ export function getTargetID(e: Event): string {
   return id;
 }
 
-// Save current view
 export function saveCurrentView(currentView = "garage"): void {
   document.body.className = "";
   document.body.classList.add(currentView);
@@ -46,7 +41,6 @@ export function saveCurrentView(currentView = "garage"): void {
   localStorage.setItem("view", currentView);
 }
 
-// Get current view
 export function getCurrentView(): string {
   return window.localStorage.getItem("view") ?? "";
 }

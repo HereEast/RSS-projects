@@ -1,7 +1,6 @@
 import { createElement } from "../../../utils/create-element";
 import { Selector } from "../../../../types/types";
 
-// Count element
 export function createCountElement(n: number = 0): HTMLElement {
   const countContainer = createElement("div", [Selector.CarsCount]);
   const openBr = createElement("span", [], "(");

@@ -2,7 +2,6 @@ import { Selector } from "../../../../types/types";
 import { getElementsArray } from "../../../utils/get-element";
 import { getCurrentPage } from "../../../utils/pagination-helpers";
 
-// Order rows
 export function orderRows(): void {
   function setNumbers(): void {
     const numberSpans = getElementsArray(`${Selector.RowsContainer} ${Selector.RowNumber}`);

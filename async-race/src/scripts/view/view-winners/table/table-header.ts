@@ -2,7 +2,6 @@ import { createButton, createElement } from "../../../utils/create-element";
 import { Button, Selector } from "../../../../types/types";
 import { sortWinners } from "../sort/sort-table";
 
-// Table header
 export function createTableHeader(): HTMLElement {
   const header = createElement("div", [Selector.TableHeader]);
 

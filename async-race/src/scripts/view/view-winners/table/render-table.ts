@@ -8,7 +8,6 @@ import { createRow } from "./table-row";
 import { orderRows } from "./order-numbers";
 import { updateTotalCount } from "../../../utils/set-total";
 
-// Rows
 export async function appendRows(winners: Winner[]): Promise<HTMLElement> {
   const rowsContainer = createElement("div", [Selector.RowsContainer]);
 
@@ -35,7 +34,6 @@ export async function appendRows(winners: Winner[]): Promise<HTMLElement> {
   return rowsContainer;
 }
 
-// Render tracks
 export async function renderWinnersTable(winners: Winner[]): Promise<HTMLElement> {
   const viewBody = getElement(Selector.ViewBody);
   cleanContent(viewBody);

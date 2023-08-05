@@ -1,7 +1,6 @@
 import { createButton, createElement } from "../../../utils/create-element";
 import { Selector, Button } from "../../../../types/types";
 
-// Garage buttons
 export function createGarageButtons(): HTMLElement {
   const container = createElement("div", [Selector.ViewButtons]);
 

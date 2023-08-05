@@ -1,6 +1,5 @@
 import { SVGElement, Selector, Button, ClassNames } from "../../types/types";
 
-// HTML
 export function createElement(tag: string, classNames?: ClassNames, text?: string): HTMLElement {
   const element = document.createElement(tag);
 
@@ -18,7 +17,6 @@ export function createElement(tag: string, classNames?: ClassNames, text?: strin
   return element;
 }
 
-// BUTTON//
 export function createButton(name: Button | string, classNames?: ClassNames): HTMLButtonElement {
   const button = createElement("button", classNames, name);
 
@@ -34,7 +32,6 @@ export function createButton(name: Button | string, classNames?: ClassNames): HT
   return button;
 }
 
-// INPUT
 export function createInput(type: string, action: Button): HTMLInputElement {
   const input = createElement("input", [`.input-${type}`]);
 
@@ -49,7 +46,6 @@ export function createInput(type: string, action: Button): HTMLInputElement {
   return input;
 }
 
-// LINK
 export function createLink(text: string, url: string, classNames?: ClassNames): HTMLAnchorElement {
   const link = createElement("a", classNames, text);
 
@@ -62,7 +58,6 @@ export function createLink(text: string, url: string, classNames?: ClassNames): 
   return link;
 }
 
-// SVG
 export function createSVG(params: SVGElement): HTMLElement {
   const div = createElement("div", [params.divClass]);
 

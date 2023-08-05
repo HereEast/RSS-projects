@@ -3,7 +3,6 @@ import { Selector } from "../../../../types/types";
 import { createCountElement } from "./count-element";
 import { createGarageButtons } from "./garage-buttons";
 
-// Page header
 export function createViewHeader(): HTMLElement {
   const header = createElement("div", [Selector.ViewHeader]);
 

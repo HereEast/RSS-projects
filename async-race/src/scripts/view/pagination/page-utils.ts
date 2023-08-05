@@ -5,7 +5,6 @@ import { isLastPage, getCurrentPage } from "../../utils/pagination-helpers";
 import { disableButton } from "../view-garage/handle-race/helpers";
 import { getCurrentView } from "../../utils/helpers";
 
-// Get total pages
 export function getTotalPages(): number {
   const view = getCurrentView();
 
@@ -15,7 +14,6 @@ export function getTotalPages(): number {
   return totalPages;
 }
 
-// Set total pages
 export function setTotalPages(): void {
   const view = getCurrentView();
 
@@ -26,7 +24,6 @@ export function setTotalPages(): void {
   localStorage.setItem(`${view}-totalPages`, totalPages);
 }
 
-// Save page
 export function setCurrentPage(page: number): void {
   const view = getCurrentView();
 
@@ -37,7 +34,6 @@ export function setCurrentPage(page: number): void {
   localStorage.setItem(`${view}-page`, String(newPage));
 }
 
-// Toggle page buttons
 export function togglePageButtons(): void {
   disableButton(Button.Page, false);
 
@@ -50,7 +46,6 @@ export function togglePageButtons(): void {
   }
 }
 
-// Update pagination
 export function setPagination(page: number): void {
   setCurrentPage(page);
   setTotalPages();

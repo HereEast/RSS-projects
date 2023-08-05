@@ -5,7 +5,6 @@ import { updateCarAPI } from "../../../api/cars-api";
 import { updateCarUI } from "./update-car-ui";
 import { getSelectedCar } from "./get-selected-car";
 
-// Handle update
 export async function handleUpdate(e: Event): Promise<void> {
   e.preventDefault();
 

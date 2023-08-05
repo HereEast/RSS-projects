@@ -4,7 +4,6 @@ import { getDriveTime, getDistance } from "./helpers";
 import { getElement } from "../../../utils/get-element";
 import { handleWinner } from "../../view-winners/handle-win";
 
-//
 export const animation = {
   id: 0,
 };
@@ -17,7 +16,6 @@ export const race: RaceData = {
   isRace: false,
 };
 
-// Handle drive
 export async function controlDrive(id: string): Promise<boolean> {
   const { success } = await driveCarAPI(Number(id));
 
@@ -31,7 +29,6 @@ export async function controlDrive(id: string): Promise<boolean> {
   return success;
 }
 
-// Start animation
 export async function startAnimation(id: string): Promise<void> {
   const car = getElement(`#car--${id}`);
 
@@ -51,9 +48,7 @@ export async function startAnimation(id: string): Promise<void> {
     }
 
     if (startX >= dist) {
-      // console.log("Finish data:", time, race.winner.time);
       if (!race.winner.id && race.isRace) {
-        // console.log(time, race.winner.time);
         handleWinner(id, time);
       }
 

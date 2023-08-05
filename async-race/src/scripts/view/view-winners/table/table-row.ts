@@ -1,7 +1,6 @@
 import { createElement } from "../../../utils/create-element";
 import { Selector, TableData } from "../../../../types/types";
 
-// Create row
 export function createRow(winner: TableData): HTMLElement {
   const row = createElement("div", [Selector.Row]);
   row.id = `row--${winner.id}`;

@@ -4,14 +4,12 @@ import { getTarget, getElementsArray } from "../../../utils/get-element";
 import { toggleDisable } from "../../../utils/helpers";
 import { race } from "./animation";
 
-// Clean winner
 export function cleanWinner(): void {
   race.winner.id = "";
   race.winner.time = 0;
   race.isRace = false;
 }
 
-// Move to start
 export function moveToStart(): void {
   const cars = [...getElementsArray(Selector.Car)];
 
@@ -21,7 +19,6 @@ export function moveToStart(): void {
   });
 }
 
-// Get drive time
 export async function getDriveTime(id: string): Promise<number> {
   const startData = await startCarAPI(Number(id));
   const time = startData.distance / startData.velocity;
@@ -29,14 +26,12 @@ export async function getDriveTime(id: string): Promise<number> {
   return time;
 }
 
-// Get distance
 export function getDistance(): number {
   const windowWidth = document.body.clientWidth;
   const padding = windowWidth > 550 ? 20 * 2 : 15 * 2;
   return windowWidth - padding;
 }
 
-// Get start button
 export function getSiblingButton(button: HTMLElement): HTMLButtonElement {
   const isStopButton = button.classList.contains(Selector.ButtonStop.slice(1));
   const sibling = isStopButton ? button.previousElementSibling : button.nextElementSibling;
@@ -48,7 +43,6 @@ export function getSiblingButton(button: HTMLElement): HTMLButtonElement {
   return sibling;
 }
 
-// Toggle controls
 export function toggleControls(e: Event): void {
   const targetButton = getTarget(e);
   const siblingButton = getSiblingButton(targetButton);
@@ -57,7 +51,6 @@ export function toggleControls(e: Event): void {
   toggleDisable(siblingButton);
 }
 
-// Get all ids
 export function getCarsIds(): string[] {
   const tracks = [...getElementsArray(Selector.Track)];
   const ids = tracks.map((track) => {
@@ -72,7 +65,6 @@ export function getCarsIds(): string[] {
   return ids;
 }
 
-// Disable buttons
 export function disableButton(buttonName: Button | string, state: boolean): void {
   const buttons = [...getElementsArray(`.button__${buttonName}`)];
 
@@ -85,7 +77,6 @@ export function disableButton(buttonName: Button | string, state: boolean): void
   });
 }
 
-// Disable all
 export function disableButtons(buttons: Button[], state: boolean): void {
   buttons.forEach((button) => {
     disableButton(button, state);

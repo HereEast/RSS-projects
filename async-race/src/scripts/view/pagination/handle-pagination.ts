@@ -6,7 +6,6 @@ import { getCurrentSort, getSortOrder } from "../view-winners/sort/sort-params";
 import { updateWinners } from "../view-winners/render-winners";
 import { getCurrentView } from "../../utils/helpers";
 
-// Handle pagination
 export async function handlePagination(e: Event): Promise<void> {
   const target = getTarget(e);
 

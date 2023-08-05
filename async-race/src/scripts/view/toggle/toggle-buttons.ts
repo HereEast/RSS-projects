@@ -1,7 +1,6 @@
 import { getElement, getElementsArray } from "../../utils/get-element";
 import { Button, Selector, View } from "../../../types/types";
 
-// TOGGLE BUTTON
 export function toggleViewButton(view: View): void {
   const bubble = getElement(Selector.Bubble);
 

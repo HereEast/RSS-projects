@@ -3,7 +3,6 @@ import { createFooter } from "./footer/footer";
 import { createMain } from "./main/main";
 import { createWinPopup } from "./main/popup/popup";
 
-// Render App
 export function renderApp(): void {
   const header = createHeader();
   const main = createMain();

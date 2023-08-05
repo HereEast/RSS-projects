@@ -9,13 +9,6 @@ import { updateGarage } from "../render-garage";
 import { togglePageButtons } from "../../pagination/page-utils";
 import { hidePopup } from "../popup/show-popup";
 
-export const someCar = {
-  isMoving: false,
-};
-
-//
-// HANDLE START
-//
 export async function handleStart(e: Event): Promise<void> {
   const id = getTargetID(e);
   const car = getElement(`#car--${id}`);
@@ -24,15 +17,11 @@ export async function handleStart(e: Event): Promise<void> {
   if (isCarDriving) return;
 
   car.classList.add(Selector.CarDriving.slice(1));
-  someCar.isMoving = true;
 
   startAnimation(id);
   toggleControls(e);
 }
 
-//
-// STOP
-//
 export async function stopCar(id: number): Promise<void> {
   const car = getElement(`#car--${id}`);
   car.style.transform = "translate(0px)";
@@ -41,13 +30,8 @@ export async function stopCar(id: number): Promise<void> {
   car.classList.remove(Selector.CarDriving.slice(1));
 }
 
-//
-// HANDLE STOP
-//
 export async function handleStop(e: Event): Promise<void> {
   const id = Number(getTargetID(e));
-
-  someCar.isMoving = false;
 
   cancelAnimationFrame(animation.id);
   await stopCar(id);
@@ -55,9 +39,6 @@ export async function handleStop(e: Event): Promise<void> {
   toggleControls(e);
 }
 
-//
-// HANDLE RESET
-//
 export async function handleReset(e: Event): Promise<void> {
   e.preventDefault();
 
@@ -70,13 +51,8 @@ export async function handleReset(e: Event): Promise<void> {
 
   const page = getCurrentPage();
   await updateGarage(page);
-
-  console.log("Reset");
 }
 
-//
-// RACE
-//
 export async function handleRace(e: Event): Promise<void> {
   e.preventDefault();
 
@@ -104,6 +80,4 @@ export async function handleRace(e: Event): Promise<void> {
   togglePageButtons();
 
   race.isRace = false;
-
-  console.log("Race", race.isRace);
 }

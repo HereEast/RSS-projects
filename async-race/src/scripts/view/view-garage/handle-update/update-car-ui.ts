@@ -1,6 +1,5 @@
 import { NewCar } from "../../../../types/types";
 
-// Update car UI
 export function updateCarUI(id: number, patch: NewCar): void {
   const track = document.getElementById(`track--${id}`);
   const car = track?.querySelector(`#car--${id} svg`);

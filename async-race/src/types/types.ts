@@ -1,10 +1,8 @@
-// View
 export const enum View {
   Garage = "garage",
   Winners = "winners",
 }
 
-// Selectors
 export const enum Selector {
   // Header
   Header = ".header",
@@ -62,7 +60,6 @@ export const enum Selector {
   TrackBody = ".track__body",
   CarName = ".car__name",
   Flag = ".flag",
-
   // Pagination
   PagesContainer = ".pagination",
   Page = ".page__container",
@@ -101,7 +98,6 @@ export const enum Selector {
   ButtonSortIds = ".button__sort--ids",
 }
 
-// Buttons
 export const enum Button {
   Garage = "garage",
   Winners = "winners",
@@ -123,12 +119,6 @@ export const enum Button {
   SortIds = "sort--ids",
 }
 
-// Button State
-export type ButtonState = "disable" | "enable";
-
-// API
-
-// Get
 export interface Car {
   name: string;
   color: string;
@@ -140,18 +130,15 @@ export interface CarsData {
   count: string;
 }
 
-// Create
 export interface NewCar {
   name: string;
   color: string;
 }
 
-// Start
 export interface Start {
   success: boolean;
 }
 
-// Drive
 export interface DriveResponse {
   success: boolean;
 }
@@ -170,8 +157,6 @@ export interface RaceData {
   winner: DriveResult;
   isRace: boolean;
 }
-
-// WINNERS
 
 export type SortOptions = "id" | "wins" | "time" | string;
 export type OrderOptions = "ASC" | "DESC" | string;
@@ -193,7 +178,6 @@ export interface WinnersData {
   count: string;
 }
 
-// Table
 export interface TableData {
   color: string;
   name: string;
@@ -202,8 +186,6 @@ export interface TableData {
   id: number;
 }
 
-//
-// SVG
 export interface SVGElement {
   divClass: string;
   ns: string;
@@ -212,17 +194,13 @@ export interface SVGElement {
   color?: string;
 }
 
-// Form inputs
 export interface FormInputs {
   inputText: HTMLInputElement;
   inputColor: HTMLInputElement;
 }
 
-// Types
-export type Callback = (this: HTMLElement, e: Event) => void;
 export type ClassNames = Selector[] | string[];
 
-// Makes and Models
 export interface MakeModel {
   make: string;
   models: string[];

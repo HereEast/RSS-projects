@@ -4,7 +4,6 @@ import { createElement, createInput, createButton } from "../../utils/create-ele
 const PLACEHOLDER = "Car name...";
 const COLOR = "#f6b73c";
 
-// Basic form
 export function createBasicForm(buttonName: Button): HTMLElement {
   const formContainer = createElement("div", [Selector.FormContainer]);
 

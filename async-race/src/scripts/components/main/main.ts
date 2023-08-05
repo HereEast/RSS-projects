@@ -3,7 +3,6 @@ import { Selector } from "../../../types/types";
 import { createViewHeader } from "./page-header/view-header";
 import { createPagination } from "./pagination/pagination";
 
-// Main
 export function createMain(): HTMLElement {
   const main = createElement("main", [Selector.Main]);
   const mainContainer = createElement("div", [Selector.MainContainer]);

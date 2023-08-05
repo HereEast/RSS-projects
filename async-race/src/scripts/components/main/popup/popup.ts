@@ -1,7 +1,6 @@
 import { createElement } from "../../../utils/create-element";
 import { Selector } from "../../../../types/types";
 
-// Popup
 export function createWinPopup(): HTMLElement {
   const popup = createElement("div", [Selector.Popup]);
   const popupContainer = createElement("div", [Selector.PopupContainer]);

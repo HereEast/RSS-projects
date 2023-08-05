@@ -1,7 +1,6 @@
 import { createButton, createElement } from "../../../utils/create-element";
 import { Button, Selector } from "../../../../types/types";
 
-// Pagination
 export function createPagination(): HTMLElement {
   const container = createElement("div", [Selector.PagesContainer]);
 

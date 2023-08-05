@@ -1,7 +1,6 @@
 import { getElement, getFormInputs, getTarget } from "../../../utils/get-element";
 import { Selector, Car } from "../../../../types/types";
 
-// SET INPUTS
 export function setUpdateInputs(car: Car): void {
   const { inputText, inputColor } = getFormInputs(Selector.FormUpdate);
 
@@ -9,7 +8,6 @@ export function setUpdateInputs(car: Car): void {
   inputColor.value = car.color;
 }
 
-// SHOW
 export function showUpdateForm(car: Car): void {
   setUpdateInputs(car);
 
@@ -21,7 +19,6 @@ export function showUpdateForm(car: Car): void {
   form.dataset.editId = String(car.id);
 }
 
-// HIDE
 export function hideUpdateForm(e: Event): void {
   const target = getTarget(e);
 

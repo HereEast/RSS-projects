@@ -1,6 +1,5 @@
 import { Car } from "../../../../types/types";
 
-// Get item from LS
 export function getSelectedCar(): Car {
   const savedItem = localStorage.getItem("editItem");
 

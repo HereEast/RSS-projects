@@ -9,7 +9,6 @@ import { handleStart, handleStop } from "../handle-race/handle-race";
 import { hideUpdateForm } from "../handle-update/handle-form";
 import { deleteWinnerAPI } from "../../../api/winners-api";
 
-// Delete
 export async function handleDelete(e: Event): Promise<void> {
   if (getCurrentPage() === 1 && isLastTrack()) return;
 
@@ -26,7 +25,6 @@ export async function handleDelete(e: Event): Promise<void> {
   console.log("Delete");
 }
 
-// Buttons
 export function createTrackButtons(): HTMLElement {
   const trackButtons = createElement("div", [Selector.TrackButtons]);
 

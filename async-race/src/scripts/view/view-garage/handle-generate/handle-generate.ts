@@ -1,6 +1,5 @@
 import { createCarAPI } from "../../../api/cars-api";
-import { getRandomColor } from "./random-color";
-import { getRandomMake } from "./random-make";
+import { getRandomColor, getRandomMake } from "./random-car";
 import { updateGarage } from "../render-garage";
 import { getCurrentPage, isEnoughSpace } from "../../../utils/pagination-helpers";
 import { setTotalPages, togglePageButtons } from "../../pagination/page-utils";
@@ -8,7 +7,6 @@ import { updateTotalCount } from "../../../utils/set-total";
 
 const MAX_ADD = 100;
 
-// Generate 100 cars
 export async function generateCars(n: number): Promise<void> {
   if (n > 0) {
     const name = getRandomMake();
@@ -19,7 +17,6 @@ export async function generateCars(n: number): Promise<void> {
   }
 }
 
-// Handle generate
 export async function handleGenerate(e: Event): Promise<void> {
   e.preventDefault();
 
@@ -33,6 +30,4 @@ export async function handleGenerate(e: Event): Promise<void> {
     setTotalPages();
     togglePageButtons();
   }
-
-  console.log("Generate:", localStorage);
 }

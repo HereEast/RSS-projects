@@ -2,7 +2,6 @@ import { getElement } from "../../utils/get-element";
 import { Selector, View } from "../../../types/types";
 import { toggleViewButton } from "./toggle-buttons";
 
-// Hide forms
 export function toggleFormsDisplay(view: View): void {
   const headerForms = getElement(Selector.FormsContainer);
 
@@ -13,7 +12,6 @@ export function toggleFormsDisplay(view: View): void {
   }
 }
 
-// Page Header
 export function togglePageTitle(view: View, count: number = 0): void {
   const title = getElement(Selector.Title);
   title.textContent = `${view[0].toUpperCase()}${view.slice(1)}`;
@@ -30,8 +28,7 @@ export function togglePageTitle(view: View, count: number = 0): void {
   }
 }
 
-// All elements
-export function toggleUIElements(view: View): void {
+export function toggleElements(view: View): void {
   toggleViewButton(view);
   toggleFormsDisplay(view);
   togglePageTitle(view);

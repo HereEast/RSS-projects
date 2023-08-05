@@ -5,7 +5,6 @@ import { createTrackButtons } from "../track-buttons/track-buttons";
 const NS = "http://www.w3.org/2000/svg";
 const CAR_SIZE = "40px";
 
-// Track header
 export function createTrackHeader(car: Car): HTMLElement {
   const trackHeader = createElement("div", [Selector.TrackHeader]);
   const buttons = createTrackButtons();
@@ -17,7 +16,6 @@ export function createTrackHeader(car: Car): HTMLElement {
   return trackHeader;
 }
 
-// Track body
 export function createTrackBody(car: Car): HTMLElement {
   const trackBody = createElement("div", [Selector.TrackBody]);
 
@@ -38,7 +36,6 @@ export function createTrackBody(car: Car): HTMLElement {
   return trackBody;
 }
 
-// Create track
 export function createTrack(car: Car): HTMLElement {
   const track = createElement("div", [Selector.Track]);
   track.id = `track--${car.id}`;

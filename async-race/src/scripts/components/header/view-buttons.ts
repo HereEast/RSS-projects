@@ -1,7 +1,6 @@
 import { Button, Selector } from "../../../types/types";
 import { createButton, createElement } from "../../utils/create-element";
 
-// Header buttons
 export function createHeaderButtons(): HTMLElement {
   const container = createElement("div", [Selector.HeaderButtons]);
   const bubbleElement = createElement("span", [Selector.Bubble]);

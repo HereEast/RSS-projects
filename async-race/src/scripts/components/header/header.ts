@@ -3,7 +3,6 @@ import { createElement } from "../../utils/create-element";
 import { createHeaderButtons } from "./view-buttons";
 import { createHeaderForms } from "./forms";
 
-// Header
 export function createHeader(): HTMLElement {
   const header = createElement("header", [Selector.Header]);
   const headerContainer = createElement("div", [Selector.HeaderContainer]);

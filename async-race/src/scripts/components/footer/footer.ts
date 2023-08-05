@@ -8,7 +8,6 @@ const SCHOOL_LINK_TEXT = "RS School (2023)";
 const GITHUB_LINK_TEXT = "Here East";
 const PROJECT_NAME = "Async Race,";
 
-// FOOTER
 export function createFooter(): HTMLElement {
   const footer = createElement("footer", [Selector.Footer]);
   const footerContainer = createElement("footer", [Selector.FooterContainer]);

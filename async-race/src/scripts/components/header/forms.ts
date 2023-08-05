@@ -5,7 +5,6 @@ import { createBasicForm } from "./form-basic";
 const BUTTON_GENERATE = "Generate Cars";
 const TITLE_TEXT = "Edit car ⚙️";
 
-// CREATE
 export function createCreateForm(): HTMLElement {
   const formCreate = createElement("form", [Selector.FormCreate]);
   const formElements = createBasicForm(Button.Create);
@@ -20,7 +19,6 @@ export function createCreateForm(): HTMLElement {
   return formCreate;
 }
 
-// UPDATE
 export function createUpdateForm(): HTMLElement {
   const formUpdate = createElement("form", [Selector.FormUpdate]);
   const formElements = createBasicForm(Button.Update);
@@ -33,7 +31,6 @@ export function createUpdateForm(): HTMLElement {
   return formUpdate;
 }
 
-// FORMS
 export function createHeaderForms(): HTMLElement {
   const container = createElement("div", [Selector.FormsContainer]);
 
