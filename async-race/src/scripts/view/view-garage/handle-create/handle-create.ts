@@ -1,6 +1,6 @@
 import { Selector } from "../../../../types/types";
 import { getFormInputs } from "../../../utils/get-element";
-import { createCarAPI } from "../../../api/create-car";
+import { createCarAPI } from "../../../api/cars-api";
 import { setTotalPages, togglePageButtons } from "../../pagination/page-utils";
 import { updateTotalCount } from "../../../utils/set-total";
 import { appendTrack } from "../tracks/append-tracks";

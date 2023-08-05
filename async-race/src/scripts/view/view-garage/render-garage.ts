@@ -1,5 +1,5 @@
 import { View } from "../../../types/types";
-import { getCarsAPI } from "../../api/get-cars";
+import { getCarsAPI } from "../../api/cars-api";
 import { toggleUIElements } from "../toggle/toggle-elements";
 import { getCurrentPage } from "../../utils/pagination-helpers";
 import { setPagination } from "../pagination/page-utils";

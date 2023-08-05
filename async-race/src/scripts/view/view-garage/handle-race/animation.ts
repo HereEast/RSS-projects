@@ -1,5 +1,5 @@
 import { RaceData } from "../../../../types/types";
-import { driveCarAPI } from "../../../api/drive-car";
+import { driveCarAPI } from "../../../api/drive-api";
 import { getDriveTime, getDistance } from "./helpers";
 import { getElement } from "../../../utils/get-element";
 import { handleWinner } from "../../view-winners/handle-win";

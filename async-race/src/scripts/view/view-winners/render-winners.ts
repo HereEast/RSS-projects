@@ -2,7 +2,7 @@ import { saveCurrentView, getCurrentView } from "../../utils/helpers";
 import { toggleUIElements } from "../toggle/toggle-elements";
 import { View, SortParams } from "../../../types/types";
 import { getCurrentPage } from "../../utils/pagination-helpers";
-import { getWinnersAPI } from "../../api/get-winners";
+import { getWinnersAPI } from "../../api/winners-api";
 import { renderWinnersTable } from "./table/render-table";
 import { setTotalCount } from "../../utils/set-total";
 import { getCurrentSort, getSortOrder } from "./sort/sort-params";

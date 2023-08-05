@@ -1,5 +1,5 @@
 import { getTargetID } from "../../../utils/helpers";
-import { getCarAPI } from "../../../api/get-cars";
+import { getCarAPI } from "../../../api/cars-api";
 import { showUpdateForm, hideUpdateForm } from "./handle-form";
 
 // Start update

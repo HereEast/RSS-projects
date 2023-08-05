@@ -1,7 +1,6 @@
 import { ENGINE_URL } from "./constants";
 import { StartData, DriveResponse } from "../../types/types";
 
-// Start car
 export async function startCarAPI(id: number): Promise<StartData> {
   const res = await fetch(`${ENGINE_URL}?id=${id}&status=started`, {
     method: "PATCH",
@@ -11,7 +10,6 @@ export async function startCarAPI(id: number): Promise<StartData> {
   return data;
 }
 
-// Stop car
 export async function stopCarAPI(id: number): Promise<StartData> {
   const res = await fetch(`${ENGINE_URL}?id=${id}&status=stopped`, {
     method: "PATCH",
@@ -21,7 +19,6 @@ export async function stopCarAPI(id: number): Promise<StartData> {
   return data;
 }
 
-// Drive car
 export async function driveCarAPI(id: number): Promise<DriveResponse> {
   const res = await fetch(`${ENGINE_URL}?id=${id}&status=drive`, {
     method: "PATCH",

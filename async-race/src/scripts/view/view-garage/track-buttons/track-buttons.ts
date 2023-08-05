@@ -1,13 +1,13 @@
 import { Button, Selector } from "../../../../types/types";
 import { createElement, createButton } from "../../../utils/create-element";
-import { deleteCarAPI } from "../../../api/create-car";
+import { deleteCarAPI } from "../../../api/cars-api";
 import { updateGarage } from "../render-garage";
 import { getTargetID } from "../../../utils/helpers";
 import { startUpdate } from "../handle-update/start-update";
 import { getCurrentPage, isLastTrack } from "../../../utils/pagination-helpers";
 import { handleStart, handleStop } from "../handle-race/handle-race";
 import { hideUpdateForm } from "../handle-update/handle-form";
-import { deleteWinnerAPI } from "../../../api/create-winners";
+import { deleteWinnerAPI } from "../../../api/winners-api";
 
 // Delete
 export async function handleDelete(e: Event): Promise<void> {

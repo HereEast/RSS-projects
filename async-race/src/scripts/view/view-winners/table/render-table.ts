@@ -1,5 +1,5 @@
 import { Selector, Winner } from "../../../../types/types";
-import { getCarAPI } from "../../../api/get-cars";
+import { getCarAPI } from "../../../api/cars-api";
 import { createElement } from "../../../utils/create-element";
 import { getElement } from "../../../utils/get-element";
 import { cleanContent } from "../../../utils/helpers";

@@ -1,5 +1,5 @@
 import { getTargetID } from "../../../utils/helpers";
-import { stopCarAPI } from "../../../api/drive-car";
+import { stopCarAPI } from "../../../api/drive-api";
 import { getElement } from "../../../utils/get-element";
 import { toggleControls, disableButtons, getCarsIds, moveToStart, cleanWinner } from "./helpers";
 import { startAnimation, animation, race } from "./animation";

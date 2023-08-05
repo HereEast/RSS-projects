@@ -1,7 +1,6 @@
 import { race } from "../view-garage/handle-race/animation";
 import { showPopup } from "../view-garage/popup/show-popup";
-import { saveWinnerAPI, updateWinnerAPI } from "../../api/create-winners";
-import { getWinnerAPI } from "../../api/get-winners";
+import { saveWinnerAPI, updateWinnerAPI, getWinnerAPI } from "../../api/winners-api";
 import { Winner } from "../../../types/types";
 
 // Handle winner

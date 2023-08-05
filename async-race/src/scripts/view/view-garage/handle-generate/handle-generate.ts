@@ -1,4 +1,4 @@
-import { createCarAPI } from "../../../api/create-car";
+import { createCarAPI } from "../../../api/cars-api";
 import { getRandomColor } from "./random-color";
 import { getRandomMake } from "./random-make";
 import { updateGarage } from "../render-garage";

@@ -1,4 +1,4 @@
-import { startCarAPI } from "../../../api/drive-car";
+import { startCarAPI } from "../../../api/drive-api";
 import { Selector, Button } from "../../../../types/types";
 import { getTarget, getElementsArray } from "../../../utils/get-element";
 import { toggleDisable } from "../../../utils/helpers";

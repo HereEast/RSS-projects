@@ -1,7 +1,6 @@
-import { Car, NewCar } from "../../types/types";
-import { GARAGE_URL } from "./constants";
+import { Car, NewCar, CarsData } from "../../types/types";
+import { GARAGE_URL, GARAGE_LIMIT } from "./constants";
 
-// Create
 export async function createCarAPI(body: NewCar): Promise<Car> {
   const res = await fetch(`${GARAGE_URL}`, {
     method: "POST",
@@ -16,7 +15,6 @@ export async function createCarAPI(body: NewCar): Promise<Car> {
   return car;
 }
 
-// Update
 export async function updateCarAPI(id: number | string, body: NewCar): Promise<Car> {
   const res = await fetch(`${GARAGE_URL}/${id}`, {
     method: "PUT",
@@ -31,7 +29,6 @@ export async function updateCarAPI(id: number | string, body: NewCar): Promise<C
   return car;
 }
 
-// Get cars
 export async function deleteCarAPI(id: string | number): Promise<void> {
   const res = await fetch(`${GARAGE_URL}/${id}`, {
     method: "DELETE",
@@ -39,4 +36,29 @@ export async function deleteCarAPI(id: string | number): Promise<void> {
 
   const data = res.json();
   return data;
+}
+
+export async function getCarsAPI(page: number | string = 1): Promise<CarsData> {
+  const res = await fetch(`${GARAGE_URL}?_page=${page}&_limit=${GARAGE_LIMIT}`);
+  const data: Car[] = await res.json();
+
+  const totalCount = res.headers.get("X-Total-Count");
+
+  if (!totalCount) {
+    throw Error("Couldn't get data from X-Total-Count header.");
+  }
+
+  const cars = {
+    items: data,
+    count: totalCount,
+  };
+
+  return cars;
+}
+
+export async function getCarAPI(id: string | number): Promise<Car> {
+  const res = await fetch(`${GARAGE_URL}/${id}`);
+  const car: Car = await res.json();
+
+  return car;
 }
