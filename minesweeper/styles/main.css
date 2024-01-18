@@ -1,0 +1,136 @@
+.main {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/**/
+
+.main__info {
+  max-width: var(--width);
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+
+  border: var(--border-light);
+  background-color: transparent;
+
+  transition: all 0.3s ease-in;
+}
+
+.main__info--highlighted {
+  background-color: var(--green);
+}
+
+.main__info--highlighted span {
+  color: var(--black);
+}
+
+.info__item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 20px;
+}
+
+.info__item:not(:first-child) {
+  border-left: var(--border-light);
+}
+
+.main span {
+  font-size: 14px;
+}
+
+.info__item .item__count {
+  text-align: right;
+}
+
+/**/
+
+.main__buttons {
+  max-width: var(--width);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+
+  border: var(--border-light);
+
+  padding: 20px;
+  margin-top: -1px;
+  margin-bottom: 30px;
+}
+
+/* BOARD */
+
+.board__container {
+  max-width: var(--width);
+  width: 100%;
+}
+
+.board {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(var(--size), 1fr);
+  grid-template-rows: repeat(var(--size), 1fr);
+  position: relative;
+
+  border-left: var(--border-tile);
+  border-top: var(--border-tile);
+}
+
+.button__tile {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  font-size: 14px;
+  font-weight: 700;
+  background-color: var(--tile-back);
+  outline: none;
+
+  border: var(--border-tile);
+  border-left: none;
+  border-top: none;
+}
+
+.button__tile[data-state="marked"] {
+  background-color: var(--yellow);
+}
+
+.button__tile[data-state="mine"] {
+  background-color: var(--red);
+}
+
+.button__tile[data-state="number"] {
+  background-color: var(--tile-back-opened);
+}
+
+.button__tile.color--blue {
+  color: var(--blue);
+}
+
+.button__tile.color--green {
+  color: var(--green);
+}
+
+.button__tile.color--yellow {
+  color: var(--yellow);
+}
+
+.button__tile.color--red {
+  color: var(--red);
+}
+
+/**/
+
+@media all and (max-width: 600px) {
+  .main .info__item {
+    padding: 8px 15px;
+  }
+
+  .main__buttons {
+    margin-bottom: 60px;
+  }
+}

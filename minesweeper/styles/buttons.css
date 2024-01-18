@@ -1,0 +1,120 @@
+.button {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+
+  color: var(--max-black);
+  border-radius: 3px;
+  border: 1px solid var(--max-black);
+
+  transition: all 0.2s ease-in;
+  cursor: pointer;
+}
+
+.button--light {
+  background-color: var(--back-light);
+}
+
+.button--light:hover {
+  background-color: var(--button-light-hover);
+}
+
+.button--light:disabled {
+  background-color: var(--back-light);
+  cursor: default;
+}
+
+.button--dark {
+  background-color: var(--tile-back);
+}
+
+.button--dark:hover {
+  background-color: var(--button-hover);
+}
+
+.button--dark:disabled {
+  background-color: var(--button-hover);
+  cursor: default;
+}
+
+/* Size */
+
+.button__size:first-child {
+  border-radius: 3px 0 0 3px;
+  border-right: none;
+}
+
+.button__size:nth-child(2) {
+  border-radius: 0;
+}
+
+.button__size:last-child {
+  border-radius: 0 3px 3px 0;
+  border-left: none;
+}
+
+.button__size--selected,
+.button__size--selected:hover {
+  background-color: var(--white);
+}
+
+.button__size--selected:disabled {
+  background-color: var(--white);
+  cursor: default;
+}
+
+/* Input */
+
+.input,
+.input:disabled {
+  display: block;
+  width: 48px;
+  height: 24px;
+  font-size: 14px;
+
+  color: var(--black);
+  background-color: var(--white);
+  border: 1px solid var(--max-black);
+  border-radius: 3px 0 0 3px;
+  border-right: none;
+  outline: none;
+
+  padding: 0 8px;
+}
+
+.button__ok {
+  width: 90px;
+  border-radius: 0 3px 3px 0;
+}
+
+/* Menu */
+.button__toggle-mode {
+  font-size: 20px;
+  line-height: 1;
+  padding-top: 1px;
+}
+
+.button__toggle-sound {
+  font-size: 21px;
+  line-height: 1;
+  padding-bottom: 3px;
+}
+
+/* Main */
+
+.main__button {
+  width: auto;
+  padding: 0 10px 1px;
+}
+
+.button--green {
+  background-color: var(--green);
+}
+
+.button--green:hover {
+  background-color: var(--green-hover);
+}
+

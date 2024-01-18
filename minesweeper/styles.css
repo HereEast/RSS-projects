@@ -1,0 +1,8 @@
+@import "./styles/basic.css";
+
+@import "./styles/theme.css";
+@import "./styles/buttons.css";
+
+@import "./styles/header.css";
+@import "./styles/main.css";
+@import "./styles/popup.css";

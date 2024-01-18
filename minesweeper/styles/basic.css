@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --back-dark: #313131;
+  --back-light: #d0d0d0;
+  --tile-back: rgb(112, 112, 112);
+  --tile-back-opened: #454545;
+  --black: #313131;
+  --max-black: #1a1a1a;
+  --white: #ffffff;
+  --green: #74c374;
+  --green-hover: #82d282;
+  --blue: #69AEEE;
+  --yellow: #ffc831;
+  --red: #ed2626;
+  --purple: #b794ff;
+
+  --button-hover: #868686;
+  --button-light-hover: #e4e4e4;;
+
+  --size: 10;
+  --tile-width: 40px;
+  --width: 560px;
+
+  --border-light: 1px solid var(--tile-back);
+  --border-tile: 1px solid var(--max-black);
+
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+
+  font-family: "JetBrains Mono", monospace;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  background-color: var(--back-dark);
+  overflow-x: hidden;
+}
+
+.page {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  padding: 20px;
+}
+
+span {
+  display: block;
+  font-size: 14px;
+  color: var(--white);
+}
+
+.hint {
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 10px;
+
+  background-color: var(--purple);
+  border-radius: 3px;
+  border: 1px solid var(--max-black);
+
+  position: fixed;
+  right: 20px;
+  bottom: 40px;
+
+  transform: translateX(150%);
+  transition: all 0.5s ease-in;
+}
+
+.hint--show {
+  transform: translateX(0);
+}
+
+.hint__message {
+  color: var(--max-black);
+  margin-bottom: 2px;
+}
